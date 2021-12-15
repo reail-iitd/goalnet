@@ -21,8 +21,6 @@ instance_table = {"ramen_all": ['ramen_1', 'instantramen_1'],
                   "stovefireall": ['stovefire1', 'stovefire2', 'stovefire3', 'stovefire4', 'stovefire'],
                   "table_all": ['coffeetable_1', 'snacktable_1', 'studytable_1'],
                   "stovefire_all": ['stovefire_1', 'stovefire_2', 'stovefire_3', 'stovefire_4'],
-                #   "loveseat_all": ['loveseat_1', 'loveseat_2', 'armchair_1', 'armchair_2', 'armchair_3', 'armchair_4'],
-                #   "armchair_all": ['loveseat_1', 'loveseat_2', 'armchair_1', 'armchair_2', 'armchair_3', 'armchair_4'],
                   "couch_all": ['loveseat_1', 'loveseat_2', 'armchair_1', 'armchair_2', 'armchair_3', 'armchair_4'],
                   "cup_all": ['mug_1', 'longcup_1', 'longcup_2', 'glass_1'],
                   "syrup_all": ['syrup_1', 'syrup_2'],
@@ -236,10 +234,6 @@ def get_steps(data):
     return constr
 
 def calculate_jac_index(filename, pred_state, true_state):
-#    print(filename)
-#    if filename in ["137_pred.pddl", "53_true.pddl", "143_true.pddl"]:
-#        print("Pred: ", pred_state)
-#        print("True: ", true_state)
    #calculate jac index for this instance
    union = len(pred_state)+len(true_state)
    inter = 0
@@ -257,179 +251,173 @@ def calculate_jac_index(filename, pred_state, true_state):
    return jac
    #add to Score value
 
-str1 = "shre"
-str2 = "hre"
-n = len(str1)
-m = len(str2)
-dp = [[-1 for i in range(m + 1)] for j in range(n + 1)]
-print(minDis(str1, str2, n, m, dp))
-# print("Hey this is Python Script Running\n")
-# print("Enter input model folder")
-# print("Enter pddl path")
-# print("Enter out result path")
-# file_input = sys.argv[1]  #exp folder
-# outfile_input = sys.argv[2] #pddl files folder
-# res_output = sys.argv[3] #output of this script file name
-# no_planner = sys.argv[4]
-# folder_name = "/home/cse/dual/cs5170493/scratch/Model/" + file_input
+print("Hey this is Python Script Running\n")
+print("Enter input model folder")
+print("Enter pddl path")
+print("Enter out result path")
+file_input = sys.argv[1]  #exp folder
+outfile_input = sys.argv[2] #pddl files folder
+res_output = sys.argv[3] #output of this script file name
+no_planner = sys.argv[4]
+folder_name = "/home/cse/dual/cs5170493/scratch/Model/" + file_input
 
-# # raw_data = list(os.walk(raw_folder))
-# file_out = open(folder_name + "/" + res_output, "w")
-# files = os.listdir(folder_name + "/" + outfile_input)
-# total = int(len(files)/2)
-# acc = 0
-# count = 0
+# raw_data = list(os.walk(raw_folder))
+file_out = open(folder_name + "/" + res_output, "w")
+files = os.listdir(folder_name + "/" + outfile_input)
+total = int(len(files)/2)
+acc = 0
+count = 0
 
-# file_inconsistence = open(folder_name + "/" + "inconsistent.txt", "w")
+file_inconsistence = open(folder_name + "/" + "inconsistent.txt", "w")
 
-# print("Num files = ", len(files))
-# # for path, dirs, files in tqdm(files):
-# for i in range(int(len(files)/2)):
-#     # f = files[i]
-#     if i>174: break
-#     file_path = folder_name + "/" + outfile_input + "/" + str(i) + "_true.pddl"
-#     # ground truth pddl contains - sent, delta_g, action_seq
-#     true_pddl = open(file_path, 'r')
-#     Lines_true = true_pddl.readlines()
-#     dp_file = Lines_true[5].split(":")[1].strip()
-#     # print("DP file name = ", dp_file)
-#     # file_out.write("\nInstr: " + Lines_true[0])
-#     # file_out.write("True goal: " + Lines_true[1])
-#     # file_out.write("true action: " + Lines_true[2])
-#     # print("Line = ",Lines_true[2])
+print("Num files = ", len(files))
+# for path, dirs, files in tqdm(files):
+for i in range(int(len(files)/2)):
+    # f = files[i]
+    if i>174: break
+    file_path = folder_name + "/" + outfile_input + "/" + str(i) + "_true.pddl"
+    # ground truth pddl contains - sent, delta_g, action_seq
+    true_pddl = open(file_path, 'r')
+    Lines_true = true_pddl.readlines()
+    dp_file = Lines_true[5].split(":")[1].strip()
+    # print("DP file name = ", dp_file)
+    # file_out.write("\nInstr: " + Lines_true[0])
+    # file_out.write("True goal: " + Lines_true[1])
+    # file_out.write("true action: " + Lines_true[2])
+    # print("Line = ",Lines_true[2])
 
-#     print("raw str1 = ", Lines_true[2].strip())
-#     # Act_list: moveto(book_1), keep(book_1 on coffeetable_1)
-#     str1 = generalise3(Lines_true[2].split(":")[-1].strip().split(", "))
-#     # str1 = generalise3(preprocess1(Lines_true[2].rstrip().replace("'", "").split(":")[1].split("),")))
-#     if len(str1) > 0: count += 1
+    print("raw str1 = ", Lines_true[2].strip())
+    # Act_list: moveto(book_1), keep(book_1 on coffeetable_1)
+    str1 = generalise3(Lines_true[2].split(":")[-1].strip().split(", "))
+    # str1 = generalise3(preprocess1(Lines_true[2].rstrip().replace("'", "").split(":")[1].split("),")))
+    if len(str1) > 0: count += 1
     
-#     delta_g_gen = generalise2(preprocess3(Lines_true[3].rstrip().replace("'", "").split(":")[1].split("),")))
-#     try:
-#       delta_g_inv_gen = generalise2(preprocess3(Lines_true[4].rstrip().replace("'", "").split(":")[1].split("),")))
-#     except:
-#       delta_g_inv_gen = []
-#     # #####################################################################3
+    delta_g_gen = generalise2(preprocess3(Lines_true[3].rstrip().replace("'", "").split(":")[1].split("),")))
+    try:
+      delta_g_inv_gen = generalise2(preprocess3(Lines_true[4].rstrip().replace("'", "").split(":")[1].split("),")))
+    except:
+      delta_g_inv_gen = []
+    # #####################################################################3
 
-#     file_path = folder_name + "/" + outfile_input + "/" + str(i) + "_pred.pddl"
+    file_path = folder_name + "/" + outfile_input + "/" + str(i) + "_pred.pddl"
 
-#     out = subprocess.Popen(['./run_final_state.sh', file_path], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-#     stdout2, stderr2 = out.communicate()
-#     pred_pddl = open(file_path, 'r')
-#     Lines_pred = pred_pddl.readlines()
+    out = subprocess.Popen(['./run_final_state.sh', file_path], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    stdout2, stderr2 = out.communicate()
+    pred_pddl = open(file_path, 'r')
+    Lines_pred = pred_pddl.readlines()
     
-#     # file_out.write("Pred goal: " + Lines_pred[-2])
-#     # file_out.write("pred action: ")
-#     # print(no_planner)
-#     if int(no_planner)==1:
-#         pred_changed_states = Lines_pred[-2][1:-1].split("(")[2][:-5].strip()
-#         print("PRED: ", pred_changed_states)
-#         pred_changed_states = generalise2([pred_changed_states])
+    # file_out.write("Pred goal: " + Lines_pred[-2])
+    # file_out.write("pred action: ")
+    # print(no_planner)
+    if int(no_planner)==1:
+        pred_changed_states = Lines_pred[-2][1:-1].split("(")[2][:-5].strip()
+        print("PRED: ", pred_changed_states)
+        pred_changed_states = generalise2([pred_changed_states])
 
-#     else:
-#         pred_changed_states = get_changed_state(str(stdout2))
-#         pred_changed_states = [state.replace("("," ").replace(","," ") for state in pred_changed_states]
-#         pred_changed_states = generalise2(pred_changed_states)
-#     # print("Instr: ", Lines[0][:-1])
-#     # print("True changed states: ", delta_g_gen+delta_g_inv_gen)
-#     # print("pred_changed_states: ", pred_changed_states)
-#     jac = calculate_jac_index(dp_file.split("_")[0], pred_changed_states,delta_g_gen+delta_g_inv_gen)
-#     # print("jac = ", jac)
-#     jac_list.append(jac)
-# # (:goal (AND (
-#     # dg_0 = Lines_pred[-2][:-1][12:-4].split()
-#     # dg_0 = dg_0[0]+"("+dg_0[1]+","+dg_0[2]+")"
-#     # jac = calculate_jac_index(f, dg_0, delta_g_gen+delta_g_inv_gen)
-#     print("raw str2 = ", get_steps(str(stdout2)))
-#     str2 = generalise(preprocess2(get_steps(str(stdout2))))
-#     # print("file - ", i)
-#     # if len(str1)==0:
-#     print("str1: ", str1)
-#     print("str2: ", str2)
-#     # if stderr2 is None:
-#     #     # for st in str2:
-#     #     #     file_out.write(str(st) + " ")
-#     # else:
-#     #     print("stderr pred: ", stderr2)
+    else:
+        pred_changed_states = get_changed_state(str(stdout2))
+        pred_changed_states = [state.replace("("," ").replace(","," ") for state in pred_changed_states]
+        pred_changed_states = generalise2(pred_changed_states)
+    # print("Instr: ", Lines[0][:-1])
+    # print("True changed states: ", delta_g_gen+delta_g_inv_gen)
+    # print("pred_changed_states: ", pred_changed_states)
+    jac = calculate_jac_index(dp_file.split("_")[0], pred_changed_states,delta_g_gen+delta_g_inv_gen)
+    # print("jac = ", jac)
+    jac_list.append(jac)
+# (:goal (AND (
+    # dg_0 = Lines_pred[-2][:-1][12:-4].split()
+    # dg_0 = dg_0[0]+"("+dg_0[1]+","+dg_0[2]+")"
+    # jac = calculate_jac_index(f, dg_0, delta_g_gen+delta_g_inv_gen)
+    print("raw str2 = ", get_steps(str(stdout2)))
+    str2 = generalise(preprocess2(get_steps(str(stdout2))))
+    # print("file - ", i)
+    # if len(str1)==0:
+    print("str1: ", str1)
+    print("str2: ", str2)
+    # if stderr2 is None:
+    #     # for st in str2:
+    #     #     file_out.write(str(st) + " ")
+    # else:
+    #     print("stderr pred: ", stderr2)
 
-#     n = len(str1)
-#     m = len(str2)
-#     dp = [[-1 for i in range(m + 1)] for j in range(n + 1)]
+    n = len(str1)
+    m = len(str2)
+    dp = [[-1 for i in range(m + 1)] for j in range(n + 1)]
 
-#     # print("n = ", n, " m = ", m)
-#     if n > 0 and m > 0:
-#         distance = minDis(str1, str2, n, m, dp)
-#         tmp = (1 - (distance / max(n, m)))
-#         #distance_new = min(n, m) - (max(n, m) - distance)
-#         #tmp = (1 - (distance_new / min(n, m)))
-#         acc += tmp    
-#     else:
-#         distance = max(n, m)
-#         tmp = 0
-#     # print(tmp)
-#     clause_file = dp_file.split("_")[0]
-#     print("IED = ", tmp)
-#     ied_list.append(tmp)
-#     if clause_file in Score.keys():
-#         Score[clause_file].append(tmp)
-#     else:
-#         Score[clause_file] = [tmp]
+    # print("n = ", n, " m = ", m)
+    if n > 0 and m > 0:
+        distance = minDis(str1, str2, n, m, dp)
+        tmp = (1 - (distance / max(n, m)))
+        #distance_new = min(n, m) - (max(n, m) - distance)
+        #tmp = (1 - (distance_new / min(n, m)))
+        acc += tmp    
+    else:
+        distance = max(n, m)
+        tmp = 0
+    # print(tmp)
+    clause_file = dp_file.split("_")[0]
+    print("IED = ", tmp)
+    ied_list.append(tmp)
+    if clause_file in Score.keys():
+        Score[clause_file].append(tmp)
+    else:
+        Score[clause_file] = [tmp]
 
         
-#     # file_out.write("SJI = " + str(jac) + "\n")
-#     # file_out.write("IED = " + str(tmp) + "\n")
-#     # inconsistent sji and ied
-#     # if tmp>0.4 and jac<0.4:
-#     dg_str, action_pred , dg_pred, dg_true= "", "", "", ""
-#     for dg in delta_g_gen+delta_g_inv_gen:
-#         dg_str += dg+" "
-#     if stderr2 is None:
-#         for st in str2:
-#             action_pred += st+" "
-#     for d in pred_changed_states:
-#         dg_pred += d+" "
-#     file_out.write(dp_file)
-#     file_out.write("\nInstr: " + Lines_true[0])
-#     file_out.write("True dg: " + dg_str)
-#     file_out.write("\nPred dg[0]: " + Lines_pred[-2][:-1])
-#     file_out.write("\nPred dg: " + dg_pred)
-#     file_out.write("sji = "+str(jac)+"\n")
-#     file_out.write("True action: " + Lines_true[2])
-#     file_out.write("Pred action: " + action_pred)
-#     file_out.write("\nied = "+str(tmp)+"\n")
+    # file_out.write("SJI = " + str(jac) + "\n")
+    # file_out.write("IED = " + str(tmp) + "\n")
+    # inconsistent sji and ied
+    # if tmp>0.4 and jac<0.4:
+    dg_str, action_pred , dg_pred, dg_true= "", "", "", ""
+    for dg in delta_g_gen+delta_g_inv_gen:
+        dg_str += dg+" "
+    if stderr2 is None:
+        for st in str2:
+            action_pred += st+" "
+    for d in pred_changed_states:
+        dg_pred += d+" "
+    file_out.write(dp_file)
+    file_out.write("\nInstr: " + Lines_true[0])
+    file_out.write("True dg: " + dg_str)
+    file_out.write("\nPred dg[0]: " + Lines_pred[-2][:-1])
+    file_out.write("\nPred dg: " + dg_pred)
+    file_out.write("sji = "+str(jac)+"\n")
+    file_out.write("True action: " + Lines_true[2])
+    file_out.write("Pred action: " + action_pred)
+    file_out.write("\nied = "+str(tmp)+"\n")
 
-#     # print("Edit dist = ", distance)
-#     # print("SJI = ", jac)
-#     # file_out.write("\nEdit distance = " + str(distance))
-#     # print("Edit distance = ", distance)
-#     # print("\n \n")
+    # print("Edit dist = ", distance)
+    # print("SJI = ", jac)
+    # file_out.write("\nEdit distance = " + str(distance))
+    # print("Edit distance = ", distance)
+    # print("\n \n")
 
 
-# # print("Accuracy: ", acc)
-# # print("Avg Score: ", acc / count)
-# acc_total = 0
-# count_inst = 0
-# for k in Score.keys():
-#     print(k, " = ", Score[k])
-#     acc_total += np.mean(Score[k])
-#     count_inst += len(Score[k])
-# acc_total /= len(Score.keys())
-# # acc_total /= count_inst
-# print("Avg IED Total old = ", acc_total)
-# print("Avg IED Total new = ", np.mean(ied_list))
-# # file_out.write("\n\nAccuracy: " + str(acc))
-# file_out.write("Avg IED Score: " + str(acc_total))
+# print("Accuracy: ", acc)
+# print("Avg Score: ", acc / count)
+acc_total = 0
+count_inst = 0
+for k in Score.keys():
+    print(k, " = ", Score[k])
+    acc_total += np.mean(Score[k])
+    count_inst += len(Score[k])
+acc_total /= len(Score.keys())
+# acc_total /= count_inst
+print("Avg IED Total old = ", acc_total)
+print("Avg IED Total new = ", np.mean(ied_list))
+# file_out.write("\n\nAccuracy: " + str(acc))
+file_out.write("Avg IED Score: " + str(acc_total))
 
-# acc_total, count_inst = 0, 0
-# for k in Score_jac.keys():
-#     print(k, " = ",Score_jac[k])
-#     acc_total += np.mean(Score_jac[k])
-#     count_inst += len(Score[k])
-# # acc_total /= count_inst
-# acc_total /= len(Score_jac.keys())
-# print("Avg SJI Total old = ", acc_total)
-# print("Avg SJI Total new = ", np.mean(jac_list))
-# # file_out.write("\n\nAccuracy: " + str(acc))
-# file_out.write("Avg SJI Score: " + str(acc_total))
-# file_out.close()
-# file_inconsistence.close()
+acc_total, count_inst = 0, 0
+for k in Score_jac.keys():
+    print(k, " = ",Score_jac[k])
+    acc_total += np.mean(Score_jac[k])
+    count_inst += len(Score[k])
+# acc_total /= count_inst
+acc_total /= len(Score_jac.keys())
+print("Avg SJI Total old = ", acc_total)
+print("Avg SJI Total new = ", np.mean(jac_list))
+# file_out.write("\n\nAccuracy: " + str(acc))
+file_out.write("Avg SJI Score: " + str(acc_total))
+file_out.close()
+file_inconsistence.close()

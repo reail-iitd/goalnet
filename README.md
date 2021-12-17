@@ -11,3 +11,4 @@ Code structure:
 1. Dataset, conceptnet embeddings, vocab etc to be human readable
 2. Hard coded elements to be encoded in jsons.
 3. Folder structure
+4. Ensure same states for same objects with different instance

@@ -267,11 +267,21 @@ def accuracy_lenient(y_pred, y_true):
 
 
 # pred1_obj, pred2_obj, pred2_state,
-def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, l):
+def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, l, epoch):
     l_sum = l(action.cpu().squeeze(), y_true[: N_relations])
     l_sum += l(pred1_obj.cpu().squeeze(), y_true[N_relations: N_relations + N_objects])
-    l_sum += l(pred2_obj.cpu().squeeze(), y_true[N_relations + N_objects: N_relations + N_objects + N_objects + 1])
-    l_sum += l(pred2_state.cpu().squeeze(), y_true[N_relations + N_objects + N_objects + 1:])
+    l3 = l(pred2_obj.cpu().squeeze(), y_true[N_relations + N_objects: N_relations + N_objects + N_objects + 1])
+    l4 = l(pred2_state.cpu().squeeze(), y_true[N_relations + N_objects + N_objects + 1:])
+    if random.random() < (50 / (epoch + 5)): # teacher forcing
+        if y_true[0] == 1: #state
+            l_sum += l4
+        else:
+            l_sum += l3
+    else:
+        if action.cpu().squeeze()[0] == 1: #state
+            l_sum += l4
+        else:
+            l_sum += l3
     return l_sum
 
 def loss_function_CE(action, pred1_obj, pred2_obj, pred2_state, y_true, l):

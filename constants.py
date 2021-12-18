@@ -15,7 +15,9 @@ all_fluents = ['IsOpen', 'Channel2', 'IceCream', 'Egg', 'MicrowaveIsOn', 'Ramen'
 all_non_fluents = ['IsTurnable', 'IsPlaceableIn', 'IsPlaceableOn', 'Pressable', 'IsSqueezeable', 'Turnable', 'IsPlacable', 'IsAddable', 'IsPourable', 'IsScoopable', 'IsGraspable', 'Openable']
 all_states = ['IsPlacable', 'IsOpen', 'Channel2', 'IsPlaceableIn', 'IsAddable', 'IsSqueezeable', 'IceCream', 'Egg', 'IsGraspable', 'MicrowaveIsOn', 'Ramen', 'LeftDoorIsOpen', 'StoveFire3', 'Pressable', 'IsOn', 'Coffee', 'ScoopsLeft', 'CD', 'Water', 'Channel3', 'Openable', 'TapIsOn', 'IsPourable', 'HasChips', 'RightDoorIsOpen', 'IsTurnable', 'StoveFire2', 'Vanilla', 'Channel4', 'Volume', 'IsPlaceableOn', 'Turnable', 'StoveFire1', 'IsScoopable', 'DoorIsOpen', 'StoveFire4', 'WaterDispenserIsOpen', 'Chocolate', 'Channel1']
 all_relations = ['state', 'Near', 'On', 'In', 'Grasping'] #, 'notstate', 'notnear', 'noton', 'notin']
-all_object_states = {"Syrup_2"  :  {'Chocolate'},"LongCup_1"  :  {'Water', 'Coffee'},"Mug_1"  :  {'Water', 'Chocolate', 'Coffee', 'IceCream'},"Syrup_1"  :  {'Vanilla'},"IceCream_1"  :  {'ScoopsLeft'},"Kettle"  :  {'Water', 'Ramen'},"SinkKnob"  :  {'TapIsOn'},"Stove"  :  {'StoveFire2', 'StoveFire4', 'StoveFire1', 'StoveFire3'},"InstantRamen_1"  :  {'Water', 'Coffee'},"Microwave"  :  {'MicrowaveIsOn', 'DoorIsOpen'},"Tv_1"  :  {'Channel1', 'IsOn', 'Volume', 'Channel2', 'Channel3', 'Channel4'},"BagOfChips_1"  :  {'IsOpen', 'HasChips'},"Cd_1"  :  {'CD'},"Bowl_1"  :  {'HasChips'},"Cd_2"  :  {'CD'},"Fridge"  :  {'RightDoorIsOpen', 'WaterDispenserIsOpen', 'LeftDoorIsOpen'},"Plate_1" :  {'Chocolate', 'IceCream', 'Ramen', 'Egg'},"Spoon_1"  :  {'ScoopsLeft'},"Xbox_1"  :  {'CD'},"Glass_1"  :  {'Chocolate', 'Water', 'Coffee'},"LongCup_2"  :  {'Water', 'Chocolate', 'Coffee', 'IceCream'},"Plate_2"  :  {'Chocolate', 'IceCream', 'Ramen', 'Egg'}}
+# all_object_states = {"Syrup_2"  :  {'Chocolate'},"LongCup_1"  :  {'Water', 'Coffee'},"Mug_1"  :  {'Water', 'Chocolate', 'Coffee', 'IceCream'},"Syrup_1"  :  {'Vanilla'},"IceCream_1"  :  {'ScoopsLeft'},"Kettle"  :  {'Water', 'Ramen'},"SinkKnob"  :  {'TapIsOn'},"Stove"  :  {'StoveFire2', 'StoveFire4', 'StoveFire1', 'StoveFire3'},"InstantRamen_1"  :  {'Water', 'Coffee'},"Microwave"  :  {'MicrowaveIsOn', 'DoorIsOpen'},"Tv_1"  :  {'Channel1', 'IsOn', 'Volume', 'Channel2', 'Channel3', 'Channel4'},"BagOfChips_1"  :  {'IsOpen', 'HasChips'},"Cd_1"  :  {'CD'},"Bowl_1"  :  {'HasChips'},"Cd_2"  :  {'CD'},"Fridge"  :  {'RightDoorIsOpen', 'WaterDispenserIsOpen', 'LeftDoorIsOpen'},"Plate_1" :  {'Chocolate', 'IceCream', 'Ramen', 'Egg'},"Spoon_1"  :  {'ScoopsLeft'},"Xbox_1"  :  {'CD'},"Glass_1"  :  {'Chocolate', 'Water', 'Coffee'},"LongCup_2"  :  {'Water', 'Chocolate', 'Coffee', 'IceCream'},"Plate_2"  :  {'Chocolate', 'IceCream', 'Ramen', 'Egg'}}
+all_object_states = {'IceCream_1': ['ScoopsLeft'], 'Microwave': ['MicrowaveIsOn', 'DoorIsOpen'], 'Xbox_1': ['CD'], 'Cd_2': ['CD'], 'InstantRamen_1': ['Coffee', 'Water'], 'Glass_1': ['Chocolate', 'Coffee', 'Water'], 'Kettle': ['Ramen', 'Water'], 'LongCup_1': ['Coffee', 'Water'], 'Plate_1': ['Egg', 'IceCream', 'Ramen', 'Chocolate'], 'Tv_1Remote_1': ['Channel4', 'Channel2', 'Channel3', 'Volume', 'IsOn', 'Channel1'], 'Plate_2': ['Egg', 'IceCream', 'Ramen', 'Chocolate'], 'Tv_1': ['Channel4', 'Channel2', 'Channel3', 'Volume', 'IsOn', 'Channel1'], 'Cd_1': ['CD'], 'Bowl_1': ['HasChips'], 'Fridge': ['WaterDispenserIsOpen', 'RightDoorIsOpen', 'LeftDoorIsOpen'], 'Spoon_1': ['ScoopsLeft'], 'Syrup_1': ['Chocolate'], 'Mug_1': ['Water', 'IceCream', 'Coffee', 'Chocolate'], 'SinkKnob': ['TapIsOn'], 'BagOfChips_1': ['IsOpen', 'HasChips'], 'Syrup_2': ['Chocolate'], 'Stove': ['StoveFire2', 'StoveFire3', 'StoveFire1', 'StoveFire4'], 'LongCup_2': ['Coffee', 'Water']}
+MAX_REL = max([len(all_object_states[obj]) for obj in all_object_states.keys()])
 N_STATES = len(all_states)
 N_objects = len(all_objects)
 N_relations = len(all_relations)
@@ -180,3 +182,23 @@ total_valid_constr0 = len(ON_obj1[0])*len(ON_obj2[0]) + len(IN_obj1[0])*len(IN_o
 total_valid_constr1 =  len(ON_obj1[1])*len(ON_obj2[1]) + len(IN_obj1[1])*len(IN_obj2[1]) + len(Grasp_obj2[1]) + N_objects + 7 # object fluents
 total_valid_constr = [total_valid_constr0, total_valid_constr1]
 # print(total_valid_constr[0] + total_valid_constr[1])
+
+# max_len = 0
+# dict_state = {}
+# all_object_states_copy = {}
+# for obj in all_object_states.keys():
+#         obj1 = obj.split("_")[0]
+#         if obj1 not in dict_state.keys():
+#                 dict_state[obj1] = all_object_states[obj]
+#         else:
+#                 dict_state[obj1].union(all_object_states[obj])
+
+# for obj in all_objects:
+#         obj1 = obj.split("_")[0]
+#         if obj1 in dict_state.keys():
+#                 all_object_states_copy[obj] = dict_state[obj1]
+
+# for obj in all_object_states_copy.keys():
+#         print(obj, ": ", all_object_states_copy[obj])
+
+# print(max_rel)

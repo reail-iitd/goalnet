@@ -245,14 +245,14 @@ def convertToDGLGraph(graph_data):
         ('object', 'On', 'object'): on,
         # ('object', 'state', 'object'): state,
         ('object', 'Grasping', 'object'): grasp,
-        ('object', 'Agent', 'object'): [(n_nodes - 1, n_nodes - 1)],
+        # ('object', 'Agent', 'object'): [(n_nodes - 1, n_nodes - 1)],
     }
 
     g = dgl.heterograph(edgeDict)
     # Add node features
-    # node_states = torch.zeros([n_nodes, len(all_fluents)], dtype=torch.float) # State vector
-    node_states = torch.zeros([n_nodes, word_embed_size], dtype=torch.float)
-    node_prop = torch.zeros([n_nodes, len(all_non_fluents)], dtype=torch.float)  # State vector
+    # node_states = torch.zeros([n_nodes, word_embed_size], dtype=torch.float)
+    node_prop = torch.zeros([n_nodes, len(all_non_fluents)], dtype=torch.float)  # Non-fluent vector
+    node_fluents = torch.zeros([n_nodes, MAX_REL], dtype=torch.float) # fluent states
     node_vectors = torch.zeros([n_nodes, word_embed_size], dtype=torch.float)  # Conceptnet embedding
     for i, node in enumerate(graph_data["nodes"]):
         states = node["state_var"]
@@ -260,22 +260,22 @@ def convertToDGLGraph(graph_data):
         node_id = node["id"]
         count = 0
         for state in states:
-            # idx = all_fluents.index(state)
-            # node_states[node_id, idx] = 1   # node_states is a 2D matrix of objects * states
+            idx = all_object_states[node["name"]].index(state)
+            node_fluents[node_id][idx] = 1   # node_states is a 2D matrix of objects * states
             # print(state, ": \n", dense_vector(VOCAB_VECT, state), "\n")
-            node_states[node_id] += torch.tensor((dense_vector(VOCAB_VECT, state).tolist()))
-            count += 1
-        node_states[node_id] = node_states[node_id] / max(count, 1)
+            # node_states[node_id] += torch.tensor((dense_vector(VOCAB_VECT, state).tolist()))
+            # count += 1
+        # node_states[node_id] = node_states[node_id] / max(count, 1)
         for state in prop:
             if len(state) > 0:
                 idx = all_non_fluents.index(state)
             else:
                 continue
-            node_prop[node_id, idx] = 1  # node_states is a 2D matrix of objects * states
+            node_prop[node_id][idx] = 1  # node_states is a 2D matrix of objects * states
 
         node_vectors[node_id] = torch.FloatTensor(node["vector"])
-
-    g.ndata['feat'] = torch.cat((node_vectors, node_states, node_prop), 1)
+    
+    g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)
     return g
 
 # gives a set of dgl graphs for a single datapoint - initial_env, delta_g, delta_g_inv

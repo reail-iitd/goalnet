@@ -4,16 +4,12 @@ import numpy as np
 import os
 from os import path
 import torch
-# import random
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 from .constants import *
 from .model import *
 from .datapoint import *
-# from loss_planner import *
 from numpy import unravel_index
-
-priority_folder = "priority_buffer/train/"
 
 instance_table = {"Ramen_All": ['Ramen_1', 'InstantRamen_1'],
                   "StoveFireAll": ['StoveFire1', 'StoveFire2', 'StoveFire3', 'StoveFire4'],

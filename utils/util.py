@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 from .constants import *
 from .model import *
 from .datapoint import *
-from numpy import unravel_index
 
 def get_env_objects(objects):
     inter1 = len(set(objects).intersection(all_objects_kitchen))
@@ -299,27 +298,6 @@ def match_score(p, t):
         if p[i] == t[i]: count+=1
     return count
 
-# def loss_planner_function(pred_set, true_set):
-#     reward = 0
-#     pred_vect = [string2index_new(constr) for constr in pred_set]
-#     true_vect = [string2index(constr) for constr in true_set]
-    
-#     pair_similarity = np.zeros([len(pred_vect), len(true_vect)])
-#     # pairwise cosine similarity
-#     for i in range(len(pred_vect)):
-#         for j in range(len(true_vect)):
-#             pair_similarity[i, j] = match_score(pred_vect[i], true_vect[j])
-            
-#     # take the maximum similarity score among all predicted constraint and true constriant pair 
-#     # and then eliminate that row and column. Repeat this for the number of constraints in pred_vect
-#     for i in range(len(pred_vect)):
-#         ind = unravel_index(np.argmax(pair_similarity), pair_similarity.shape)
-#         reward += pair_similarity[ind[0], ind[1]]
-#         # removing the considered row and column
-#         pair_similarity[ind[0], :] = 0
-#         pair_similarity[:, ind[1]] = 0
-#     return (1/(1+(reward/len(true_vect))))
-
 def eval_accuracy(model_name, test_set, model, data_folder="", num_epoch=0):
     acc = np.array([0, 0, 0, 0])
     sji = 0
@@ -348,42 +326,7 @@ def eval_accuracy(model_name, test_set, model, data_folder="", num_epoch=0):
                                                                     torch.FloatTensor(string2vec(y_true)), epoch, test_set.objects[iter_num],test_set.obj_states[iter_num])
         y_pred = torch.cat((action, pred1_object, pred2_object, pred2_state), 1).flatten().cpu()
         acc_tmp = accuracy_lenient(y_pred.detach().numpy().tolist(), y_true_list)[0]
-        '''
-            SJI Calculation for current prediction
-        '''
-        # reward_folder = "reward_buffer/val/"
-        # y_pred_str = vect2string(y_pred.detach().numpy().tolist())
-        # if path.exists(reward_folder + test_set.file_name[iter_num]):
-        #     with open(reward_folder + test_set.file_name[iter_num], 'rb') as file:    
-        #         reward_data = pickle.load(file)
-        #     if y_pred_str in reward_data.keys():
-        #         y_pred_set = reward_data[y_pred_str]
-        #         # print("Delta G from buffer = ", reward_data[y_sample])
-        #     else:
-        #         y_pred_set = []
-        # else:
-        #     y_pred_set = []
-        # sji += calculate_jac_index(y_pred_set, y_true_list)
-        '''
-            SJI Calculation for current prediction
-        '''
 
-        # if iter_num==0 and num_epoch%20==0:
-        #     print(test_set.sents[iter_num])
-        #     # print(np.arange(N_objects))
-        #     # print(pred1_object.detach().cpu().numpy()[0])
-        #     plt.bar(np.arange(N_objects+1), pred2_object.detach().cpu().numpy()[0], alpha=0.1, lw=1, color="g")
-        #     # plt.bar(np.arange(N_objects), pred2_object.detach().numpy().tolist(), alpha=0.1, lw=1, color="r")
-        #     plt.xlim(left=0, right=N_objects+1)
-        #     plt.ylim(bottom = 0, top=1.0) # zoom in on the lower gradient regions
-        #     plt.xlabel("Objects2")
-        #     plt.ylabel("Prediction")
-        #     plt.title("Prediction Analysis")
-        #     plt.grid(True)
-        #     # plt.legend([line.Line2D([0], [0], color="g", lw=4),
-        #     #             line.Line2D([0], [0], color="r", lw=4)], ['max-gradient', 'mean-gradient', 'zero-gradient'])
-        #     plt.savefig(result_folder + str(num_epoch)+"_obj2.jpg")
-        #     plt.close('all')
 
         if len_y_true_list == 1:
             acc_exact += acc_tmp
@@ -523,11 +466,6 @@ def print_final_constraints(model_name, test_set, bool_train, model, result_fold
             outfile.write(y_tr + ", ")
         outfile.write('\nTrue: ' + acc_stat[1] + '\n')
         outfile.write('Predicted: (' + state + ', ' + obj1 + ', ' + obj2 + ')\n\n')
-        
-        # if acc_stat[0][0] < 1:
-        #     print(test_set.sents[iter_num])
-        #     print("True: ", y_true_list)
-        #     print("Pred: (", state, " ", obj1, " ", obj2, ")")
 
         if obj2 == "None":
             state_none += 1
@@ -543,10 +481,8 @@ def print_final_constraints(model_name, test_set, bool_train, model, result_fold
             env_obj = get_env_objects(test_set.env_objects[iter_num])
             f = pddl_folder + str(iter_num) + "_true"
             create_pddl_gold(sent, acc_stat[1], test_set.action_seq[iter_num], f, test_set.delta_g[iter_num] , test_set.delta_g_inv[iter_num], test_set.file_name[iter_num])
-            # create_pddl(test_set.init[iter_num], env_obj, y_true_list, f)
             f = pddl_folder + str(iter_num) + "_pred"
             comma = " "
-            # out_pred = comma.join(acc_stat[1].split())
             create_pddl(test_set.init[iter_num], env_obj, [out_pred], f)
 
     analyse_pred(true, pred, acc_arr, sent_arr, result_folder)
@@ -638,8 +574,4 @@ def analyse_pred(y_true, y_pred, acc_arr, sent_arr, result_folder):
     pred_file.write("wrong_obj1                      : " + str(wrong_obj1) + "\n")
     pred_file.write("wrong_obj2                      : " + str(wrong_obj2) + "\n")
     pred_file.write("wrong_state                     : " + str(wrong_state) + "\n")
-    # pred_file.write(wrong_arr)
-    # for i in range(wrong_state):
-    #   pred_file.write(str(wrong_state_arr[i]))
-
     pred_file.close()

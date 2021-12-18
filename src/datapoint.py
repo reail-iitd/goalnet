@@ -134,8 +134,6 @@ def dense_vector(vector, object):
         return vector[object]
     if object in conceptnet_vectors.keys():
         return conceptnet_vectors[object]
-    else:
-        return np.asarray([0] * PRETRAINED_VECTOR_SIZE)
     raise Exception("No dense representation found for: " + object)
 
 def form_goal_vec_sBERT(text):
@@ -156,21 +154,15 @@ def convertToDGLGraph(graph_data):
         # elif edge["relation"] == "state": state.append((edge["from"], edge["to"]))
         elif edge["relation"] == "Grasping":
             grasp.append((edge["from"], edge["to"]))
-
     n_nodes = len(graph_data["nodes"])
-
     edgeDict = {
         ('object', 'Near', 'object'): near,
         ('object', 'In', 'object'): inside,
         ('object', 'On', 'object'): on,
-        # ('object', 'state', 'object'): state,
         ('object', 'Grasping', 'object'): grasp,
-        # ('object', 'Agent', 'object'): [(n_nodes - 1, n_nodes - 1)],
     }
-
     g = dgl.heterograph(edgeDict)
     # Add node features
-    # node_states = torch.zeros([n_nodes, word_embed_size], dtype=torch.float)
     node_prop = torch.zeros([n_nodes, len(all_non_fluents)], dtype=torch.float)  # Non-fluent vector
     node_fluents = torch.zeros([n_nodes, MAX_REL], dtype=torch.float) # fluent states
     node_vectors = torch.zeros([n_nodes, word_embed_size], dtype=torch.float)  # Conceptnet embedding
@@ -182,9 +174,6 @@ def convertToDGLGraph(graph_data):
         for state in states:
             idx = all_object_states[node["name"]].index(state)
             node_fluents[node_id][idx] = 1   # node_states is a 2D matrix of objects * states
-            # print(state, ": \n", dense_vector(VOCAB_VECT, state), "\n")
-            # node_states[node_id] += torch.tensor((dense_vector(VOCAB_VECT, state).tolist()))
-            # count += 1
         # node_states[node_id] = node_states[node_id] / max(count, 1)
         for state in prop:
             if len(state) > 0:
@@ -192,9 +181,7 @@ def convertToDGLGraph(graph_data):
             else:
                 continue
             node_prop[node_id][idx] = 1  # node_states is a 2D matrix of objects * states
-
         node_vectors[node_id] = torch.FloatTensor(node["vector"])
-    
     g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)
     return g
 
@@ -208,40 +195,29 @@ def getDGLGraph(pathToDatapoint):
     graph_delta_inv = convertToDGLGraph(dp.get_graph(get_environment(dp.delta_g_inv)))
     return (graph_init, graph_delta, graph_delta_inv)
 
-
 def form_goal_vec(data, text):
     goal_vec = np.zeros(word_embed_size)
     count = 0
     for j in text.split():
-        #  goal_vec += dense_vector(data, j)
-        # if not(j=="platesa" or j=="stov" or j=="nourishments"):
         if j in data.keys() and len(data[j]) > 0:
             goal_vec += np.asarray(data[j])
             count += 1
-
     goal_vec /= max(count, 1)
     return goal_vec
-
 
 # returns a complete encoding of initial_state to dgl graph and language embedding for a datapoint
 def encode_datapoint(pathToDatapoint, embed):
     dp = Datapoint()
     dp.load_point(pathToDatapoint)
-    # sentence_embed = form_goal_vec_sBERT(dp.sent)
-    #print(sen_embed_new)
-    #print(sen_embed_new.shape)
-    #kskcjs
     sentence_embed = form_goal_vec(embed, dp.sent)
     environment = get_environment(dp.initial_state)
     graph_tmp = dp.get_graph(environment)
     graph_init = convertToDGLGraph(graph_tmp)
     nodes_name = []
-    # print("Size = ", graph_init.ndata["feat"].size())
     for node in graph_tmp['nodes']:
         nodes_name.append(node['name'])
 
     env, env_object = environment
-
     # get all possible states for objects
     env_states = []
     for obj in env_object:

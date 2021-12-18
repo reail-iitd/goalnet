@@ -1,0 +1,33 @@
+{
+      "file_name": "143.pkl",
+      "sent": "and empty its contents into the sink",
+      "initial_state": [],
+      "final_state": [
+            "(On Mug_1 Sink)"
+      ],
+      "action_seq": [
+            "close(microwave)",
+            "pour(mug_1)",
+            "keep(mug_1 on sink)",
+            "moveto(mug_1)",
+            "grasp(mug_1)",
+            "release(mug_1)",
+            "moveto(mug_1)",
+            "grasp(mug_1)",
+            "keep(mug_1 on sink)",
+            "moveto(mug_1)",
+            "grasp(mug_1)",
+            "release(mug_1)",
+            "moveto(mug_1)",
+            "grasp(mug_1)",
+            "keep(mug_1 on sink)"
+      ],
+      "delta_g": [
+            "(On Mug_1 Sink)"
+      ],
+      "delta_g_inv": [
+            "(state Mug_1 Coffee)",
+            "(state Microwave DoorIsOpen)",
+            "(Grasping Robot Mug_1)"
+      ]
+}

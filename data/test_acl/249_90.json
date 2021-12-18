@@ -1,0 +1,16 @@
+{
+      "file_name": "249.pkl",
+      "sent": ". hold the trash bag in one hand",
+      "initial_state": [],
+      "final_state": [
+            "(Grasping Robot GarbageBag_1)"
+      ],
+      "action_seq": [
+            "moveto(garbagebag_1)",
+            "grasp(garbagebag_1)"
+      ],
+      "delta_g": [
+            "(Grasping Robot GarbageBag_1)"
+      ],
+      "delta_g_inv": []
+}

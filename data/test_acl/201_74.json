@@ -1,0 +1,56 @@
+{
+      "file_name": "201.pkl",
+      "sent": ". throw out beer, coke, and sketchy stuff in bowl",
+      "initial_state": [],
+      "final_state": [
+            "(Grasping Robot BagOfChips_1)",
+            "(On Bowl_1 Loveseat_1)",
+            "(On Coke_1 GarbageBin_1)",
+            "(Near Robot GarbageBin_1)",
+            "(On Beer_1 GarbageBin_1)",
+            "(On GarbageBag_1 Loveseat_1)"
+      ],
+      "action_seq": [
+            "moveto(bowl_1)",
+            "grasp(bowl_1)",
+            "moveto(bagofchips_1)",
+            "grasp(bagofchips_1)",
+            "keep(bowl_1 on loveseat_1)",
+            "moveto(bowl_1)",
+            "grasp(bowl_1)",
+            "keep(bagofchips_1 on loveseat_1)",
+            "moveto(bagofchips_1)",
+            "grasp(bagofchips_1)",
+            "moveto(garbagebag_1)",
+            "grasp(garbagebag_1)",
+            "keep(garbagebag_1 on loveseat_1)",
+            "moveto(garbagebag_1)",
+            "grasp(garbagebag_1)",
+            "keep(bowl_1 on loveseat_1)",
+            "moveto(bagofchips_1)",
+            "grasp(bagofchips_1)",
+            "moveto(coke_1)",
+            "grasp(coke_1)",
+            "keep(garbagebag_1 on loveseat_1)",
+            "moveto(garbagebin_1)",
+            "keep(coke_1 on garbagebin_1)",
+            "moveto(beer_1)",
+            "grasp(beer_1)",
+            "keep(beer_1 on garbagebin_1)"
+      ],
+      "delta_g": [
+            "(Grasping Robot BagOfChips_1)",
+            "(On Bowl_1 Loveseat_1)",
+            "(Grasping Robot BagOfChips_1)",
+            "(On GarbageBag_1 Loveseat_1)",
+            "(Near Robot GarbageBin_1)",
+            "(On Coke_1 GarbageBin_1)",
+            "(On Beer_1 GarbageBin_1)"
+      ],
+      "delta_g_inv": [
+            "(On BagOfChips_1 Armchair_4)",
+            "(On Bowl_1 Armchair_3)",
+            "(On Coke_1 Loveseat_1)",
+            "(On Beer_1 CoffeeTable_1)"
+      ]
+}

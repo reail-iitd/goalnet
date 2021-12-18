@@ -1,0 +1,43 @@
+{
+      "file_name": "143.pkl",
+      "sent": "collect the plates, utensils, and cups",
+      "initial_state": [],
+      "final_state": [],
+      "action_seq": [
+            "moveto(longcup_2)",
+            "grasp(longcup_2)",
+            "moveto(glass_1)",
+            "grasp(glass_1)",
+            "release(glass_1)",
+            "release(longcup_2)",
+            "moveto(fork_1)",
+            "grasp(fork_1)",
+            "moveto(spoon_1)",
+            "grasp(spoon_1)",
+            "release(spoon_1)",
+            "release(fork_1)",
+            "moveto(glass_1)",
+            "grasp(glass_1)",
+            "release(glass_1)",
+            "moveto(longcup_1)",
+            "grasp(longcup_1)",
+            "release(longcup_1)",
+            "moveto(plate_1)",
+            "grasp(plate_1)",
+            "moveto(plate_2)",
+            "grasp(plate_2)",
+            "release(plate_2)",
+            "release(plate_1)",
+            "moveto(plate_1)",
+            "grasp(plate_1)",
+            "moveto(plate_2)",
+            "grasp(plate_2)",
+            "release(plate_1)",
+            "release(plate_2)"
+      ],
+      "delta_g": [],
+      "delta_g_inv": [
+            "(On Plate_1 StoveFire_4)",
+            "(On Plate_2 StoveFire_4)"
+      ]
+}

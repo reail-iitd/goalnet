@@ -1,0 +1,34 @@
+{
+      "file_name": "379.pkl",
+      "sent": "move pillows from the shelf",
+      "initial_state": [],
+      "final_state": [
+            "(On Pillow_2 Loveseat_1)",
+            "(Near Robot Loveseat_1)",
+            "(On Pillow_3 Loveseat_1)",
+            "(On Pillow_1 Loveseat_1)"
+      ],
+      "action_seq": [
+            "moveto(pillow_1)",
+            "grasp(pillow_1)",
+            "moveto(pillow_2)",
+            "grasp(pillow_2)",
+            "moveto(pillow_3)",
+            "grasp(pillow_3)",
+            "moveto(loveseat_1)",
+            "keep(pillow_1 on loveseat_1)",
+            "keep(pillow_2 on loveseat_1)",
+            "keep(pillow_3 on loveseat_1)"
+      ],
+      "delta_g": [
+            "(Near Robot Loveseat_1)",
+            "(On Pillow_1 Loveseat_1)",
+            "(On Pillow_2 Loveseat_1)",
+            "(On Pillow_3 Loveseat_1)"
+      ],
+      "delta_g_inv": [
+            "(On Pillow_1 Shelf_1)",
+            "(On Pillow_2 Shelf_1)",
+            "(On Pillow_3 Shelf_1)"
+      ]
+}

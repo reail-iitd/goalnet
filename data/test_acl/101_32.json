@@ -1,0 +1,42 @@
+{
+      "file_name": "101.pkl",
+      "sent": "set up the tv and the xbox",
+      "initial_state": [],
+      "final_state": [
+            "(state Xbox_1 CD)",
+            "(state Tv_1 IsOn)",
+            "(Near Robot Loveseat_1)",
+            "(Near Robot Tv_1)",
+            "(In Cd_2 Xbox_1)",
+            "(On Cd_1 Loveseat_1)",
+            "(On Xbox_1 Loveseat_1)"
+      ],
+      "action_seq": [
+            "moveto(cd_1)",
+            "grasp(cd_1)",
+            "moveto(cd_2)",
+            "grasp(cd_2)",
+            "moveto(xbox_1)",
+            "grasp(xbox_1)",
+            "insert(cd_2 xbox_1)",
+            "moveto(loveseat_1)",
+            "moveto(tv_1)",
+            "keep(cd_1 on loveseat_1)",
+            "keep(xbox_1 on loveseat_1)",
+            "press(tv_1powerbutton)"
+      ],
+      "delta_g": [
+            "(state Xbox_1 CD)",
+            "(In Cd_2 Xbox_1)",
+            "(Near Robot Loveseat_1)",
+            "(Near Robot Tv_1)",
+            "(On Cd_1 Loveseat_1)",
+            "(On Xbox_1 Loveseat_1)",
+            "(state Tv_1 IsOn)"
+      ],
+      "delta_g_inv": [
+            "(On Xbox_1 SnackTable_1)",
+            "(On Cd_2 Shelf_1)",
+            "(On Cd_1 Studytable_1)"
+      ]
+}

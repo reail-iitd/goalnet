@@ -1,0 +1,21 @@
+{
+      "file_name": "120.pkl",
+      "sent": "clear the table",
+      "initial_state": [],
+      "final_state": [
+            "(Near Robot Loveseat_1)"
+      ],
+      "action_seq": [
+            "moveto(tv_1remote_1)",
+            "grasp(tv_1remote_1)",
+            "moveto(xboxcontroller_1)",
+            "grasp(xboxcontroller_1)",
+            "moveto(loveseat_1)",
+            "keep(tv_1remote_1 on loveseat_1)",
+            "keep(xboxcontroller_1 on loveseat_1)"
+      ],
+      "delta_g": [
+            "(Near Robot Loveseat_1)"
+      ],
+      "delta_g_inv": []
+}

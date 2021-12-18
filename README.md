@@ -12,3 +12,9 @@ Code structure:
 2. Hard coded elements to be encoded in jsons.
 3. Folder structure
 4. Ensure same states for same objects with different instance [done]
+
+New Issues - 
+1. ConceptNet Embeddings -- Give same conceptnet for weird words like loveseat as seat only
+2. Elif correction in  dence_vector
+3. Structure the datapoint class
+4. DGL dataset as list of datapoints

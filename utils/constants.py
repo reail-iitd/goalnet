@@ -46,3 +46,4 @@ with open('./jsons/conceptnet.json', 'r') as fh:
 PRETRAINED_VECTOR_SIZE = 300
 GRAPH_HIDDEN = 64
 size, layers = (4, 2)
+word_embed_size = PRETRAINED_VECTOR_SIZE

@@ -4,90 +4,12 @@ import numpy as np
 import os
 import torch
 import random
-from tqdm import tqdm
 import nltk
-
 import re
-
 from constants import *
 from sentence_transformers import SentenceTransformer
+
 sBERT_model = SentenceTransformer('paraphrase-MiniLM-L6-v2',device='cpu')
-# ~/.conda/envs/py35/lib/python3.6/site-packages/sentence_transformers
-
-# from model import *
-# word_embed_size = 384
-word_embed_size = PRETRAINED_VECTOR_SIZE
-
-def get_env_objects(objects):
-    inter1 = len(set(objects).intersection(all_objects_kitchen))
-    inter2 = len(set(objects).intersection(all_objects_living))
-    if inter1 > inter2:
-        objects = all_objects_kitchen
-    else:
-        objects = all_objects_living
-    return objects
-
-
-def get_environment(states):
-    environ = {}
-    objects = set()
-    for rel in all_relations:
-        environ[rel] = []
-
-    for s in states:
-        ele = s[1:-1].split()
-        if (len(ele) < 1):
-            continue
-        objects.add(ele[1])
-        if ele[0] in all_relations:
-            if ele[0].lower() == 'state':
-                ele[0] = 'state'
-            else:
-                objects.add(ele[2])
-            environ[ele[0]].append(ele[1:])
-
-    # if "Robot" in objects: objects.remove("Robot")
-    # objects.append("Robot")
-    # return environ, list(set(get_env_objects(objects)).union(set(objects)))
-    return environ, get_env_objects(objects)
-
-def word_clean(word):
-    word = word.split("_")[0]
-    l = re.sub( r"([A-Z])", r" \1", word).split()
-    return ' '.join(l)
-
-def remove_braces(s):
-    if s[0] == '(':
-        s = s[1:]
-    if s[len(s) - 1] == ')':
-        s = s[0:-1]
-    return s
-
-
-def dense_vector(vector, object):
-    if object in vector.keys():
-        return vector[object]
-    if object in conceptnet_vectors.keys():
-        return conceptnet_vectors[object]
-    else:
-        return np.asarray([0] * PRETRAINED_VECTOR_SIZE)
-    raise Exception("No dense representation found for: " + object)
-
-def form_goal_vec_sBERT(text):
-    return(sBERT_model.encode(text))
-
-# def dense_vector(vector, object):
-#     obj = word_clean(object)
-#     return form_goal_vec_sBERT(obj)
-
-# def embed_state(vector, state):
-#     words = re.findall('[A-Z][^A-Z]*', state)
-#     embed = np.zeros(word_embed_size)
-#     for w in words:
-#         if not (w.lower() == "is"):
-#             embed += np.asarray(dense_vector(vector, w.lower()))
-#     return embed  # not averaging !!
-
 
 class Datapoint:
     def __init__(self, sent="", initial_state=set(), final_state=set(), delta_g=set(), delta_g_inv=set(), action_seq=[], file_name=""):
@@ -167,56 +89,57 @@ class Datapoint:
 
         return {'nodes': nodes, 'edges': edges}
 
+def get_env_objects(objects):
+    inter1 = len(set(objects).intersection(all_objects_kitchen))
+    inter2 = len(set(objects).intersection(all_objects_living))
+    if inter1 > inter2:
+        objects = all_objects_kitchen
+    else:
+        objects = all_objects_living
+    return objects
 
-# gives set of all datapoint graphs - complete set of datapoints
-class DGLDataset():
-    def __init__(self, program_dir, embed):
-        graphs, lang_embed, delta_g, sents, goalObj_embed, objects, obj_states, nodes_name, initial_env, env_objects, action_seq = \
-            [], [], [], [], [], [], [], [], [], [], []
-        delta_g_inv = []
-        file_name = []
-        all_files = list(os.walk(program_dir))
-        tmp_cnt = 0
-        for path, dirs, files in tqdm(all_files):
-            if ("train" in program_dir):
-                random.shuffle(files)
-            for f in files:
-                tmp_cnt += 1
-                dp = encode_datapoint(path + "/" + f, embed)
-                if dp is None:
-                    continue
-                graphs.append(dp[0])
-                lang_embed.append(dp[1])
-                delta_g.append(dp[2])
-                sents.append(dp[3])
-                goalObj_embed.append(dp[4])
-                objects.append(dp[5])
-                obj_states.append(dp[6])
-                nodes_name.append(dp[7])  # This is sent to model.py to analyse attention weights - these are node names
-                initial_env.append(dp[8])
-                env_objects.append(dp[9])
-                action_seq.append(dp[10])
-                delta_g_inv.append(dp[11])
-                file_name.append(dp[12])
-        self.graphs = graphs
-        self.lang = lang_embed
-        self.delta_g = delta_g
-        self.sents = sents
-        self.goalObjectsVec = goalObj_embed
-        self.objects = objects
-        self.obj_states = obj_states
-        self.init = initial_env
-        self.nodes_name = nodes_name
-        self.env_objects = env_objects
-        self.action_seq = action_seq
-        self.delta_g_inv = delta_g_inv
-        self.file_name = file_name
-        # print("Graph len: ", len(graphs))
-        if len(graphs) > 0:
-            self.features = graphs[0].ndata['feat'].shape[1]
-        else:
-            self.features = 0
-        # self.lang = lang_embed
+def get_environment(states):
+    environ = {}
+    objects = set()
+    for rel in all_relations:
+        environ[rel] = []
+
+    for s in states:
+        ele = s[1:-1].split()
+        if (len(ele) < 1):
+            continue
+        objects.add(ele[1])
+        if ele[0] in all_relations:
+            if ele[0].lower() == 'state':
+                ele[0] = 'state'
+            else:
+                objects.add(ele[2])
+            environ[ele[0]].append(ele[1:])
+    return environ, get_env_objects(objects)
+
+def word_clean(word):
+    word = word.split("_")[0]
+    l = re.sub( r"([A-Z])", r" \1", word).split()
+    return ' '.join(l)
+
+def remove_braces(s):
+    if s[0] == '(':
+        s = s[1:]
+    if s[len(s) - 1] == ')':
+        s = s[0:-1]
+    return s
+
+def dense_vector(vector, object):
+    if object in vector.keys():
+        return vector[object]
+    if object in conceptnet_vectors.keys():
+        return conceptnet_vectors[object]
+    else:
+        return np.asarray([0] * PRETRAINED_VECTOR_SIZE)
+    raise Exception("No dense representation found for: " + object)
+
+def form_goal_vec_sBERT(text):
+    return(sBERT_model.encode(text))
 
 # coverts a single environment state to dgl graph
 def convertToDGLGraph(graph_data):
@@ -341,9 +264,3 @@ def encode_datapoint(pathToDatapoint, embed):
         dp.initial_state, env_object, dp.action_seq, dp.delta_g_inv, dp.file_name)
     else:
         return None
-
-
-# print(encode_datapoint('Type6_Final_train_test_0902_SOPPOS_2/train_augment_edited/0', conceptnet_vectors)[0].ndata['feat'].shape[1])
-# dp = Datapoint()
-# dp.load_point('../train_acl/147_144.pkl')
-# print(dp.print_point())

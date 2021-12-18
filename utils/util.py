@@ -11,25 +11,6 @@ from .model import *
 from .datapoint import *
 from numpy import unravel_index
 
-instance_table = {"Ramen_All": ['Ramen_1', 'InstantRamen_1'],
-                  "StoveFireAll": ['StoveFire1', 'StoveFire2', 'StoveFire3', 'StoveFire4'],
-                  "Table_All": ['CoffeeTable_1', 'SnackTable_1', 'Studytable_1'],
-                  "StoveFire_All": ['StoveFire_1', 'StoveFire_2', 'StoveFire_3', 'StoveFire_4'],
-                  "Loveseat_All": ['Loveseat_1', 'Loveseat_2', 'Armchair_1', 'Armchair_2', 'Armchair_3', 'Armchair_4'],
-                  "Armchair_All": ['Loveseat_1', 'Loveseat_2', 'Armchair_1', 'Armchair_2', 'Armchair_3', 'Armchair_4'],
-                  "Couch_All": ['Loveseat_1', 'Loveseat_2', 'Armchair_1', 'Armchair_2', 'Armchair_3', 'Armchair_4', ],
-                  "Cup_All": ['Mug_1', 'LongCup_1', 'LongCup_2', 'Glass_1'],
-                  "Syrup_All": ['Syrup_1', 'Syrup_2'],
-                  "Shelf_All": ['Shelf_1', 'Shelf_2'],
-                  "Book_All": ['Book_1', 'Book_2', 'Book_3'],
-                  "Garbage_All": ['GarbageBag_1', 'GarbageBin_1'],
-                  "Pillow_All": ['Pillow_1', 'Pillow_4', 'Pillow_3', 'Pillow_2'],
-                  "StoveKnob_All": ['StoveKnob_2', 'StoveKnob_1', 'StoveKnob_3', 'StoveKnob_4'],
-                  "Plate_All": ['Plate_1', 'Plate_2'],
-                  "ChannelAll": ['Channel1', 'Channel2', 'Channel3', 'Channel4'],
-                  "Cd_All": ['Cd_1', 'Cd_2']}
-
-
 def get_env_objects(objects):
     inter1 = len(set(objects).intersection(all_objects_kitchen))
     inter2 = len(set(objects).intersection(all_objects_living))

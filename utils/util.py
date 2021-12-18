@@ -7,9 +7,9 @@ import torch
 # import random
 from tqdm import tqdm
 import matplotlib.pyplot as plt
-from constants import *
-from model import *
-from datapoint import *
+from .constants import *
+from .model import *
+from .datapoint import *
 # from loss_planner import *
 from numpy import unravel_index
 

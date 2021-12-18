@@ -8,9 +8,9 @@ import torch.nn.functional as F
 from torch.nn.parameter import Parameter
 from torch.nn.modules.rnn import RNNCellBase
 import dgl.function as fn
-from GNN import *
-from constants import *
-from datapoint import *
+from .GNN import *
+from .constants import *
+from .datapoint import *
 from dgl.nn import GraphConv
 from sentence_transformers import SentenceTransformer
 

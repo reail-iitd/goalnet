@@ -1,6 +1,6 @@
 # Changes in BCE, CE Loss - Loss Function, BCELoss()/Crossentropy Loss initialisation, Learning rate, num epcohs
 from numpy import dtype
-from util import *
+from src.util import *
 # from sklearn.utils import shuffle
 import sys
 from numpy.linalg import norm

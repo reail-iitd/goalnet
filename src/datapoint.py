@@ -6,7 +6,6 @@ import torch
 import random
 from tqdm import tqdm
 import nltk
-# nltk.download('punkt')
 
 import re
 

@@ -8,8 +8,6 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 import matplotlib.lines as line
 from .constants import *
-from src.model import *
-from src.dataset import *
 
 def get_env_objects(objects):
     inter1 = len(set(objects).intersection(all_objects_kitchen))
@@ -575,3 +573,75 @@ def analyse_pred(y_true, y_pred, acc_arr, sent_arr, result_folder):
     pred_file.write("wrong_obj2                      : " + str(wrong_obj2) + "\n")
     pred_file.write("wrong_state                     : " + str(wrong_state) + "\n")
     pred_file.close()
+
+
+def clip_gradient(model, clip_value):
+    params = list(filter(lambda p: p.grad is not None, model.parameters()))
+    for p in params:
+        p.grad.data.clamp_(-clip_value, clip_value)
+
+def plot_grad_flow(named_parameters, filename):
+    '''Plots the gradients flowing through different layers in the net during training.
+    Can be used for checking for possible gradient vanishing / exploding problems.
+    
+    Usage: Plug this function in Trainer class after loss.backwards() as 
+    "plot_grad_flow(self.model.named_parameters())" to visualize the gradient flow'''
+    ave_grads = []
+    max_grads= []
+    layers = []
+    for n, p in named_parameters:
+        if(p.requires_grad) and ("bias" not in n):
+            if type(p.grad) == type(None):
+                print("None gradient ", n)
+                continue
+            layers.append(n)
+            ave_grads.append(p.grad.abs().mean())
+            max_grads.append(p.grad.abs().max())
+    plt.bar(np.arange(len(max_grads)), max_grads, alpha=0.1, lw=1, color="g")
+    plt.bar(np.arange(len(max_grads)), ave_grads, alpha=0.1, lw=1, color="r")
+    plt.hlines(0, 0, len(ave_grads)+1, lw=2, color="b" )
+    plt.xticks(range(0,len(ave_grads), 1), layers, rotation="vertical", fontsize=4)
+    plt.xlim(left=0, right=len(ave_grads))
+    plt.ylim(bottom = -0.001, top=0.02) # zoom in on the lower gradient regions
+    plt.xlabel("Layers")
+    plt.ylabel("average gradient")
+    plt.title("Gradient flow")
+    plt.grid(True)
+    plt.legend([line.Line2D([0], [0], color="g", lw=4),
+                line.Line2D([0], [0], color="r", lw=4),
+                line.Line2D([0], [0], color="b", lw=4)], ['max-gradient', 'mean-gradient', 'zero-gradient'])
+    plt.savefig(result_folder + filename)
+    plt.close('all')
+
+def plot_graphs(train_acc_arr, val_acc_arr):
+    fig, axs = plt.subplots(2)
+    fig.suptitle('Loss and Acc')
+    train_acc_arr_np = np.array(train_acc_arr)
+    val_acc_arr_np = np.array(val_acc_arr)
+    axs[0].plot(train_loss_arr, label='train')
+    axs[0].plot(val_loss_arr, label='val')
+    axs[1].plot(train_acc_arr_np[:, 0], label='train')
+    axs[1].plot(val_acc_arr_np[:, 0], label='val')
+    axs[0].legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
+    axs[1].legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
+    axs[0].title.set_text("Loss")
+    axs[1].title.set_text("Overall acc")
+    plt.savefig(result_folder + "graphs_overall.jpg")
+    plt.close('all')
+
+    fig, axs = plt.subplots(3)
+    fig.suptitle('Acc. of individual pred')
+    axs[0].plot(train_acc_arr_np[:, 1], label='train')
+    axs[0].plot(val_acc_arr_np[:, 1], label='val')
+    axs[1].plot(train_acc_arr_np[:, 2], label='train')
+    axs[1].plot(val_acc_arr_np[:, 2], label='val')
+    axs[2].plot(train_acc_arr_np[:, 3], label='train')
+    axs[2].plot(val_acc_arr_np[:, 3], label='val')
+    axs[0].legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
+    axs[1].legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
+    axs[2].legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
+    axs[0].title.set_text("State acc")
+    axs[1].title.set_text("Obj1 acc")
+    axs[2].title.set_text("Obj2 acc")
+    plt.savefig(result_folder + "graphs_indiv.jpg")
+    plt.close('all')

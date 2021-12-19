@@ -1,5 +1,4 @@
-import pickle
-import os
+import pickle, os, json
 
 # LOADING DATASET SPECIFIC CONSTANTS
 # couch - Loveseat, cd2 - Far Cry Game, Book_1 - Guiness Book
@@ -14,6 +13,8 @@ with open('./data/constants.json', 'r') as fh:
         all_fluents = constants_dict['all_fluents']
         all_non_fluents = constants_dict['all_non_fluents']
         all_states = constants_dict['all_states']
+        all_relations = constants_dict['all_relations']
+        all_object_states = constants_dict['all_object_states']
         instance_table = constants_dict['instance_table']
         graspableset = constants_dict['graspableset']
         all_objects_env = constants_dict['all_objects_env']

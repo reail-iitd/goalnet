@@ -1,4 +1,4 @@
-# converting original dataset to json files.
+# converting acl16_original_dataset to json files.
 
 import os
 from tqdm import trange

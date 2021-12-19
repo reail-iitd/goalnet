@@ -33,7 +33,6 @@ class Datapoint:
         # Make edge sets
         near, on, inside, grasp, obj_index = [], [], [], [], []
         for edge in graph_data["edges"]:
-            print(edge)
             if edge["relation"] == "Near":
                 near.append((edge["from"], edge["to"]))
             elif edge["relation"] == "In":

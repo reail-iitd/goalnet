@@ -1,7 +1,7 @@
 from .constants import *
 from sentence_transformers import SentenceTransformer
 import nltk
-
+import numpy as np
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 

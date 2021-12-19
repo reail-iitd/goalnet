@@ -79,7 +79,8 @@ class Datapoint:
         # get all possible states for objects
         env_states = []
         for obj in self.env_objects:
-            env_states += all_object_states[obj]
+            if obj in all_object_states:
+                env_states += all_object_states[obj]
         env_states = list(set(env_states))
         # convert env objects to one hot vector
         self.objects = np.zeros(N_objects)

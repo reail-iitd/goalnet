@@ -1,0 +1,41 @@
+entire sentence: , Add coffee to the mug   and microwave it for 120 seconds   , ,   Using a spoon add two cups of ice cream carefully to the mug   , ,   Add one squirt of each chocolate and vanilla syrup to the mug   
+
+<start clause>
+start env: 0
+end env: 4
+sent: Add coffee to the mug  
+clause dscr: Add [   coffee |   mug | relation: (2, 2){ coffee x  mug -> to} ]
+words: Add coffee mug to
+verb: Add
+arg mapping: (coffee,Mug_1) (mug,Mug_1)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 10
+sent:  and microwave it for 120 seconds  
+clause dscr: microwave [   it | relation: Null ]
+words: microwave it
+verb: microwave
+arg mapping: (it,Mug_1) (it,Kettle)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 16
+sent:  .  Using a spoon add two cups of ice cream carefully to the mug  
+clause dscr: Using [   spoon | relation: Null ]
+words: Using spoon
+verb: Using
+arg mapping: (spoon,Spoon_1)
+<end clause>
+
+<start clause>
+start env: 16
+end env: 15
+sent:  .  Add one squirt of each chocolate and vanilla syrup to the mug  
+clause dscr: Add [   squirt |   chocolate |   vanilla syrup |   mug | relation: (4, 4){ squirt x  chocolate -> of}{ squirt x  vanilla syrup -> of}{ squirt x  mug -> of}{ chocolate x  vanilla syrup -> and}{ chocolate x  mug -> to}{ vanilla syrup x  mug -> to} ]
+words: Add squirt chocolate vanilla syrup mug of of of and to to
+verb: Add
+arg mapping: (chocolate,Syrup_2) (vanilla syrup,Syrup_1) (vanilla syrup,Syrup_2) (mug,Mug_1)
+<end clause>

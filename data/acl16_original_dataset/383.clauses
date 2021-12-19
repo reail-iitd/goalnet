@@ -1,0 +1,51 @@
+entire sentence: , Gather all used cups and glasses and place into the sink   ,  Gather   and arrange Ramen, vanilla syrup, and chocolate syrup on the counter  and arrange Ramen, vanilla syrup, and chocolate syrup on the counter , , ,  Wipe the counter with a cloth   ,  Wipe fridge door 
+
+<start clause>
+start env: 0
+end env: 16
+sent: Gather all used cups and glasses and place into the sink  
+clause dscr: used [   Gather |   cups |   glasses |   place |   sink | relation: (5, 5){ Gather x  cups -> and}{ Gather x  glasses -> and}{ Gather x  place -> and}{ Gather x  sink -> into}{ cups x  glasses -> and}{ cups x  place -> and}{ cups x  sink -> into}{ glasses x  place -> and}{ glasses x  sink -> into}{ place x  sink -> into} ]
+words: used Gather cups glasses place sink and and and into and and into and into into
+verb: used
+arg mapping: (cups,LongCup_1) (cups,LongCup_2) (glasses,Glass_1) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 17
+end env: 16
+sent:  . Gather  
+clause dscr: Gather [ relation: Null ]
+words: Gather
+verb: Gather
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 17
+end env: 22
+sent:  and arrange Ramen, vanilla syrup, and chocolate syrup on the counter 
+clause dscr: arrange [   Ramen |   vanilla syrup |   chocolate |   syrup |   counter | relation: (5, 5){ Ramen x  vanilla syrup -> ,}{ Ramen x  chocolate -> ,}{ Ramen x  syrup -> ,}{ Ramen x  counter -> ,}{ vanilla syrup x  chocolate -> ,}{ vanilla syrup x  syrup -> ,}{ vanilla syrup x  counter -> ,}{ chocolate x  syrup -> on}{ chocolate x  counter -> on}{ syrup x  counter -> on} ]
+words: arrange Ramen vanilla syrup chocolate syrup counter , , , , , , , on on on
+verb: arrange
+arg mapping: (Ramen,Ramen_1) (vanilla syrup,Syrup_1) (vanilla syrup,Syrup_2) (chocolate,Syrup_2) (syrup,Syrup_1) (syrup,Syrup_2) (counter,Counter_1) (counter,Counter1_1)
+<end clause>
+
+<start clause>
+start env: 22
+end env: 21
+sent:  and arrange Ramen, vanilla syrup, and chocolate syrup on the counter . Wipe the counter with a cloth  
+clause dscr: arrange [   Ramen |   vanilla |   syrup |   chocolate |   syrup | relation: (5, 5){ Ramen x  vanilla -> ,}{ Ramen x  syrup -> ,}{ Ramen x  chocolate -> ,}{ Ramen x  syrup -> ,}{ vanilla x  syrup -> ,}{ vanilla x  chocolate -> ,}{ vanilla x  syrup -> ,}{ syrup x  chocolate -> ,}{ syrup x  syrup -> ,}{ chocolate x  syrup -> on} ]
+words: arrange Ramen vanilla syrup chocolate syrup , , , , , , , , , on
+verb: arrange
+arg mapping: (Ramen,Ramen_1) (vanilla,Syrup_1) (syrup,Syrup_1) (syrup,Syrup_2) (chocolate,Syrup_2) (syrup,Syrup_1) (syrup,Syrup_2)
+<end clause>
+
+<start clause>
+start env: 22
+end env: 21
+sent:  . Wipe fridge door .
+clause dscr: fridge [   Wipe |   door | relation: (2, 2) ]
+words: fridge Wipe door
+verb: fridge
+arg mapping: (door,MicrowaveDoor) (door,FridgeLeftDoor) (door,FridgeRightDoor)
+<end clause>

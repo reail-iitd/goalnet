@@ -1,0 +1,41 @@
+entire sentence: , cook and put the food on the bed   , , Put the pillows in good order   , put on a DVD player   , Set up a movie threater   
+
+<start clause>
+start env: 0
+end env: 3
+sent: cook and put the food on the bed  
+clause dscr: cook [   food |   bed | relation: (2, 2){ food x  bed -> on} ]
+words: cook food bed on
+verb: cook
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 4
+end env: 20
+sent:  .Put the pillows in good order  
+clause dscr: Put [   pillows |   order | relation: (2, 2){ pillows x  order -> in} ]
+words: Put pillows order in
+verb: Put
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3)
+<end clause>
+
+<start clause>
+start env: 25
+end env: 24
+sent:  .put on a DVD player  
+clause dscr: put [   DVD player | relation: Null ]
+words: put DVD player
+verb: put
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 27
+end env: 26
+sent:  .Set up a movie threater  
+clause dscr: Set [   movie threater | relation: Null ]
+words: Set movie threater
+verb: Set
+arg mapping: 
+<end clause>

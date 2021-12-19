@@ -1,0 +1,31 @@
+entire sentence: , Take Book   of Records and place on table with brown book   , , Throw out open beer and coke   ,  Chips are good 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Take Book  
+clause dscr: Take [   Book | relation: Null ]
+words: Take Book
+verb: Take
+arg mapping: (Book,Book_1) (Book,Book_2)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 10
+sent:  off .Throw out open beer and coke  
+clause dscr: Throw [   beer |   coke | relation: (2, 2){ beer x  coke -> and} ]
+words: Throw beer coke and
+verb: Throw
+arg mapping: (beer,Beer_1) (coke,Coke_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 3
+sent:  . Chips are good .  .
+clause dscr: are [   Chips | relation: Null ]
+words: are Chips
+verb: are
+arg mapping: (Chips,BagOfChips_1)
+<end clause>

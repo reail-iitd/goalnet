@@ -1,0 +1,61 @@
+entire sentence: , Put all the cds on the table in front of the couch   ,  Pour some chips   ,  Put soda on the table   ,  Put the pillows on the couch   turn the tv   on and put the xbox controller on the table   , , 
+
+<start clause>
+start env: 0
+end env: 6
+sent: Put all the cds on the table in front of the couch  
+clause dscr: Put [   cds |   table |   front |   couch | relation: (4, 4){ cds x  table -> on}{ cds x  front -> on}{ cds x  couch -> on}{ table x  front -> in}{ table x  couch -> in}{ front x  couch -> of} ]
+words: Put cds table front couch on on on in in of
+verb: Put
+arg mapping: (cds,Cd_2) (cds,Cd_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1) (couch,Loveseat_1)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 11
+sent:  . Pour some chips  
+clause dscr: Pour [   chips | relation: Null ]
+words: Pour chips
+verb: Pour
+arg mapping: (chips,BagOfChips_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 6
+sent:  . Put soda on the table  
+clause dscr: Put [   soda |   table | relation: (2, 2){ soda x  table -> on} ]
+words: Put soda table on
+verb: Put
+arg mapping: (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 6
+sent:  . Put the pillows on the couch  
+clause dscr: Put [   pillows |   couch | relation: (2, 2){ pillows x  couch -> on} ]
+words: Put pillows couch on
+verb: Put
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (couch,Loveseat_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 9
+sent:  turn the tv  
+clause dscr: turn [   tv | relation: Null ]
+words: turn tv
+verb: turn
+arg mapping: (tv,Tv_1)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 18
+sent:  on and put the xbox controller on the table  
+clause dscr: put [   and |   xbox |   controller |   table | relation: (4, 4){ and x  xbox -> on}{ and x  controller -> on}{ and x  table -> on}{ xbox x  controller -> on}{ xbox x  table -> on}{ controller x  table -> on} ]
+words: put and xbox controller table on on on on on on
+verb: put
+arg mapping: (xbox,Xbox_1) (controller,XboxController_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

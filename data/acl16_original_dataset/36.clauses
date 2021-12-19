@@ -1,0 +1,71 @@
+entire sentence: , Grasp the pot   and walk to the sink   , ,  Toggle the tap   to fill the pot   , ,  Put the pot on the stove   ,  Turn on the burner   ,  Turn off the burner   when the water is boiling   , , 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Grasp the pot  
+clause dscr: Grasp [   pot | relation: Null ]
+words: Grasp pot
+verb: Grasp
+arg mapping: (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 4
+sent:  and walk to the sink  
+clause dscr: walk [   sink | relation: Null ]
+words: walk sink
+verb: walk
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 10
+sent:  . Toggle the tap  
+clause dscr: Toggle [   tap | relation: Null ]
+words: Toggle tap
+verb: Toggle
+arg mapping: (tap,Plate_1) (tap,Plate_2)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 13
+sent:  to fill the pot  
+clause dscr: fill [   pot | relation: Null ]
+words: fill pot
+verb: fill
+arg mapping: (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 15
+sent:  . Put the pot on the stove  
+clause dscr: Put [   pot |   stove | relation: (2, 2){ pot x  stove -> on} ]
+words: Put pot stove on
+verb: Put
+arg mapping: (pot,Kettle) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 16
+end env: 17
+sent:  . Turn on the burner  
+clause dscr: Turn [   burner | relation: Null ]
+words: Turn burner
+verb: Turn
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 18
+end env: 17
+sent:  . Turn off the burner  
+clause dscr: Turn [   burner | relation: Null ]
+words: Turn burner
+verb: Turn
+arg mapping: 
+<end clause>

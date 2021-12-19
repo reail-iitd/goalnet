@@ -1,0 +1,91 @@
+entire sentence: , Get a cup   ,   Open the fridge   and remove milk   , ,  Close the fridge   ,   Slowly add milk to the cup   until is is 7/8 full , , ,   Get a bowl   ,   Add cereal to the bowl until it   is full , , ,   Slowly add milk to the cereal in the bowl   ,   Serve with a spoon   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Get a cup  
+clause dscr: Get [   cup | relation: Null ]
+words: Get cup
+verb: Get
+arg mapping: (cup,LongCup_1) (cup,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 3
+sent:  .  Open the fridge  
+clause dscr: Open [   fridge | relation: Null ]
+words: Open fridge
+verb: Open
+arg mapping: (fridge,Fridge)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 6
+sent:  and remove milk  
+clause dscr: remove [   milk | relation: Null ]
+words: remove milk
+verb: remove
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 6
+end env: 6
+sent:  . Close the fridge  
+clause dscr: Close [   fridge | relation: Null ]
+words: Close fridge
+verb: Close
+arg mapping: (fridge,Fridge)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 6
+sent:  .  Slowly add milk to the cup  
+clause dscr: add [   milk |   cup | relation: (2, 2){ milk x  cup -> to} ]
+words: add milk cup to
+verb: add
+arg mapping: (cup,LongCup_1) (cup,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 10
+sent: 
+clause dscr: Get [   bowl | relation: Null ]
+words: Get bowl
+verb: Get
+arg mapping: (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 10
+sent: 
+clause dscr: Add [   cereal |   bowl | relation: (2, 2){ cereal x  bowl -> to} ]
+words: Add cereal bowl to
+verb: Add
+arg mapping: (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 10
+sent:  is full .  Slowly add milk to the cereal in the bowl  
+clause dscr: add [   Slowly |   milk |   cereal |   bowl | relation: (4, 4){ Slowly x  milk -> to}{ Slowly x  cereal -> to}{ Slowly x  bowl -> to}{ milk x  cereal -> to}{ milk x  bowl -> to}{ cereal x  bowl -> in} ]
+words: add Slowly milk cereal bowl to to to to to in
+verb: add
+arg mapping: (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 12
+sent:  .  Serve with a spoon  
+clause dscr: Serve [   spoon | relation: Null ]
+words: Serve spoon
+verb: Serve
+arg mapping: (spoon,Spoon_1)
+<end clause>

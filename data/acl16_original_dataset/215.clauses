@@ -1,0 +1,21 @@
+entire sentence: , Pour the pot's contents into the trash   and place all glasses and mugs into the sink   , 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Pour the pot's contents into the trash  
+clause dscr: Pour [   pot |   contents |   trash | relation: (3, 3){ pot x  contents -> into}{ pot x  trash -> into}{ contents x  trash -> into} ]
+words: Pour pot contents trash into into into
+verb: Pour
+arg mapping: (pot,Kettle) (trash,Glass_1)
+<end clause>
+
+<start clause>
+start env: 6
+end env: 5
+sent:  and place all glasses and mugs into the sink  
+clause dscr: place [   glasses |   mugs |   sink | relation: (3, 3){ glasses x  mugs -> and}{ glasses x  sink -> into}{ mugs x  sink -> into} ]
+words: place glasses mugs sink and into into
+verb: place
+arg mapping: (glasses,Glass_1) (mugs,Mug_1) (sink,Sink)
+<end clause>

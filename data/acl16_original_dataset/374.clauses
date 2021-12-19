@@ -1,0 +1,101 @@
+entire sentence: , First you have to pick up all the dishes   and put them in the sink   , , ,  Then, wash the dishes   ,  Finally, collect them all into a neat stack   ,  Then, you have to collect the silverware   and put it next to the dishes   , , ,  Finally, collect the cups   and put them next to the silverware   , ,  Lastly, collect the other items   and put them in their place (the ramen and the syrup)   , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: First you have to pick up all the dishes  
+clause dscr: have [ relation: Null ]
+words: have
+verb: have
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 4
+end env: 27
+sent:  and put them in the sink  
+clause dscr: put [   sink | relation: Null ]
+words: put sink
+verb: put
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 28
+end env: 28
+sent:  . Then, wash the dishes  
+clause dscr: wash [   dishes | relation: Null ]
+words: wash dishes
+verb: wash
+arg mapping: (dishes,Spoon_1) (dishes,Glass_1) (dishes,LongCup_1) (dishes,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 29
+end env: 49
+sent:  . Finally, collect them all into a neat stack  
+clause dscr: collect [   stack | relation: Null ]
+words: collect stack
+verb: collect
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 50
+end env: 53
+sent:  . Then, you have to collect the silverware  
+clause dscr: have [ relation: Null ]
+words: have
+verb: have
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 54
+end env: 55
+sent:  and put it next to the dishes  
+clause dscr: put [   it |   dishes | relation: (2, 2){ it x  dishes -> to} ]
+words: put it dishes to
+verb: put
+arg mapping: (it,Mug_1) (it,Spoon_1) (it,Glass_1) (it,Fork_1) (dishes,Spoon_1) (dishes,Glass_1) (dishes,LongCup_1) (dishes,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 56
+end env: 55
+sent:  . Finally, collect the cups  
+clause dscr: collect [   cups | relation: Null ]
+words: collect cups
+verb: collect
+arg mapping: (cups,LongCup_1) (cups,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 56
+end env: 55
+sent:  and put them next to the silverware  
+clause dscr: put [   silverware | relation: Null ]
+words: put silverware
+verb: put
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 56
+end env: 55
+sent:  . Lastly, collect the other items  
+clause dscr: collect [   items | relation: Null ]
+words: collect items
+verb: collect
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 65
+end env: 64
+sent:  and put them in their place (the ramen and the syrup)  
+clause dscr: put [   place ramen syrup | relation: Null ]
+words: put place ramen syrup
+verb: put
+arg mapping: (place ramen syrup,Ramen_1) (place ramen syrup,Syrup_1) (place ramen syrup,Syrup_2) (place ramen syrup,InstantRamen_1)
+<end clause>

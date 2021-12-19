@@ -1,0 +1,31 @@
+entire sentence: , Take the CD   and put it in the xbox   , ,  Place the bowl and the chips on the table in front of the couch   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Take the CD  
+clause dscr: Take [   CD | relation: Null ]
+words: Take CD
+verb: Take
+arg mapping: (CD,Cd_2) (CD,Cd_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 11
+sent:  and put it in the xbox  
+clause dscr: put [   it |   xbox | relation: (2, 2){ it x  xbox -> in} ]
+words: put it xbox in
+verb: put
+arg mapping: (it,Loveseat_1) (it,Xbox_1) (it,Cd_1) (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 19
+sent:  . Place the bowl and the chips on the table in front of the couch  
+clause dscr: Place [   bowl |   chips |   table |   front |   couch | relation: (5, 5){ bowl x  chips -> and}{ bowl x  table -> on}{ bowl x  front -> on}{ bowl x  couch -> on}{ chips x  table -> on}{ chips x  front -> on}{ chips x  couch -> on}{ table x  front -> in}{ table x  couch -> in}{ front x  couch -> of} ]
+words: Place bowl chips table front couch and on on on on on on in in of
+verb: Place
+arg mapping: (bowl,Bowl_1) (chips,BagOfChips_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1) (couch,Loveseat_1) (couch,Loveseat_2)
+<end clause>

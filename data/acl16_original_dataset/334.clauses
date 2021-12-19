@@ -1,0 +1,21 @@
+entire sentence: , Put cs to game box   , ,  Put pillows on the couch   
+
+<start clause>
+start env: 0
+end env: 4
+sent: Put cs to game box  
+clause dscr: Put [ relation: Null ]
+words: Put
+verb: Put
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 3
+end env: 2
+sent:  . Bring is bag of chips and the coke . Put pillows on the couch  
+clause dscr: Put [   Bring |   bag |   chips |   coke |   pillows |   couch | relation: (6, 6){ Bring x  bag -> of}{ Bring x  chips -> of}{ Bring x  coke -> of}{ Bring x  pillows -> of}{ Bring x  couch -> of}{ bag x  chips -> of}{ bag x  coke -> of}{ bag x  pillows -> of}{ bag x  couch -> of}{ chips x  coke -> and}{ chips x  pillows -> on}{ chips x  couch -> on}{ coke x  pillows -> on}{ coke x  couch -> on}{ pillows x  couch -> on} ]
+words: Put Bring bag chips coke pillows couch of of of of of of of of of and on on on on on
+verb: Put
+arg mapping: (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1) (coke,Coke_1) (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (pillows,Pillow_4) (couch,Loveseat_1)
+<end clause>

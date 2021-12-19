@@ -1,0 +1,51 @@
+entire sentence: , Collect the plates, utensils, and cups   and put them in the sink   , ,  Take the mug from the microwave   and empty its contents into the sink   and put it in the sink   , , 
+
+<start clause>
+start env: 0
+end env: 29
+sent: Collect the plates, utensils, and cups  
+clause dscr: Collect [   plates |   utensils |   cups | relation: (3, 3){ plates x  utensils -> ,}{ plates x  cups -> ,}{ utensils x  cups -> ,} ]
+words: Collect plates utensils cups , , ,
+verb: Collect
+arg mapping: (plates,Plate_1) (plates,Plate_2) (cups,LongCup_1) (cups,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 30
+end env: 51
+sent:  and put them in the sink  
+clause dscr: put [   sink | relation: Null ]
+words: put sink
+verb: put
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 55
+end env: 58
+sent:  . Take the mug from the microwave  
+clause dscr: Take [   mug |   microwave | relation: (2, 2){ mug x  microwave -> from} ]
+words: Take mug microwave from
+verb: Take
+arg mapping: (mug,Mug_1) (microwave,Microwave)
+<end clause>
+
+<start clause>
+start env: 59
+end env: 73
+sent:  and empty its contents into the sink  
+clause dscr: empty [   contents |   sink | relation: (2, 2){ contents x  sink -> into} ]
+words: empty contents sink into
+verb: empty
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 73
+end env: 72
+sent:  and put it in the sink  
+clause dscr: put [   it |   sink | relation: (2, 2){ it x  sink -> in} ]
+words: put it sink in
+verb: put
+arg mapping: (it,Sink) (it,Mug_1) (sink,Sink)
+<end clause>

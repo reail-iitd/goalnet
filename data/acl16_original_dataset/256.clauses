@@ -1,0 +1,11 @@
+entire sentence: , -take coffee-ice cream-milk-syrup 
+
+<start clause>
+start env: 2
+end env: 5
+sent: -take coffee-ice cream-milk-syrup .
+clause dscr: take [   cream-milk-syrup | relation: Null ]
+words: take cream-milk-syrup
+verb: take
+arg mapping: (cream-milk-syrup,IceCream_1)
+<end clause>

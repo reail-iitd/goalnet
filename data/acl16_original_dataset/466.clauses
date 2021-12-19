@@ -1,0 +1,31 @@
+entire sentence: , Turn of TV   and select movie in Neflix   , ,  Put popcorn bag in the microwave for 3 min   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Turn of TV  
+clause dscr: Turn [   TV | relation: Null ]
+words: Turn TV
+verb: Turn
+arg mapping: (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  and select movie in Neflix  
+clause dscr: select [   movie |   Neflix | relation: (2, 2){ movie x  Neflix -> in} ]
+words: select movie Neflix in
+verb: select
+arg mapping: (movie,Book_1) (movie,Book_2)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  . Put popcorn bag in the microwave for 3 min  
+clause dscr: Put [   popcorn |   bag |   microwave |   min | relation: (4, 4){ popcorn x  bag -> in}{ popcorn x  microwave -> in}{ popcorn x  min -> in}{ bag x  microwave -> in}{ bag x  min -> in}{ microwave x  min -> for} ]
+words: Put popcorn bag microwave min in in in in in for
+verb: Put
+arg mapping: (bag,BagOfChips_1) (bag,GarbageBag_1)
+<end clause>

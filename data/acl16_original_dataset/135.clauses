@@ -1,0 +1,11 @@
+entire sentence: , Gather all cups, plates, mugs, and utensils   and put them in the sink one at a time   , 
+
+<start clause>
+start env: 0
+end env: 21
+sent:  and put them in the sink one at a time  
+clause dscr: put [   sink |   one |   time | relation: (3, 3){ sink x  one -> at}{ sink x  time -> at}{ one x  time -> at} ]
+words: put sink one time at at at
+verb: put
+arg mapping: (sink,Sink)
+<end clause>

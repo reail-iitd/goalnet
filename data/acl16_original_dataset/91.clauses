@@ -1,0 +1,51 @@
+entire sentence: , Organize the chairs so that they face the TV   , ,  Put the pillows on the chairs   ,  Put the chips in the bowl   ,  Turn   to channel 3 on the TV   , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: Organize the chairs so that they face the TV  
+clause dscr: Organize [   chairs | relation: Null ]
+words: Organize chairs
+verb: Organize
+arg mapping: (chairs,Armchair_1) (chairs,Armchair_2) (chairs,Armchair_3) (chairs,Armchair_4)
+<end clause>
+
+<start clause>
+start env: 0
+end env: 13
+sent:  . Put the pillows on the chairs  
+clause dscr: Put [   pillows |   chairs | relation: (2, 2){ pillows x  chairs -> on} ]
+words: Put pillows chairs on
+verb: Put
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (pillows,Pillow_4) (chairs,Armchair_1) (chairs,Armchair_2) (chairs,Armchair_3) (chairs,Armchair_4)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 19
+sent:  . Put the chips in the bowl  
+clause dscr: Put [   chips |   bowl | relation: (2, 2){ chips x  bowl -> in} ]
+words: Put chips bowl in
+verb: Put
+arg mapping: (chips,BagOfChips_1) (bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 20
+end env: 19
+sent:  . Turn  
+clause dscr: Turn [ relation: Null ]
+words: Turn
+verb: Turn
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 21
+end env: 22
+sent:  to channel 3 on the TV  
+clause dscr: channel [   TV | relation: Null ]
+words: channel TV
+verb: channel
+arg mapping: (TV,Tv_1)
+<end clause>

@@ -1,0 +1,51 @@
+entire sentence: , Turn stove   on ,  Grab   pot   and bring   to sink   , , , ,  Fill pot with water   ,  Put pot on stove   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Turn stove  
+clause dscr: Turn [   stove | relation: Null ]
+words: Turn stove
+verb: Turn
+arg mapping: (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 3
+sent:  and bring  
+clause dscr: bring [ relation: Null ]
+words: bring
+verb: bring
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 4
+end env: 3
+sent:  to sink  
+clause dscr: sink [ relation: Null ]
+words: sink
+verb: sink
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 5
+end env: 5
+sent:  . Fill pot with water  
+clause dscr: Fill [   pot |   water | relation: (2, 2){ pot x  water -> with} ]
+words: Fill pot water with
+verb: Fill
+arg mapping: (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 3
+sent:  . Put pot on stove  
+clause dscr: Put [   pot |   stove | relation: (2, 2){ pot x  stove -> on} ]
+words: Put pot stove on
+verb: Put
+arg mapping: (pot,Kettle) (stove,Stove)
+<end clause>

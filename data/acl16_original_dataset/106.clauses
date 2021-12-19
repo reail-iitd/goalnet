@@ -1,0 +1,51 @@
+entire sentence: , Grab a cup,   and fill the cup with milk   , ,   Next grab a bowl ,   Fill the bowl with cereal   ,   Slowly add milk to the same bowl   ,  Put the cup and bowl next to each other, along with a spoon   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Grab a cup,  
+clause dscr: Grab [   cup | relation: Null ]
+words: Grab cup
+verb: Grab
+arg mapping: (cup,LongCup_1) (cup,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 4
+sent:  and fill the cup with milk  
+clause dscr: fill [   cup |   milk | relation: (2, 2){ cup x  milk -> with} ]
+words: fill cup milk with
+verb: fill
+arg mapping: (cup,LongCup_1) (cup,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 4
+sent:  .  Next grab a bowl .  Fill the bowl with cereal  
+clause dscr: grab [   Next | relation: Null ]
+words: grab Next
+verb: grab
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 5
+end env: 4
+sent:  .  Slowly add milk to the same bowl  
+clause dscr: add [   milk |   bowl | relation: (2, 2){ milk x  bowl -> to} ]
+words: add milk bowl to
+verb: add
+arg mapping: (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 4
+sent:  . Put the cup and bowl next to each other, along with a spoon  
+clause dscr: Put [   cup |   bowl |   spoon | relation: (3, 3){ cup x  bowl -> and}{ cup x  spoon -> to}{ bowl x  spoon -> to} ]
+words: Put cup bowl spoon and to to
+verb: Put
+arg mapping: (cup,LongCup_1) (cup,LongCup_2) (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2) (spoon,Spoon_1)
+<end clause>

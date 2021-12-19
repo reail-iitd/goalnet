@@ -1,0 +1,21 @@
+entire sentence: , Get coke and boiled egg out of the fridge   ,  Serve it   
+
+<start clause>
+start env: 0
+end env: 6
+sent: Get coke and boiled egg out of the fridge  
+clause dscr: Get [   coke |   egg |   fridge | relation: (3, 3){ coke x  egg -> and}{ coke x  fridge -> of}{ egg x  fridge -> of} ]
+words: Get coke egg fridge and of of
+verb: Get
+arg mapping: (coke,Coke_1) (egg,BoiledEgg_1) (fridge,Fridge)
+<end clause>
+
+<start clause>
+start env: 18
+end env: 17
+sent:  . Serve it  
+clause dscr: Serve [   it | relation: Null ]
+words: Serve it
+verb: Serve
+arg mapping: (it,FridgeLeftDoor) (it,FridgeRightDoor) (it,Coke_1) (it,BoiledEgg_1)
+<end clause>

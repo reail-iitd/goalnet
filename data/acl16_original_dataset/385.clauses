@@ -1,0 +1,31 @@
+entire sentence: , Arrange pillows over the couch   ,  Turn on xbox   and serve coca-cola   , 
+
+<start clause>
+start env: 13
+end env: 12
+sent: Arrange pillows over the couch  
+clause dscr: Arrange [   pillows |   couch | relation: (2, 2){ pillows x  couch -> over} ]
+words: Arrange pillows couch over
+verb: Arrange
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (pillows,Pillow_4) (couch,Loveseat_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 22
+sent:  . Turn on xbox  
+clause dscr: Turn [   xbox | relation: Null ]
+words: Turn xbox
+verb: Turn
+arg mapping: (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 35
+end env: 37
+sent:  and serve coca-cola  
+clause dscr: serve [   coca-cola | relation: Null ]
+words: serve coca-cola
+verb: serve
+arg mapping: 
+<end clause>

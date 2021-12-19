@@ -1,0 +1,51 @@
+entire sentence: , Find kettle   ,  Fill kettle 2/3 full with water   ,  Place kettle on any stove burner   ,  Turn stove burner with kettle on it   on ,  Wait until water boils   , , 
+
+<start clause>
+start env: 0
+end env: 4
+sent: Find kettle  
+clause dscr: Find [   kettle | relation: Null ]
+words: Find kettle
+verb: Find
+arg mapping: (kettle,Kettle)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 7
+sent:  . Fill kettle 2/3 full with water  
+clause dscr: Fill [   water | relation: Null ]
+words: Fill water
+verb: Fill
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 8
+end env: 19
+sent:  . Place kettle on any stove burner  
+clause dscr: Place [   kettle |   stove burner | relation: (2, 2){ kettle x  stove burner -> on} ]
+words: Place kettle stove burner on
+verb: Place
+arg mapping: (kettle,Kettle) (stove burner,Stove) (stove burner,StoveKnob_1) (stove burner,StoveKnob_2) (stove burner,StoveKnob_3) (stove burner,StoveKnob_4) (stove burner,StoveFire_1) (stove burner,StoveFire_2) (stove burner,StoveFire_3) (stove burner,StoveFire_4)
+<end clause>
+
+<start clause>
+start env: 20
+end env: 21
+sent:  . Turn stove burner with kettle on it  
+clause dscr: Turn [   stove |   burner |   kettle |   it | relation: (4, 4){ stove x  burner -> with}{ stove x  kettle -> with}{ stove x  it -> with}{ burner x  kettle -> with}{ burner x  it -> with}{ kettle x  it -> on} ]
+words: Turn stove burner kettle it with with with with with on
+verb: Turn
+arg mapping: (stove,Stove) (kettle,Kettle)
+<end clause>
+
+<start clause>
+start env: 21
+end env: 20
+sent: 
+clause dscr: Wait [ relation: Null ]
+words: Wait
+verb: Wait
+arg mapping: 
+<end clause>

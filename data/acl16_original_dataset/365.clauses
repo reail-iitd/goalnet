@@ -1,0 +1,101 @@
+entire sentence: , Put all of the dishes into the sink   and wash   them , ,  Then, stack the dishes   near the sink to dry   , ,  Next, do the same with the silverware,   stacking them next to the dishes   , ,  Follow   that by washing the cups/mugs/glasses/kettle, and put them near the other items to dry that by washing the cups/mugs/glasses/kettle, and put them near the other items   to dry   , , , , , , ,  Then, pick up the other items on the counter (salt, syrup, etc), and place them near the fridge on the counter   , 
+
+<start clause>
+start env: 0
+end env: 33
+sent: Put all of the dishes into the sink  
+clause dscr: Put [   dishes |   sink | relation: (2, 2){ dishes x  sink -> into} ]
+words: Put dishes sink into
+verb: Put
+arg mapping: (dishes,Bowl_1) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 34
+end env: 34
+sent:  and wash  
+clause dscr: wash [ relation: Null ]
+words: wash
+verb: wash
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 35
+end env: 34
+sent:  them . Then, stack the dishes  
+clause dscr: Then [ relation: Null ]
+words: Then
+verb: Then
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 35
+end env: 65
+sent:  near the sink to dry  
+clause dscr: dry [   sink | relation: Null ]
+words: dry sink
+verb: dry
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 66
+end env: 65
+sent:  . Next, do the same with the silverware,  
+clause dscr: do [   silverware | relation: Null ]
+words: do silverware
+verb: do
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 66
+end env: 65
+sent:  stacking them next to the dishes  
+clause dscr: stacking [   dishes | relation: Null ]
+words: stacking dishes
+verb: stacking
+arg mapping: (dishes,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 66
+end env: 65
+sent:  . Follow  
+clause dscr: Follow [ relation: Null ]
+words: Follow
+verb: Follow
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 66
+end env: 65
+sent:  that by washing the cups/mugs/glasses/kettle, and put them near the other items to dry that by washing the cups/mugs/glasses/kettle, and put them near the other items  
+clause dscr: washing [   cups/mugs/glasses | relation: Null ]
+words: washing cups/mugs/glasses
+verb: washing
+arg mapping: (cups/mugs/glasses,Mug_1) (cups/mugs/glasses,Glass_1) (cups/mugs/glasses,LongCup_1) (cups/mugs/glasses,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 66
+end env: 65
+sent:  to dry  
+clause dscr: dry [ relation: Null ]
+words: dry
+verb: dry
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 73
+end env: 72
+sent:  . Then, pick up the other items on the counter (salt, syrup, etc), and place them near the fridge on the counter  
+clause dscr: pick [   items |   counter salt syrup etc | relation: (2, 2){ items x  counter salt syrup etc -> on} ]
+words: pick items counter salt syrup etc on
+verb: pick
+arg mapping: (counter salt syrup etc,Counter_1) (counter salt syrup etc,Syrup_1) (counter salt syrup etc,Syrup_2) (counter salt syrup etc,Salt_1)
+<end clause>

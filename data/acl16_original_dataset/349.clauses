@@ -1,0 +1,121 @@
+entire sentence: , Find the movie,   open the case   , ,   Open the XBOX disk tray   ,   Put the DVD in the tray   and close it   , ,   Turn on the TV   ,   Clear all non-food or drink items from the coffee table   ,   Bring all drink items to the coffee table   ,   Bring the bowl to the coffee table   ,   Open the bag of chips   and pour the contents into the bowl until it's   full , , , ,   Divide the pillows up evenly among the chairs   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Find the movie,  
+clause dscr: Find [   movie | relation: Null ]
+words: Find movie
+verb: Find
+arg mapping: (movie,Book_1) (movie,Book_2)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  open the case  
+clause dscr: open [   case | relation: Null ]
+words: open case
+verb: open
+arg mapping: (case,GarbageBag_1) (case,GarbageBin_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  .  Open the XBOX disk tray  
+clause dscr: Open [   XBOX disk tray | relation: Null ]
+words: Open XBOX disk tray
+verb: Open
+arg mapping: (XBOX disk tray,XboxController_1) (XBOX disk tray,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 4
+sent:  .  Put the DVD in the tray  
+clause dscr: Put [   DVD |   tray | relation: (2, 2){ DVD x  tray -> in} ]
+words: Put DVD tray in
+verb: Put
+arg mapping: (DVD,Cd_2) (DVD,Cd_1) (tray,GarbageBag_1) (tray,GarbageBin_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  and close it  
+clause dscr: close [   it | relation: Null ]
+words: close it
+verb: close
+arg mapping: (it,Cd_2)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  .  Turn on the TV  
+clause dscr: Turn [   TV | relation: Null ]
+words: Turn TV
+verb: Turn
+arg mapping: (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  .  Clear all non-food or drink items from the coffee table  
+clause dscr: Clear [   drink items |   coffee table | relation: (2, 2){ drink items x  coffee table -> from} ]
+words: Clear drink items coffee table from
+verb: Clear
+arg mapping: (coffee table,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  .  Bring all drink items to the coffee table  
+clause dscr: Bring [   drink |   items |   coffee table | relation: (3, 3){ drink x  items -> to}{ drink x  coffee table -> to}{ items x  coffee table -> to} ]
+words: Bring drink items coffee table to to to
+verb: Bring
+arg mapping: (drink,CoffeeTable_1) (coffee table,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  .  Bring the bowl to the coffee table  
+clause dscr: Bring [   bowl |   coffee table | relation: (2, 2){ bowl x  coffee table -> to} ]
+words: Bring bowl coffee table to
+verb: Bring
+arg mapping: (bowl,Bowl_1) (coffee table,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  .  Open the bag of chips  
+clause dscr: Open [   bag |   chips | relation: (2, 2){ bag x  chips -> of} ]
+words: Open bag chips of
+verb: Open
+arg mapping: (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent: 
+clause dscr: pour [   contents |   bowl | relation: (2, 2){ contents x  bowl -> into} ]
+words: pour contents bowl into
+verb: pour
+arg mapping: (bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 4
+sent:  full .  Divide the pillows up evenly among the chairs  
+clause dscr: Divide [   pillows |   chairs | relation: (2, 2){ pillows x  chairs -> among} ]
+words: Divide pillows chairs among
+verb: Divide
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (chairs,Armchair_1) (chairs,Armchair_2)
+<end clause>

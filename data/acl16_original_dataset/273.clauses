@@ -1,0 +1,31 @@
+entire sentence: , Put some water into the kettle   and use the stove   to heat the kettle   , , 
+
+<start clause>
+start env: 0
+end env: 4
+sent: Put some water into the kettle  
+clause dscr: Put [   water |   kettle | relation: (2, 2){ water x  kettle -> into} ]
+words: Put water kettle into
+verb: Put
+arg mapping: (kettle,Kettle)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 8
+sent:  and use the stove  
+clause dscr: use [   stove | relation: Null ]
+words: use stove
+verb: use
+arg mapping: (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 10
+sent:  to heat the kettle  
+clause dscr: heat [   kettle | relation: Null ]
+words: heat kettle
+verb: heat
+arg mapping: (kettle,Kettle)
+<end clause>

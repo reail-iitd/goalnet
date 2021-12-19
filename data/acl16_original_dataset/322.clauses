@@ -1,0 +1,41 @@
+entire sentence: , Fill the long cup with ramen   ,  Read the instructions on the ramen container   to find out the necessary amount of water and microwaving time   , ,  Add the water to the long cup and microwave   
+
+<start clause>
+start env: 0
+end env: 3
+sent: Fill the long cup with ramen  
+clause dscr: Fill [   cup |   ramen | relation: (2, 2){ cup x  ramen -> with} ]
+words: Fill cup ramen with
+verb: Fill
+arg mapping: (cup,LongCup_1) (cup,LongCup_2) (ramen,Ramen_1)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 15
+sent:  . Read the instructions on the ramen container  
+clause dscr: Read [   instructions |   ramen container | relation: (2, 2){ instructions x  ramen container -> on} ]
+words: Read instructions ramen container on
+verb: Read
+arg mapping: (ramen container,Ramen_1) (ramen container,InstantRamen_1)
+<end clause>
+
+<start clause>
+start env: 16
+end env: 15
+sent:  to find out the necessary amount of water and microwaving time  
+clause dscr: find [   amount |   water | relation: (2, 2){ amount x  water -> of} ]
+words: find amount water of
+verb: find
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 22
+end env: 21
+sent:  . Add the water to the long cup and microwave  
+clause dscr: Add [   water |   cup |   microwave | relation: (3, 3){ water x  cup -> to}{ water x  microwave -> to}{ cup x  microwave -> and} ]
+words: Add water cup microwave to to and
+verb: Add
+arg mapping: (cup,LongCup_1) (cup,LongCup_2) (microwave,Microwave)
+<end clause>

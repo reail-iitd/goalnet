@@ -1,0 +1,11 @@
+entire sentence: , give me a cup of tea   
+
+<start clause>
+start env: 1
+end env: 0
+sent: give me a cup of tea  
+clause dscr: give [   cup |   tea | relation: (2, 2){ cup x  tea -> of} ]
+words: give cup tea of
+verb: give
+arg mapping: (cup,Bowl_1)
+<end clause>

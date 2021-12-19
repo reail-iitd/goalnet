@@ -1,0 +1,41 @@
+entire sentence: , Make   sure the TV is turned   off, take the chips   and pour its contents in the bowl,   and arrange the needed books on the table   , , , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: Make  
+clause dscr: Make [ relation: Null ]
+words: Make
+verb: Make
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  off, take the chips  
+clause dscr: take [   chips | relation: Null ]
+words: take chips
+verb: take
+arg mapping: (chips,BagOfChips_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  and pour its contents in the bowl,  
+clause dscr: pour [   contents |   bowl | relation: (2, 2){ contents x  bowl -> in} ]
+words: pour contents bowl in
+verb: pour
+arg mapping: (bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 13
+sent:  and arrange the needed books on the table  
+clause dscr: arrange [   books |   table | relation: (2, 2){ books x  table -> on} ]
+words: arrange books table on
+verb: arrange
+arg mapping: (books,Book_1) (books,Book_2) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

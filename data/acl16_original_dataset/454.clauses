@@ -1,0 +1,35 @@
+entire sentence: , I am Hungry , I will make some breakfast   , ,  Do you also want something?
+Lets   make a Tea , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: I am Hungry , I will make some breakfast  
+clause dscr: am [ relation: Null ]
+words: am
+verb: am
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 31
+end env: 30
+sent:  . Do you also want something?
+Lets  
+clause dscr: Do [ relation: Null ]
+words: Do
+verb: Do
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 31
+end env: 30
+sent:  make a Tea .
+What about Cereals?
+Would you like to eat on the table or on the couch? .
+clause dscr: make [   Tea |   Cereals | relation: (2, 2){ Tea x  Cereals -> about} ]
+words: make Tea Cereals about
+verb: make
+arg mapping: 
+<end clause>

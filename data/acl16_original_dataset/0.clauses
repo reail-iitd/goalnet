@@ -1,0 +1,71 @@
+entire sentence: , Take pot on counter   and fill it with water from the sink   , ,  Place the pot on a burner on the stove   ,  Turn on the burner   and let the water boil   , ,  Once it is boiling,   open the lid of the ramen cup   and pour boiling water in until it reaches the top of the container   , , , , 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Take pot on counter  
+clause dscr: Take [   pot |   counter | relation: (2, 2){ pot x  counter -> on} ]
+words: Take pot counter on
+verb: Take
+arg mapping: (pot,Kettle) (counter,Counter_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 7
+sent:  and fill it with water from the sink  
+clause dscr: fill [   it |   water |   sink | relation: (3, 3){ it x  water -> with}{ it x  sink -> with}{ water x  sink -> from} ]
+words: fill it water sink with with from
+verb: fill
+arg mapping: (it,Kettle) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 11
+sent:  . Place the pot on a burner on the stove  
+clause dscr: Place [   pot |   burner |   stove | relation: (3, 3){ pot x  burner -> on}{ pot x  stove -> on}{ burner x  stove -> on} ]
+words: Place pot burner stove on on on
+verb: Place
+arg mapping: (pot,Kettle) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 19
+sent:  . Turn on the burner  
+clause dscr: Turn [   burner | relation: Null ]
+words: Turn burner
+verb: Turn
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 20
+end env: 19
+sent:  and let the water boil  
+clause dscr: let [   water boil | relation: Null ]
+words: let water boil
+verb: let
+arg mapping: (water boil,BoiledEgg_1)
+<end clause>
+
+<start clause>
+start env: 20
+end env: 19
+sent:  open the lid of the ramen cup  
+clause dscr: open [   lid |   ramen cup | relation: (2, 2){ lid x  ramen cup -> of} ]
+words: open lid ramen cup of
+verb: open
+arg mapping: (ramen cup,Ramen_1) (ramen cup,LongCup_1) (ramen cup,LongCup_2) (ramen cup,InstantRamen_1)
+<end clause>
+
+<start clause>
+start env: 20
+end env: 24
+sent: 
+clause dscr: pour [   water | relation: Null ]
+words: pour water
+verb: pour
+arg mapping: (water,Kettle)
+<end clause>

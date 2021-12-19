@@ -1,0 +1,81 @@
+entire sentence: , clear the table   ,   Bring all non-alcoholic drinks to the table   ,   Bring the bowl to the table   ,  Open the chips   and pour them into the bowl   until it filled   , , , ,   Bring all books to the table   ,  Turn off the TV   if needed   , , ,   Bring all chairs around the table   
+
+<start clause>
+start env: 0
+end env: 9
+sent: clear the table  
+clause dscr: clear [   table | relation: Null ]
+words: clear table
+verb: clear
+arg mapping: (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 16
+sent:  .  Bring all non-alcoholic drinks to the table  
+clause dscr: Bring [   drinks |   table | relation: (2, 2){ drinks x  table -> to} ]
+words: Bring drinks table to
+verb: Bring
+arg mapping: (drinks,CoffeeTable_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 17
+end env: 16
+sent:  .  Bring the bowl to the table  
+clause dscr: Bring [   bowl |   table | relation: (2, 2){ bowl x  table -> to} ]
+words: Bring bowl table to
+verb: Bring
+arg mapping: (bowl,GarbageBag_1) (bowl,GarbageBin_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 17
+end env: 18
+sent:  . Open the chips  
+clause dscr: Open [   chips | relation: Null ]
+words: Open chips
+verb: Open
+arg mapping: (chips,BagOfChips_1)
+<end clause>
+
+<start clause>
+start env: 18
+end env: 17
+sent:  and pour them into the bowl  
+clause dscr: pour [   bowl | relation: Null ]
+words: pour bowl
+verb: pour
+arg mapping: (bowl,GarbageBag_1) (bowl,GarbageBin_1)
+<end clause>
+
+<start clause>
+start env: 18
+end env: 17
+sent:  .  Bring all books to the table  
+clause dscr: Bring [   books |   table | relation: (2, 2){ books x  table -> to} ]
+words: Bring books table to
+verb: Bring
+arg mapping: (books,Book_1) (books,Book_2) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 18
+end env: 17
+sent:  . Turn off the TV  
+clause dscr: Turn [   TV | relation: Null ]
+words: Turn TV
+verb: Turn
+arg mapping: (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 18
+end env: 17
+sent:  .  Bring all chairs around the table  
+clause dscr: Bring [   chairs |   table | relation: (2, 2){ chairs x  table -> around} ]
+words: Bring chairs table around
+verb: Bring
+arg mapping: (chairs,Armchair_1) (chairs,Armchair_2) (chairs,Armchair_3) (chairs,Armchair_4) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

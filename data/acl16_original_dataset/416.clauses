@@ -1,0 +1,31 @@
+entire sentence: , Put egg on plate   ,  Bring me plate with egg on it   ,  Bring me a coke   
+
+<start clause>
+start env: 0
+end env: 9
+sent: Put egg on plate  
+clause dscr: Put [   egg |   plate | relation: (2, 2){ egg x  plate -> on} ]
+words: Put egg plate on
+verb: Put
+arg mapping: (egg,BoiledEgg_1) (plate,Plate_1) (plate,Plate_2)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 9
+sent:  . Bring me plate with egg on it  
+clause dscr: Bring [   plate |   egg |   it | relation: (3, 3){ plate x  egg -> with}{ plate x  it -> with}{ egg x  it -> on} ]
+words: Bring plate egg it with with on
+verb: Bring
+arg mapping: (plate,Plate_1) (plate,Plate_2) (egg,BoiledEgg_1) (it,FridgeLeftDoor) (it,FridgeRightDoor) (it,Plate_2) (it,BoiledEgg_1)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 14
+sent:  . Bring me a coke  
+clause dscr: Bring [   coke | relation: Null ]
+words: Bring coke
+verb: Bring
+arg mapping: (coke,Coke_1)
+<end clause>

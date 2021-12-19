@@ -1,0 +1,81 @@
+entire sentence: , Set up the TV   with the Xbox turned   on ,  Put a music CD into the Xbox   and play   , ,  Put the bowl with chips on the table   ,  Put all drinks and foods on the table   ,  Put the garbage bag into the garbage bin   Put the garbage bag into the garbage bin , ,  Put all books and CDs on the group on shelves   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Set up the TV  
+clause dscr: Set [   TV | relation: Null ]
+words: Set TV
+verb: Set
+arg mapping: (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  with the Xbox turned  
+clause dscr: turned [   Xbox | relation: Null ]
+words: turned Xbox
+verb: turned
+arg mapping: (Xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 11
+sent:  on . Put a music CD into the Xbox  
+clause dscr: Put [   music |   CD |   Xbox | relation: (3, 3){ music x  CD -> into}{ music x  Xbox -> into}{ CD x  Xbox -> into} ]
+words: Put music CD Xbox into into into
+verb: Put
+arg mapping: (CD,Cd_2) (CD,Cd_1) (Xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  and play  
+clause dscr: play [ relation: Null ]
+words: play
+verb: play
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . Put the bowl with chips on the table  
+clause dscr: Put [   bowl |   chips |   table | relation: (3, 3){ bowl x  chips -> with}{ bowl x  table -> with}{ chips x  table -> on} ]
+words: Put bowl chips table with with on
+verb: Put
+arg mapping: (bowl,Bowl_1) (chips,BagOfChips_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . Put all drinks and foods on the table  
+clause dscr: Put [   drinks |   foods |   table | relation: (3, 3){ drinks x  foods -> and}{ drinks x  table -> on}{ foods x  table -> on} ]
+words: Put drinks foods table and on on
+verb: Put
+arg mapping: (drinks,CoffeeTable_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . Put the garbage bag into the garbage bin 
+clause dscr: Put [   garbage |   bag |   garbage bin | relation: (3, 3){ garbage x  bag -> into}{ garbage x  garbage bin -> into}{ bag x  garbage bin -> into} ]
+words: Put garbage bag garbage bin into into into
+verb: Put
+arg mapping: (garbage,GarbageBag_1) (garbage,GarbageBin_1) (bag,BagOfChips_1) (bag,GarbageBag_1) (garbage bin,GarbageBin_1)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:   Put the garbage bag into the garbage bin . Put all books and CDs on the group on shelves  
+clause dscr: Put [   garbage |   bag |   garbage | relation: (3, 3){ garbage x  bag -> into}{ garbage x  garbage -> into}{ bag x  garbage -> into} ]
+words: Put garbage bag garbage into into into
+verb: Put
+arg mapping: (garbage,GarbageBag_1) (garbage,GarbageBin_1) (bag,BagOfChips_1) (bag,GarbageBag_1) (garbage,GarbageBag_1) (garbage,GarbageBin_1)
+<end clause>

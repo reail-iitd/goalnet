@@ -1,0 +1,51 @@
+entire sentence: , put chairs in front of TV   ,   Put DVD in player   ,   Put pillows on chairs   ,   Put table between chairs and TV   ,   Put food and drinks on table   ,   lower lights   
+
+<start clause>
+start env: 0
+end env: -1
+sent: put chairs in front of TV  
+clause dscr: put [   chairs |   front |   TV | relation: (3, 3){ chairs x  front -> in}{ chairs x  TV -> in}{ front x  TV -> of} ]
+words: put chairs front TV in in of
+verb: put
+arg mapping: (chairs,Armchair_1) (chairs,Armchair_2) (chairs,Armchair_3) (chairs,Armchair_4) (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: 8
+sent:  .  Put DVD in player  
+clause dscr: Put [   DVD |   player | relation: (2, 2){ DVD x  player -> in} ]
+words: Put DVD player in
+verb: Put
+arg mapping: (DVD,Cd_2) (DVD,Cd_1)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 16
+sent:  .  Put pillows on chairs  
+clause dscr: Put [   pillows |   chairs | relation: (2, 2){ pillows x  chairs -> on} ]
+words: Put pillows chairs on
+verb: Put
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (pillows,Pillow_4) (chairs,Armchair_1) (chairs,Armchair_2) (chairs,Armchair_3) (chairs,Armchair_4)
+<end clause>
+
+<start clause>
+start env: 17
+end env: 16
+sent:  .  Put table between chairs and TV  
+clause dscr: Put [   table |   chairs |   TV | relation: (3, 3){ table x  chairs -> between}{ table x  TV -> between}{ chairs x  TV -> and} ]
+words: Put table chairs TV between between and
+verb: Put
+arg mapping: (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1) (chairs,Armchair_1) (chairs,Armchair_2) (chairs,Armchair_3) (chairs,Armchair_4) (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 17
+end env: 19
+sent:  .  Put food and drinks on table  
+clause dscr: Put [   food |   drinks |   table | relation: (3, 3){ food x  drinks -> and}{ food x  table -> on}{ drinks x  table -> on} ]
+words: Put food drinks table and on on
+verb: Put
+arg mapping: (drinks,CoffeeTable_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

@@ -1,0 +1,21 @@
+entire sentence: , Put pillows on couch   ,  Put beer and chips in trash   can 
+
+<start clause>
+start env: 0
+end env: 10
+sent: Put pillows on couch  
+clause dscr: Put [   pillows |   couch | relation: (2, 2){ pillows x  couch -> on} ]
+words: Put pillows couch on
+verb: Put
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (pillows,Pillow_4) (couch,Loveseat_1)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 17
+sent:  . Put beer and chips in trash  
+clause dscr: Put [   beer |   chips |   trash | relation: (3, 3){ beer x  chips -> and}{ beer x  trash -> in}{ chips x  trash -> in} ]
+words: Put beer chips trash and in in
+verb: Put
+arg mapping: (beer,Beer_1) (chips,BagOfChips_1)
+<end clause>

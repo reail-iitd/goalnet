@@ -1,0 +1,81 @@
+entire sentence: , Place the TV remote on the center table   ,  Bring the xBox and Xbox controllers   in front of the television ,  Plug in the Xbox to the television   and activate all game controllers   , ,  Place the controllers on the center table   ,  Place the bowl of food, beer, and coke on the center table   ,  Fix the pillows on the couch   ,  Put the garbage bag inside the garbage bin and place the bin near the two seater couch  Put the garbage bag inside the garbage bin and place the bin near the two seater   couch , , , 
+
+<start clause>
+start env: 0
+end env: 3
+sent: Place the TV remote on the center table  
+clause dscr: Place [   TV |   remote |   center table | relation: (3, 3){ TV x  remote -> on}{ TV x  center table -> on}{ remote x  center table -> on} ]
+words: Place TV remote center table on on on
+verb: Place
+arg mapping: (TV,Tv_1) (remote,Tv_1Remote_1) (remote,Tv_1Remote_1PowerButton) (remote,Tv_1Remote_1ChannelUpButton) (remote,Tv_1Remote_1ChannelDownButton) (remote,Tv_1Remote_1VolumeUpButton) (remote,Tv_1Remote_1VolumeDownButton) (remote,Tv_1Remote_1MuteButton) (center table,CoffeeTable_1) (center table,TvTable_1) (center table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 6
+end env: 12
+sent:  . Bring the xBox and Xbox controllers  
+clause dscr: Bring [   xBox |   Xbox controllers | relation: (3, 3){ xBox x  Xbox -> and}{ xBox x  controllers -> and} ]
+words: Bring xBox Xbox controllers and and
+verb: Bring
+arg mapping: (xBox,Xbox_1) (Xbox controllers,XboxController_1)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  in front of the television . Plug in the Xbox to the television  
+clause dscr: Plug [   front |   television | relation: (2, 2){ front x  television -> of} ]
+words: Plug front television of
+verb: Plug
+arg mapping: (television,Tv_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  and activate all game controllers  
+clause dscr: activate [   and |   game controllers | relation: (2, 2) ]
+words: activate and game controllers
+verb: activate
+arg mapping: (game controllers,XboxController_1)
+<end clause>
+
+<start clause>
+start env: 23
+end env: 28
+sent:  . Place the controllers on the center table  
+clause dscr: Place [   controllers |   center table | relation: (2, 2){ controllers x  center table -> on} ]
+words: Place controllers center table on
+verb: Place
+arg mapping: (controllers,XboxController_1) (center table,CoffeeTable_1) (center table,TvTable_1) (center table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 29
+end env: 28
+sent:  . Place the bowl of food, beer, and coke on the center table  
+clause dscr: Place [   bowl |   food |   beer coke |   center table | relation: (4, 4){ bowl x  food -> of}{ bowl x  beer coke -> of}{ bowl x  center table -> of}{ food x  beer coke -> ,}{ food x  center table -> ,}{ beer coke x  center table -> ,} ]
+words: Place bowl food beer coke center table of of of , , ,
+verb: Place
+arg mapping: (bowl,Bowl_1) (beer coke,Coke_1) (beer coke,Beer_1) (center table,CoffeeTable_1) (center table,TvTable_1) (center table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 29
+end env: 31
+sent:  . Fix the pillows on the couch  
+clause dscr: Fix [   pillows |   couch | relation: (2, 2){ pillows x  couch -> on} ]
+words: Fix pillows couch on
+verb: Fix
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (couch,Loveseat_1)
+<end clause>
+
+<start clause>
+start env: 35
+end env: 42
+sent:  . Put the garbage bag inside the garbage bin and place the bin near the two seater couch  Put the garbage bag inside the garbage bin and place the bin near the two seater  
+clause dscr: Put [   garbage |   bag |   garbage bin | relation: (3, 3){ garbage x  bag -> inside}{ garbage x  garbage bin -> inside}{ bag x  garbage bin -> inside} ]
+words: Put garbage bag garbage bin inside inside inside
+verb: Put
+arg mapping: (garbage,GarbageBag_1) (garbage,GarbageBin_1) (bag,BagOfChips_1) (bag,GarbageBag_1) (garbage bin,GarbageBin_1)
+<end clause>

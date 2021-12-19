@@ -1,0 +1,41 @@
+entire sentence: , Arrange couches in front of the TV,   put the Far Cry game inside the Xbox,   turn on the TV and the Xbox,   and put out Coke cans   and open the chips bag   , , , , 
+
+<start clause>
+start env: 0
+end env: -1
+sent:  put the Far Cry game inside the Xbox,  
+clause dscr: put [   Far |   Cry |   game |   Xbox | relation: (4, 4){ Far x  Cry -> inside}{ Far x  game -> inside}{ Far x  Xbox -> inside}{ Cry x  game -> inside}{ Cry x  Xbox -> inside}{ game x  Xbox -> inside} ]
+words: put Far Cry game Xbox inside inside inside inside inside inside
+verb: put
+arg mapping: (Xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 14
+sent:  turn on the TV and the Xbox,  
+clause dscr: turn [   TV |   Xbox | relation: (2, 2){ TV x  Xbox -> and} ]
+words: turn TV Xbox and
+verb: turn
+arg mapping: (TV,Tv_1) (Xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 6
+sent:  and put out Coke cans  
+clause dscr: put [   Coke cans | relation: Null ]
+words: put Coke cans
+verb: put
+arg mapping: (Coke cans,Coke_1)
+<end clause>
+
+<start clause>
+start env: 22
+end env: 21
+sent:  and open the chips bag  
+clause dscr: open [   chips bag | relation: Null ]
+words: open chips bag
+verb: open
+arg mapping: (chips bag,BagOfChips_1) (chips bag,GarbageBag_1)
+<end clause>

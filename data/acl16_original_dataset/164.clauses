@@ -1,0 +1,51 @@
+entire sentence: , Place the pot in the sink   and turn on tap until the pot   is 80 percent full then turn off the tap   , until, until, ,  Place the pot on the stove   ,  Turn on the stove until the water temperature is 100 degrees   celcius , until, 
+
+<start clause>
+start env: 0
+end env: 6
+sent: Place the pot in the sink  
+clause dscr: Place [   pot |   sink | relation: (2, 2){ pot x  sink -> in} ]
+words: Place pot sink in
+verb: Place
+arg mapping: (pot,Kettle) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 7
+sent: 
+clause dscr: turn [   tap | relation: Null ]
+words: turn tap
+verb: turn
+arg mapping: (tap,Plate_1) (tap,Plate_2)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  is 80 percent full then turn off the tap  
+clause dscr: turn [   percent |   tap | relation: (2, 2) ]
+words: turn percent tap
+verb: turn
+arg mapping: (tap,Plate_1) (tap,Plate_2)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 18
+sent:  . Place the pot on the stove  
+clause dscr: Place [   pot |   stove | relation: (2, 2){ pot x  stove -> on} ]
+words: Place pot stove on
+verb: Place
+arg mapping: (pot,Kettle) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 20
+sent: 
+clause dscr: Turn [   stove | relation: Null ]
+words: Turn stove
+verb: Turn
+arg mapping: (stove,Stove)
+<end clause>

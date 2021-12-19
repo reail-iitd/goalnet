@@ -1,0 +1,41 @@
+entire sentence: , Turn on the kettle   ,  Pick up the instant ramen   ,  Put it inside a pot   ,  Pour the water from the kettle   
+
+<start clause>
+start env: 0
+end env: 6
+sent: Turn on the kettle  
+clause dscr: Turn [   kettle | relation: Null ]
+words: Turn kettle
+verb: Turn
+arg mapping: (kettle,Kettle)
+<end clause>
+
+<start clause>
+start env: 31
+end env: 32
+sent:  . Pick up the instant ramen  
+clause dscr: Pick [   ramen | relation: Null ]
+words: Pick ramen
+verb: Pick
+arg mapping: (ramen,Ramen_1)
+<end clause>
+
+<start clause>
+start env: 34
+end env: 33
+sent:  . Put it inside a pot  
+clause dscr: Put [   it |   pot | relation: (2, 2){ it x  pot -> inside} ]
+words: Put it pot inside
+verb: Put
+arg mapping: (it,Kettle) (it,Syrup_2) (it,InstantRamen_1) (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 43
+end env: 43
+sent:  . Pour the water from the kettle  
+clause dscr: Pour [   water |   kettle | relation: (2, 2){ water x  kettle -> from} ]
+words: Pour water kettle from
+verb: Pour
+arg mapping: (water,Kettle) (kettle,Kettle)
+<end clause>

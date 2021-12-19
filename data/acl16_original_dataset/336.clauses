@@ -1,0 +1,61 @@
+entire sentence: , Put the xbox in front of the TV   and hook up the wires   and plug it into an outlet   , , ,  Plug the controller into the xbox   and put it on the table in front of the couch   , ,  Change the input   of the TV to display the xbox   , 
+
+<start clause>
+start env: 0
+end env: 3
+sent: Put the xbox in front of the TV  
+clause dscr: Put [   xbox |   front |   TV | relation: (3, 3){ xbox x  front -> in}{ xbox x  TV -> in}{ front x  TV -> of} ]
+words: Put xbox front TV in in of
+verb: Put
+arg mapping: (xbox,Xbox_1) (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 9
+sent:  and hook up the wires  
+clause dscr: hook [   wires | relation: Null ]
+words: hook wires
+verb: hook
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 10
+end env: 9
+sent:  and plug it into an outlet  
+clause dscr: plug [   it |   outlet | relation: (2, 2){ it x  outlet -> into} ]
+words: plug it outlet into
+verb: plug
+arg mapping: (it,Loveseat_1) (it,XboxController_1) (it,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 12
+sent:  . Plug the controller into the xbox  
+clause dscr: Plug [   controller |   xbox | relation: (2, 2){ controller x  xbox -> into} ]
+words: Plug controller xbox into
+verb: Plug
+arg mapping: (controller,XboxController_1) (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  and put it on the table in front of the couch  
+clause dscr: put [   it |   table |   front |   couch | relation: (4, 4){ it x  table -> on}{ it x  front -> on}{ it x  couch -> on}{ table x  front -> in}{ table x  couch -> in}{ front x  couch -> of} ]
+words: put it table front couch on on on in in of
+verb: put
+arg mapping: (it,Loveseat_1) (it,XboxController_1) (it,Xbox_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1) (couch,Loveseat_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  of the TV to display the xbox  
+clause dscr: display [   TV xbox | relation: Null ]
+words: display TV xbox
+verb: display
+arg mapping: (TV xbox,TvTable_1) (TV xbox,Tv_1) (TV xbox,Tv_1Remote_1) (TV xbox,XboxController_1) (TV xbox,Xbox_1) (TV xbox,Tv_1PowerButton) (TV xbox,Tv_1ChannelUpButton) (TV xbox,Tv_1ChannelDownButton) (TV xbox,Tv_1VolumeUpButton) (TV xbox,Tv_1VolumeDownButton) (TV xbox,Tv_1Remote_1PowerButton) (TV xbox,Tv_1Remote_1ChannelUpButton) (TV xbox,Tv_1Remote_1ChannelDownButton) (TV xbox,Tv_1Remote_1VolumeUpButton) (TV xbox,Tv_1Remote_1VolumeDownButton) (TV xbox,Tv_1Remote_1MuteButton)
+<end clause>

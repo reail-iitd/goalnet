@@ -1,0 +1,35 @@
+entire sentence: , Put the book on the table   , 
+Shut down the TV   , 
+Put away the coke and the beer   
+
+<start clause>
+start env: 0
+end env: 10
+sent: Put the book on the table  
+clause dscr: Put [   book |   table | relation: (2, 2){ book x  table -> on} ]
+words: Put book table on
+verb: Put
+arg mapping: (book,Book_1) (book,Book_2) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 12
+sent:  .
+Shut down the TV  
+clause dscr: Shut [   TV | relation: Null ]
+words: Shut TV
+verb: Shut
+arg mapping: (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 18
+sent:  .
+Put away the coke and the beer  
+clause dscr: Put [   coke |   beer | relation: (2, 2){ coke x  beer -> and} ]
+words: Put coke beer and
+verb: Put
+arg mapping: (coke,Coke_1) (beer,Beer_1)
+<end clause>

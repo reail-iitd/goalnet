@@ -1,0 +1,59 @@
+entire sentence: , Pick up coffee mug   , 
+Pick up ice cream   , 
+Put ice cream in coffee mug   , 
+Pick up syrup   , 
+Put syrup in coffee mug   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Pick up coffee mug  
+clause dscr: Pick [   coffee mug | relation: Null ]
+words: Pick coffee mug
+verb: Pick
+arg mapping: (coffee mug,Mug_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 5
+sent:  .
+Pick up ice cream  
+clause dscr: Pick [   ice cream | relation: Null ]
+words: Pick ice cream
+verb: Pick
+arg mapping: (ice cream,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 19
+sent:  .
+Put ice cream in coffee mug  
+clause dscr: Put [   ice |   cream |   coffee mug | relation: (3, 3){ ice x  cream -> in}{ ice x  coffee mug -> in}{ cream x  coffee mug -> in} ]
+words: Put ice cream coffee mug in in in
+verb: Put
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (coffee mug,Mug_1)
+<end clause>
+
+<start clause>
+start env: 21
+end env: 22
+sent:  .
+Pick up syrup  
+clause dscr: Pick [   syrup | relation: Null ]
+words: Pick syrup
+verb: Pick
+arg mapping: (syrup,Syrup_1) (syrup,Syrup_2)
+<end clause>
+
+<start clause>
+start env: 23
+end env: 23
+sent:  .
+Put syrup in coffee mug  
+clause dscr: Put [   syrup |   coffee mug | relation: (2, 2){ syrup x  coffee mug -> in} ]
+words: Put syrup coffee mug in
+verb: Put
+arg mapping: (syrup,Syrup_1) (syrup,Syrup_2) (coffee mug,Mug_1)
+<end clause>

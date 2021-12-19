@@ -1,0 +1,31 @@
+entire sentence: , Move the books to the table   ,  Turn off the television   ,  Move the bowl to the table   
+
+<start clause>
+start env: 0
+end env: 3
+sent: Move the books to the table  
+clause dscr: Move [   books |   table | relation: (2, 2){ books x  table -> to} ]
+words: Move books table to
+verb: Move
+arg mapping: (books,Book_1) (books,Book_2) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 5
+sent:  . Turn off the television  
+clause dscr: Turn [   television | relation: Null ]
+words: Turn television
+verb: Turn
+arg mapping: (television,Tv_1)
+<end clause>
+
+<start clause>
+start env: 6
+end env: 8
+sent:  . Move the bowl to the table  
+clause dscr: Move [   bowl |   table | relation: (2, 2){ bowl x  table -> to} ]
+words: Move bowl table to
+verb: Move
+arg mapping: (bowl,Bowl_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

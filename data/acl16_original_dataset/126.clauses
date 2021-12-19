@@ -1,0 +1,11 @@
+entire sentence: , Use the kettle to boil water,  You can get water by using the tab, ,  Use stove to heat the kettle
+
+<start clause>
+start env: 6
+end env: 5
+sent: Use the kettle to boil water. You can get water by using the tab. Use stove to heat the kettle.
+clause dscr: Use [   kettle |   boil water | relation: (2, 2){ kettle x  boil water -> to} ]
+words: Use kettle boil water to
+verb: Use
+arg mapping: (kettle,Kettle) (boil water,BoiledEgg_1)
+<end clause>

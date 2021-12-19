@@ -1,0 +1,31 @@
+entire sentence: , Put away the chocolate syrup   ,  Place the glassware and mugs into the sink   ,  Put the pots   away 
+
+<start clause>
+start env: 0
+end env: 2
+sent: Put away the chocolate syrup  
+clause dscr: Put [   chocolate syrup | relation: Null ]
+words: Put chocolate syrup
+verb: Put
+arg mapping: (chocolate syrup,Syrup_1) (chocolate syrup,Syrup_2)
+<end clause>
+
+<start clause>
+start env: 3
+end env: 15
+sent:  . Place the glassware and mugs into the sink  
+clause dscr: Place [   glassware |   mugs |   sink | relation: (3, 3){ glassware x  mugs -> and}{ glassware x  sink -> into}{ mugs x  sink -> into} ]
+words: Place glassware mugs sink and into into
+verb: Place
+arg mapping: (glassware,Glass_1) (mugs,Mug_1) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 16
+end env: 18
+sent:  . Put the pots  
+clause dscr: Put [   pots | relation: Null ]
+words: Put pots
+verb: Put
+arg mapping: (pots,Kettle)
+<end clause>

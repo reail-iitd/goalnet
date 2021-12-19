@@ -1,0 +1,41 @@
+entire sentence: , Throw out beer and coke   ,  Throw out trash bag   ,  Fluff pillows on couch   and stand them up , ,  Put Book of records on shelf with other books   Put Book of records on shelf with other books , 
+
+<start clause>
+start env: 0
+end env: 7
+sent: Throw out beer and coke  
+clause dscr: Throw [   beer |   coke | relation: (2, 2){ beer x  coke -> and} ]
+words: Throw beer coke and
+verb: Throw
+arg mapping: (beer,Beer_1) (coke,Coke_1)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  . Throw out trash bag  
+clause dscr: Throw [   trash bag | relation: Null ]
+words: Throw trash bag
+verb: Throw
+arg mapping: (trash bag,BagOfChips_1) (trash bag,GarbageBag_1)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 10
+sent:  and stand them up . Put Book of records on shelf with other books 
+clause dscr: stand [ relation: Null ]
+words: stand
+verb: stand
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 18
+end env: 17
+sent:   Put Book of records on shelf with other books .  .
+clause dscr: Put [   Book |   records |   shelf |   books | relation: (4, 4){ Book x  records -> of}{ Book x  shelf -> of}{ Book x  books -> of}{ records x  shelf -> on}{ records x  books -> on}{ shelf x  books -> with} ]
+words: Put Book records shelf books of of of on on with
+verb: Put
+arg mapping: (Book,Book_1) (Book,Book_2) (records,Book_1) (records,Book_2) (shelf,Shelf_1) (shelf,Shelf_2) (books,Book_1) (books,Book_2)
+<end clause>

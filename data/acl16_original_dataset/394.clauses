@@ -1,0 +1,41 @@
+entire sentence: , get out ramen in the fridge   and then put it on the plate   , ,  Add sauce   and then mix it   , 
+
+<start clause>
+start env: 0
+end env: 4
+sent: get out ramen in the fridge  
+clause dscr: get [   ramen |   fridge | relation: (2, 2){ ramen x  fridge -> in} ]
+words: get ramen fridge in
+verb: get
+arg mapping: (ramen,Ramen_1) (fridge,Fridge)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 21
+sent:  and then put it on the plate  
+clause dscr: put [   it |   plate | relation: (2, 2){ it x  plate -> on} ]
+words: put it plate on
+verb: put
+arg mapping: (it,FridgeLeftDoor) (it,FridgeRightDoor) (it,Ramen_1) (plate,Plate_1) (plate,Plate_2)
+<end clause>
+
+<start clause>
+start env: 27
+end env: 26
+sent:  . Add sauce  
+clause dscr: Add [   sauce | relation: Null ]
+words: Add sauce
+verb: Add
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 39
+end env: 38
+sent:  and then mix it  
+clause dscr: mix [   it | relation: Null ]
+words: mix it
+verb: mix
+arg mapping: (it,Kettle) (it,Syrup_1) (it,Plate_2)
+<end clause>

@@ -1,0 +1,41 @@
+entire sentence: , Put the beer and coke into the garbage bag   ,  Empty the contents of the bowl into the garbage bag   ,  Put the garbage bag into the garbage bin   Put the garbage bag into the garbage bin , ,  Turn off the TV   
+
+<start clause>
+start env: 0
+end env: 6
+sent: Put the beer and coke into the garbage bag  
+clause dscr: Put [   beer |   coke |   garbage bag | relation: (3, 3){ beer x  coke -> and}{ beer x  garbage bag -> into}{ coke x  garbage bag -> into} ]
+words: Put beer coke garbage bag and into into
+verb: Put
+arg mapping: (beer,Beer_1) (coke,Coke_1) (garbage bag,GarbageBag_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 6
+sent:  . Empty the contents of the bowl into the garbage bag  
+clause dscr: Empty [   contents |   bowl |   garbage bag | relation: (3, 3){ contents x  bowl -> of}{ contents x  garbage bag -> of}{ bowl x  garbage bag -> into} ]
+words: Empty contents bowl garbage bag of of into
+verb: Empty
+arg mapping: (bowl,Bowl_1) (garbage bag,GarbageBag_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 9
+sent:  . Put the garbage bag into the garbage bin 
+clause dscr: Put [   garbage |   bag |   garbage bin | relation: (3, 3){ garbage x  bag -> into}{ garbage x  garbage bin -> into}{ bag x  garbage bin -> into} ]
+words: Put garbage bag garbage bin into into into
+verb: Put
+arg mapping: (garbage,GarbageBag_1) (garbage,GarbageBin_1) (bag,BagOfChips_1) (bag,GarbageBag_1) (garbage bin,GarbageBin_1)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 10
+sent:   Put the garbage bag into the garbage bin . Turn off the TV  
+clause dscr: Put [   garbage |   bag |   garbage | relation: (3, 3){ garbage x  bag -> into}{ garbage x  garbage -> into}{ bag x  garbage -> into} ]
+words: Put garbage bag garbage into into into
+verb: Put
+arg mapping: (garbage,GarbageBag_1) (garbage,GarbageBin_1) (bag,BagOfChips_1) (bag,GarbageBag_1) (garbage,GarbageBag_1) (garbage,GarbageBin_1)
+<end clause>

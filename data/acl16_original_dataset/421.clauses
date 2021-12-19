@@ -1,0 +1,51 @@
+entire sentence: , Grab CD   ,  Turn music   on ,  Arrange pillow on couch   ,  Dispose garbage bag   ,  Arrange books on table   
+
+<start clause>
+start env: 0
+end env: 3
+sent: Grab CD  
+clause dscr: Grab [   CD | relation: Null ]
+words: Grab CD
+verb: Grab
+arg mapping: (CD,Cd_2) (CD,Cd_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 12
+sent:  . Turn music  
+clause dscr: Turn [   music | relation: Null ]
+words: Turn music
+verb: Turn
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 13
+end env: 18
+sent:  . Arrange pillow on couch  
+clause dscr: Arrange [   pillow |   couch | relation: (2, 2){ pillow x  couch -> on} ]
+words: Arrange pillow couch on
+verb: Arrange
+arg mapping: (pillow,Pillow_1) (pillow,Pillow_2) (pillow,Pillow_3) (couch,Loveseat_1)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 18
+sent:  . Dispose garbage bag  
+clause dscr: Dispose [   garbage bag | relation: Null ]
+words: Dispose garbage bag
+verb: Dispose
+arg mapping: (garbage bag,GarbageBag_1)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 21
+sent:  . Arrange books on table  
+clause dscr: Arrange [   books |   table | relation: (2, 2){ books x  table -> on} ]
+words: Arrange books table on
+verb: Arrange
+arg mapping: (books,Book_1) (books,Book_2) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

@@ -1,0 +1,131 @@
+entire sentence: , clear all tables and the floor   and put the contents on the shelves   , ,   Take any drinks   and put them on the coffee table   , ,   Take the chip bowl   and place it near the drinks   , ,  Open the chips,   and pour them into the chip bowl until it   is full , , , ,  Place the bag near the bowl   ,   Turn the volume   to full ,   Move all chairs and tables to the edge of the room   ,   Make sure the chairs are rotated so that they face the room's center   , , 
+
+<start clause>
+start env: 0
+end env: 10
+sent: clear all tables and the floor  
+clause dscr: clear [   tables |   floor | relation: (2, 2){ tables x  floor -> and} ]
+words: clear tables floor and
+verb: clear
+arg mapping: (tables,CoffeeTable_1) (tables,TvTable_1) (tables,SnackTable_1) (floor,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 10
+sent:  and put the contents on the shelves  
+clause dscr: put [   contents |   shelves | relation: (2, 2){ contents x  shelves -> on} ]
+words: put contents shelves on
+verb: put
+arg mapping: (shelves,Shelf_1) (shelves,Shelf_2)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 18
+sent:  .  Take any drinks  
+clause dscr: Take [   drinks | relation: Null ]
+words: Take drinks
+verb: Take
+arg mapping: (drinks,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 18
+sent:  and put them on the coffee table  
+clause dscr: put [   coffee table | relation: Null ]
+words: put coffee table
+verb: put
+arg mapping: (coffee table,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 16
+end env: 22
+sent:  .  Take the chip bowl  
+clause dscr: Take [   chip bowl | relation: Null ]
+words: Take chip bowl
+verb: Take
+arg mapping: (chip bowl,BagOfChips_1) (chip bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 22
+end env: 21
+sent:  and place it near the drinks  
+clause dscr: place [   it |   drinks | relation: (2, 2){ it x  drinks -> near} ]
+words: place it drinks near
+verb: place
+arg mapping: (it,CoffeeTable_1) (it,BagOfChips_1) (it,Bowl_1) (it,Beer_1) (drinks,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 22
+end env: 21
+sent:  . Open the chips,  
+clause dscr: Open [   chips | relation: Null ]
+words: Open chips
+verb: Open
+arg mapping: (chips,BagOfChips_1)
+<end clause>
+
+<start clause>
+start env: 22
+end env: 21
+sent: 
+clause dscr: pour [   chip bowl | relation: Null ]
+words: pour chip bowl
+verb: pour
+arg mapping: (chip bowl,BagOfChips_1) (chip bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 22
+end env: 22
+sent:  is full . Place the bag near the bowl  
+clause dscr: Place [   bag |   bowl | relation: (2, 2){ bag x  bowl -> near} ]
+words: Place bag bowl near
+verb: Place
+arg mapping: (bag,BagOfChips_1) (bag,GarbageBag_1) (bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 23
+end env: 24
+sent: 
+clause dscr: Change [   TV channel | relation: Null ]
+words: Change TV channel
+verb: Change
+arg mapping: (TV channel,TvTable_1) (TV channel,Tv_1) (TV channel,Tv_1Remote_1) (TV channel,Tv_1PowerButton) (TV channel,Tv_1ChannelUpButton) (TV channel,Tv_1ChannelDownButton) (TV channel,Tv_1VolumeUpButton) (TV channel,Tv_1VolumeDownButton) (TV channel,Tv_1Remote_1PowerButton) (TV channel,Tv_1Remote_1ChannelUpButton) (TV channel,Tv_1Remote_1ChannelDownButton) (TV channel,Tv_1Remote_1VolumeUpButton) (TV channel,Tv_1Remote_1VolumeDownButton) (TV channel,Tv_1Remote_1MuteButton)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  .  Turn the volume  
+clause dscr: Turn [   volume | relation: Null ]
+words: Turn volume
+verb: Turn
+arg mapping: (volume,Tv_1VolumeUpButton) (volume,Tv_1VolumeDownButton) (volume,Tv_1Remote_1VolumeUpButton) (volume,Tv_1Remote_1VolumeDownButton)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  to full .  Move all chairs and tables to the edge of the room  
+clause dscr: Move [   chairs |   tables |   edge |   room | relation: (4, 4){ chairs x  tables -> and}{ chairs x  edge -> to}{ chairs x  room -> to}{ tables x  edge -> to}{ tables x  room -> to}{ edge x  room -> of} ]
+words: Move chairs tables edge room and to to to to of
+verb: Move
+arg mapping: (chairs,Armchair_1) (chairs,Armchair_2) (chairs,Armchair_3) (chairs,Armchair_4) (tables,CoffeeTable_1) (tables,TvTable_1) (tables,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  .  Make sure the chairs are rotated so that they face the room's center  
+clause dscr: Make [ relation: Null ]
+words: Make
+verb: Make
+arg mapping: 
+<end clause>

@@ -1,0 +1,11 @@
+entire sentence: , what i can do   for you? 
+
+<start clause>
+start env: 57
+end env: 56
+sent: what i can do  
+clause dscr: do [   i | relation: Null ]
+words: do i
+verb: do
+arg mapping: 
+<end clause>

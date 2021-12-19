@@ -1,0 +1,51 @@
+entire sentence: , Take all silverware, plates, cups, and pots   and place them in the sink   , ,  Empty the contents of the cups and pot   ,  Place the syrup bottles in the refrigerator   ,  Put the ramen in the cabinet   
+
+<start clause>
+start env: 0
+end env: 28
+sent: Take all silverware, plates, cups, and pots  
+clause dscr: Take [   silverware |   plates |   cups |   pots | relation: (4, 4){ silverware x  plates -> ,}{ silverware x  cups -> ,}{ silverware x  pots -> ,}{ plates x  cups -> ,}{ plates x  pots -> ,}{ cups x  pots -> ,} ]
+words: Take silverware plates cups pots , , , , , ,
+verb: Take
+arg mapping: (plates,Plate_1) (plates,Plate_2) (cups,LongCup_1) (cups,LongCup_2) (pots,Kettle)
+<end clause>
+
+<start clause>
+start env: 41
+end env: 40
+sent:  and place them in the sink  
+clause dscr: place [   sink | relation: Null ]
+words: place sink
+verb: place
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 51
+end env: 50
+sent:  . Empty the contents of the cups and pot  
+clause dscr: Empty [   contents |   cups |   pot | relation: (3, 3){ contents x  cups -> of}{ contents x  pot -> of}{ cups x  pot -> and} ]
+words: Empty contents cups pot of of and
+verb: Empty
+arg mapping: (cups,LongCup_1) (cups,LongCup_2) (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 51
+end env: 61
+sent:  . Place the syrup bottles in the refrigerator  
+clause dscr: Place [   syrup |   bottles |   refrigerator | relation: (3, 3){ syrup x  bottles -> in}{ syrup x  refrigerator -> in}{ bottles x  refrigerator -> in} ]
+words: Place syrup bottles refrigerator in in in
+verb: Place
+arg mapping: (syrup,Syrup_1) (syrup,Syrup_2) (refrigerator,Fridge)
+<end clause>
+
+<start clause>
+start env: 68
+end env: 67
+sent:  . Put the ramen in the cabinet  
+clause dscr: Put [   ramen |   cabinet | relation: (2, 2){ ramen x  cabinet -> in} ]
+words: Put ramen cabinet in
+verb: Put
+arg mapping: (ramen,Ramen_1) (cabinet,Counter_1)
+<end clause>

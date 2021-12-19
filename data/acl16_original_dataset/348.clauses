@@ -1,0 +1,71 @@
+entire sentence: , Boil water   ,  Add egg   and wait 12 minutes   , ,  Remove egg from water and place on plate   ,  Make coffee   and pour coffee into mug   , ,  Place Spoon, coffee, and plate together on table   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Boil water  
+clause dscr: Boil [   water | relation: Null ]
+words: Boil water
+verb: Boil
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  . Add egg  
+clause dscr: Add [   egg | relation: Null ]
+words: Add egg
+verb: Add
+arg mapping: (egg,BoiledEgg_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  and wait 12 minutes  
+clause dscr: wait [   minutes | relation: Null ]
+words: wait minutes
+verb: wait
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  . Remove egg from water and place on plate  
+clause dscr: Remove [   egg |   water |   place |   plate | relation: (4, 4){ egg x  water -> from}{ egg x  place -> from}{ egg x  plate -> from}{ water x  place -> and}{ water x  plate -> on}{ place x  plate -> on} ]
+words: Remove egg water place plate from from from and on on
+verb: Remove
+arg mapping: (egg,BoiledEgg_1) (plate,Plate_1) (plate,Plate_2)
+<end clause>
+
+<start clause>
+start env: 15
+end env: 14
+sent:  . Make coffee  
+clause dscr: Make [   coffee | relation: Null ]
+words: Make coffee
+verb: Make
+arg mapping: (coffee,Mug_1) (coffee,LongCup_1)
+<end clause>
+
+<start clause>
+start env: 15
+end env: 14
+sent:  and pour coffee into mug  
+clause dscr: pour [   coffee |   mug | relation: (2, 2){ coffee x  mug -> into} ]
+words: pour coffee mug into
+verb: pour
+arg mapping: (coffee,Mug_1) (coffee,LongCup_1) (mug,Mug_1)
+<end clause>
+
+<start clause>
+start env: 18
+end env: 17
+sent:  . Place Spoon, coffee, and plate together on table  
+clause dscr: Place [   Spoon |   coffee plate |   table | relation: (3, 3){ Spoon x  coffee plate -> ,}{ Spoon x  table -> ,}{ coffee plate x  table -> ,} ]
+words: Place Spoon coffee plate table , , ,
+verb: Place
+arg mapping: (Spoon,Spoon_1) (coffee plate,Plate_1) (coffee plate,Plate_2) (table,Counter_1)
+<end clause>

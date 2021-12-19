@@ -1,0 +1,51 @@
+entire sentence: , Open fridge and freezer   and pick a drink   , ,  Remove boiled egg   as well and place on plate   , ,  Pour said drink in a long cup or mug   ,  Bring cup, plate, and possibly salt to whomever is eating, with plate   in one hand and drink in the other 
+
+<start clause>
+start env: 0
+end env: 2
+sent: Open fridge and freezer  
+clause dscr: Open [   fridge |   freezer | relation: (2, 2){ fridge x  freezer -> and} ]
+words: Open fridge freezer and
+verb: Open
+arg mapping: (fridge,Fridge) (freezer,Fridge)
+<end clause>
+
+<start clause>
+start env: 3
+end env: 4
+sent:  and pick a drink  
+clause dscr: pick [   drink | relation: Null ]
+words: pick drink
+verb: pick
+arg mapping: (drink,EnergyDrink_1)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 6
+sent:  . Remove boiled egg  
+clause dscr: Remove [   egg | relation: Null ]
+words: Remove egg
+verb: Remove
+arg mapping: (egg,BoiledEgg_1)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 10
+sent:  . Pour said drink in a long cup or mug  
+clause dscr: said [   Pour |   drink |   cup |   mug | relation: (4, 4){ Pour x  drink -> in}{ Pour x  cup -> in}{ Pour x  mug -> in}{ drink x  cup -> in}{ drink x  mug -> in}{ cup x  mug -> or} ]
+words: said Pour drink cup mug in in in in in or
+verb: said
+arg mapping: (drink,EnergyDrink_1) (cup,LongCup_1) (cup,LongCup_2) (mug,Mug_1)
+<end clause>
+
+<start clause>
+start env: 25
+end env: 24
+sent:  . Bring cup, plate, and possibly salt to whomever is eating, with plate  
+clause dscr: eating [   cup |   plate |   salt whomever |   plate | relation: (4, 4){ cup x  plate -> ,}{ cup x  salt whomever -> ,}{ cup x  plate -> ,}{ plate x  salt whomever -> ,}{ plate x  plate -> ,}{ salt whomever x  plate -> ,} ]
+words: eating cup plate salt whomever plate , , , , , ,
+verb: eating
+arg mapping: (cup,LongCup_1) (cup,LongCup_2) (plate,Plate_1) (plate,Plate_2) (salt whomever,Salt_1) (plate,Plate_1) (plate,Plate_2)
+<end clause>

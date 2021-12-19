@@ -1,0 +1,32 @@
+entire sentence: , Put the pot on the stove   , 
+Turn on the stove until the water is 100 degrees   celcius , , ,  Turn off the stove   
+
+<start clause>
+start env: 0
+end env: 6
+sent: Put the pot on the stove  
+clause dscr: Put [   pot |   stove | relation: (2, 2){ pot x  stove -> on} ]
+words: Put pot stove on
+verb: Put
+arg mapping: (pot,Kettle) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 8
+sent: 
+clause dscr: Turn [   stove | relation: Null ]
+words: Turn stove
+verb: Turn
+arg mapping: (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  celcius . Turn off the stove  
+clause dscr: Turn [   celcius |   stove | relation: (2, 2) ]
+words: Turn celcius stove
+verb: Turn
+arg mapping: (stove,Stove)
+<end clause>

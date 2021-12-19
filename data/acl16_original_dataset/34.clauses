@@ -1,0 +1,61 @@
+entire sentence: , Take   coffee pot pour into the mug   , ,  Take   spoon from counter scoop the ice cream   , ,  Put ice cream to the mug   ,  Pour syrup to the mug   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Take  
+clause dscr: Take [ relation: Null ]
+words: Take
+verb: Take
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  coffee pot pour into the mug  
+clause dscr: pour [   coffee pot |   mug | relation: (2, 2){ coffee pot x  mug -> into} ]
+words: pour coffee pot mug into
+verb: pour
+arg mapping: (mug,Mug_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . Take  
+clause dscr: Take [ relation: Null ]
+words: Take
+verb: Take
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  spoon from counter scoop the ice cream  
+clause dscr: scoop [   spoon |   counter |   ice cream | relation: (3, 3){ spoon x  counter -> from}{ spoon x  ice cream -> from} ]
+words: scoop spoon counter ice cream from from
+verb: scoop
+arg mapping: (spoon,Spoon_1) (counter,Counter_1) (ice cream,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . Put ice cream to the mug  
+clause dscr: Put [   ice |   cream |   mug | relation: (3, 3){ ice x  cream -> to}{ ice x  mug -> to}{ cream x  mug -> to} ]
+words: Put ice cream mug to to to
+verb: Put
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (mug,Mug_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . Pour syrup to the mug  
+clause dscr: Pour [   syrup |   mug | relation: (2, 2){ syrup x  mug -> to} ]
+words: Pour syrup mug to
+verb: Pour
+arg mapping: (syrup,Syrup_1) (syrup,Syrup_2) (mug,Mug_1)
+<end clause>

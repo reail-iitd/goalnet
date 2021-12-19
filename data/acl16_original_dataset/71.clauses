@@ -1,0 +1,61 @@
+entire sentence: , Turn the TV   on and change the channel to one with music   , ,  Get food   and put it on the coffee table   , ,  Pick up the controller on the floor and place on the table   ,  Throw out the bottle   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Turn the TV  
+clause dscr: Turn [   TV | relation: Null ]
+words: Turn TV
+verb: Turn
+arg mapping: (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 2
+sent:  on and change the channel to one with music  
+clause dscr: change [   channel |   music | relation: (2, 2){ channel x  music -> to} ]
+words: change channel music to
+verb: change
+arg mapping: (channel,Tv_1ChannelUpButton) (channel,Tv_1ChannelDownButton) (channel,Tv_1Remote_1ChannelUpButton) (channel,Tv_1Remote_1ChannelDownButton)
+<end clause>
+
+<start clause>
+start env: 3
+end env: 2
+sent:  . Get food  
+clause dscr: Get [   food | relation: Null ]
+words: Get food
+verb: Get
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 3
+end env: 2
+sent:  and put it on the coffee table  
+clause dscr: put [   it |   coffee table | relation: (2, 2){ it x  coffee table -> on} ]
+words: put it coffee table on
+verb: put
+arg mapping: (it,Tv_1) (it,Tv_1PowerButton) (it,Tv_1ChannelDownButton) (coffee table,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 3
+end env: 6
+sent:  . Pick up the controller on the floor and place on the table  
+clause dscr: Pick [   controller |   floor |   place |   table | relation: (4, 4){ controller x  floor -> on}{ controller x  place -> on}{ controller x  table -> on}{ floor x  place -> and}{ floor x  table -> on}{ place x  table -> on} ]
+words: Pick controller floor place table on on on and on on
+verb: Pick
+arg mapping: (controller,XboxController_1) (floor,Bowl_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 10
+sent:  . Throw out the bottle  
+clause dscr: Throw [   bottle | relation: Null ]
+words: Throw bottle
+verb: Throw
+arg mapping: (bottle,Bowl_1)
+<end clause>

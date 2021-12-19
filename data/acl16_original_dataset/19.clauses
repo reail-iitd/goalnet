@@ -1,0 +1,21 @@
+entire sentence: , put xbox and xboxController into the TV   stand ,  Throw the trash bag into the garbage bin   
+
+<start clause>
+start env: 0
+end env: 3
+sent: put xbox and xboxController into the TV  
+clause dscr: put [   xbox |   xboxController |   TV | relation: (3, 3){ xbox x  xboxController -> and}{ xbox x  TV -> into}{ xboxController x  TV -> into} ]
+words: put xbox xboxController TV and into into
+verb: put
+arg mapping: (xbox,Xbox_1) (xboxController,XboxController_1) (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 6
+end env: 5
+sent:  stand . Throw the trash bag into the garbage bin  
+clause dscr: stand [ relation: Null ]
+words: stand
+verb: stand
+arg mapping: 
+<end clause>

@@ -1,0 +1,31 @@
+entire sentence: , Take the coffee   ,  Pour it to the mug   ,  Put ice cream and the syrup to the mug   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Take the coffee  
+clause dscr: Take [   coffee | relation: Null ]
+words: Take coffee
+verb: Take
+arg mapping: (coffee,Mug_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  . Pour it to the mug  
+clause dscr: Pour [   it |   mug | relation: (2, 2){ it x  mug -> to} ]
+words: Pour it mug to
+verb: Pour
+arg mapping: (mug,Mug_1)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 13
+sent:  . Put ice cream and the syrup to the mug  
+clause dscr: Put [   ice cream |   syrup |   mug | relation: (3, 3){ ice cream x  syrup -> and}{ ice cream x  mug -> to}{ syrup x  mug -> to} ]
+words: Put ice cream syrup mug and to to
+verb: Put
+arg mapping: (ice cream,IceCream_1) (syrup,Syrup_1) (syrup,Syrup_2) (mug,Mug_1)
+<end clause>

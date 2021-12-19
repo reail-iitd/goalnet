@@ -1,0 +1,41 @@
+entire sentence: , Plug the xbox into the TV   ,  Turn on the Xbox and the TV   ,  Put the bowl of chips and bag of chips on the table   Put the bowl of chips and bag of chips on the table , ,  Put the xbox controller on table   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Plug the xbox into the TV  
+clause dscr: Plug [   xbox |   TV | relation: (2, 2){ xbox x  TV -> into} ]
+words: Plug xbox TV into
+verb: Plug
+arg mapping: (xbox,Xbox_1) (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 3
+sent:  . Turn on the Xbox and the TV  
+clause dscr: Turn [   Xbox |   TV | relation: (2, 2){ Xbox x  TV -> and} ]
+words: Turn Xbox TV and
+verb: Turn
+arg mapping: (Xbox,Xbox_1) (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 4
+sent:  . Put the bowl of chips and bag of chips on the table 
+clause dscr: Put [   bowl |   chips |   bag |   chips |   table | relation: (5, 5){ bowl x  chips -> of}{ bowl x  bag -> of}{ bowl x  chips -> of}{ bowl x  table -> of}{ chips x  bag -> and}{ chips x  chips -> of}{ chips x  table -> of}{ bag x  chips -> of}{ bag x  table -> of}{ chips x  table -> on} ]
+words: Put bowl chips bag chips table of of of of and of of of of on
+verb: Put
+arg mapping: (bowl,Bowl_1) (chips,BagOfChips_1) (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 4
+sent:   Put the bowl of chips and bag of chips on the table . Put the xbox controller on table  
+clause dscr: Put [   bowl |   chips |   bag |   chips |   table | relation: (5, 5){ bowl x  chips -> of}{ bowl x  bag -> of}{ bowl x  chips -> of}{ bowl x  table -> of}{ chips x  bag -> and}{ chips x  chips -> of}{ chips x  table -> of}{ bag x  chips -> of}{ bag x  table -> of}{ chips x  table -> on} ]
+words: Put bowl chips bag chips table of of of of and of of of of on
+verb: Put
+arg mapping: (bowl,Bowl_1) (chips,BagOfChips_1) (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

@@ -1,0 +1,21 @@
+entire sentence: , Put the used dishes and cups in the sink   and place all the items neatly on the counter and place all the items neatly on the counter   , , 
+
+<start clause>
+start env: 5
+end env: 4
+sent: Put the used dishes and cups in the sink  
+clause dscr: Put [   dishes |   cups |   sink | relation: (3, 3){ dishes x  cups -> and}{ dishes x  sink -> in}{ cups x  sink -> in} ]
+words: Put dishes cups sink and in in
+verb: Put
+arg mapping: (dishes,Spoon_1) (dishes,Glass_1) (dishes,LongCup_1) (dishes,LongCup_2) (cups,LongCup_1) (cups,LongCup_2) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 13
+sent:  and place all the items neatly on the counter and place all the items neatly on the counter  
+clause dscr: place [   items |   counter | relation: (2, 2){ items x  counter -> on} ]
+words: place items counter on
+verb: place
+arg mapping: (counter,Counter_1) (counter,Counter1_1)
+<end clause>

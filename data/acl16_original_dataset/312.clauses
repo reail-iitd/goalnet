@@ -1,0 +1,61 @@
+entire sentence: , Put the pot in the sink   and then fill it up with water   , ,  Put the pot on the stove   and then turn on the stove   , ,  Get the ramen   and put it in pot   when the water in the pot is boiling   , , , 
+
+<start clause>
+start env: 0
+end env: 6
+sent: Put the pot in the sink  
+clause dscr: Put [   pot |   sink | relation: (2, 2){ pot x  sink -> in} ]
+words: Put pot sink in
+verb: Put
+arg mapping: (pot,Kettle) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 7
+sent:  and then fill it up with water  
+clause dscr: fill [   it |   water | relation: (2, 2){ it x  water -> with} ]
+words: fill it water with
+verb: fill
+arg mapping: (it,Sink) (it,Kettle)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 11
+sent:  . Put the pot on the stove  
+clause dscr: Put [   pot |   stove | relation: (2, 2){ pot x  stove -> on} ]
+words: Put pot stove on
+verb: Put
+arg mapping: (pot,Kettle) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 13
+sent:  and then turn on the stove  
+clause dscr: turn [   stove | relation: Null ]
+words: turn stove
+verb: turn
+arg mapping: (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 18
+sent:  . Get the ramen  
+clause dscr: Get [   ramen | relation: Null ]
+words: Get ramen
+verb: Get
+arg mapping: (ramen,Ramen_1)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 19
+sent:  and put it in pot  
+clause dscr: put [   it |   pot | relation: (2, 2){ it x  pot -> in} ]
+words: put it pot in
+verb: put
+arg mapping: (it,LongCup_2) (it,InstantRamen_1) (it,StoveKnob_3) (pot,Kettle)
+<end clause>

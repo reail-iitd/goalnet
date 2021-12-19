@@ -1,0 +1,21 @@
+entire sentence: , Turn off the tv   ,  Bring us the book and the bag of chips   
+
+<start clause>
+start env: 0
+end env: 5
+sent: Turn off the tv  
+clause dscr: Turn [   tv | relation: Null ]
+words: Turn tv
+verb: Turn
+arg mapping: (tv,Tv_1)
+<end clause>
+
+<start clause>
+start env: 6
+end env: 7
+sent:  . Bring us the book and the bag of chips  
+clause dscr: Bring [   book |   bag |   chips | relation: (3, 3){ book x  bag -> and}{ book x  chips -> of}{ bag x  chips -> of} ]
+words: Bring book bag chips and of of
+verb: Bring
+arg mapping: (book,Book_1) (book,Book_2) (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1)
+<end clause>

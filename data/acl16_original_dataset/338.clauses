@@ -1,0 +1,61 @@
+entire sentence: , Collect all books from the room   and place them on the coffee table   , ,  Turn off the TV   and put away the xbox   , ,  Place chips in the bowl   and put it on the coffee table   , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: Collect all books from the room  
+clause dscr: Collect [   books |   room | relation: (2, 2){ books x  room -> from} ]
+words: Collect books room from
+verb: Collect
+arg mapping: (books,Book_1) (books,Book_2) (books,Book_3)
+<end clause>
+
+<start clause>
+start env: 0
+end env: 10
+sent:  and place them on the coffee table  
+clause dscr: place [   coffee table | relation: Null ]
+words: place coffee table
+verb: place
+arg mapping: (coffee table,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 15
+sent:  . Turn off the TV  
+clause dscr: Turn [   TV | relation: Null ]
+words: Turn TV
+verb: Turn
+arg mapping: (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 16
+end env: 18
+sent:  and put away the xbox  
+clause dscr: put [   xbox | relation: Null ]
+words: put xbox
+verb: put
+arg mapping: (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 25
+sent:  . Place chips in the bowl  
+clause dscr: Place [   chips |   bowl | relation: (2, 2){ chips x  bowl -> in} ]
+words: Place chips bowl in
+verb: Place
+arg mapping: (chips,BagOfChips_1) (bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 29
+end env: 31
+sent:  and put it on the coffee table  
+clause dscr: put [   it |   coffee table | relation: (2, 2){ it x  coffee table -> on} ]
+words: put it coffee table on
+verb: put
+arg mapping: (it,SnackTable_1) (it,BagOfChips_1) (it,Bowl_1) (coffee table,CoffeeTable_1)
+<end clause>

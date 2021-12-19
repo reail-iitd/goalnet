@@ -1,0 +1,91 @@
+entire sentence: , Put the game in the xbox   and turn it   on , ,  Connect the xbox to the tv,   and turn   both on , ,  Put the chips in the bowl   and put it on the table   , ,  Bring all the drinks in the room   and put them on the table   , ,  Put all pillows on the couch   
+
+<start clause>
+start env: 0
+end env: 4
+sent: Put the game in the xbox  
+clause dscr: Put [   game |   xbox | relation: (2, 2){ game x  xbox -> in} ]
+words: Put game xbox in
+verb: Put
+arg mapping: (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 9
+sent:  and turn it  
+clause dscr: turn [   it | relation: Null ]
+words: turn it
+verb: turn
+arg mapping: (it,Xbox_1) (it,Cd_1)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 9
+sent:  on . Connect the xbox to the tv,  
+clause dscr: Connect [   xbox |   tv | relation: (2, 2){ xbox x  tv -> to} ]
+words: Connect xbox tv to
+verb: Connect
+arg mapping: (xbox,Xbox_1) (tv,Tv_1)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 9
+sent:  and turn  
+clause dscr: turn [ relation: Null ]
+words: turn
+verb: turn
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 10
+end env: 9
+sent:  both on . Put the chips in the bowl  
+clause dscr: Put [   chips |   bowl | relation: (2, 2){ chips x  bowl -> in} ]
+words: Put chips bowl in
+verb: Put
+arg mapping: (chips,BagOfChips_1) (bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 11
+sent:  and put it on the table  
+clause dscr: put [   it |   table | relation: (2, 2){ it x  table -> on} ]
+words: put it table on
+verb: put
+arg mapping: (it,Loveseat_1) (it,Xbox_1) (it,Cd_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 13
+sent:  . Bring all the drinks in the room  
+clause dscr: Bring [   drinks |   room | relation: (2, 2){ drinks x  room -> in} ]
+words: Bring drinks room in
+verb: Bring
+arg mapping: (drinks,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 15
+sent:  and put them on the table  
+clause dscr: put [   table | relation: Null ]
+words: put table
+verb: put
+arg mapping: (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 15
+end env: 14
+sent:  . Put all pillows on the couch  
+clause dscr: Put [   pillows |   couch | relation: (2, 2){ pillows x  couch -> on} ]
+words: Put pillows couch on
+verb: Put
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (couch,Loveseat_1)
+<end clause>

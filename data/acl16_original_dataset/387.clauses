@@ -1,0 +1,39 @@
+entire sentence: , Turn on tv
+Pick up pillow
+Place   the pillow on the couch
+Pick up bag of chips   and bowl
+put down bag of chips and bowl   on table , , , 
+
+<start clause>
+start env: 2
+end env: 8
+sent: Turn on tv
+Pick up pillow
+Place  
+clause dscr: Pick [   Turn |   tv |   pillow Place | relation: (3, 3){ Turn x  tv -> on}{ Turn x  pillow Place -> on} ]
+words: Pick Turn tv pillow Place on on
+verb: Pick
+arg mapping: (tv,Tv_1) (pillow Place,Pillow_1) (pillow Place,Pillow_2) (pillow Place,Pillow_3)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 8
+sent:  the pillow on the couch
+Pick up bag of chips  
+clause dscr: Pick [   pillow |   couch |   bag |   chips | relation: (4, 4){ pillow x  couch -> on}{ pillow x  bag -> on}{ pillow x  chips -> on}{ couch x  bag -> of}{ couch x  chips -> of}{ bag x  chips -> of} ]
+words: Pick pillow couch bag chips on on on of of of
+verb: Pick
+arg mapping: (pillow,Pillow_1) (pillow,Pillow_2) (pillow,Pillow_3) (couch,Loveseat_1) (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1)
+<end clause>
+
+<start clause>
+start env: 15
+end env: 14
+sent:  and bowl
+put down bag of chips and bowl  
+clause dscr: put [   bowl |   bag |   chips |   bowl | relation: (4, 4){ bowl x  bag -> of}{ bowl x  chips -> of}{ bowl x  bowl -> of}{ bag x  chips -> of}{ bag x  bowl -> of}{ chips x  bowl -> and} ]
+words: put bowl bag chips bowl of of of of of and
+verb: put
+arg mapping: (bowl,Bowl_1) (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1) (bowl,Bowl_1)
+<end clause>

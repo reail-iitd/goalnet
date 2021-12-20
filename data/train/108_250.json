@@ -639,8 +639,8 @@
     "delta_g_inv": [
         [],
         [
-            "(In IceCream_1 Fridge)",
-            "(Near Robot IceCream_1)"
+            "(Near Robot IceCream_1)",
+            "(In IceCream_1 Fridge)"
         ],
         [
             "(Grasping Robot IceCream_1)"

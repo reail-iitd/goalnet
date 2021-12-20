@@ -101,8 +101,8 @@
         [
             "(state Glass_1 Water)",
             "(state LongCup_1 Water)",
-            "(state Kettle Water)",
-            "(state SinkKnob TapIsOn)"
+            "(state SinkKnob TapIsOn)",
+            "(state Kettle Water)"
         ],
         []
     ],

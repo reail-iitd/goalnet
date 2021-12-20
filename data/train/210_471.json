@@ -490,21 +490,21 @@
             "(Grasping Robot Cd_1)"
         ],
         [
-            "(In Cd_1 Xbox_1)",
-            "(state Xbox_1 CD)"
+            "(state Xbox_1 CD)",
+            "(In Cd_1 Xbox_1)"
         ],
         []
     ],
     "delta_g_inv": [
         [],
         [
-            "(On Xbox_1 Armchair_3)",
-            "(Near Robot Xbox_1)"
+            "(Near Robot Xbox_1)",
+            "(On Xbox_1 Armchair_3)"
         ],
         [],
         [
-            "(On Book_2 Loveseat_1)",
-            "(Near Robot Book_2)"
+            "(Near Robot Book_2)",
+            "(On Book_2 Loveseat_1)"
         ],
         [],
         [

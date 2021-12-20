@@ -1410,8 +1410,8 @@
         ],
         [],
         [
-            "(Near Robot Glass_1)",
-            "(On Glass_1 StoveFire_1)"
+            "(On Glass_1 StoveFire_1)",
+            "(Near Robot Glass_1)"
         ],
         [
             "(Grasping Robot Glass_1)"
@@ -1423,8 +1423,8 @@
         ],
         [],
         [
-            "(On Plate_2 StoveFire_1)",
-            "(Near Robot Plate_2)"
+            "(Near Robot Plate_2)",
+            "(On Plate_2 StoveFire_1)"
         ],
         [
             "(Grasping Robot LongCup_2)"

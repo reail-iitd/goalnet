@@ -359,8 +359,8 @@
             "(Grasping Robot Xbox_1)"
         ],
         [
-            "(In Cd_1 Xbox_1)",
-            "(state Xbox_1 CD)"
+            "(state Xbox_1 CD)",
+            "(In Cd_1 Xbox_1)"
         ],
         [
             "(On Xbox_1 Loveseat_1)"
@@ -375,8 +375,8 @@
         ],
         [],
         [
-            "(Near Robot Xbox_1)",
-            "(On Xbox_1 Armchair_1)"
+            "(On Xbox_1 Armchair_1)",
+            "(Near Robot Xbox_1)"
         ],
         [
             "(Grasping Robot Cd_1)"

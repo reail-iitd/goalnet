@@ -250,13 +250,13 @@
     "delta_g_inv": [
         [],
         [
-            "(Near Robot Beer_1)",
-            "(On Beer_1 Armchair_3)"
+            "(On Beer_1 Armchair_3)",
+            "(Near Robot Beer_1)"
         ],
         [],
         [
-            "(Near Robot Bowl_1)",
-            "(In Bowl_1 GarbageBag_1)"
+            "(In Bowl_1 GarbageBag_1)",
+            "(Near Robot Bowl_1)"
         ],
         []
     ]

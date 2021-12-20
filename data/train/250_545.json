@@ -662,8 +662,8 @@
     "delta_g_inv": [
         [],
         [
-            "(Near Robot Pillow_3)",
-            "(On Pillow_3 Shelf_1)"
+            "(On Pillow_3 Shelf_1)",
+            "(Near Robot Pillow_3)"
         ],
         [],
         [
@@ -678,13 +678,13 @@
         ],
         [],
         [
-            "(Near Robot Pillow_1)",
-            "(On Pillow_1 Shelf_1)"
+            "(On Pillow_1 Shelf_1)",
+            "(Near Robot Pillow_1)"
         ],
         [],
         [
-            "(Near Robot Pillow_2)",
-            "(On Pillow_2 Loveseat_1)"
+            "(On Pillow_2 Loveseat_1)",
+            "(Near Robot Pillow_2)"
         ],
         [
             "(Grasping Robot Pillow_2)"

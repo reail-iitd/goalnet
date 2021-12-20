@@ -397,13 +397,13 @@
     "delta_g_inv": [
         [],
         [
-            "(On Book_2 Loveseat_1)",
-            "(Near Robot Book_2)"
+            "(Near Robot Book_2)",
+            "(On Book_2 Loveseat_1)"
         ],
         [],
         [
-            "(Near Robot BagOfChips_1)",
-            "(On BagOfChips_1 GarbageBin_1)"
+            "(On BagOfChips_1 GarbageBin_1)",
+            "(Near Robot BagOfChips_1)"
         ],
         [],
         [

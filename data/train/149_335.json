@@ -255,13 +255,13 @@
     "delta_g_inv": [
         [],
         [
-            "(Near Robot Tv_1Remote_1)",
-            "(On Tv_1Remote_1 Loveseat_1)"
+            "(On Tv_1Remote_1 Loveseat_1)",
+            "(Near Robot Tv_1Remote_1)"
         ],
         [],
         [
-            "(On Cd_1 Loveseat_2)",
-            "(Near Robot Cd_1)"
+            "(Near Robot Cd_1)",
+            "(On Cd_1 Loveseat_2)"
         ],
         []
     ]

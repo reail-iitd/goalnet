@@ -480,8 +480,8 @@
             "(Grasping Robot Plate_2)"
         ],
         [
-            "(state Plate_2 Egg)",
-            "(In BoiledEgg_1 Plate_2)"
+            "(In BoiledEgg_1 Plate_2)",
+            "(state Plate_2 Egg)"
         ],
         []
     ],
@@ -502,8 +502,8 @@
         ],
         [],
         [
-            "(On Plate_2 StoveFire_4)",
-            "(Near Robot Plate_2)"
+            "(Near Robot Plate_2)",
+            "(On Plate_2 StoveFire_4)"
         ],
         [
             "(Grasping Robot BoiledEgg_1)"

@@ -172,8 +172,8 @@
             "(Near Robot Fridge)"
         ],
         [
-            "(state Mug_1 Water)",
-            "(state Fridge WaterDispenserIsOpen)"
+            "(state Fridge WaterDispenserIsOpen)",
+            "(state Mug_1 Water)"
         ],
         []
     ],

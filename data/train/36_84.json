@@ -211,8 +211,8 @@
     ],
     "delta_g": [
         [
-            "(state Kettle Water)",
-            "(state SinkKnob TapIsOn)"
+            "(state SinkKnob TapIsOn)",
+            "(state Kettle Water)"
         ],
         [
             "(Near Robot Kettle)"

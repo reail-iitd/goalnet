@@ -1103,13 +1103,13 @@
         ],
         [],
         [
-            "(Near Robot LongCup_2)",
-            "(On LongCup_2 StoveFire_4)"
+            "(On LongCup_2 StoveFire_4)",
+            "(Near Robot LongCup_2)"
         ],
         [],
         [
-            "(On Plate_2 StoveFire_4)",
-            "(Near Robot Plate_2)"
+            "(Near Robot Plate_2)",
+            "(On Plate_2 StoveFire_4)"
         ],
         [
             "(Grasping Robot LongCup_2)"

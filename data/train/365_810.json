@@ -109,12 +109,12 @@
     ],
     "delta_g": [
         [
-            "(state Kettle Water)",
+            "(state LongCup_2 Water)",
+            "(state SinkKnob TapIsOn)",
+            "(state Mug_1 Water)",
             "(state Glass_1 Water)",
             "(state LongCup_1 Water)",
-            "(state Mug_1 Water)",
-            "(state SinkKnob TapIsOn)",
-            "(state LongCup_2 Water)"
+            "(state Kettle Water)"
         ],
         []
     ],

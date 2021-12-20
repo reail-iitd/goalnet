@@ -201,8 +201,8 @@
     "delta_g_inv": [
         [],
         [
-            "(On Bowl_1 Shelf_1)",
-            "(Near Robot Bowl_1)"
+            "(Near Robot Bowl_1)",
+            "(On Bowl_1 Shelf_1)"
         ],
         [
             "(Grasping Robot Bowl_1)"

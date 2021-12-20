@@ -260,13 +260,13 @@
     "delta_g_inv": [
         [],
         [
-            "(In EnergyDrink_1 Fridge)",
-            "(Near Robot EnergyDrink_1)"
+            "(Near Robot EnergyDrink_1)",
+            "(In EnergyDrink_1 Fridge)"
         ],
         [],
         [
-            "(In IceCream_1 Fridge)",
-            "(Near Robot IceCream_1)"
+            "(Near Robot IceCream_1)",
+            "(In IceCream_1 Fridge)"
         ],
         []
     ]

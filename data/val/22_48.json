@@ -298,8 +298,8 @@
             "(On Kettle Sink)"
         ],
         [
-            "(state Kettle Water)",
-            "(state SinkKnob TapIsOn)"
+            "(state SinkKnob TapIsOn)",
+            "(state Kettle Water)"
         ],
         [],
         []

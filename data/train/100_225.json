@@ -824,13 +824,13 @@
     "delta_g_inv": [
         [],
         [
-            "(On Coke_1 Loveseat_1)",
-            "(Near Robot Coke_1)"
+            "(Near Robot Coke_1)",
+            "(On Coke_1 Loveseat_1)"
         ],
         [],
         [
-            "(On BagOfChips_1 Armchair_4)",
-            "(Near Robot BagOfChips_1)"
+            "(Near Robot BagOfChips_1)",
+            "(On BagOfChips_1 Armchair_4)"
         ],
         [],
         [
@@ -841,21 +841,21 @@
         ],
         [],
         [
-            "(On Beer_1 CoffeeTable_1)",
-            "(Near Robot Beer_1)"
+            "(Near Robot Beer_1)",
+            "(On Beer_1 CoffeeTable_1)"
         ],
         [],
         [
-            "(Near Robot BagOfChips_1)",
-            "(On BagOfChips_1 GarbageBin_1)"
+            "(On BagOfChips_1 GarbageBin_1)",
+            "(Near Robot BagOfChips_1)"
         ],
         [
             "(Grasping Robot Beer_1)"
         ],
         [],
         [
-            "(On Beer_1 GarbageBin_1)",
-            "(Near Robot Beer_1)"
+            "(Near Robot Beer_1)",
+            "(On Beer_1 GarbageBin_1)"
         ],
         [
             "(Grasping Robot Beer_1)"

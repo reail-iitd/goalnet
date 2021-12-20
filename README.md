@@ -19,4 +19,5 @@ New Issues -
 3. Structure the datapoint class
 4. DGL dataset as list of datapoints
 5. Vocab embeddings (other than avg)
+6. DGL graph has all_object nodes irrespective of the domain --> prediction on all_objects --> masking
 6. Masking based on object set (for likelihood scores)

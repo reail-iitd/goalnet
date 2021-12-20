@@ -36,6 +36,9 @@ total_valid_constr = [total_valid_constr0, total_valid_constr1]
 # LOADING DATASET SPECIFIC VOCABULARY
 with open('./data/vocab.json', 'r') as fh:
         VOCAB_VECT = json.load(fh)
+        for obj in list(VOCAB_VECT):
+                if '_' in obj:
+                        VOCAB_VECT[obj.split('_')[0].lower()] = VOCAB_VECT[obj]
 
 # LOADING DATASET AGNOSTIC CONCEPTNET EMBEDDINGS
 with open('./jsons/conceptnet.json', 'r') as fh:

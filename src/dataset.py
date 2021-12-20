@@ -10,4 +10,4 @@ class DGLDataset():
             if shuffle: random.shuffle(files)
             for f in files:
                 self.dp_list.append(Datapoint(path + "/" + f))
-        self.features = self.dp_list[0].graph.ndata['feat'].shape[1] if len(self.dp_list) > 0 else 0
+        self.features = len(all_non_fluents) + MAX_REL + word_embed_size

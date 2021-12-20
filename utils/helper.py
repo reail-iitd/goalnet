@@ -1,11 +1,13 @@
 from .constants import *
 from sentence_transformers import SentenceTransformer
 import nltk
+import re
 import numpy as np
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 
 sBERT_model = SentenceTransformer('paraphrase-MiniLM-L6-v2',device='cpu')
+stop_words = set({"the","a","and","then","or","next","first"})
 
 def remove_braces(s):
     return s.replace('(', '').replace(')', '')
@@ -17,9 +19,16 @@ def dense_vector(obj):
         return conceptnet_vectors[obj]
     raise Exception("No dense representation found for: " + obj)
 
+def preprocess(sent):
+    #remove punctuation
+    sent = re.sub('[^A-Za-z]+', ' ', sent)
+    #lowercase and remove stop words
+    processed_sent = ' '.join(e.lower() for e in sent.split() if e.lower() not in stop_words)
+    return processed_sent
+
 def goalObjEmbed(sent):
     is_noun = lambda pos: pos[:2] == 'NN'
-    tokenized = nltk.word_tokenize(sent)
+    tokenized = nltk.word_tokenize(preprocess(sent))
     nouns = [word.lower() for (word, pos) in nltk.pos_tag(tokenized) if is_noun(pos)]
     if len(nouns) == 0: nouns = tokenized
     embed = []

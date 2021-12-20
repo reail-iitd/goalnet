@@ -45,6 +45,7 @@ if __name__ == '__main__':
     data_file = "data/"
     train_data = DGLDataset(data_file + 'train/')
     val_data = DGLDataset(data_file + 'val/')
+    test_data = DGLDataset(data_file + 'test/')
     exit()
 
     if model_name == "baseline" or model_name == "baseline_obj1":

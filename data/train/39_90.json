@@ -1309,8 +1309,8 @@
     "delta_g_inv": [
         [],
         [
-            "(Near Robot Ramen_1)",
-            "(On Ramen_1 StoveFire_2)"
+            "(On Ramen_1 StoveFire_2)",
+            "(Near Robot Ramen_1)"
         ],
         [],
         [
@@ -1342,8 +1342,8 @@
         [],
         [],
         [
-            "(Near Robot Bowl_1)",
             "(In Ramen_1 Bowl_1)",
+            "(Near Robot Bowl_1)",
             "(On Bowl_1 Sink)"
         ],
         [],

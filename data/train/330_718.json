@@ -306,8 +306,8 @@
     "delta_g_inv": [
         [],
         [
-            "(On LongCup_2 Sink)",
-            "(Near Robot LongCup_2)"
+            "(Near Robot LongCup_2)",
+            "(On LongCup_2 Sink)"
         ],
         [
             "(state SinkKnob TapIsOn)"

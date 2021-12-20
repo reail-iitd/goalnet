@@ -83,7 +83,7 @@ for file_index in trange(NUM_DATAPOINTS):
         	for ind in todel[::-1]:
         		del actions[ind]; del states[ind]
         	if(len(delta_g_inv)==0 and len(delta_g)==0): continue
-        	data_name = "val" if v_count < val_count else "train"
+        	data_name = 'test' if file_index in test_file_id else "val" if v_count < val_count else "train"
         	filename = data_name+"/"+str(file_index)+"_"+str(counter)+".json"
         	# print(filename)
         	# print(len(states), len(actions), len(delta_g), len(delta_g_inv))

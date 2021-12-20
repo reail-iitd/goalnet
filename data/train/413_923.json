@@ -776,8 +776,8 @@
         [],
         [],
         [
-            "(In IceCream_1 Fridge)",
-            "(Near Robot IceCream_1)"
+            "(Near Robot IceCream_1)",
+            "(In IceCream_1 Fridge)"
         ],
         [
             "(state Fridge LeftDoorIsOpen)"

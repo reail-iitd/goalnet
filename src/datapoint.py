@@ -28,10 +28,9 @@ class Datapoint:
     # coverts a single environment state to dgl graph
     def convertToDGLGraph(self, state):
         """ Converts the graph from the datapoint graph of a state (initial/final/delta_g etc) into a DGL form of graph."""
-        environment = get_environment(state)
-        graph_data = get_graph(environment)
+        graph_data = get_graph(state)
         # Make edge sets
-        near, on, inside, grasp, obj_index = [], [], [], [], []
+        near, on, inside, grasp, empty = [], [], [], [], []
         for edge in graph_data["edges"]:
             if edge["relation"] == "Near":
                 near.append((edge["from"], edge["to"]))
@@ -41,6 +40,8 @@ class Datapoint:
                 on.append((edge["from"], edge["to"]))
             elif edge["relation"] == "Grasping":
                 grasp.append((edge["from"], edge["to"]))
+            elif edge["relation"] == "Empty":
+                empty.append((edge["from"], edge["to"]))
         n_nodes = len(graph_data["nodes"])
         edgeDict = {
             ('object', 'Near', 'object'): near,
@@ -76,20 +77,20 @@ class Datapoint:
 
     # returns a complete encoding of initial_state to dgl graph and language embedding for a datapoint
     def encode_datapoint(self):
-        _, self.env_objects = get_environment(self.states[0])
+        self.env_domain = get_env_domain(self.states[0])
         self.sent_embed  = form_goal_vec_sBERT(self.sent)
         self.states = [self.convertToDGLGraph(state) for state in self.states]
         self.goal_obj_embed = goalObjEmbed(self.sent)
 
         # get all possible states for objects
         env_states = []
-        for obj in self.env_objects:
+        for obj in all_objects:
             if obj in all_object_states:
                 env_states += all_object_states[obj]
         env_states = list(set(env_states))
         # convert env objects to one hot vector
         self.objects = np.zeros(N_objects)
-        for obj in self.env_objects:
+        for obj in all_objects:
             self.objects[all_objects.index(obj)] = 1
         # convert env states to one hot vector
         self.obj_states = np.zeros(N_fluents)

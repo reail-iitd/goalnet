@@ -682,8 +682,8 @@
     "delta_g_inv": [
         [],
         [
-            "(In IceCream_1 Fridge)",
-            "(Near Robot IceCream_1)"
+            "(Near Robot IceCream_1)",
+            "(In IceCream_1 Fridge)"
         ],
         [],
         [
@@ -695,8 +695,8 @@
         ],
         [],
         [
-            "(Near Robot LongCup_2)",
-            "(On LongCup_2 StoveFire_4)"
+            "(On LongCup_2 StoveFire_4)",
+            "(Near Robot LongCup_2)"
         ],
         [
             "(state Spoon_1 ScoopsLeft)"

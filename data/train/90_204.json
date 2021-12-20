@@ -698,16 +698,16 @@
         ],
         [],
         [
-            "(On Book_1 Loveseat_1)",
-            "(Near Robot Book_1)"
+            "(Near Robot Book_1)",
+            "(On Book_1 Loveseat_1)"
         ],
         [
             "(Grasping Robot Book_1)"
         ],
         [],
         [
-            "(Near Robot Tv_1Remote_1)",
-            "(On Tv_1Remote_1 Loveseat_1)"
+            "(On Tv_1Remote_1 Loveseat_1)",
+            "(Near Robot Tv_1Remote_1)"
         ],
         [
             "(Grasping Robot Tv_1Remote_1)"

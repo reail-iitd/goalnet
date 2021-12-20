@@ -170,8 +170,8 @@
             "(On Mug_1 Sink)"
         ],
         [
-            "(state Mug_1 Water)",
-            "(state SinkKnob TapIsOn)"
+            "(state SinkKnob TapIsOn)",
+            "(state Mug_1 Water)"
         ],
         []
     ],

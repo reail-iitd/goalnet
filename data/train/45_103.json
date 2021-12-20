@@ -410,16 +410,16 @@
     "delta_g_inv": [
         [],
         [
-            "(Near Robot BagOfChips_1)",
-            "(On BagOfChips_1 GarbageBin_1)"
+            "(On BagOfChips_1 GarbageBin_1)",
+            "(Near Robot BagOfChips_1)"
         ],
         [
             "(Grasping Robot Beer_1)"
         ],
         [],
         [
-            "(Near Robot Bowl_1)",
-            "(In Bowl_1 GarbageBag_1)"
+            "(In Bowl_1 GarbageBag_1)",
+            "(Near Robot Bowl_1)"
         ],
         [
             "(Grasping Robot Bowl_1)"

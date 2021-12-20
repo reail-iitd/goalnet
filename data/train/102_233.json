@@ -668,8 +668,8 @@
     "delta_g_inv": [
         [],
         [
-            "(On BagOfChips_1 SnackTable_1)",
-            "(Near Robot BagOfChips_1)"
+            "(Near Robot BagOfChips_1)",
+            "(On BagOfChips_1 SnackTable_1)"
         ],
         [],
         [
@@ -681,9 +681,9 @@
         ],
         [],
         [
+            "(Near Robot GarbageBag_1)",
             "(In Pillow_1 GarbageBag_1)",
-            "(In Pillow_2 GarbageBag_1)",
-            "(Near Robot GarbageBag_1)"
+            "(In Pillow_2 GarbageBag_1)"
         ],
         [
             "(Grasping Robot GarbageBag_1)"
@@ -694,8 +694,8 @@
         ],
         [],
         [
-            "(Near Robot BagOfChips_1)",
-            "(On BagOfChips_1 GarbageBin_1)"
+            "(On BagOfChips_1 GarbageBin_1)",
+            "(Near Robot BagOfChips_1)"
         ],
         [
             "(Grasping Robot BagOfChips_1)"

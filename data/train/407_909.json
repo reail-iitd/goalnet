@@ -1306,8 +1306,8 @@
         ],
         [],
         [
-            "(On Fork_1 StoveFire_3)",
-            "(Near Robot Fork_1)"
+            "(Near Robot Fork_1)",
+            "(On Fork_1 StoveFire_3)"
         ],
         [
             "(Grasping Robot Fork_1)"
@@ -1338,8 +1338,8 @@
         ],
         [],
         [
-            "(On Plate_2 StoveFire_4)",
-            "(Near Robot Plate_2)"
+            "(Near Robot Plate_2)",
+            "(On Plate_2 StoveFire_4)"
         ],
         [
             "(Grasping Robot Plate_2)"

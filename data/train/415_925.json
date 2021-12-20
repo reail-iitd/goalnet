@@ -876,8 +876,8 @@
         ],
         [],
         [
-            "(On Plate_2 StoveFire_4)",
-            "(Near Robot Plate_2)"
+            "(Near Robot Plate_2)",
+            "(On Plate_2 StoveFire_4)"
         ],
         [],
         [
@@ -893,8 +893,8 @@
         ],
         [],
         [
-            "(Near Robot LongCup_2)",
-            "(In LongCup_2 Fridge)"
+            "(In LongCup_2 Fridge)",
+            "(Near Robot LongCup_2)"
         ],
         [
             "(Grasping Robot Spoon_1)"

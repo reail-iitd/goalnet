@@ -967,8 +967,8 @@
         ],
         [],
         [
-            "(On Xbox_1 Armchair_3)",
-            "(Near Robot Xbox_1)"
+            "(Near Robot Xbox_1)",
+            "(On Xbox_1 Armchair_3)"
         ],
         [],
         [
@@ -976,8 +976,8 @@
         ],
         [],
         [
-            "(On Book_2 Loveseat_1)",
-            "(Near Robot Book_2)"
+            "(Near Robot Book_2)",
+            "(On Book_2 Loveseat_1)"
         ],
         [
             "(Grasping Robot Book_2)"
@@ -992,8 +992,8 @@
         ],
         [],
         [
-            "(Near Robot Cd_2)",
-            "(On Cd_2 Shelf_1)"
+            "(On Cd_2 Shelf_1)",
+            "(Near Robot Cd_2)"
         ],
         [
             "(Grasping Robot Cd_2)"

@@ -6,6 +6,7 @@ import torch
 import random
 import re
 from utils.helper import *
+from utils.util import *
 
 class Datapoint:
     def __init__(self, file_path):
@@ -75,9 +76,10 @@ class Datapoint:
     # returns a complete encoding of initial_state to dgl graph and language embedding for a datapoint
     def encode_datapoint(self):
         self.env_domain = get_env_domain(self.states[0])
-        self.sent_embed  = form_goal_vec_sBERT(self.sent)
+        self.sent_embed  = torch.tensor(form_goal_vec_sBERT(self.sent), dtype=torch.float)
         self.states = [self.convertToDGLGraph(state) for state in self.states]
-        self.goal_obj_embed = goalObjEmbed(self.sent)
+        self.goal_obj_embed = torch.tensor(goalObjEmbed(self.sent), dtype=torch.float)
+        self.delta_g_embed = [string2vec(i) for i in self.delta_g]
 
         # get all possible states for objects
         env_states = []

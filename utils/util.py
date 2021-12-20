@@ -4,7 +4,7 @@ import numpy as np
 import os
 from os import path
 import torch
-from tqdm import tqdm
+from tqdm import tqdm, trange
 import matplotlib.pyplot as plt
 import matplotlib.lines as line
 from .constants import *
@@ -76,105 +76,55 @@ def ind2string(ind):
         obj2 = all_objects[ind[2]]
     return "(" + rel + " " + obj1  + " " + obj2 + ")"   
 
-
-# n_relations + n_objects + (n_objects + n_fluents)
-def vect2index(vect):
-    v_rel = vect[0:N_relations]
-    action_index = v_rel.index(max(v_rel))
-    v_obj1 = vect[N_relations: N_relations + N_objects]
-    obj1_index = v_obj1.index(max(v_obj1))
-    v_obj2 = vect[N_relations + N_objects: N_relations + N_objects + N_objects + 1]
-    obj2_index = v_obj2.index(max(v_obj2))
-    v_state = vect[N_relations + N_objects + N_objects + 1:]
-    state_index = v_state.index(max(v_state))
-    return [action_index, obj1_index, obj2_index, state_index]
-
-
-def vect2string(vect):
-    ind = vect2index(vect)
-    rel = all_relations[ind[0]]
-    obj1 = all_objects[ind[1]]
-    out = ""
-    if ind[0]==0 and ind[3]<N_fluents:
-        state = all_fluents[ind[3]]
-        out = "(" + rel + " " + obj1  + " " + state + ")" 
-    elif ind[2]<N_objects:
-        obj2 = all_objects[ind[2]]
-        out = "(" + rel + " " + obj1  + " " + obj2 + ")"   
-
-    return out
-
+def vect2string(action, pred1_object, pred2_object, pred2_state):
+    action_index = torch.argmax(action).item()
+    if action_index == N_relations:
+        return ''
+    rel = all_relations[action_index]
+    obj1 = all_objects[torch.argmax(pred1_object).item()]
+    obj2 = all_objects[torch.argmax(pred2_object).item()]
+    state = all_fluents[torch.argmax(pred2_state).item()]
+    return "(" + rel + " " + obj1  + " " + (state if action_index == 0 else obj2) + ")" 
 
 def string2index(str_constr, train=True):
-    words = str_constr[1:-1].split()
+    words = str_constr.replace('(', '').replace(')', '').split()
     if len(words) < 3:
-        return [-1, -1, -1, -1]
-    try:
-        action_index = all_relations.index(remove_braces(words[0]))
+        return [N_relations, -1, -1, -1]
+    action_index = all_relations.index(words[0])
 
-        if words[1][-3:] == "All":
-            obj1_index = all_objects.index(instance_table[words[1]][0]) if train else instance_table[words[1]]
+    if words[1][-3:] == "All":
+        obj1_index = all_objects.index(instance_table[words[1]][0]) if train else instance_table[words[1]]
+    else:
+        obj1_index = all_objects.index(words[1])
+
+    if words[0].lower() == "state":
+        obj2_index = -1  # None
+        if words[2][-3:] == "All":
+            state_index = all_fluents.index(instance_table[words[2]][0]) if train else instance_table[words[2]]
         else:
-            obj1_index = all_objects.index(words[1])
-
-        if words[0].lower() == "state":
-            obj2_index = N_objects  # None
-            if words[2][-3:] == "All":
-                state_index = all_fluents.index(instance_table[words[2]][0]) if train else instance_table[words[2]]
-            else:
-                state_index = all_fluents.index(words[2])
+            state_index = all_fluents.index(words[2])
+    else:
+        state_index = -1
+        if words[2][-3:] == "All":
+            obj2_index = all_objects.index(instance_table[words[2]][0]) if train else instance_table[words[2]]
         else:
-            state_index = N_fluents
-            if words[2][-3:] == "All":
-                obj2_index = all_objects.index(instance_table[words[2]][0]) if train else instance_table[words[2]]
-            else:
-                obj2_index = all_objects.index(words[2])
+            obj2_index = all_objects.index(words[2])
 
-        return [action_index, obj1_index, obj2_index, state_index]
-    except:
-        print("Error: ", str_constr)
-        return [-1, -1, -1, -1]
-
-# matches strings all in lowercase with object indexes in all_object list
-def string2index_new(str_constr, train=True):
-    words = str_constr[1:-1].split()
-    if len(words) < 3:
-        return [-1, -1, -1, -1]
-    try:
-        all_objects_lower = [obj.lower() for obj in all_objects]
-        all_relations_lower = [rel.lower() for rel in all_relations]
-        all_fluents_lower = [fluents.lower() for fluents in all_fluents]
-
-        action_index = all_relations_lower.index(remove_braces(words[0]))
-        obj1_index = all_objects_lower.index(words[1])
-
-        if words[0] == "state":
-            obj2_index = N_objects  # None
-            state_index = all_fluents_lower.index(words[2])
-        else:
-            state_index = N_fluents
-            obj2_index = all_objects_lower.index(words[2])
-
-        return [action_index, obj1_index, obj2_index, state_index]
-
-    except:
-        print("Error: ", str_constr)
-        return [-1, -1, -1, -1]
-
+    return [action_index, obj1_index, obj2_index, state_index]
 
 def string2vec(constr, lower=False):
-    if not lower:
-        action_index, obj1_index, obj2_index, state_index = string2index(constr)
-    else:
-        action_index, obj1_index, obj2_index, state_index = string2index_new(constr)
-
-    vect = np.zeros(N_relations + (N_objects * 2) + N_fluents + 2)
-    words = constr[1:-1].split()
-    vect[action_index] = 1
-    vect[N_relations + obj1_index] = 1
-    vect[N_relations + N_objects + obj2_index] = 1
-    vect[N_relations + (N_objects * 2) + 1 + state_index] = 1
-    return vect
+    a_vect = torch.zeros(N_relations + 1, dtype=torch.float)
+    obj1_vect = torch.zeros(N_objects, dtype=torch.float)
+    obj2_vect = torch.zeros(N_objects, dtype=torch.float)
+    state_vect = torch.zeros(N_fluents, dtype=torch.float)
+    for delta in constr:
+        action_index, obj1_index, obj2_index, state_index = string2index(delta)
+        a_vect[action_index] = 1
+        if obj1_index != -1: obj1_vect[obj1_index] = 1
+        if obj2_index != -1: obj2_vect[obj2_index] = 1
+        if state_index != -1: state_vect[state_index] = 1
+    if len(constr) == 0: a_vect[N_relations] = 1
+    return (a_vect, obj1_vect, obj2_vect, state_vect)
 
 
 # y_pred is vector, y_test is string
@@ -237,25 +187,20 @@ def accuracy_lenient(y_pred, y_true):
         if np.sum(v) > np.sum(max_match):
             max_match = v
             y_match = y
-    return max_match.tolist(), y_match
+    return max_match.tolist()
 
 
 # pred1_obj, pred2_obj, pred2_state,
-def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, l, epoch):
-    l_sum = l(action.cpu().squeeze(), y_true[: N_relations])
-    l_sum += l(pred1_obj.cpu().squeeze(), y_true[N_relations: N_relations + N_objects])
-    l3 = l(pred2_obj.cpu().squeeze(), y_true[N_relations + N_objects: N_relations + N_objects + N_objects + 1])
-    l4 = l(pred2_state.cpu().squeeze(), y_true[N_relations + N_objects + N_objects + 1:])
-    if random.random() < (50 / (epoch + 5)): # teacher forcing
-        if y_true[0] == 1: #state
-            l_sum += l4
+def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l):
+    a_vect, obj1_vect, obj2_vect, state_vect = y_true
+    l_act, l_obj1, l_obj2, l_state = l(action, a_vect), l(pred1_obj, obj1_vect), l(pred2_obj, obj2_vect), l(pred2_state, state_vect)
+    l_sum = l_act
+    if delta_g:
+        l_sum += l_obj1
+        if a_vect[0] == 1: #state
+            l_sum += l_state
         else:
-            l_sum += l3
-    else:
-        if action.cpu().squeeze()[0] == 1: #state
-            l_sum += l4
-        else:
-            l_sum += l3
+            l_sum += l_obj2
     return l_sum
 
 def loss_function_CE(action, pred1_obj, pred2_obj, pred2_state, y_true, l):

@@ -18,7 +18,7 @@ def backprop(data, optimizer, model, num_objects, epoch=1000, modelEnc=None, bat
             delta_g_true = dp.delta_g_embed[i]
             action, pred1_object, pred2_object, pred2_state = model(dp.states[i], dp.sent_embed, dp.goal_obj_embed)
             loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
-            pred_delta = vect2string(action, pred1_object, pred2_object, pred2_state)
+            pred_delta = vect2string(action, pred1_object, pred2_object, pred2_state, dp.env_domain)
             # print(pred_delta, dp.delta_g[i], dp.delta_g_embed[i])
             dp_acc += int(pred_delta in dp.delta_g[i]) 
             dp_loss += loss
@@ -51,8 +51,8 @@ if __name__ == '__main__':
 
     for num_epochs in trange(NUM_EPOCHS, ncols=80):
         # random.shuffle(train_data)
-        lrate = 0.0005
-        optimizer = torch.optim.Adam(model.parameters(), lr=lrate, weight_decay=1e-4, amsgrad=False)
+        lrate = 0.001
+        optimizer = torch.optim.Adam(model.parameters(), lr=lrate, weight_decay=1e-5)
         train_loss, train_acc = \
                 backprop(train_data, optimizer, model, N_objects, num_epochs, batch_size)
 

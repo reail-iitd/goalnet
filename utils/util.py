@@ -76,14 +76,16 @@ def ind2string(ind):
         obj2 = all_objects[ind[2]]
     return "(" + rel + " " + obj1  + " " + obj2 + ")"   
 
-def vect2string(action, pred1_object, pred2_object, pred2_state):
+def vect2string(action, pred1_object, pred2_object, pred2_state, env_domain):
     action_index = torch.argmax(action).item()
     if action_index == N_relations:
         return ''
     rel = all_relations[action_index]
-    obj1 = all_objects[torch.argmax(pred1_object).item()]
-    obj2 = all_objects[torch.argmax(pred2_object).item()]
-    state = all_fluents[torch.argmax(pred2_state).item()]
+    obj_mask = mask_kitchen if env_domain == 'kitchen' else mask_living
+    obj1 = all_objects[torch.argmax(pred1_object * obj_mask * (mask_stateful if action_index == 0 else 1)).item()]
+    obj2 = all_objects[torch.argmax(pred2_object * obj_mask).item()]
+    state_mask = state_masks[obj1] if action_index == 0 else 1
+    state = all_fluents[torch.argmax(pred2_state * state_mask).item()]
     return "(" + rel + " " + obj1  + " " + (state if action_index == 0 else obj2) + ")" 
 
 def string2index(str_constr, train=True):

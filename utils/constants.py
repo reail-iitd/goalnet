@@ -1,4 +1,4 @@
-import pickle, os, json
+import pickle, os, json, torch
 
 # LOADING DATASET SPECIFIC CONSTANTS
 # couch - Loveseat, cd2 - Far Cry Game, Book_1 - Guiness Book
@@ -32,6 +32,12 @@ N_fluents = len(all_fluents)
 total_valid_constr0 = len(ON_obj1[0])*len(ON_obj2[0]) + len(IN_obj1[0])*len(IN_obj2[0])+ len(Grasp_obj2[0]) + len(all_objects_kitchen) + 31 #fluents of kitchen
 total_valid_constr1 =  len(ON_obj1[1])*len(ON_obj2[1]) + len(IN_obj1[1])*len(IN_obj2[1]) + len(Grasp_obj2[1]) + N_objects + 7 # object fluents
 total_valid_constr = [total_valid_constr0, total_valid_constr1]
+mask_kitchen = torch.Tensor([1 if obj in all_objects_kitchen else 0 for obj in all_objects])
+mask_living = torch.Tensor([1 if obj in all_objects_living else 0 for obj in all_objects])
+mask_stateful = torch.Tensor([1 if obj in all_object_states else 0 for obj in all_objects])
+state_masks = {}
+for obj in all_object_states:
+        state_masks[obj] = torch.Tensor([1 if state in all_object_states[obj] else 0 for state in all_fluents])
 
 # LOADING DATASET SPECIFIC VOCABULARY
 with open('./data/vocab.json', 'r') as fh:

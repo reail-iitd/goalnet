@@ -66,11 +66,12 @@ def get_environment(relations):
 
 # environment = (dict of relation:[(obj11, obj12), (obj21, obj22)......], objects list)
 def get_graph(state):
-    env, _ = get_environment(state)
+    env, objects = get_environment(state)
     nodes = []
 
     for obj in all_objects:
         node = {}
+        node['populate'] = obj in objects
         node["id"] = all_objects.index(obj)
         node["name"] = obj
         node["prop"] = all_obj_prop[obj]

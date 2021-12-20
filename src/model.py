@@ -25,15 +25,15 @@ class Simplest_Model(nn.Module):
         super(Simplest_Model, self).__init__()
         self.name = "Simplest_Model"
         self.activation = nn.PReLU()
-        self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), nn.Sigmoid())
-        self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), nn.Sigmoid())
+        self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
+        self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
         self.graph_embed = nn.Sequential(nn.Linear(in_feats * n_objects, n_hidden), self.activation,
             nn.Linear(n_hidden, n_hidden), self.activation)
         self.fc = nn.Sequential(nn.Linear(n_hidden * 2, n_hidden), self.activation)
-        self.action = nn.Sequential(nn.Linear(n_hidden, len(all_relations) + 1), nn.Softmax(dim=0)) # +1 for null delta_g
-        self.obj1 = nn.Sequential(nn.Linear(n_hidden, n_objects), nn.Softmax(dim=0))
-        self.obj2 = nn.Sequential(nn.Linear(n_hidden, n_objects), nn.Softmax(dim=0))
-        self.state = nn.Sequential(nn.Linear(n_hidden, n_states), nn.Softmax(dim=0))
+        self.action = nn.Sequential(nn.Linear(n_hidden, len(all_relations) + 1), nn.Sigmoid()) # +1 for null delta_g
+        self.obj1 = nn.Sequential(nn.Linear(n_hidden, n_objects), nn.Sigmoid())
+        self.obj2 = nn.Sequential(nn.Linear(n_hidden, n_objects), nn.Sigmoid())
+        self.state = nn.Sequential(nn.Linear(n_hidden, n_states), nn.Sigmoid())
 
     def forward(self, g, goalVec, goalObjectsVec):
         # embed graph, goal vec based attention
@@ -65,15 +65,14 @@ class Simple_Model(nn.Module):
         super(Simple_Model, self).__init__()
         self.name = "Simple_Model"
         self.activation = nn.PReLU()
-        self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), nn.Sigmoid())
-        self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), nn.Sigmoid())
+        self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
+        self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
         self.graph_attn = nn.Sequential(nn.Linear(in_feats + n_hidden, 1), nn.Softmax(dim=1))
-        self.graph_embed = nn.Sequential(nn.Linear(in_feats, n_hidden), self.activation,
-            nn.Linear(n_hidden, n_hidden), self.activation)
+        self.graph_embed = nn.Sequential(nn.Linear(in_feats, n_hidden), self.activation)
         self.goal_obj_attention = nn.Sequential(nn.Linear(n_hidden * 2, 1), nn.Softmax(dim=0))
         self.fc = nn.Sequential(nn.Linear(n_hidden * 3, n_hidden), self.activation)
         self.action = nn.Sequential(nn.Linear(n_hidden, len(all_relations) + 1), nn.Softmax(dim=0)) # +1 for null delta_g
-        self.obj1 = nn.Sequential(nn.Linear(n_hidden + len(all_relations) + 1, n_objects), nn.Softmax(dim=0))
+        self.obj1 = nn.Sequential(nn.Linear(n_hidden + len(all_relations) + 1, n_objects),  nn.Softmax(dim=0))
         self.obj2 = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_objects), nn.Softmax(dim=0))
         self.state = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_states), nn.Softmax(dim=0))
 

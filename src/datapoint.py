@@ -57,6 +57,7 @@ class Datapoint:
         node_fluents = torch.zeros([n_nodes, MAX_REL], dtype=torch.float) # fluent states
         node_vectors = torch.zeros([n_nodes, word_embed_size], dtype=torch.float)  # Conceptnet embedding
         for i, node in enumerate(graph_data["nodes"]):
+            if not node['populate']: continue
             states = node["state_var"]
             prop = node["prop"]
             node_id = node["id"]

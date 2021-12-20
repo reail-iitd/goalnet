@@ -193,11 +193,12 @@ def accuracy_lenient(y_pred, y_true):
 # pred1_obj, pred2_obj, pred2_state,
 def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l):
     a_vect, obj1_vect, obj2_vect, state_vect = y_true
-    l_act, l_obj1, l_obj2, l_state = \
-        l(action.view(1,-1), torch.argmax(a_vect).view(-1)), \
-        l(pred1_obj.view(1,-1), torch.argmax(obj1_vect).view(-1)), \
-        l(pred2_obj.view(1,-1), torch.argmax(obj2_vect).view(-1)), \
-        l(pred2_state.view(1,-1), torch.argmax(state_vect).view(-1))
+    l_act, l_obj1, l_obj2, l_state = l(action, a_vect), l(pred1_obj, obj1_vect), l(pred2_obj, obj2_vect), l(pred2_state, state_vect)
+    # l_act, l_obj1, l_obj2, l_state = \
+    #     l(action.view(1,-1), torch.argmax(a_vect).view(-1)), \
+    #     l(pred1_obj.view(1,-1), torch.argmax(obj1_vect).view(-1)), \
+    #     l(pred2_obj.view(1,-1), torch.argmax(obj2_vect).view(-1)), \
+    #     l(pred2_state.view(1,-1), torch.argmax(state_vect).view(-1))
     l_sum = l_act
     if delta_g:
         l_sum += l_obj1
@@ -563,35 +564,11 @@ def plot_grad_flow(named_parameters, filename):
     plt.savefig(filename)
     plt.close('all')
 
-def plot_graphs(train_acc_arr, val_acc_arr):
-    fig, axs = plt.subplots(2)
+def plot_graphs(result_folder, loss_arr, acc_arr):
+    fig, ax = plt.subplots()
     fig.suptitle('Loss and Acc')
-    train_acc_arr_np = np.array(train_acc_arr)
-    val_acc_arr_np = np.array(val_acc_arr)
-    axs[0].plot(train_loss_arr, label='train')
-    axs[0].plot(val_loss_arr, label='val')
-    axs[1].plot(train_acc_arr_np[:, 0], label='train')
-    axs[1].plot(val_acc_arr_np[:, 0], label='val')
-    axs[0].legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
-    axs[1].legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
-    axs[0].title.set_text("Loss")
-    axs[1].title.set_text("Overall acc")
-    plt.savefig(result_folder + "graphs_overall.jpg")
-    plt.close('all')
-
-    fig, axs = plt.subplots(3)
-    fig.suptitle('Acc. of individual pred')
-    axs[0].plot(train_acc_arr_np[:, 1], label='train')
-    axs[0].plot(val_acc_arr_np[:, 1], label='val')
-    axs[1].plot(train_acc_arr_np[:, 2], label='train')
-    axs[1].plot(val_acc_arr_np[:, 2], label='val')
-    axs[2].plot(train_acc_arr_np[:, 3], label='train')
-    axs[2].plot(val_acc_arr_np[:, 3], label='val')
-    axs[0].legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
-    axs[1].legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
-    axs[2].legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
-    axs[0].title.set_text("State acc")
-    axs[1].title.set_text("Obj1 acc")
-    axs[2].title.set_text("Obj2 acc")
-    plt.savefig(result_folder + "graphs_indiv.jpg")
+    ax.plot(loss_arr, label='Val Loss')
+    ax.plot(acc_arr, label='Val Acc')
+    ax.legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
+    plt.savefig(result_folder + "graphs_overall.pdf")
     plt.close('all')

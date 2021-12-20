@@ -7,9 +7,9 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 batch_size = 32
 
-def backprop(data, optimizer, model, num_objects, epoch=1000, modelEnc=None, batch_size=1):
+def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEnc=None, batch_size=1, train=True):
     total_loss = 0.0
-    l = nn.CrossEntropyLoss()
+    l = nn.BCELoss()
     acc = 0
 
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
@@ -20,11 +20,13 @@ def backprop(data, optimizer, model, num_objects, epoch=1000, modelEnc=None, bat
             loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
             pred_delta = vect2string(action, pred1_object, pred2_object, pred2_state, dp.env_domain)
             dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 
-            if epoch > 10 and dp_acc_i == 1: print(pred_delta, dp.delta_g[i])
+            # if epoch > 70 and dp_acc_i == 0: print(pred_delta, dp.delta_g[i])
             dp_loss += loss; dp_acc += dp_acc_i
-            optimizer.zero_grad(); loss.backward(); #plot_grad_flow(model.named_parameters(), f'gradients_{iter_num}.pdf')
+        if train:
+            optimizer.zero_grad(); dp_loss.backward(); #plot_grad_flow(model.named_parameters(), f'gradients_{iter_num}.pdf')
             optimizer.step()
         acc += (dp_acc / len(dp.states)); dp_loss /= len(dp.states); total_loss += dp_loss
+    scheduler.step()
     return (total_loss.item() / len(data.dp_list)), acc / len(data.dp_list)
 
 result_folder = './results/'
@@ -32,15 +34,15 @@ os.makedirs(result_folder, exist_ok=True)
 if __name__ == '__main__':
     data_file = "data/"
     train_data = DGLDataset(data_file + 'val/')
-    # val_data = DGLDataset(data_file + 'val/')
+    val_data = DGLDataset(data_file + 'val/')
     # test_data = DGLDataset(data_file + 'test/')
 
-    model = Simplest_Model(train_data.features, GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
+    model = Simple_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
 
     epoch = -1
-    NUM_EPOCHS = 150
+    NUM_EPOCHS = 500
 
-    best_val_acc = 0
+    best_val_acc = 100
     train_acc_arr = []
     val_acc_arr = []
     train_loss_arr = []
@@ -52,30 +54,19 @@ if __name__ == '__main__':
 
     for num_epochs in trange(NUM_EPOCHS, ncols=80):
         random.shuffle(train_data.dp_list)
-        lrate = 0.0005
-        optimizer = torch.optim.AdamW(model.parameters(), lr=lrate, weight_decay=1e-5)
-        train_loss, train_acc = \
-                backprop(train_data, optimizer, model, N_objects, num_epochs, batch_size)
+        lrate = 0.0005 # CE 0.0001
+        optimizer = torch.optim.Adam(model.parameters(), lr=lrate)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50)
+        backprop(train_data, optimizer, scheduler, model, N_objects, num_epochs)
+        with torch.no_grad():
+            val_loss, val_acc = backprop(val_data, optimizer, scheduler, model, N_objects, num_epochs, train=False)
+        tqdm.write(f'Val Loss: {val_loss}\tVal Acc : {val_acc}')
+        val_loss_arr.append(val_loss); val_acc_arr.append(val_acc)
 
-        tqdm.write(f'Training Loss: {train_loss}\tTraining Acc : {train_acc}')
-        # model.eval()
-        # with torch.no_grad():
-        #     val_acc, val_exact_acc, val_sji, val_loss = eval_accuracy(model_name, val_data, model, result_folder, num_epochs)
-        # print("train loss = " + str(train_loss) + " val loss = " + str(val_loss))
-        # print("train acc = " + str(train_acc) + " val acc = " + str(val_acc))
-        # print("val exact acc = " + str(val_exact_acc))
+        # if (best_val_acc > val_acc):
+        #     best_val_acc = val_acc
+        #     torch.save(model.state_dict(), result_folder + model.name + ".pt")
+        if (num_epochs % 50 == 0):
+            plot_graphs(result_folder, val_loss_arr, val_acc_arr)
 
-        # train_acc_arr.append(train_acc)
-        # train_loss_arr.append(train_loss)
-        # val_acc_arr.append(val_acc)
-        # val_loss_arr.append(val_loss)
-
-        # if (best_val_acc < val_acc[0]):
-        #     best_val_acc = val_acc[0]
-        #     torch.save(model.state_dict(),
-        #                result_folder + str(num_epochs) + "_" + str(round(train_acc[0], 2)) + "_" + str(
-        #                    round(val_acc[0], 2)) + ".pt")
-        #     torch.save(model.state_dict(), result_folder + "best_val.pt")
-        #     model.eval()
-        # if (num_epochs % 10 == 0):
-        #     plot_graphs(train_acc_arr, val_acc_arr)
+    print(f'Best validation accuracy: {max(val_acc_arr)} at epoch {np.argmax(val_acc_arr)}')

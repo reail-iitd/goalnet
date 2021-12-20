@@ -48,12 +48,10 @@ class Datapoint:
             ('object', 'In', 'object'): inside,
             ('object', 'On', 'object'): on,
             ('object', 'Grasping', 'object'): grasp,
-            ('object', 'Agent', 'object'): [(n_nodes - 1, n_nodes - 1)],
+            ('object', 'Empty', 'object'): empty,
         }
         g = dgl.heterograph(edgeDict)
         # Add node features
-        print("n_nodes ", n_nodes)
-        print(len(environment[1]))
         node_prop = torch.zeros([n_nodes, len(all_non_fluents)], dtype=torch.float)  # Non-fluent vector
         node_fluents = torch.zeros([n_nodes, MAX_REL], dtype=torch.float) # fluent states
         node_vectors = torch.zeros([n_nodes, word_embed_size], dtype=torch.float)  # Conceptnet embedding
@@ -71,7 +69,6 @@ class Datapoint:
                 node_prop[node_id][idx] = 1  # node_states is a 2D matrix of objects * states
             node_vectors[node_id] = torch.FloatTensor(node["vector"])
         feat_mat = torch.cat((node_vectors, node_fluents, node_prop), 1)
-        print(feat_mat.size())
         g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)
         return g
 

@@ -14,6 +14,47 @@ from .datapoint import *
 from dgl.nn import GraphConv
 from sentence_transformers import SentenceTransformer
 
+
+class Simplest_Model(nn.Module):
+    def __init__(self,
+                 in_feats, 
+                 n_hidden,
+                 n_objects,
+                 n_states,
+                 etypes):
+        super(Simplest_Model, self).__init__()
+        self.name = "Simplest_Model"
+        self.activation = nn.PReLU()
+        self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), nn.Sigmoid())
+        self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), nn.Sigmoid())
+        self.graph_embed = nn.Sequential(nn.Linear(in_feats * n_objects, n_hidden), self.activation,
+            nn.Linear(n_hidden, n_hidden), self.activation)
+        self.fc = nn.Sequential(nn.Linear(n_hidden * 2, n_hidden), self.activation)
+        self.action = nn.Sequential(nn.Linear(n_hidden, len(all_relations) + 1), nn.Softmax(dim=0)) # +1 for null delta_g
+        self.obj1 = nn.Sequential(nn.Linear(n_hidden, n_objects), nn.Softmax(dim=0))
+        self.obj2 = nn.Sequential(nn.Linear(n_hidden, n_objects), nn.Softmax(dim=0))
+        self.state = nn.Sequential(nn.Linear(n_hidden, n_states), nn.Softmax(dim=0))
+
+    def forward(self, g, goalVec, goalObjectsVec):
+        # embed graph, goal vec based attention
+        h = g.ndata['feat']
+        goal_embed = self.embed_sbert(goalVec)
+        h_embed = self.graph_embed(h.view(-1))
+
+        # concatenate goal purpose embedding
+        final_to_decode = self.fc(torch.cat([h_embed, goal_embed]))
+
+        # head 1 (delta_g)
+        action = self.action(final_to_decode)
+
+        pred1_object = self.obj1(torch.cat([final_to_decode]))
+
+        pred2_object = self.obj2(torch.cat([final_to_decode]))
+
+        pred2_state = self.state(torch.cat([final_to_decode]))
+
+        return action, pred1_object, pred2_object, pred2_state
+
 class Simple_Model(nn.Module):
     def __init__(self,
                  in_feats, 
@@ -24,51 +65,51 @@ class Simple_Model(nn.Module):
         super(Simple_Model, self).__init__()
         self.name = "Simple_Model"
         self.activation = nn.PReLU()
-        self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
-        self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
-        self.graph_embed = nn.Sequential(nn.Linear(n_objects * in_feats, n_hidden), self.activation)
+        self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), nn.Sigmoid())
+        self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), nn.Sigmoid())
+        self.graph_attn = nn.Sequential(nn.Linear(in_feats + n_hidden, 1), nn.Softmax(dim=1))
+        self.graph_embed = nn.Sequential(nn.Linear(in_feats, n_hidden), self.activation,
+            nn.Linear(n_hidden, n_hidden), self.activation)
         self.goal_obj_attention = nn.Sequential(nn.Linear(n_hidden * 2, 1), nn.Softmax(dim=0))
         self.fc = nn.Sequential(nn.Linear(n_hidden * 3, n_hidden), self.activation)
         self.action = nn.Sequential(nn.Linear(n_hidden, len(all_relations) + 1), nn.Softmax(dim=0)) # +1 for null delta_g
-        self.obj1 = nn.Sequential(nn.Linear(n_hidden + len(all_relations), n_objects), nn.Softmax(dim=0))
-        self.obj2 = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations), n_objects), nn.Softmax(dim=0))
-        self.state = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations), n_states), nn.Softmax(dim=0))
+        self.obj1 = nn.Sequential(nn.Linear(n_hidden + len(all_relations) + 1, n_objects), nn.Softmax(dim=0))
+        self.obj2 = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_objects), nn.Softmax(dim=0))
+        self.state = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_states), nn.Softmax(dim=0))
 
     def forward(self, g, goalVec, goalObjectsVec):
-        # embed graph
+        # embed graph, goal vec based attention
         h = g.ndata['feat']
-        h = self.graph_embed(h.view(-1))
+        goal_embed = self.embed_sbert(goalVec)
+        attn_weights = self.graph_attn(torch.cat([h, goal_embed.repeat(h.shape[0], 1)], 1))
+        h_embed = torch.mm(attn_weights.t(), h)
+        h_embed = self.graph_embed(h_embed.view(-1))
 
-        # goal conditioned attention scene embedding
+        # goal conditioned self attention 
         goal_obj_embed = self.embed_conceptnet(goalObjectsVec)
         n_goal_obj = goal_obj_embed.shape[0]
-        attn_weights = self.goal_obj_attention(torch.cat([h.repeat(n_goal_obj, 1), goal_obj_embed], 1))
+        attn_weights = self.goal_obj_attention(torch.cat([h_embed.repeat(n_goal_obj, 1), goal_obj_embed], 1))
         goal_obj_embed = torch.mm(attn_weights.reshape(1, -1), goal_obj_embed).view(-1)
 
         # concatenate goal purpose embedding
-        goal_embed = self.embed_sbert(goalVec)
-        final_to_decode = self.fc(torch.cat([h, goal_obj_embed, goal_embed]))
+        final_to_decode = self.fc(torch.cat([h_embed, goal_obj_embed, goal_embed]))
 
         # head 1 (delta_g)
         action = self.action(final_to_decode)
 
-        pred_action_values = list(action[:-1])
-        ind_max_action = pred_action_values.index(max(pred_action_values))
-        one_hot_action = [0] * len(pred_action_values)
-        one_hot_action[ind_max_action] = 1
+        one_hot_action = [0 for _ in range(action.shape[0])]
+        one_hot_action[torch.argmax(action).item()] = 1
         one_hot_action = torch.Tensor(one_hot_action)
 
         pred1_object = self.obj1(torch.cat([final_to_decode, one_hot_action]))
 
-        pred1_values = list(pred1_object)
-        ind_max_pred1 = pred1_values.index(max(pred1_values))
-        one_hot_pred1 = [0 for _ in range(len(pred1_values))]
-        one_hot_pred1[ind_max_pred1] = 1 
+        one_hot_pred1 = [0 for _ in range(pred1_object.shape[0])]
+        one_hot_pred1[torch.argmax(pred1_object).item()] = 1 
         one_hot_pred1 = torch.Tensor(one_hot_pred1)
 
-        pred2_object = self.obj2(torch.cat([final_to_decode, one_hot_pred1, one_hot_action]))
+        pred2_object = self.obj2(torch.cat([final_to_decode, one_hot_action, one_hot_pred1]))
 
-        pred2_state = self.state(torch.cat([final_to_decode, one_hot_pred1, one_hot_action]))
+        pred2_state = self.state(torch.cat([final_to_decode, one_hot_action, one_hot_pred1]))
 
         return action, pred1_object, pred2_object, pred2_state
 

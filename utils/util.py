@@ -90,8 +90,6 @@ def vect2string(action, pred1_object, pred2_object, pred2_state, env_domain):
 
 def string2index(str_constr, train=True):
     words = str_constr.replace('(', '').replace(')', '').split()
-    if len(words) < 3:
-        return [N_relations, -1, -1, -1]
     action_index = all_relations.index(words[0])
 
     if words[1][-3:] == "All":
@@ -195,7 +193,11 @@ def accuracy_lenient(y_pred, y_true):
 # pred1_obj, pred2_obj, pred2_state,
 def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l):
     a_vect, obj1_vect, obj2_vect, state_vect = y_true
-    l_act, l_obj1, l_obj2, l_state = l(action, a_vect), l(pred1_obj, obj1_vect), l(pred2_obj, obj2_vect), l(pred2_state, state_vect)
+    l_act, l_obj1, l_obj2, l_state = \
+        l(action.view(1,-1), torch.argmax(a_vect).view(-1)), \
+        l(pred1_obj.view(1,-1), torch.argmax(obj1_vect).view(-1)), \
+        l(pred2_obj.view(1,-1), torch.argmax(obj2_vect).view(-1)), \
+        l(pred2_state.view(1,-1), torch.argmax(state_vect).view(-1))
     l_sum = l_act
     if delta_g:
         l_sum += l_obj1
@@ -557,7 +559,8 @@ def plot_grad_flow(named_parameters, filename):
     plt.legend([line.Line2D([0], [0], color="g", lw=4),
                 line.Line2D([0], [0], color="r", lw=4),
                 line.Line2D([0], [0], color="b", lw=4)], ['max-gradient', 'mean-gradient', 'zero-gradient'])
-    plt.savefig(result_folder + filename)
+    plt.tight_layout()
+    plt.savefig(filename)
     plt.close('all')
 
 def plot_graphs(train_acc_arr, val_acc_arr):

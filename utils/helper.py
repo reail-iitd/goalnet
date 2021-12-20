@@ -30,10 +30,12 @@ def goalObjEmbed(sent):
 def form_goal_vec_sBERT(text):
     return sBERT_model.encode(text)
 
-def get_env_objects(objects):
+# get environment domain based on the object set (for masking)
+def get_env_domain(state):
+    _, objects = get_environment(state)
     inter1 = len(set(objects).intersection(all_objects_kitchen))
     inter2 = len(set(objects).intersection(all_objects_living))
-    return all_objects_kitchen if inter1 > inter2 else all_objects_living
+    return 'kitchen' if inter1 > inter2 else 'living'
 
 def get_environment(relations):
     environ = {}
@@ -51,16 +53,16 @@ def get_environment(relations):
             else:
                 objects.add(ele[2])
             environ[ele[0]].append(ele[1:])
-    return environ, get_env_objects(objects)
+    return environ, objects
 
 # environment = (dict of relation:[(obj11, obj12), (obj21, obj22)......], objects list)
-def get_graph(environment):
-    env, env_objects = environment
+def get_graph(state):
+    env, _ = get_environment(state)
     nodes = []
 
-    for obj in env_objects:
+    for obj in all_objects:
         node = {}
-        node["id"] = env_objects.index(obj)
+        node["id"] = all_objects.index(obj)
         node["name"] = obj
         node["prop"] = all_obj_prop[obj]
         node["vector"] = dense_vector(obj)
@@ -80,8 +82,10 @@ def get_graph(environment):
     relation = {"Near", "On", "In", "Grasping"}
     for rel in relation:
         for t in env[rel]:
-            fromID = env_objects.index(remove_braces(t[0]))
-            toID = env_objects.index(remove_braces(t[1]))
+            fromID = all_objects.index(remove_braces(t[0]))
+            toID = all_objects.index(remove_braces(t[1]))
             edges.append({'from': fromID, 'to': toID, 'relation': rel})
+    for i, obj in enumerate(all_objects):
+        edges.append({'from': i, 'to': i, 'relation': 'Empty'})
 
     return {'nodes': nodes, 'edges': edges}

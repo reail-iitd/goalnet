@@ -5,6 +5,7 @@ import os
 import torch
 import random
 import re
+from copy import deepcopy
 from utils.helper import *
 from utils.util import *
 
@@ -22,6 +23,9 @@ class Datapoint:
         self.sent = tmp['sent']
         self.file_name = tmp['filename'] if 'filename' in tmp else ""
         self.states = tmp['initial_states']
+        self.state_dict = deepcopy(tmp['initial_states'])
+        for i, s_dict in enumerate(self.state_dict):
+            self.state_dict[i] = [rel.lower() for rel in s_dict]
         self.delta_g = tmp['delta_g']
         self.delta_g_inv = tmp['delta_g_inv']
         self.action_seq = tmp['action_seq'] if 'action_seq' in tmp else []

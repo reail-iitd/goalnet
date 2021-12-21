@@ -15,6 +15,8 @@ with open('./data/constants.json', 'r') as fh:
         all_states = constants_dict['all_states']
         all_relations = constants_dict['all_relations']
         all_object_states = constants_dict['all_object_states']
+        all_possible_actions = constants_dict['all_possible_actions']
+        all_possible_actions = [i.lower() for i in all_possible_actions]
         instance_table = constants_dict['instance_table']
         graspableset = constants_dict['graspableset']
         all_objects_env = constants_dict['all_objects_env']
@@ -24,6 +26,11 @@ with open('./data/constants.json', 'r') as fh:
         ON_obj2 = constants_dict['ON_obj2']
         Grasp_obj2 = constants_dict['Grasp_obj2']
         state_obj1 = constants_dict['state_obj1']
+all_objects_lower = [i.lower() for i in all_objects]
+all_obj_prop_lower = {}
+for obj in all_obj_prop: all_obj_prop_lower[obj.lower()] = all_obj_prop[obj]
+all_object_states_lower = {}
+for obj in all_object_states: all_object_states_lower[obj.lower()] = all_object_states[obj]
 MAX_REL = max([len(all_object_states[obj]) for obj in all_object_states.keys()])
 N_STATES = len(all_states)
 N_objects = len(all_objects)
@@ -45,6 +52,7 @@ with open('./data/vocab.json', 'r') as fh:
         for obj in list(VOCAB_VECT):
                 if '_' in obj:
                         VOCAB_VECT[obj.split('_')[0].lower()] = VOCAB_VECT[obj]
+                VOCAB_VECT[obj.lower()] = VOCAB_VECT[obj]
 
 # LOADING DATASET AGNOSTIC CONCEPTNET EMBEDDINGS
 with open('./jsons/conceptnet.json', 'r') as fh:

@@ -8,37 +8,11 @@ from tqdm import tqdm, trange
 import matplotlib.pyplot as plt
 import matplotlib.lines as line
 from .constants import *
+from .helper import *
+import subprocess
 
-def get_env_objects(objects):
-    inter1 = len(set(objects).intersection(all_objects_kitchen))
-    inter2 = len(set(objects).intersection(all_objects_living))
-    if inter1 > inter2:
-        objects = all_objects_kitchen
-    else:
-        objects = all_objects_living
-    return objects
-
-def create_pddl_gold(sent, y_true, action_seq, file_name, delta_g, delta_g_inv, dp_file_name):
-    f = open(file_name + ".pddl", "w")
-    f.write("sent: " + sent + "\n")
-    f.write('True: ' + y_true + '\n')
-    f.write("Act_list: ")
-    for act in action_seq:
-        if "(" in act: 
-            f.write(act + ", ")
-            continue
-        words = act.split()
-        if len(words) > 1:
-            tmp = words[0] + "("
-            for i in range(1, len(words)):
-                tmp += words[i] + ","
-            tmp = tmp[:-1] + ")"
-            f.write(tmp + ", ")
-    f.write("\nDelta_g: " + str(delta_g)+"\n")
-    f.write("Delta_g_inv: "+str(delta_g_inv)+"\n")
-    f.write("File_name: " + dp_file_name + "\n")
-    f.close()
-
+def obj_set(env_domain):
+    return all_objects # all_objects_kitchen if env_domain == 'kitchen' else all_objects_living
 
 def create_pddl(init, objects, goal_list, file_name):
     f = open(file_name + ".pddl", "w")
@@ -60,21 +34,8 @@ def create_pddl(init, objects, goal_list, file_name):
         goal = goal.lower()[1:-1].split()
         if len(goal) > 0:
             goal_string += "(" + goal[0] + " " + goal[1] + " " + goal[2] + ") "
-    # print("Goal string = ", goal_string)
     f.write(") \n(:goal (AND " + goal_string + ")) \n)")
-
     f.close()
-
-def ind2string(ind):
-    rel = all_relations[ind[0]]
-    obj1 = all_objects[ind[1]]
-    obj2, state = "", ""
-    if ind[0] == 0 and ind[3] < N_fluents: #state preducate
-        state = all_fluents[ind[3]]
-        return "(" + rel + " " + obj1  + " " + state + ")" 
-    if ind[2] < N_objects:
-        obj2 = all_objects[ind[2]]
-    return "(" + rel + " " + obj1  + " " + obj2 + ")"   
 
 def vect2string(action, pred1_object, pred2_object, pred2_state, env_domain):
     action_index = torch.argmax(action).item()
@@ -126,71 +87,6 @@ def string2vec(constr, lower=False):
     if len(constr) == 0: a_vect[N_relations] = 1
     return (a_vect, obj1_vect, obj2_vect, state_vect)
 
-
-# y_pred is vector, y_test is string
-def accuracy(y_pred, y_true):
-    y1 = vect2index(y_pred)
-    if y_true == "":
-        return [0, 0, 0, 0]
-
-    y2 = string2index(y_true, False)
-    match_overall = 0
-    match_rel = 0
-    match_obj1 = 0
-    match_obj2 = 0
-
-    if y1[1] < N_objects and type(y2[1]) == list and all_objects[y1[1]] in y2[1]:
-        y2[1] = y1[1]
-    if y1[2] < N_objects and type(y2[2]) == list and all_objects[y1[2]] in y2[2]:
-        y2[2] = y1[2]
-    if y1[3] < N_fluents and type(y2[3]) == list and all_fluents[y1[3]] in y2[3]:
-        y2[3] = y1[3]
-
-    if y1[0] == 0: #relation = state
-        if y1[0:2] == y2[0:2] and y1[3] == y2[3]:
-            match_overall = 1
-    else:
-        if y1[0:3] == y2[0:3]:
-            match_overall = 1
-
-    if (y1[0] == y2[0]):
-        match_rel= 1
-    if (y1[1] == y2[1]):
-        match_obj1 = 1
-
-    if (y1[0] == 0):
-        if (y1[3] == y2[3]):
-            match_obj2 = 1
-    else:
-        if (y1[2] == y2[2]):
-            match_obj2 = 1
-
-    # all_objects.index("StoveFire_4") = 6, ("StoveFire_3") = 33 , ("StoveFire_2") = 54, ("StoveFire_1") = 21
-    # all_fluents.index("StoveFire4") = 23, "StoveFire3"= 7, "StoveFire2" = 17, "StoveFire1" = 21
-    if match_rel and match_obj1 and y1[0] == 2 and y_true[1:-1].split()[2][0:9].lower() == "stovefire" and y1[2] in [6, 21, 33, 54]:
-        match_overall = 1
-        match_obj2 = 1
-    if match_rel and match_obj1 and y1[0] == 0 and y_true[1:-1].split()[2][0:9].lower() == "stovefire" and y1[3] in [7, 17, 21, 23]:
-        match_overall = 1
-        match_obj2 = 1
-    # print("predict: ", y1)
-    # print("gold: ", y2)
-    return [match_overall, match_rel, match_obj1, match_obj2]
-
-
-# y_pred is vector, y_test is list of constraints in string
-def accuracy_lenient(y_pred, y_true):
-    max_match = np.array([0, 0, 0, 0])
-    y_match = y_true[0]
-    for y in y_true:
-        v = np.asarray(accuracy(y_pred, y))
-        if np.sum(v) > np.sum(max_match):
-            max_match = v
-            y_match = y
-    return max_match.tolist()
-
-
-# pred1_obj, pred2_obj, pred2_state,
 def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l):
     a_vect, obj1_vect, obj2_vect, state_vect = y_true
     l_act, l_obj1, l_obj2, l_state = l(action, a_vect), l(pred1_obj, obj1_vect), l(pred2_obj, obj2_vect), l(pred2_state, state_vect)
@@ -208,84 +104,196 @@ def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l)
             l_sum += l_obj2
     return l_sum
 
-def loss_function_CE(action, pred1_obj, pred2_obj, pred2_state, y_true, l):
-    
-    # y_true[:N_relations].detach().cpu().numpy().argmax()
-    # print("action size = ", action.cpu().size())
-    # print("Y true size = ", target.size())
-    target = torch.ones(1, dtype=torch.long) * y_true[:N_relations].detach().cpu().numpy().argmax()
-    l_sum = l(action.cpu(),target)/N_relations
+def get_ied(instseq1, instseq2):
+    m = len(instseq1)
+    n = len(instseq2)
+    if min(m,n) == 0: return 0
+    cost_matrix = {}
+    for i in range(m+1):
+        for j in range(n+1):
+            if min(i,j) == 0:
+                cost_matrix[str(i)+'_'+str(j)] = max(i,j)
+                continue
+            cost = 1
+            try:
+                if instseq1[i-1] == (instseq2[j-1]):
+                    cost = 0
+            except:
+                raise Exception('levenshtein calculation error')
+            a = cost_matrix[str(i-1)+'_'+str(j)]+1
+            b = cost_matrix[str(i)+'_'+str(j-1)]+1
+            c = cost_matrix[str(i-1)+'_'+str(j-1)]+cost
+            cost_matrix[str(i)+'_'+str(j)] = min(a, min(b,c))
+    ed = float(cost_matrix[str(m)+'_'+str(n)])
+    return 1 - (ed / max(m,n))
 
-    target = torch.ones(1, dtype=torch.long) * y_true[N_relations: N_relations + N_objects].detach().cpu().numpy().argmax()
-    l_sum += l(pred1_obj.cpu(), target)/N_objects
+def get_sji(state_dict, init_state_dict, true_state_dict, init_true_state_dict):
+    total_delta_g = set(state_dict).difference(set(init_state_dict))
+    total_delta_g_inv = set(init_state_dict).difference(set(state_dict))
+    true_delta_g = set(true_state_dict).difference(set(init_true_state_dict))
+    true_delta_g_inv = set(init_true_state_dict).difference(set(true_state_dict))
+    num = len(total_delta_g.intersection(true_delta_g)) + len(total_delta_g_inv.intersection(true_delta_g_inv))
+    den = len(total_delta_g.union(true_delta_g)) + len(total_delta_g_inv.union(true_delta_g_inv))
+    return num / (den + 1e-8)
 
-    target = torch.ones(1, dtype=torch.long) * y_true[N_relations + N_objects: N_relations + N_objects + N_objects + 1].detach().cpu().numpy().argmax()
-    l_sum += l(pred2_obj.cpu(), target)/(N_objects+1)
+def get_god_index(state_dict, true_state_dict):
+    state_dict, true_state_dict = set(state_dict), set(true_state_dict)
+    satisfiability = (len(true_state_dict.difference(state_dict)) / len(true_state_dict))
+    optimality = (len(state_dict.difference(true_state_dict)) / (len(state_dict) + 1e-8))
+    return 1 - 0.5 * satisfiability - 0.5 * optimality
 
-    target = torch.ones(1, dtype=torch.long) * y_true[N_relations + N_objects + N_objects + 1:].detach().cpu().numpy().argmax()
-    l_sum += l(pred2_state.cpu(), target)/N_fluents
-    return l_sum
+def convert(state):
+    converted_state = []
+    for i in range(len(state)):
+        act = state[i].lstrip().replace("("," ").replace(")","").replace(',', ' ')
+        rel = act.split()[0]
+        isaction = rel.lower() in all_possible_actions
+        pred1 = act.split()[1] if len(act.split()) > 1 else ''
+        pred2 = act.split()[2] if len(act.split()) > 2 else ''
+        obj_str = [pred1, pred2]
+        constr = f'{rel} {pred1} {pred2}' if len(act.split()) > 2 else f'{rel} {pred1}' if len(act.split()) > 1 else rel
+        constr = f'({constr})' if not isaction else constr
+        converted_state.append(constr)
+    return converted_state
 
+def get_delta(data):
+    words = data.split('\\n')
+    initial_state = []; final_state = []
+    delta_g = [];  delta_g_inv = []
+    for i in range(len(words)):
+        if words[i][0:7] == "INITIAL":
+            initial_state.append(words[i].split()[-1])
+        if words[i][0:5] == "FINAL":
+            final_state.append(words[i].split()[-1])
+    delta_g = list(set(final_state).difference(set(initial_state)))
+    delta_g_inv = list(set(initial_state).difference(set(final_state)))
+    return convert(delta_g), convert(delta_g_inv), convert(final_state)
 
-def calculate_jac_index(pred_state, true_state):
-   #calculate jac index for this instance
-   true_state = [s[1:-1].lower() for s in true_state]
-   union = len(pred_state)+len(true_state)
-   inter = 0
-   for s in pred_state:
-      if s in true_state:
-         inter+=1
-         union-=1
-   jac = inter *1.0/union
-#    print("jac score = " + str(jac) )
-   return jac
+def get_steps(data):
+    words = data.split('\\n')
+    constr = []
+    for i in range(len(words)):
+        if words[i][0:4] == "STEP":
+            constr.append(words[i].split()[-1])
+    return convert(constr)
 
-def match_score(p, t):
-    count = 0
-    for i in range(4):
-        if p[i] == t[i]: count+=1
-    return count
+def get_new_state(state, delta_g, delta_g_inv):
+    new_state = state + delta_g
+    for rel in delta_g_inv:
+        if rel in state:
+            new_state.remove(rel)
+    return new_state
 
-def eval_accuracy(model_name, test_set, model, data_folder="", num_epoch=0):
-    acc = np.array([0, 0, 0, 0])
-    sji = 0
-    acc_exact = np.array([0, 0, 0, 0])
-    loss = 0
-    l = nn.BCELoss()
-    # l = nn.CrossEntropyLoss()
-    epoch = 1000
-    # val_out = open("val_out.txt", "w")
-    for iter_num, graph in tqdm(list(enumerate(test_set.graphs)), ncols=80):
-        lang_embed = test_set.lang[iter_num]
-        lang_str = test_set.sents[iter_num]
-        y_true_list = test_set.delta_g[iter_num]
-        len_y_true_list = len(y_true_list)
-        # y_true_list = [item for sublist in y_true_list for item in sublist]
-        y_true = y_true_list[0]
-        goalObjectsVec = torch.from_numpy(np.array(test_set.goalObjectsVec[iter_num]))
-        if (y_true == ""):
-            continue
-        if (model_name == "baseline" or model_name == "baseline_withoutGraph"):
-            y_pred = model(graph, lang_embed, False, torch.FloatTensor(string2vec(y_true)), epoch)
-        if model_name == "GGCN_node_attn_max" or model_name == "GGCN_node_attn_adv" or model_name == "GGCN_node_attn_norm":
-            y_pred = model(graph, lang_embed, goalObjectsVec, False, torch.FloatTensor(string2vec(y_true)), epoch)
-        if model_name == "GGCN_node_attn_sum" or model_name == "GGCN_attn_pairwise" or model_name == "GAT_attn_pairwise":
-            action, pred1_object, pred2_object, pred2_state = model(graph, lang_str, lang_embed, goalObjectsVec, False,
-                                                                    torch.FloatTensor(string2vec(y_true)), epoch, test_set.objects[iter_num],test_set.obj_states[iter_num])
-        y_pred = torch.cat((action, pred1_object, pred2_object, pred2_state), 1).flatten().cpu()
-        acc_tmp = accuracy_lenient(y_pred.detach().numpy().tolist(), y_true_list)[0]
+def get_graph_util(state):
+    env, objects = get_environment(state)
+    nodes = []
+    for obj in all_objects_lower:
+        node = {}
+        node['populate'] = obj in objects
+        node["id"] = all_objects_lower.index(obj)
+        node["name"] = obj
+        node["prop"] = all_obj_prop_lower[obj]
+        node["vector"] = dense_vector(obj)
+        node["state_var"] = []
+        if len(env) > 0:
+            for s in env["state"]:
+                if s[0] == obj:
+                    node["state_var"].append(s[1])
+        nodes.append(node)
+    if len(env) == 0:
+        return {'nodes': nodes, 'edges': []}
+    edges = []
+    relation = {"Near", "On", "In", "Grasping"}
+    for rel in relation:
+        for t in env[rel]:
+            fromID = all_objects.index(remove_braces(t[0]))
+            toID = all_objects.index(remove_braces(t[1]))
+            edges.append({'from': fromID, 'to': toID, 'relation': rel})
+    for i, obj in enumerate(all_objects):
+        edges.append({'from': i, 'to': i, 'relation': 'Empty'})
+    return {'nodes': nodes, 'edges': edges}
 
+def convertToDGLGraph_util(state):
+    graph_data = get_graph_util(state)
+    # Make edge sets
+    near, on, inside, grasp, empty = [], [], [], [], []
+    for edge in graph_data["edges"]:
+        if edge["relation"] == "Near":
+            near.append((edge["from"], edge["to"]))
+        elif edge["relation"] == "In":
+            inside.append((edge["from"], edge["to"]))
+        elif edge["relation"] == "On":
+            on.append((edge["from"], edge["to"]))
+        elif edge["relation"] == "Grasping":
+            grasp.append((edge["from"], edge["to"]))
+        elif edge["relation"] == "Empty":
+            empty.append((edge["from"], edge["to"]))
+    n_nodes = len(graph_data["nodes"])
+    edgeDict = {
+        ('object', 'Near', 'object'): near,
+        ('object', 'In', 'object'): inside,
+        ('object', 'On', 'object'): on,
+        ('object', 'Grasping', 'object'): grasp,
+        ('object', 'Empty', 'object'): empty,
+    }
+    g = dgl.heterograph(edgeDict)
+    # Add node features
+    node_prop = torch.zeros([n_nodes, len(all_non_fluents)], dtype=torch.float)  # Non-fluent vector
+    node_fluents = torch.zeros([n_nodes, MAX_REL], dtype=torch.float) # fluent states
+    node_vectors = torch.zeros([n_nodes, word_embed_size], dtype=torch.float)  # Conceptnet embedding
+    for i, node in enumerate(graph_data["nodes"]):
+        if not node['populate']: continue
+        states = node["state_var"]
+        prop = node["prop"]
+        node_id = node["id"]
+        count = 0
+        for state in states:
+            node_states = [i.lower() for i in all_object_states_lower[node["name"]]]
+            idx = node_states.index(state)
+            node_fluents[node_id][idx] = 1   
+        for state in prop:
+            if len(state) > 0:
+                idx = all_non_fluents.index(state)
+            node_prop[node_id][idx] = 1 
+        node_vectors[node_id] = torch.FloatTensor(node["vector"])
+    feat_mat = torch.cat((node_vectors, node_fluents, node_prop), 1)
+    g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)
+    return g
 
-        if len_y_true_list == 1:
-            acc_exact += acc_tmp
-        acc += acc_tmp
-        # loss += l(y_pred, torch.FloatTensor(string2vec(y_true)))
-        loss += loss_function(action, pred1_object, pred2_object, pred2_state, torch.FloatTensor(string2vec(y_true)), l)
-        # loss += loss_function_CE(action, pred1_object, pred2_object, pred2_state, torch.FloatTensor(string2vec(y_true)), l)
-
-    test_size = max(len(test_set.graphs), 1)
-    return acc/test_size, acc_exact/max(len(test_set.graphs), 1), sji/max(len(test_set.graphs), 1), loss/max(len(test_set.graphs), 1)
-
+def eval_accuracy(data, model, verbose = False):
+    sji, god, ied = 0, 0, 0
+    for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
+        state = dp.states[0]; state_dict = dp.state_dict[0]
+        init_state_dict = dp.state_dict[0]
+        action_seq = []
+        for i in range(len(dp.states)):
+            action, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
+            pred_delta = vect2string(action, pred1_object, pred2_object, pred2_state, dp.env_domain)
+            if pred_delta == '':
+                break
+            dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 
+            if dp_acc_i:
+                action_seq.append(dp.action_seq[i])
+                state = dp.states[i+1]; state_dict = dp.state_dict[i+1]
+                continue
+            if verbose: print(color.GREEN, 'File', color.ENDC, dp.file_path)
+            if verbose: print(color.GREEN, 'Init state', color.ENDC, state_dict)
+            if verbose: print(color.GREEN, 'Pred Delta', color.ENDC, pred_delta.lower())
+            create_pddl(state_dict, obj_set(dp.env_domain), [pred_delta.lower()], './planner/eval')
+            out = subprocess.Popen(['bash', './planner/run_final_state.sh', './planner/eval.pddl'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            stdout, stderr = out.communicate()
+            if verbose: print(color.GREEN, 'Stdout', color.ENDC, stdout.decode("utf-8"))
+            planner_action = get_steps(str(stdout))
+            if verbose: print(color.GREEN, 'Action', color.ENDC, planner_action)
+            planner_delta_g, planner_delta_g_inv, state_dict = get_delta(str(stdout))
+            if verbose: print(color.GREEN, 'Delta_g', color.ENDC, planner_delta_g)
+            if verbose: print(color.GREEN, 'Final state', color.ENDC, state_dict)
+            action_seq.extend(planner_action)
+            state = convertToDGLGraph_util(state_dict)
+        sji += get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
+        god += get_god_index(state_dict, dp.state_dict[-1])
+        ied += get_ied(action_seq, dp.action_seq)
+    return sji / len(data.dp_list), god / len(data.dp_list), ied / len(data.dp_list)
 
 def confusion_matrix(l1, l2, classes):
     cf = np.zeros([classes, classes])
@@ -296,7 +304,6 @@ def confusion_matrix(l1, l2, classes):
         for j in range(classes):
             print(int(cf[i, j]), "   ", end='')
         print("\n")
-
 
 def replace_all(y_true_list, acc_stat, pred):
     for i in range(len(y_true_list)):
@@ -572,3 +579,13 @@ def plot_graphs(result_folder, loss_arr, acc_arr):
     ax.legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
     plt.savefig(result_folder + "graphs_overall.pdf")
     plt.close('all')
+
+class color:
+    HEADER = '\033[95m'
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    RED = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'

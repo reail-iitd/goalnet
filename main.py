@@ -33,9 +33,9 @@ result_folder = './results/'
 os.makedirs(result_folder, exist_ok=True)
 if __name__ == '__main__':
     data_file = "data/"
-    train_data = DGLDataset(data_file + 'val/')
+    train_data = DGLDataset(data_file + 'train/')
     val_data = DGLDataset(data_file + 'val/')
-    # test_data = DGLDataset(data_file + 'test/')
+    test_data = DGLDataset(data_file + 'val/')
 
     model = Simple_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
 
@@ -43,6 +43,7 @@ if __name__ == '__main__':
     NUM_EPOCHS = 250
 
     best_val_acc = 100
+    best_model = None
     train_acc_arr = []
     val_acc_arr = []
     train_loss_arr = []
@@ -54,19 +55,24 @@ if __name__ == '__main__':
 
     for num_epochs in trange(NUM_EPOCHS, ncols=80):
         random.shuffle(train_data.dp_list)
-        lrate = 0.0005 # CE 0.0001
+        lrate = 0.00005 # CE 0.0001
         optimizer = torch.optim.Adam(model.parameters(), lr=lrate)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50)
         backprop(train_data, optimizer, scheduler, model, N_objects, num_epochs)
         with torch.no_grad():
             val_loss, val_acc = backprop(val_data, optimizer, scheduler, model, N_objects, num_epochs, train=False)
-        tqdm.write(f'Val Loss: {val_loss}\tVal Acc : {val_acc}')
+        tqdm.write(f'Val Loss: {"{:.8f}".format(val_loss)}\tVal Acc : {"{:.8f}".format(val_acc)}')
         val_loss_arr.append(val_loss); val_acc_arr.append(val_acc)
-
-        # if (best_val_acc > val_acc):
-        #     best_val_acc = val_acc
-        #     torch.save(model.state_dict(), result_folder + model.name + ".pt")
-        if (num_epochs % 50 == 0):
+        if num_epochs % 50 == 49:
             plot_graphs(result_folder, val_loss_arr, val_acc_arr)
-
+            with torch.no_grad():
+                test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
+                test_sji, test_god, test_ied = eval_accuracy(test_data, best_model, verbose = True)
+            tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest GOD : {"{:.8f}".format(test_god)}\tTest IED : {"{:.8f}".format(test_ied)}')
+            
+        if (best_val_acc > val_acc):
+            best_val_acc = val_acc
+            best_model = deepcopy(model)
+            
+    torch.save(best_model.state_dict(), result_folder + model.name + ".pt")
     print(f'Best validation accuracy: {max(val_acc_arr)} at epoch {np.argmax(val_acc_arr)}')

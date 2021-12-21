@@ -33,7 +33,7 @@ result_folder = './results/'
 os.makedirs(result_folder, exist_ok=True)
 if __name__ == '__main__':
     data_file = "data/"
-    train_data = DGLDataset(data_file + 'train/')
+    train_data = DGLDataset(data_file + 'test/')
     val_data = DGLDataset(data_file + 'val/')
     test_data = DGLDataset(data_file + 'val/')
 
@@ -58,17 +58,18 @@ if __name__ == '__main__':
         lrate = 0.00005 # CE 0.0001
         optimizer = torch.optim.Adam(model.parameters(), lr=lrate)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50)
-        backprop(train_data, optimizer, scheduler, model, N_objects, num_epochs)
+        train_loss, train_acc = backprop(train_data, optimizer, scheduler, model, N_objects, num_epochs)
         with torch.no_grad():
             val_loss, val_acc = backprop(val_data, optimizer, scheduler, model, N_objects, num_epochs, train=False)
-        tqdm.write(f'Val Loss: {"{:.8f}".format(val_loss)}\tVal Acc : {"{:.8f}".format(val_acc)}')
+        tqdm.write(f'Train Loss: {"{:.8f}".format(train_loss)}\tTrain Acc : {"{:.8f}".format(train_acc)}Val Loss: {"{:.8f}".format(val_loss)}\tVal Acc : {"{:.8f}".format(val_acc)}')
+        train_loss_arr.append(train_loss); train_acc_arr.append(train_acc)
         val_loss_arr.append(val_loss); val_acc_arr.append(val_acc)
         if num_epochs % 50 == 49:
-            plot_graphs(result_folder, val_loss_arr, val_acc_arr)
-            with torch.no_grad():
-                test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
-                test_sji, test_god, test_ied = eval_accuracy(test_data, best_model, verbose = True)
-            tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest GOD : {"{:.8f}".format(test_god)}\tTest IED : {"{:.8f}".format(test_ied)}')
+            plot_graphs(result_folder, train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr)
+            # with torch.no_grad():
+            #     test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
+            #     test_sji, test_god, test_ied = eval_accuracy(test_data, best_model, verbose = True)
+            # tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest GOD : {"{:.8f}".format(test_god)}\tTest IED : {"{:.8f}".format(test_ied)}')
             
         if (best_val_acc > val_acc):
             best_val_acc = val_acc

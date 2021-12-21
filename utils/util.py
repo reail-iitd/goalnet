@@ -254,7 +254,7 @@ def convertToDGLGraph_util(state):
         for state in prop:
             if len(state) > 0:
                 idx = all_non_fluents.index(state)
-            node_prop[node_id][idx] = 1 
+                node_prop[node_id][idx] = 1 
         node_vectors[node_id] = torch.FloatTensor(node["vector"])
     feat_mat = torch.cat((node_vectors, node_fluents, node_prop), 1)
     g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)
@@ -571,13 +571,16 @@ def plot_grad_flow(named_parameters, filename):
     plt.savefig(filename)
     plt.close('all')
 
-def plot_graphs(result_folder, loss_arr, acc_arr):
+def plot_graphs(result_folder, train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr):
     fig, ax = plt.subplots()
     fig.suptitle('Loss and Acc')
-    ax.plot(loss_arr, label='Val Loss')
-    ax.plot(acc_arr, label='Val Acc')
+    ax.plot(val_loss_arr, label='Val Loss', color='blue')
+    ax.plot(train_loss_arr, '--', label='Train Loss', color='lightblue')
+    ax.plot(val_acc_arr, label='Val Acc', color='orange')
+    ax.plot(train_acc_arr, '--', label='Train Acc', color='lightcoral')
     ax.legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
     plt.savefig(result_folder + "graphs_overall.pdf")
+    plt.tight_layout()
     plt.close('all')
 
 class color:

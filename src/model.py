@@ -14,47 +14,6 @@ from .datapoint import *
 from dgl.nn import GraphConv
 from sentence_transformers import SentenceTransformer
 
-
-class Simplest_Model(nn.Module):
-    def __init__(self,
-                 in_feats, 
-                 n_hidden,
-                 n_objects,
-                 n_states,
-                 etypes):
-        super(Simplest_Model, self).__init__()
-        self.name = "Simplest_Model"
-        self.activation = nn.PReLU()
-        self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
-        self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
-        self.graph_embed = nn.Sequential(nn.Linear(in_feats * n_objects, n_hidden), self.activation,
-            nn.Linear(n_hidden, n_hidden), self.activation)
-        self.fc = nn.Sequential(nn.Linear(n_hidden * 2, n_hidden), self.activation)
-        self.action = nn.Sequential(nn.Linear(n_hidden, len(all_relations) + 1), nn.Sigmoid()) # +1 for null delta_g
-        self.obj1 = nn.Sequential(nn.Linear(n_hidden, n_objects), nn.Sigmoid())
-        self.obj2 = nn.Sequential(nn.Linear(n_hidden, n_objects), nn.Sigmoid())
-        self.state = nn.Sequential(nn.Linear(n_hidden, n_states), nn.Sigmoid())
-
-    def forward(self, g, goalVec, goalObjectsVec):
-        # embed graph, goal vec based attention
-        h = g.ndata['feat']
-        goal_embed = self.embed_sbert(goalVec)
-        h_embed = self.graph_embed(h.view(-1))
-
-        # concatenate goal purpose embedding
-        final_to_decode = self.fc(torch.cat([h_embed, goal_embed]))
-
-        # head 1 (delta_g)
-        action = self.action(final_to_decode)
-
-        pred1_object = self.obj1(torch.cat([final_to_decode]))
-
-        pred2_object = self.obj2(torch.cat([final_to_decode]))
-
-        pred2_state = self.state(torch.cat([final_to_decode]))
-
-        return action, pred1_object, pred2_object, pred2_state
-
 class Simple_Model(nn.Module):
     def __init__(self,
                  in_feats, 

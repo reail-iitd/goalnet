@@ -37,7 +37,9 @@ if __name__ == '__main__':
     val_data = DGLDataset(data_file + 'val/')
     test_data = DGLDataset(data_file + 'val/')
 
-    model = Simple_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
+    # model = Simple_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
+    # model = GGCN_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
+    model = HAN_model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
 
     epoch = -1
     NUM_EPOCHS = 250
@@ -61,7 +63,7 @@ if __name__ == '__main__':
         train_loss, train_acc = backprop(train_data, optimizer, scheduler, model, N_objects, num_epochs)
         with torch.no_grad():
             val_loss, val_acc = backprop(val_data, optimizer, scheduler, model, N_objects, num_epochs, train=False)
-        tqdm.write(f'Train Loss: {"{:.8f}".format(train_loss)}\tTrain Acc : {"{:.8f}".format(train_acc)}Val Loss: {"{:.8f}".format(val_loss)}\tVal Acc : {"{:.8f}".format(val_acc)}')
+        tqdm.write(f'Train Loss: {"{:.8f}".format(train_loss)}\tTrain Acc : {"{:.8f}".format(train_acc)}\tVal Loss: {"{:.8f}".format(val_loss)}\tVal Acc : {"{:.8f}".format(val_acc)}')
         train_loss_arr.append(train_loss); train_acc_arr.append(train_acc)
         val_loss_arr.append(val_loss); val_acc_arr.append(val_acc)
         if num_epochs % 50 == 49:

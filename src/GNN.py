@@ -82,8 +82,8 @@ class LayerNormGRUCell(RNNCellBase):
             weight.data.uniform_(-stdv, stdv)
 
     def forward(self, input, hx):
-        self.check_forward_input(input)
-        self.check_forward_hidden(input, hx)
+        # self.check_forward_input(input)
+        # self.check_forward_hidden(input, hx)
         return self._LayerNormGRUCell(
             input, hx,
             self.weight_ih, self.weight_hh, self.ln,
@@ -91,19 +91,18 @@ class LayerNormGRUCell(RNNCellBase):
         )
 
     def _LayerNormGRUCell(self, input, hidden, w_ih, w_hh, ln, b_ih=None, b_hh=None):
-    	
-	    gi = F.linear(input, w_ih, b_ih)
-	    gh = F.linear(hidden, w_hh, b_hh)
-	    i_r, i_i, i_n = gi.chunk(3, 1)
-	    h_r, h_i, h_n = gh.chunk(3, 1)
+        
+        gi = F.linear(input, w_ih, b_ih)
+        gh = F.linear(hidden, w_hh, b_hh)
+        i_r, i_i, i_n = gi.chunk(3, 1)
+        h_r, h_i, h_n = gh.chunk(3, 1)
 
 	    # use layernorm here
-	    resetgate = torch.sigmoid(ln['resetgate'](i_r + h_r))
-	    inputgate = torch.sigmoid(ln['inputgate'](i_i + h_i))
-	    newgate = torch.tanh(ln['newgate'](i_n + resetgate * h_n))
-	    hy = newgate + inputgate * (hidden - newgate)
-
-	    return hy
+        resetgate = torch.sigmoid(ln['resetgate'](i_r + h_r))
+        inputgate = torch.sigmoid(ln['inputgate'](i_i + h_i))
+        newgate = torch.tanh(ln['newgate'](i_n + resetgate * h_n))
+        hy = newgate + inputgate * (hidden - newgate)
+        return hy
 
 class fc_block(nn.Module):
     def __init__(self, in_channels, out_channels, norm, activation_fn):

@@ -21,3 +21,9 @@ New Issues -
 5. Vocab embeddings (other than avg)
 6. DGL graph has all_object nodes irrespective of the domain --> prediction on all_objects --> masking
 6. Masking based on object set (for likelihood scores)
+
+Shreya TO DOs:
+1. Try ovrefitting on training data
+    a. Use Hetero GAT
+    b. Hyperparameter Tuning
+2. Resolve segfault issue in planner

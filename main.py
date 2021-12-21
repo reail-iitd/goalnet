@@ -16,7 +16,7 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
         dp_loss, dp_acc = 0, 0
         for i in range(len(dp.states)):
             delta_g_true = dp.delta_g_embed[i]
-            action, pred1_object, pred2_object, pred2_state = model(dp.states[i], dp.sent_embed, dp.goal_obj_embed)
+            action, pred1_object, pred2_object, pred2_state, l_h = model(dp.states[i], dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
             loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
             pred_delta = vect2string(action, pred1_object, pred2_object, pred2_state, dp.env_domain)
             dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     model = Simple_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
 
     epoch = -1
-    NUM_EPOCHS = 500
+    NUM_EPOCHS = 250
 
     best_val_acc = 100
     train_acc_arr = []

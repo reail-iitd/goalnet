@@ -72,7 +72,7 @@ class Datapoint:
             for state in prop:
                 if len(state) > 0:
                     idx = all_non_fluents.index(state)
-                node_prop[node_id][idx] = 1  # node_states is a 2D matrix of objects * states
+                    node_prop[node_id][idx] = 1  # node_states is a 2D matrix of objects * states
             node_vectors[node_id] = torch.FloatTensor(node["vector"])
         feat_mat = torch.cat((node_vectors, node_fluents, node_prop), 1)
         g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)

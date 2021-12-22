@@ -32,14 +32,21 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
 result_folder = './results/'
 os.makedirs(result_folder, exist_ok=True)
 if __name__ == '__main__':
+    # train = sys.argv[0] + "/"
+    # val = sys.argv[1] + "/"
+    # model_type = sys.argv[2]
+    model_type = "GGCN"
     data_file = "data/"
-    train_data = DGLDataset(data_file + 'test/')
-    val_data = DGLDataset(data_file + 'val/')
+    train_data = DGLDataset(data_file + "train/")
+    val_data = DGLDataset(data_file + "val/")
     test_data = DGLDataset(data_file + 'val/')
 
-    # model = Simple_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
-    # model = GGCN_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
-    model = HAN_model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
+    if model_type == "simple":
+        model = Simple_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
+    elif model_type == "GGCN":
+        model = GGCN_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
+    elif model_type == "HAN":
+        model = HAN_model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
 
     epoch = -1
     NUM_EPOCHS = 250
@@ -67,7 +74,7 @@ if __name__ == '__main__':
         train_loss_arr.append(train_loss); train_acc_arr.append(train_acc)
         val_loss_arr.append(val_loss); val_acc_arr.append(val_acc)
         if num_epochs % 50 == 49:
-            plot_graphs(result_folder, train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr)
+            plot_graphs(result_folder, model_type + "_graph", train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr)
             # with torch.no_grad():
             #     test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
             #     test_sji, test_god, test_ied = eval_accuracy(test_data, best_model, verbose = True)

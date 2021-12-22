@@ -571,7 +571,7 @@ def plot_grad_flow(named_parameters, filename):
     plt.savefig(filename)
     plt.close('all')
 
-def plot_graphs(result_folder, train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr):
+def plot_graphs(result_folder, graph_name, train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr):
     fig, ax = plt.subplots()
     fig.suptitle('Loss and Acc')
     ax.plot(val_loss_arr, label='Val Loss', color='blue')
@@ -579,7 +579,7 @@ def plot_graphs(result_folder, train_loss_arr, train_acc_arr, val_loss_arr, val_
     ax.plot(val_acc_arr, label='Val Acc', color='orange')
     ax.plot(train_acc_arr, '--', label='Train Acc', color='lightcoral')
     ax.legend(prop={"size": 7}, bbox_to_anchor=(1, 0.5))
-    plt.savefig(result_folder + "graphs_overall.pdf")
+    plt.savefig(result_folder + graph_name +".pdf")
     plt.tight_layout()
     plt.close('all')
 

@@ -13,7 +13,6 @@ from .HAN import *
 from utils.constants import *
 from .datapoint import *
 from dgl.nn import GraphConv
-from sentence_transformers import SentenceTransformer
 
 class Simple_Model(nn.Module):
     def __init__(self,
@@ -154,7 +153,7 @@ class HAN_model(nn.Module):
         self.name = "HAN_Model"
         self.n_hidden = n_hidden
         self.activation = nn.PReLU()
-        
+
         self.layers = nn.ModuleList()
         self.layers.append(HANLayer(meta_paths=[['Near', 'In', 'On', 'Grasping', "Empty"]], in_size=in_feats, out_size=n_hidden, layer_num_heads=3, dropout=0.5))
         self.layers.append(HANLayer([['Near', 'In', 'On', 'Grasping', "Empty"]], n_hidden * 3, n_hidden, 3, 0.5))

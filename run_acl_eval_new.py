@@ -280,6 +280,7 @@ for i in range(int(len(files)/2)):
     true_pddl = open(file_path, 'r')
     Lines_true = true_pddl.readlines()
     dp_file = Lines_true[5].split(":")[1].strip()
+    print("File= ", dp_file.split("_")[0])
     # print("DP file name = ", dp_file)
     # file_out.write("\nInstr: " + Lines_true[0])
     # file_out.write("True goal: " + Lines_true[1])
@@ -303,6 +304,7 @@ for i in range(int(len(files)/2)):
 
     out = subprocess.Popen(['./run_final_state.sh', file_path], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     stdout2, stderr2 = out.communicate()
+    print(stdout2)
     pred_pddl = open(file_path, 'r')
     Lines_pred = pred_pddl.readlines()
     

@@ -27,10 +27,12 @@ with open('./data/constants.json', 'r') as fh:
         Grasp_obj2 = constants_dict['Grasp_obj2']
         state_obj1 = constants_dict['state_obj1']
 all_objects_lower = [i.lower() for i in all_objects]
+all_relations_lower = [i.lower() for i in all_relations]
+all_fluents_lower = [i.lower() for i in all_fluents]
 all_obj_prop_lower = {}
 for obj in all_obj_prop: all_obj_prop_lower[obj.lower()] = all_obj_prop[obj]
 all_object_states_lower = {}
-for obj in all_object_states: all_object_states_lower[obj.lower()] = all_object_states[obj]
+for obj in all_object_states: all_object_states_lower[obj.lower()] = [i.lower() for i in all_object_states[obj]]
 MAX_REL = max([len(all_object_states[obj]) for obj in all_object_states.keys()])
 N_STATES = len(all_states)
 N_objects = len(all_objects)
@@ -44,7 +46,7 @@ mask_living = torch.Tensor([1 if obj in all_objects_living else 0 for obj in all
 mask_stateful = torch.Tensor([1 if obj in all_object_states else 0 for obj in all_objects])
 state_masks = {}
 for obj in all_object_states:
-        state_masks[obj] = torch.Tensor([1 if state in all_object_states[obj] else 0 for state in all_fluents])
+        state_masks[obj] = torch.Tensor([(1 if state in all_object_states[obj] else 0) for state in all_fluents])
 
 # LOADING DATASET SPECIFIC VOCABULARY
 with open('./data/vocab.json', 'r') as fh:

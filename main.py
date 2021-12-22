@@ -1,4 +1,4 @@
-import sys
+import sys, random
 from utils.util import *
 from src.model import *
 from src.dataset import *
@@ -14,11 +14,17 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
 
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
         dp_loss, dp_acc = 0, 0
+        teacher_forcing = random.random()
+        state = dp.states[0]
         for i in range(len(dp.states)):
+            if teacher_forcing < 0.8 or epoch < 100 or i == 0:
+                state, state_dict = dp.states[i], dp.state_dict[i]
+            else:
+                _, state, state_dict = run_planner_simple(state_dict, dp, pred_delta, True)
             delta_g_true = dp.delta_g_embed[i]
-            action, pred1_object, pred2_object, pred2_state, l_h = model(dp.states[i], dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
+            action, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
             loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
-            pred_delta = vect2string(action, pred1_object, pred2_object, pred2_state, dp.env_domain)
+            pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain)
             dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 
             # if epoch > 70 and dp_acc_i == 0: print(pred_delta, dp.delta_g[i])
             dp_loss += loss; dp_acc += dp_acc_i
@@ -32,26 +38,18 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
 result_folder = './results/'
 os.makedirs(result_folder, exist_ok=True)
 if __name__ == '__main__':
-    # train = sys.argv[0] + "/"
-    # val = sys.argv[1] + "/"
-    # model_type = sys.argv[2]
-    model_type = "GGCN"
+    model_type = sys.argv[1]
     data_file = "data/"
-    train_data = DGLDataset(data_file + "train/")
+    train_data = DGLDataset(data_file + "val/")
     val_data = DGLDataset(data_file + "val/")
     test_data = DGLDataset(data_file + 'val/')
 
-    if model_type == "simple":
-        model = Simple_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
-    elif model_type == "GGCN":
-        model = GGCN_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
-    elif model_type == "HAN":
-        model = HAN_model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])
+    model = eval(model_type + '_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])')
 
     epoch = -1
-    NUM_EPOCHS = 250
+    NUM_EPOCHS = 500
 
-    best_val_acc = 100
+    best_val_acc = 0
     best_model = None
     train_acc_arr = []
     val_acc_arr = []
@@ -64,7 +62,7 @@ if __name__ == '__main__':
 
     for num_epochs in trange(NUM_EPOCHS, ncols=80):
         random.shuffle(train_data.dp_list)
-        lrate = 0.00005 # CE 0.0001
+        lrate = 0.0005 # val keep 0.0005 and train 0.00005
         optimizer = torch.optim.Adam(model.parameters(), lr=lrate)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50)
         train_loss, train_acc = backprop(train_data, optimizer, scheduler, model, N_objects, num_epochs)
@@ -75,12 +73,12 @@ if __name__ == '__main__':
         val_loss_arr.append(val_loss); val_acc_arr.append(val_acc)
         if num_epochs % 50 == 49:
             plot_graphs(result_folder, model_type + "_graph", train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr)
-            # with torch.no_grad():
-            #     test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
-            #     test_sji, test_god, test_ied = eval_accuracy(test_data, best_model, verbose = True)
-            # tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest GOD : {"{:.8f}".format(test_god)}\tTest IED : {"{:.8f}".format(test_ied)}')
+            with torch.no_grad():
+                test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
+                test_sji, test_f1, test_ied = eval_accuracy(test_data, best_model, verbose = False)
+            tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest F1 : {"{:.8f}".format(test_f1)}\tTest IED : {"{:.8f}".format(test_ied)}')
             
-        if (best_val_acc > val_acc):
+        if best_val_acc < val_acc:
             best_val_acc = val_acc
             best_model = deepcopy(model)
             

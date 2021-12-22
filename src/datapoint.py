@@ -25,7 +25,7 @@ class Datapoint:
         self.states = tmp['initial_states']
         self.state_dict = deepcopy(tmp['initial_states'])
         for i, s_dict in enumerate(self.state_dict):
-            self.state_dict[i] = [rel.lower() for rel in s_dict]
+            self.state_dict[i] = [rel for rel in s_dict if len(rel.split()) == 3]
         self.delta_g = tmp['delta_g']
         self.delta_g_inv = tmp['delta_g_inv']
         self.action_seq = tmp['action_seq'] if 'action_seq' in tmp else []

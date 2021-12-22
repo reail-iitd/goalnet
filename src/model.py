@@ -53,7 +53,7 @@ class Simple_Model(nn.Module):
 
         # concatenate goal purpose embedding
         lstm_h = (torch.randn(1, 1, self.n_hidden),torch.randn(1, 1, self.n_hidden)) if lstm_hidden is None else lstm_hidden
-        h_hist, lstm_hidden = self.lstm(h_embed.view(1,1,-1), lstm_hidden)
+        h_hist, lstm_hidden = self.lstm(h_embed.view(1,1,-1), lstm_h)
         final_to_decode = self.fc(torch.cat([h_embed, h_hist.view(-1), goal_obj_embed, goal_embed]))
 
         # head 1 (delta_g)

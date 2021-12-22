@@ -27,3 +27,16 @@ Shreya TO DOs:
     a. Use Hetero GAT
     b. Hyperparameter Tuning
 2. Resolve segfault issue in planner
+3. Check BCE Loss correctness for number of predicates in relation
+
+Issues fixed:
+1. lstm_h - corrected in model.py
+2. removed break condition when predicted "null" by model
+3. Line 274 -  277 in util.py
+4. Fine tune model to remove training bias
+5. Calculate f1, p, r for delta_g, g_p
+6. Reduce teacher forcing inversely compared to accuracy
+7. How is pruning working in ACL16
+8. ACL16 is updating on clause phase
+9. Pre-process the state output from planner to handle lower and upper case inconsistency
+10. Non-fluent property predicated

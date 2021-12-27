@@ -3,8 +3,8 @@ from sentence_transformers import SentenceTransformer
 import nltk
 import re
 import numpy as np
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
+# nltk.download('punkt')
+# nltk.download('averaged_perceptron_tagger')
 
 sBERT_model = SentenceTransformer('paraphrase-MiniLM-L6-v2',device='cpu')
 stop_words = set({"the","a","and","then","or","next","first"})

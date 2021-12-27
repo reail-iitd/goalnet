@@ -30,8 +30,6 @@ Shreya TO DOs:
 3. Check BCE Loss correctness for number of predicates in relation
 
 Issues fixed:
-1. lstm_h - corrected in model.py
-2. removed break condition when predicted "null" by model
 3. Line 274 -  277 in util.py
 4. Fine tune model to remove training bias
 5. Calculate f1, p, r for delta_g, g_p

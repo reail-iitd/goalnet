@@ -29,7 +29,8 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
             # if epoch > 70 and dp_acc_i == 0: print(pred_delta, dp.delta_g[i])
             dp_loss += loss; dp_acc += dp_acc_i
         if train:
-            optimizer.zero_grad(); dp_loss.backward(); #plot_grad_flow(model.named_parameters(), f'gradients_{iter_num}.pdf')
+            optimizer.zero_grad(); dp_loss.backward(); 
+            # if epoch==1: plot_grad_flow(model.named_parameters(), f'gradients_{iter_num}.pdf')
             optimizer.step()
         acc += (dp_acc / len(dp.states)); dp_loss /= len(dp.states); total_loss += dp_loss
     scheduler.step()
@@ -39,15 +40,22 @@ result_folder = './results/'
 os.makedirs(result_folder, exist_ok=True)
 if __name__ == '__main__':
     model_type = sys.argv[1]
+    exp_name = sys.argv[2]
+    train = sys.argv[3]
+    val = sys.argv[4]
+    test = sys.argv[5]
+    result_folder_exp = result_folder + exp_name + "/"
+    print("Result folder: ", result_folder_exp)
+    os.makedirs(result_folder_exp, exist_ok=True)
     data_file = "data/"
-    train_data = DGLDataset(data_file + "val/")
-    val_data = DGLDataset(data_file + "val/")
-    test_data = DGLDataset(data_file + 'val/')
+    train_data = DGLDataset(data_file + train + "/")
+    val_data = DGLDataset(data_file + val + "/")
+    test_data = DGLDataset(data_file + test + '/')
 
     model = eval(model_type + '_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])')
 
     epoch = -1
-    NUM_EPOCHS = 500
+    NUM_EPOCHS = 250
 
     best_val_acc = 0
     best_model = None
@@ -68,19 +76,19 @@ if __name__ == '__main__':
         train_loss, train_acc = backprop(train_data, optimizer, scheduler, model, N_objects, num_epochs)
         with torch.no_grad():
             val_loss, val_acc = backprop(val_data, optimizer, scheduler, model, N_objects, num_epochs, train=False)
+        print("Epoch: ", num_epochs)
         tqdm.write(f'Train Loss: {"{:.8f}".format(train_loss)}\tTrain Acc : {"{:.8f}".format(train_acc)}\tVal Loss: {"{:.8f}".format(val_loss)}\tVal Acc : {"{:.8f}".format(val_acc)}')
         train_loss_arr.append(train_loss); train_acc_arr.append(train_acc)
         val_loss_arr.append(val_loss); val_acc_arr.append(val_acc)
-        if num_epochs % 50 == 49:
-            plot_graphs(result_folder, model_type + "_graph", train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr)
+        if num_epochs % 20 == 19:
+            plot_graphs(result_folder_exp, model_type + "_graph", train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr)
             with torch.no_grad():
                 test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
                 test_sji, test_f1, test_ied = eval_accuracy(test_data, best_model, verbose = False)
             tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest F1 : {"{:.8f}".format(test_f1)}\tTest IED : {"{:.8f}".format(test_ied)}')
-            
+            torch.save(best_model.state_dict(), result_folder_exp + model.name + ".pt")
         if best_val_acc < val_acc:
             best_val_acc = val_acc
             best_model = deepcopy(model)
-            
-    torch.save(best_model.state_dict(), result_folder + model.name + ".pt")
+
     print(f'Best validation accuracy: {max(val_acc_arr)} at epoch {np.argmax(val_acc_arr)}')

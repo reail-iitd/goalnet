@@ -68,27 +68,27 @@ for file_index in trange(NUM_DATAPOINTS):
 
     for i in range(len(sent)):
         if end_env_num[i]>start_env_num[i] and len(sent[i])>0:
-        	delta_g, delta_g_inv = [], []
-        	states = env_states[start_env_num[i]:end_env_num[i]+1]
-        	actions = action_list[i] + ['noop']
-        	todel = []
-        	for j in range(len(states)-1):
-        		d_g = list(set(states[j+1]).difference(set(states[j])))
-        		d_g_inv = list(set(states[j]).difference(set(states[j+1])))
-        		if actions[j] == 'wait': 
-        			todel.append(j)
-        			continue
-        		delta_g.append(d_g); delta_g_inv.append(d_g_inv) 
-        	delta_g.append([]); delta_g_inv.append([])
-        	for ind in todel[::-1]:
-        		del actions[ind]; del states[ind]
-        	if(len(delta_g_inv)==0 and len(delta_g)==0): continue
-        	data_name = 'test' if file_index in test_file_id else "val" if v_count < val_count else "train"
-        	filename = data_name+"/"+str(file_index)+"_"+str(counter)+".json"
+            delta_g, delta_g_inv = [], []
+            states = env_states[start_env_num[i]:end_env_num[i]+1]
+            actions = action_list[i] + ['noop']
+            todel = []
+            for j in range(len(states)-1):
+                d_g = list(set(states[j+1]).difference(set(states[j])))
+                d_g_inv = list(set(states[j]).difference(set(states[j+1])))
+                if actions[j] == 'wait': 
+                    todel.append(j)
+                    continue
+                delta_g.append(d_g); delta_g_inv.append(d_g_inv) 
+            delta_g.append([]); delta_g_inv.append([])
+            for ind in todel[::-1]:
+                del actions[ind]; del states[ind]
+            if(len(delta_g_inv)==0 and len(delta_g)==0): continue
+            data_name = 'test' if file_index in test_file_id else "val" if v_count < val_count else "train"
+            filename = data_name+"/"+str(file_index)+"_"+str(counter)+".json"
         	# print(filename)
         	# print(len(states), len(actions), len(delta_g), len(delta_g_inv))
-        	assert len(states) == len(actions) == len(delta_g) == len(delta_g_inv)
-        	dp = {
+            assert len(states) == len(actions) == len(delta_g) == len(delta_g_inv)
+            dp = {
             	'sent': sent[i],
             	'filename': str(file_index),
             	'initial_states': states,
@@ -96,7 +96,7 @@ for file_index in trange(NUM_DATAPOINTS):
             	'delta_g': delta_g,
             	'delta_g_inv': delta_g_inv
             	}
-        	with open(filename, 'w') as fh:
-        		json.dump(dp, fh, indent=4)
-       		v_count += 1
-        	counter+=1
+            with open(filename, 'w') as fh:
+                json.dump(dp, fh, indent=4)
+            v_count += 1
+            counter+=1

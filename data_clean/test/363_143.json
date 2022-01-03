@@ -3,16 +3,16 @@
     "filename": "363",
     "arg_mapping": {
         "it": [
-            "SpoOn_1",
-            "IceCream_1",
-            "Syrup_1"
+            "(Spoon_1)",
+            "(IceCream_1)",
+            "(Syrup_1)"
         ]
     },
     "initial_states": [
         [
             "(state Mug_1 Coffee)",
             "(IsGraspable Mug_1)",
-            "(IsGraspable SpoOn_1)",
+            "(IsGraspable Spoon_1)",
             "(state IceCream_1 ScoopsLeft)",
             "(IsGraspable IceCream_1)",
             "(IsGraspable Kettle)",
@@ -21,10 +21,10 @@
             "(IsGraspable Syrup_1)",
             "(IsSqueezeable Syrup_1)",
             "(IsGraspable Glass_1)",
-            "(IsGraspable LOngCup_1)",
-            "(IsGraspable LOngCup_2)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
             "(IsGraspable Fork_1)",
-            "(IsGraspable EnergyDrInk_1)",
+            "(IsGraspable EnergyDrink_1)",
             "(IsGraspable Coke_1)",
             "(IsGraspable CanadaDry_1)",
             "(IsGraspable Plate_1)",
@@ -35,24 +35,24 @@
             "(IsGraspable InstantRamen_1)",
             "(IsGraspable BoiledEgg_1)",
             "(IsGraspable Salt_1)",
-            "(On Glass_1 Stovefire_2)",
-            "(On LOngCup_1 StoveFire_3)",
-            "(On EnergyDrInk_1 StoveFire_4)",
-            "(On Coke_1 Stovefire_2)",
+            "(On Glass_1 StoveFire_2)",
+            "(On LongCup_1 StoveFire_3)",
+            "(On EnergyDrink_1 StoveFire_4)",
+            "(On Coke_1 StoveFire_2)",
             "(On CanadaDry_1 StoveFire_4)",
             "(On Plate_1 StoveFire_4)",
-            "(On Syrup_2 Stovefire_2)",
+            "(On Syrup_2 StoveFire_2)",
             "(On BoiledEgg_1 StoveFire_4)",
             "(Near Robot Fridge)",
-            "(state Fridge leftdoorIsOpen)",
-            "(state Fridge rightdoorIsOpen)",
-            "(graspIng Robot IceCream_1)",
-            "(graspIng Robot SpoOn_1)"
+            "(state Fridge LeftDoorIsOpen)",
+            "(state Fridge RightDoorIsOpen)",
+            "(Grasping Robot IceCream_1)",
+            "(Grasping Robot Spoon_1)"
         ],
         [
             "(state Mug_1 Coffee)",
             "(IsGraspable Mug_1)",
-            "(IsGraspable SpoOn_1)",
+            "(IsGraspable Spoon_1)",
             "(state IceCream_1 ScoopsLeft)",
             "(IsGraspable IceCream_1)",
             "(IsGraspable Kettle)",
@@ -61,10 +61,10 @@
             "(IsGraspable Syrup_1)",
             "(IsSqueezeable Syrup_1)",
             "(IsGraspable Glass_1)",
-            "(IsGraspable LOngCup_1)",
-            "(IsGraspable LOngCup_2)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
             "(IsGraspable Fork_1)",
-            "(IsGraspable EnergyDrInk_1)",
+            "(IsGraspable EnergyDrink_1)",
             "(IsGraspable Coke_1)",
             "(IsGraspable CanadaDry_1)",
             "(IsGraspable Plate_1)",
@@ -75,31 +75,34 @@
             "(IsGraspable InstantRamen_1)",
             "(IsGraspable BoiledEgg_1)",
             "(IsGraspable Salt_1)",
-            "(On Glass_1 Stovefire_2)",
-            "(On LOngCup_1 StoveFire_3)",
-            "(On EnergyDrInk_1 StoveFire_4)",
-            "(On Coke_1 Stovefire_2)",
+            "(On Glass_1 StoveFire_2)",
+            "(On LongCup_1 StoveFire_3)",
+            "(On EnergyDrink_1 StoveFire_4)",
+            "(On Coke_1 StoveFire_2)",
             "(On CanadaDry_1 StoveFire_4)",
             "(On Plate_1 StoveFire_4)",
-            "(On Syrup_2 Stovefire_2)",
+            "(On Syrup_2 StoveFire_2)",
             "(On BoiledEgg_1 StoveFire_4)",
             "(Near Robot Fridge)",
-            "(state Fridge leftdoorIsOpen)",
-            "(state Fridge rightdoorIsOpen)",
-            "(graspIng Robot IceCream_1)",
-            "(graspIng Robot SpoOn_1)",
-            "(state SpoOn_1 ScoopsLeft)"
+            "(state Fridge LeftDoorIsOpen)",
+            "(state Fridge RightDoorIsOpen)",
+            "(Grasping Robot IceCream_1)",
+            "(Grasping Robot Spoon_1)",
+            "(state Spoon_1 ScoopsLeft)"
         ]
     ],
     "action_seq": [
-        "scoop Spoon_1 IceCream_1"
+        "scoop Spoon_1 IceCream_1",
+        "noop"
     ],
     "delta_g": [
         [
-            "(state SpoOn_1 ScoopsLeft)"
-        ]
+            "(state Spoon_1 ScoopsLeft)"
+        ],
+        []
     ],
     "delta_g_inv": [
+        [],
         []
     ]
 }

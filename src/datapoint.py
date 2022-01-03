@@ -26,6 +26,11 @@ class Datapoint:
         self.state_dict = deepcopy(tmp['initial_states'])
         for i, s_dict in enumerate(self.state_dict):
             self.state_dict[i] = [rel for rel in s_dict if len(rel.split()) == 3]
+        self.arg_map = tmp['arg_mapping'] if 'arg_mapping' in tmp else None
+        if self.arg_map: # ground objects in the sent instruction
+            for arg, mapping in self.arg_map.items(): 
+                self.arg_map[arg] = mapping[0].replace('(', '').replace(')', '')
+                self.sent.replace(arg, mapping[0].replace('(', '').replace(')', ''))
         self.delta_g = tmp['delta_g']
         self.delta_g_inv = tmp['delta_g_inv']
         self.action_seq = tmp['action_seq'] if 'action_seq' in tmp else []
@@ -84,6 +89,8 @@ class Datapoint:
         self.sent_embed  = torch.tensor(form_goal_vec_sBERT(self.sent), dtype=torch.float)
         self.states = [self.convertToDGLGraph(state) for state in self.states]
         self.goal_obj_embed = torch.tensor(goalObjEmbed(self.sent), dtype=torch.float)
+        if 0 in self.goal_obj_embed.shape:
+            self.goal_obj_embed = torch.zeros(1, PRETRAINED_VECTOR_SIZE)
         self.delta_g_embed = [string2vec(i) for i in self.delta_g]
 
         # get all possible states for objects

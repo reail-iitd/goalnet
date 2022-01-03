@@ -3,13 +3,13 @@
     "filename": "201",
     "arg_mapping": {
         "bowl": [
-            "Bowl_1"
+            "(Bowl_1)"
         ],
         "coke": [
-            "Coke_1"
+            "(Coke_1)"
         ],
         "beer": [
-            "Beer_1"
+            "(Beer_1)"
         ]
     },
     "initial_states": [
@@ -26,12 +26,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -45,7 +45,7 @@
             "(On BagOfChips_1 Armchair_4)",
             "(On Bowl_1 Armchair_3)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
@@ -56,7 +56,7 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)"
+            "(On XboxController_1 Loveseat_1)"
         ],
         [
             "(state Tv_1 Channel3)",
@@ -71,12 +71,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -90,7 +90,7 @@
             "(On BagOfChips_1 Armchair_4)",
             "(On Bowl_1 Armchair_3)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
@@ -101,7 +101,7 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(Near Robot Bowl_1)"
         ],
         [
@@ -117,12 +117,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -135,7 +135,7 @@
             "(On Pillow_3 Shelf_1)",
             "(On BagOfChips_1 Armchair_4)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -145,8 +145,8 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
-            "(graspIng Robot Bowl_1)",
+            "(On XboxController_1 Loveseat_1)",
+            "(Grasping Robot Bowl_1)",
             "(On Coke_1 Loveseat_1)"
         ],
         [
@@ -162,12 +162,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -180,7 +180,7 @@
             "(On Pillow_3 Shelf_1)",
             "(On BagOfChips_1 Armchair_4)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -190,8 +190,8 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
-            "(graspIng Robot Bowl_1)",
+            "(On XboxController_1 Loveseat_1)",
+            "(Grasping Robot Bowl_1)",
             "(On Coke_1 Loveseat_1)",
             "(Near Robot BagOfChips_1)"
         ],
@@ -208,12 +208,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -225,7 +225,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -235,10 +235,10 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
-            "(graspIng Robot Bowl_1)",
+            "(On XboxController_1 Loveseat_1)",
+            "(Grasping Robot Bowl_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)"
+            "(Grasping Robot BagOfChips_1)"
         ],
         [
             "(state Tv_1 Channel3)",
@@ -253,12 +253,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -270,7 +270,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -280,9 +280,9 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On Bowl_1 Loveseat_1)"
         ],
         [
@@ -298,12 +298,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -315,7 +315,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -325,9 +325,9 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On Bowl_1 Loveseat_1)",
             "(Near Robot Bowl_1)"
         ],
@@ -344,12 +344,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -361,7 +361,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -371,10 +371,10 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
-            "(graspIng Robot Bowl_1)"
+            "(Grasping Robot BagOfChips_1)",
+            "(Grasping Robot Bowl_1)"
         ],
         [
             "(state Tv_1 Channel3)",
@@ -389,12 +389,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -406,7 +406,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -416,9 +416,9 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot Bowl_1)",
+            "(Grasping Robot Bowl_1)",
             "(On BagOfChips_1 Loveseat_1)"
         ],
         [
@@ -434,12 +434,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -451,7 +451,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -461,9 +461,9 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot Bowl_1)",
+            "(Grasping Robot Bowl_1)",
             "(On BagOfChips_1 Loveseat_1)",
             "(Near Robot BagOfChips_1)"
         ],
@@ -480,12 +480,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -497,7 +497,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -507,10 +507,10 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot Bowl_1)",
-            "(graspIng Robot BagOfChips_1)"
+            "(Grasping Robot Bowl_1)",
+            "(Grasping Robot BagOfChips_1)"
         ],
         [
             "(state Tv_1 Channel3)",
@@ -525,12 +525,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -542,7 +542,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -552,10 +552,10 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot Bowl_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(Grasping Robot Bowl_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(Near Robot GarbageBag_1)"
         ],
         [
@@ -571,12 +571,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -588,7 +588,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -598,11 +598,11 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot Bowl_1)",
-            "(graspIng Robot BagOfChips_1)",
-            "(graspIng Robot GarbageBag_1)"
+            "(Grasping Robot Bowl_1)",
+            "(Grasping Robot BagOfChips_1)",
+            "(Grasping Robot GarbageBag_1)"
         ],
         [
             "(state Tv_1 Channel3)",
@@ -617,12 +617,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -634,7 +634,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -644,10 +644,10 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot Bowl_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(Grasping Robot Bowl_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On GarbageBag_1 Loveseat_1)"
         ],
         [
@@ -663,12 +663,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -680,7 +680,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -690,10 +690,10 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot Bowl_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(Grasping Robot Bowl_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On GarbageBag_1 Loveseat_1)",
             "(Near Robot GarbageBag_1)"
         ],
@@ -710,12 +710,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -727,7 +727,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -737,11 +737,11 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot Bowl_1)",
-            "(graspIng Robot BagOfChips_1)",
-            "(graspIng Robot GarbageBag_1)"
+            "(Grasping Robot Bowl_1)",
+            "(Grasping Robot BagOfChips_1)",
+            "(Grasping Robot GarbageBag_1)"
         ],
         [
             "(state Tv_1 Channel3)",
@@ -756,12 +756,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -773,7 +773,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -783,10 +783,10 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
-            "(graspIng Robot GarbageBag_1)",
+            "(Grasping Robot BagOfChips_1)",
+            "(Grasping Robot GarbageBag_1)",
             "(On Bowl_1 Loveseat_1)"
         ],
         [
@@ -802,12 +802,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -819,7 +819,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -829,10 +829,10 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
-            "(graspIng Robot GarbageBag_1)",
+            "(Grasping Robot BagOfChips_1)",
+            "(Grasping Robot GarbageBag_1)",
             "(On Bowl_1 Loveseat_1)",
             "(Near Robot BagOfChips_1)"
         ],
@@ -849,12 +849,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -866,7 +866,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -876,12 +876,12 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
-            "(graspIng Robot GarbageBag_1)",
+            "(Grasping Robot BagOfChips_1)",
+            "(Grasping Robot GarbageBag_1)",
             "(On Bowl_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)"
+            "(Grasping Robot BagOfChips_1)"
         ],
         [
             "(state Tv_1 Channel3)",
@@ -896,12 +896,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -913,7 +913,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -923,12 +923,12 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
+            "(On XboxController_1 Loveseat_1)",
             "(On Coke_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
-            "(graspIng Robot GarbageBag_1)",
+            "(Grasping Robot BagOfChips_1)",
+            "(Grasping Robot GarbageBag_1)",
             "(On Bowl_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(Near Robot Coke_1)"
         ],
         [
@@ -944,12 +944,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -961,7 +961,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -971,12 +971,12 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
-            "(graspIng Robot GarbageBag_1)",
+            "(On XboxController_1 Loveseat_1)",
+            "(Grasping Robot BagOfChips_1)",
+            "(Grasping Robot GarbageBag_1)",
             "(On Bowl_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
-            "(graspIng Robot Coke_1)"
+            "(Grasping Robot BagOfChips_1)",
+            "(Grasping Robot Coke_1)"
         ],
         [
             "(state Tv_1 Channel3)",
@@ -991,12 +991,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -1008,7 +1008,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -1018,11 +1018,11 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(On XboxController_1 Loveseat_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On Bowl_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
-            "(graspIng Robot Coke_1)",
+            "(Grasping Robot BagOfChips_1)",
+            "(Grasping Robot Coke_1)",
             "(On GarbageBag_1 Loveseat_1)"
         ],
         [
@@ -1038,12 +1038,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -1055,7 +1055,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -1065,13 +1065,13 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(On XboxController_1 Loveseat_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On Bowl_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
-            "(graspIng Robot Coke_1)",
+            "(Grasping Robot BagOfChips_1)",
+            "(Grasping Robot Coke_1)",
             "(On GarbageBag_1 Loveseat_1)",
-            "(Near Robot GarbageBIn_1)"
+            "(Near Robot GarbageBin_1)"
         ],
         [
             "(state Tv_1 Channel3)",
@@ -1086,12 +1086,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -1103,7 +1103,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -1113,13 +1113,13 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(On XboxController_1 Loveseat_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On Bowl_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On GarbageBag_1 Loveseat_1)",
-            "(Near Robot GarbageBIn_1)",
-            "(On Coke_1 GarbageBIn_1)"
+            "(Near Robot GarbageBin_1)",
+            "(On Coke_1 GarbageBin_1)"
         ],
         [
             "(state Tv_1 Channel3)",
@@ -1134,12 +1134,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -1151,7 +1151,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Beer_1 CoffeeTable_1)",
             "(On Cd_1 Studytable_1)",
@@ -1161,13 +1161,13 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(On XboxController_1 Loveseat_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On Bowl_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On GarbageBag_1 Loveseat_1)",
-            "(Near Robot GarbageBIn_1)",
-            "(On Coke_1 GarbageBIn_1)",
+            "(Near Robot GarbageBin_1)",
+            "(On Coke_1 GarbageBin_1)",
             "(Near Robot Beer_1)"
         ],
         [
@@ -1183,12 +1183,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -1200,7 +1200,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Cd_1 Studytable_1)",
             "(On Pillow_4 Shelf_1)",
@@ -1209,14 +1209,14 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(On XboxController_1 Loveseat_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On Bowl_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On GarbageBag_1 Loveseat_1)",
-            "(Near Robot GarbageBIn_1)",
-            "(On Coke_1 GarbageBIn_1)",
-            "(graspIng Robot Beer_1)"
+            "(Near Robot GarbageBin_1)",
+            "(On Coke_1 GarbageBin_1)",
+            "(Grasping Robot Beer_1)"
         ],
         [
             "(state Tv_1 Channel3)",
@@ -1231,12 +1231,12 @@
             "(state Bowl_1 HasChips)",
             "(IsGraspable Bowl_1)",
             "(IsGraspable GarbageBag_1)",
-            "(IsGraspable GarbageBIn_1)",
+            "(IsGraspable GarbageBin_1)",
             "(IsGraspable Book_1)",
             "(IsGraspable Book_2)",
             "(IsGraspable Coke_1)",
             "(IsGraspable Beer_1)",
-            "(IsGraspable XboxCOntroller_1)",
+            "(IsGraspable XboxController_1)",
             "(IsGraspable Xbox_1)",
             "(state Cd_2 CD)",
             "(IsGraspable Cd_2)",
@@ -1248,7 +1248,7 @@
             "(On Pillow_2 Shelf_1)",
             "(On Pillow_3 Shelf_1)",
             "(In GarbageBag_1 GarbageBag_1)",
-            "(On GarbageBIn_1 GarbageBIn_1)",
+            "(On GarbageBin_1 GarbageBin_1)",
             "(On Book_2 Loveseat_1)",
             "(On Cd_1 Studytable_1)",
             "(On Pillow_4 Shelf_1)",
@@ -1257,14 +1257,14 @@
             "(state Xbox_1 CD)",
             "(In Cd_2 Xbox_1)",
             "(On Xbox_1 Loveseat_1)",
-            "(On XboxCOntroller_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(On XboxController_1 Loveseat_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On Bowl_1 Loveseat_1)",
-            "(graspIng Robot BagOfChips_1)",
+            "(Grasping Robot BagOfChips_1)",
             "(On GarbageBag_1 Loveseat_1)",
-            "(Near Robot GarbageBIn_1)",
-            "(On Coke_1 GarbageBIn_1)",
-            "(On Beer_1 GarbageBIn_1)"
+            "(Near Robot GarbageBin_1)",
+            "(On Coke_1 GarbageBin_1)",
+            "(On Beer_1 GarbageBin_1)"
         ]
     ],
     "action_seq": [
@@ -1272,41 +1272,42 @@
         "grasp Bowl_1",
         "moveto BagOfChips_1",
         "grasp BagOfChips_1",
-        "keep Bowl_1 on Loveseat_1",
+        "keep Bowl_1 On Loveseat_1",
         "moveto Bowl_1",
         "grasp Bowl_1",
-        "keep BagOfChips_1 on Loveseat_1",
+        "keep BagOfChips_1 On Loveseat_1",
         "moveto BagOfChips_1",
         "grasp BagOfChips_1",
         "moveto GarbageBag_1",
         "grasp GarbageBag_1",
-        "keep GarbageBag_1 on Loveseat_1",
+        "keep GarbageBag_1 On Loveseat_1",
         "moveto GarbageBag_1",
         "grasp GarbageBag_1",
-        "keep Bowl_1 on Loveseat_1",
+        "keep Bowl_1 On Loveseat_1",
         "moveto BagOfChips_1",
         "grasp BagOfChips_1",
         "moveto Coke_1",
         "grasp Coke_1",
-        "keep GarbageBag_1 on Loveseat_1",
+        "keep GarbageBag_1 On Loveseat_1",
         "moveto GarbageBin_1",
-        "keep Coke_1 on GarbageBin_1",
+        "keep Coke_1 On GarbageBin_1",
         "moveto Beer_1",
         "grasp Beer_1",
-        "keep Beer_1 on GarbageBin_1"
+        "keep Beer_1 On GarbageBin_1",
+        "noop"
     ],
     "delta_g": [
         [
             "(Near Robot Bowl_1)"
         ],
         [
-            "(graspIng Robot Bowl_1)"
+            "(Grasping Robot Bowl_1)"
         ],
         [
             "(Near Robot BagOfChips_1)"
         ],
         [
-            "(graspIng Robot BagOfChips_1)"
+            "(Grasping Robot BagOfChips_1)"
         ],
         [
             "(On Bowl_1 Loveseat_1)"
@@ -1315,7 +1316,7 @@
             "(Near Robot Bowl_1)"
         ],
         [
-            "(graspIng Robot Bowl_1)"
+            "(Grasping Robot Bowl_1)"
         ],
         [
             "(On BagOfChips_1 Loveseat_1)"
@@ -1324,13 +1325,13 @@
             "(Near Robot BagOfChips_1)"
         ],
         [
-            "(graspIng Robot BagOfChips_1)"
+            "(Grasping Robot BagOfChips_1)"
         ],
         [
             "(Near Robot GarbageBag_1)"
         ],
         [
-            "(graspIng Robot GarbageBag_1)"
+            "(Grasping Robot GarbageBag_1)"
         ],
         [
             "(On GarbageBag_1 Loveseat_1)"
@@ -1339,7 +1340,7 @@
             "(Near Robot GarbageBag_1)"
         ],
         [
-            "(graspIng Robot GarbageBag_1)"
+            "(Grasping Robot GarbageBag_1)"
         ],
         [
             "(On Bowl_1 Loveseat_1)"
@@ -1352,26 +1353,27 @@
             "(Near Robot Coke_1)"
         ],
         [
-            "(graspIng Robot Coke_1)"
+            "(Grasping Robot Coke_1)"
         ],
         [
             "(On GarbageBag_1 Loveseat_1)"
         ],
         [
-            "(Near Robot GarbageBIn_1)"
+            "(Near Robot GarbageBin_1)"
         ],
         [
-            "(On Coke_1 GarbageBIn_1)"
+            "(On Coke_1 GarbageBin_1)"
         ],
         [
             "(Near Robot Beer_1)"
         ],
         [
-            "(graspIng Robot Beer_1)"
+            "(Grasping Robot Beer_1)"
         ],
         [
-            "(On Beer_1 GarbageBIn_1)"
-        ]
+            "(On Beer_1 GarbageBin_1)"
+        ],
+        []
     ],
     "delta_g_inv": [
         [],
@@ -1385,7 +1387,7 @@
             "(Near Robot BagOfChips_1)"
         ],
         [
-            "(graspIng Robot Bowl_1)"
+            "(Grasping Robot Bowl_1)"
         ],
         [],
         [
@@ -1393,7 +1395,7 @@
             "(Near Robot Bowl_1)"
         ],
         [
-            "(graspIng Robot BagOfChips_1)"
+            "(Grasping Robot BagOfChips_1)"
         ],
         [],
         [
@@ -1405,7 +1407,7 @@
             "(Near Robot GarbageBag_1)"
         ],
         [
-            "(graspIng Robot GarbageBag_1)"
+            "(Grasping Robot GarbageBag_1)"
         ],
         [],
         [
@@ -1413,7 +1415,7 @@
             "(Near Robot GarbageBag_1)"
         ],
         [
-            "(graspIng Robot Bowl_1)"
+            "(Grasping Robot Bowl_1)"
         ],
         [],
         [
@@ -1425,11 +1427,11 @@
             "(Near Robot Coke_1)"
         ],
         [
-            "(graspIng Robot GarbageBag_1)"
+            "(Grasping Robot GarbageBag_1)"
         ],
         [],
         [
-            "(graspIng Robot Coke_1)"
+            "(Grasping Robot Coke_1)"
         ],
         [],
         [
@@ -1437,7 +1439,8 @@
             "(Near Robot Beer_1)"
         ],
         [
-            "(graspIng Robot Beer_1)"
-        ]
+            "(Grasping Robot Beer_1)"
+        ],
+        []
     ]
 }

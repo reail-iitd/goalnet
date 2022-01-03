@@ -10,6 +10,20 @@ import matplotlib.lines as line
 from .constants import *
 from .helper import *
 import subprocess
+from optparse import OptionParser
+
+parser = OptionParser()
+parser.add_option("-m", "--model", action="store", dest="model", default="Simple",
+                  choices=['Simple', 'GGCN', 'HAN'], help="model type")
+parser.add_option("-e", "--expname", action="store", dest="expname", default="",
+                  help="experiment name")
+parser.add_option("-r", "--train", action="store", dest="train", default="train",
+                  help="training set folder")
+parser.add_option("-v", "--val", action="store", dest="val", default="val",
+                  help="validation set folder")
+parser.add_option("-t", "--test", action="store", dest="test", default="test",
+                  help="testing set folder")
+opts, args = parser.parse_args()
 
 def obj_set(env_domain):
     return all_objects # all_objects_kitchen if env_domain == 'kitchen' else all_objects_living
@@ -37,13 +51,25 @@ def create_pddl(init, objects, goal_list, file_name):
     f.write(") \n(:goal (AND " + goal_string + ")) \n)")
     f.close()
 
-def vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, env_domain):
+def check_arg_map(arg_map):
+    if len(arg_map.keys()) == 0: return False
+    for arg, mapping in arg_map.items():
+        if mapping.lower() not in all_objects_lower:
+            return False
+    return True
+
+def vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, env_domain, arg_map = None):
     action_index = torch.argmax(action).item()
     if action_index == N_relations:
         return ''
     rel = all_relations[action_index]
+    if arg_map and check_arg_map(arg_map):
+        arg_mask = torch.zeros(len(all_objects))
+        for arg, mapping in arg_map.items(): arg_mask[all_objects_lower.index(mapping.lower())] = 1
+    else:
+        arg_mask = torch.ones(len(all_objects))
     obj_mask = mask_kitchen if env_domain == 'kitchen' else mask_living
-    obj1_index = torch.argmax(pred1_object * obj_mask * (mask_stateful if action_index == 0 else 1)).item()
+    obj1_index = torch.argmax(pred1_object * obj_mask * (mask_stateful if action_index == 0 else 1) * arg_mask).item()
     obj1 = all_objects[obj1_index]
     obj2_mask_temp = torch.ones(len(all_objects))
     for constr in state_dict:
@@ -52,7 +78,7 @@ def vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, env
         if action_index == a_i and obj1_index == o1_i:
             obj2_mask_temp[o2_i] = 0
     obj2_mask = 1 if action_index == 0 else obj2_mask_temp
-    obj2 = all_objects[torch.argmax(pred2_object * obj_mask * obj2_mask).item()]
+    obj2 = all_objects[torch.argmax(pred2_object * obj_mask * obj2_mask * arg_mask).item()]
     state_mask = state_masks[obj1] if action_index == 0 else 1
     state = all_fluents[torch.argmax(pred2_state * state_mask).item()]
     return "(" + rel + " " + obj1  + " " + (state if action_index == 0 else obj2) + ")" 
@@ -305,7 +331,7 @@ def eval_accuracy(data, model, verbose = False):
         action_seq = []
         for i in range(len(dp.states) - 1):
             action, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
-            pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain)
+            pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
             # if pred_delta == '':
             #     break
             dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 

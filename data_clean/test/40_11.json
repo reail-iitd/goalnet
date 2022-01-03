@@ -3,17 +3,17 @@
     "filename": "40",
     "arg_mapping": {
         "sink": [
-            "SInk"
+            "(Sink)"
         ],
         "pots": [
-            "Kettle"
+            "(Kettle)"
         ]
     },
     "initial_states": [
         [
             "(state Mug_1 Coffee)",
             "(IsGraspable Mug_1)",
-            "(IsGraspable SpoOn_1)",
+            "(IsGraspable Spoon_1)",
             "(state IceCream_1 ScoopsLeft)",
             "(IsGraspable IceCream_1)",
             "(IsGraspable Kettle)",
@@ -22,10 +22,10 @@
             "(IsGraspable Syrup_1)",
             "(IsSqueezeable Syrup_1)",
             "(IsGraspable Glass_1)",
-            "(IsGraspable LOngCup_1)",
-            "(IsGraspable LOngCup_2)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
             "(IsGraspable Fork_1)",
-            "(IsGraspable EnergyDrInk_1)",
+            "(IsGraspable EnergyDrink_1)",
             "(IsGraspable Coke_1)",
             "(IsGraspable CanadaDry_1)",
             "(IsGraspable Plate_1)",
@@ -37,23 +37,23 @@
             "(IsGraspable BoiledEgg_1)",
             "(IsGraspable Salt_1)",
             "(On IceCream_1 StoveFire_4)",
-            "(On Kettle Stovefire_2)",
-            "(On EnergyDrInk_1 StoveFire_4)",
+            "(On Kettle StoveFire_2)",
+            "(On EnergyDrink_1 StoveFire_4)",
             "(On Coke_1 StoveFire_4)",
             "(On CanadaDry_1 StoveFire_4)",
             "(On BoiledEgg_1 StoveFire_4)",
-            "(Near Robot SInk)",
-            "(On Plate_1 SInk)",
-            "(On Plate_2 SInk)",
+            "(Near Robot Sink)",
+            "(On Plate_1 Sink)",
+            "(On Plate_2 Sink)",
             "(Near Robot Fridge)",
-            "(On LOngCup_2 SInk)",
-            "(On Fork_1 SInk)",
-            "(On SpoOn_1 SInk)"
+            "(On LongCup_2 Sink)",
+            "(On Fork_1 Sink)",
+            "(On Spoon_1 Sink)"
         ],
         [
             "(state Mug_1 Coffee)",
             "(IsGraspable Mug_1)",
-            "(IsGraspable SpoOn_1)",
+            "(IsGraspable Spoon_1)",
             "(state IceCream_1 ScoopsLeft)",
             "(IsGraspable IceCream_1)",
             "(IsGraspable Kettle)",
@@ -62,10 +62,10 @@
             "(IsGraspable Syrup_1)",
             "(IsSqueezeable Syrup_1)",
             "(IsGraspable Glass_1)",
-            "(IsGraspable LOngCup_1)",
-            "(IsGraspable LOngCup_2)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
             "(IsGraspable Fork_1)",
-            "(IsGraspable EnergyDrInk_1)",
+            "(IsGraspable EnergyDrink_1)",
             "(IsGraspable Coke_1)",
             "(IsGraspable CanadaDry_1)",
             "(IsGraspable Plate_1)",
@@ -77,24 +77,24 @@
             "(IsGraspable BoiledEgg_1)",
             "(IsGraspable Salt_1)",
             "(On IceCream_1 StoveFire_4)",
-            "(On Kettle Stovefire_2)",
-            "(On EnergyDrInk_1 StoveFire_4)",
+            "(On Kettle StoveFire_2)",
+            "(On EnergyDrink_1 StoveFire_4)",
             "(On Coke_1 StoveFire_4)",
             "(On CanadaDry_1 StoveFire_4)",
             "(On BoiledEgg_1 StoveFire_4)",
-            "(Near Robot SInk)",
-            "(On Plate_1 SInk)",
-            "(On Plate_2 SInk)",
+            "(Near Robot Sink)",
+            "(On Plate_1 Sink)",
+            "(On Plate_2 Sink)",
             "(Near Robot Fridge)",
-            "(On LOngCup_2 SInk)",
-            "(On Fork_1 SInk)",
-            "(On SpoOn_1 SInk)",
+            "(On LongCup_2 Sink)",
+            "(On Fork_1 Sink)",
+            "(On Spoon_1 Sink)",
             "(Near Robot Kettle)"
         ],
         [
             "(state Mug_1 Coffee)",
             "(IsGraspable Mug_1)",
-            "(IsGraspable SpoOn_1)",
+            "(IsGraspable Spoon_1)",
             "(state IceCream_1 ScoopsLeft)",
             "(IsGraspable IceCream_1)",
             "(IsGraspable Kettle)",
@@ -103,10 +103,10 @@
             "(IsGraspable Syrup_1)",
             "(IsSqueezeable Syrup_1)",
             "(IsGraspable Glass_1)",
-            "(IsGraspable LOngCup_1)",
-            "(IsGraspable LOngCup_2)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
             "(IsGraspable Fork_1)",
-            "(IsGraspable EnergyDrInk_1)",
+            "(IsGraspable EnergyDrink_1)",
             "(IsGraspable Coke_1)",
             "(IsGraspable CanadaDry_1)",
             "(IsGraspable Plate_1)",
@@ -118,23 +118,23 @@
             "(IsGraspable BoiledEgg_1)",
             "(IsGraspable Salt_1)",
             "(On IceCream_1 StoveFire_4)",
-            "(On EnergyDrInk_1 StoveFire_4)",
+            "(On EnergyDrink_1 StoveFire_4)",
             "(On Coke_1 StoveFire_4)",
             "(On CanadaDry_1 StoveFire_4)",
             "(On BoiledEgg_1 StoveFire_4)",
-            "(Near Robot SInk)",
-            "(On Plate_1 SInk)",
-            "(On Plate_2 SInk)",
+            "(Near Robot Sink)",
+            "(On Plate_1 Sink)",
+            "(On Plate_2 Sink)",
             "(Near Robot Fridge)",
-            "(On LOngCup_2 SInk)",
-            "(On Fork_1 SInk)",
-            "(On SpoOn_1 SInk)",
-            "(graspIng Robot Kettle)"
+            "(On LongCup_2 Sink)",
+            "(On Fork_1 Sink)",
+            "(On Spoon_1 Sink)",
+            "(Grasping Robot Kettle)"
         ],
         [
             "(state Mug_1 Coffee)",
             "(IsGraspable Mug_1)",
-            "(IsGraspable SpoOn_1)",
+            "(IsGraspable Spoon_1)",
             "(state IceCream_1 ScoopsLeft)",
             "(IsGraspable IceCream_1)",
             "(IsGraspable Kettle)",
@@ -143,10 +143,10 @@
             "(IsGraspable Syrup_1)",
             "(IsSqueezeable Syrup_1)",
             "(IsGraspable Glass_1)",
-            "(IsGraspable LOngCup_1)",
-            "(IsGraspable LOngCup_2)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
             "(IsGraspable Fork_1)",
-            "(IsGraspable EnergyDrInk_1)",
+            "(IsGraspable EnergyDrink_1)",
             "(IsGraspable Coke_1)",
             "(IsGraspable CanadaDry_1)",
             "(IsGraspable Plate_1)",
@@ -158,44 +158,47 @@
             "(IsGraspable BoiledEgg_1)",
             "(IsGraspable Salt_1)",
             "(On IceCream_1 StoveFire_4)",
-            "(On EnergyDrInk_1 StoveFire_4)",
+            "(On EnergyDrink_1 StoveFire_4)",
             "(On Coke_1 StoveFire_4)",
             "(On CanadaDry_1 StoveFire_4)",
             "(On BoiledEgg_1 StoveFire_4)",
-            "(Near Robot SInk)",
-            "(On Plate_1 SInk)",
-            "(On Plate_2 SInk)",
+            "(Near Robot Sink)",
+            "(On Plate_1 Sink)",
+            "(On Plate_2 Sink)",
             "(Near Robot Fridge)",
-            "(On LOngCup_2 SInk)",
-            "(On Fork_1 SInk)",
-            "(On SpoOn_1 SInk)",
-            "(On Kettle SInk)"
+            "(On LongCup_2 Sink)",
+            "(On Fork_1 Sink)",
+            "(On Spoon_1 Sink)",
+            "(On Kettle Sink)"
         ]
     ],
     "action_seq": [
         "moveto Kettle",
         "grasp Kettle",
-        "keep Kettle on Sink"
+        "keep Kettle On Sink",
+        "noop"
     ],
     "delta_g": [
         [
             "(Near Robot Kettle)"
         ],
         [
-            "(graspIng Robot Kettle)"
+            "(Grasping Robot Kettle)"
         ],
         [
-            "(On Kettle SInk)"
-        ]
+            "(On Kettle Sink)"
+        ],
+        []
     ],
     "delta_g_inv": [
         [],
         [
-            "(On Kettle Stovefire_2)",
+            "(On Kettle StoveFire_2)",
             "(Near Robot Kettle)"
         ],
         [
-            "(graspIng Robot Kettle)"
-        ]
+            "(Grasping Robot Kettle)"
+        ],
+        []
     ]
 }

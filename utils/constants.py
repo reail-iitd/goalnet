@@ -1,9 +1,15 @@
 import pickle, os, json, torch
+import numpy as np
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+# DATASET PATH
+data_file = "./data_clean/"
 
 # LOADING DATASET SPECIFIC CONSTANTS
 # couch - Loveseat, cd2 - Far Cry Game, Book_1 - Guiness Book
 # objects + fluent attributes = all_objects
-with open('./data/constants.json', 'r') as fh:
+with open(f'{data_file}constants.json', 'r') as fh:
         constants_dict = json.load(fh)
         all_objects = constants_dict['all_objects']
         all_objects_kitchen = constants_dict['all_objects_kitchen']
@@ -49,7 +55,7 @@ for obj in all_object_states:
         state_masks[obj] = torch.Tensor([(1 if state in all_object_states[obj] else 0) for state in all_fluents])
 
 # LOADING DATASET SPECIFIC VOCABULARY
-with open('./data/vocab.json', 'r') as fh:
+with open(f'{data_file}vocab.json', 'r') as fh:
         VOCAB_VECT = json.load(fh)
         for obj in list(VOCAB_VECT):
                 if '_' in obj:
@@ -60,9 +66,20 @@ with open('./data/vocab.json', 'r') as fh:
 with open('./jsons/conceptnet.json', 'r') as fh:
         conceptnet_vectors = json.load(fh)
 
+all_vectors = {}
+for obj in conceptnet_vectors: all_vectors[obj.lower()] = np.array(conceptnet_vectors[obj])
+for obj in VOCAB_VECT: all_vectors[obj.lower()] = np.array(VOCAB_VECT[obj])
+def closest(word):
+        word = word.lower()
+        keys = list(all_vectors.keys())
+        dists = [np.mean((all_vectors[word] - all_vectors[i]) ** 2) for i in all_vectors if i not in word]
+        closest = np.argsort(dists)[:5]
+        return keys[closest[0]], keys[closest[1]], keys[closest[2]], keys[closest[3]], keys[closest[4]]
+
 # MODEL CONSTANTS
 PRETRAINED_VECTOR_SIZE = 300
 GRAPH_HIDDEN = 64
 size, layers = (4, 2)
 word_embed_size = PRETRAINED_VECTOR_SIZE
 SBERT_VECTOR_SIZE = 384
+batch_size = 32

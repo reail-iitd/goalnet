@@ -3,10 +3,6 @@ from utils.util import *
 from src.model import *
 from src.dataset import *
 
-os.environ["TOKENIZERS_PARALLELISM"] = "false"
-
-batch_size = 32
-
 def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEnc=None, batch_size=1, train=True):
     total_loss = 0.0
     l = nn.BCELoss()
@@ -24,9 +20,9 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
             delta_g_true = dp.delta_g_embed[i]
             action, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
             loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
-            pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain)
+            pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
             dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 
-            # if epoch > 70 and dp_acc_i == 0: print(pred_delta, dp.delta_g[i])
+            if epoch > 200 and dp_acc_i == 0: print(pred_delta, dp.delta_g[i])
             dp_loss += loss; dp_acc += dp_acc_i
         if train:
             optimizer.zero_grad(); dp_loss.backward(); 
@@ -39,18 +35,13 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
 result_folder = './results/'
 os.makedirs(result_folder, exist_ok=True)
 if __name__ == '__main__':
-    model_type = sys.argv[1]
-    exp_name = sys.argv[2]
-    train = sys.argv[3]
-    val = sys.argv[4]
-    test = sys.argv[5]
-    result_folder_exp = result_folder + exp_name + "/"
+    model_type = opts.model
+    result_folder_exp = result_folder + opts.expname + "/"
     print("Result folder: ", result_folder_exp)
     os.makedirs(result_folder_exp, exist_ok=True)
-    data_file = "data/"
-    train_data = DGLDataset(data_file + train + "/")
-    val_data = DGLDataset(data_file + val + "/")
-    test_data = DGLDataset(data_file + test + '/')
+    train_data = DGLDataset(data_file + opts.train + "/")
+    val_data = DGLDataset(data_file + opts.val + "/")
+    test_data = DGLDataset(data_file + opts.test + '/')
 
     model = eval(model_type + '_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])')
 
@@ -76,8 +67,7 @@ if __name__ == '__main__':
         train_loss, train_acc = backprop(train_data, optimizer, scheduler, model, N_objects, num_epochs)
         with torch.no_grad():
             val_loss, val_acc = backprop(val_data, optimizer, scheduler, model, N_objects, num_epochs, train=False)
-        print("Epoch: ", num_epochs)
-        tqdm.write(f'Train Loss: {"{:.8f}".format(train_loss)}\tTrain Acc : {"{:.8f}".format(train_acc)}\tVal Loss: {"{:.8f}".format(val_loss)}\tVal Acc : {"{:.8f}".format(val_acc)}')
+        tqdm.write(f'Epoch {num_epochs} Train Loss: {"{:.8f}".format(train_loss)}\tTrain Acc : {"{:.8f}".format(train_acc)}\tVal Loss: {"{:.8f}".format(val_loss)}\tVal Acc : {"{:.8f}".format(val_acc)}')
         train_loss_arr.append(train_loss); train_acc_arr.append(train_acc)
         val_loss_arr.append(val_loss); val_acc_arr.append(val_acc)
         if num_epochs % 20 == 19:

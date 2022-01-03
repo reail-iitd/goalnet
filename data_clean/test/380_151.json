@@ -3,17 +3,17 @@
     "filename": "380",
     "arg_mapping": {
         "water": [
-            "Kettle"
+            "(Kettle)"
         ],
         "kettle": [
-            "Kettle"
+            "(Kettle)"
         ]
     },
     "initial_states": [
         [
             "(state Mug_1 Coffee)",
             "(IsGraspable Mug_1)",
-            "(IsGraspable SpoOn_1)",
+            "(IsGraspable Spoon_1)",
             "(state IceCream_1 ScoopsLeft)",
             "(IsGraspable IceCream_1)",
             "(IsGraspable Kettle)",
@@ -22,10 +22,10 @@
             "(IsGraspable Syrup_1)",
             "(IsSqueezeable Syrup_1)",
             "(IsGraspable Glass_1)",
-            "(IsGraspable LOngCup_1)",
-            "(IsGraspable LOngCup_2)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
             "(IsGraspable Fork_1)",
-            "(IsGraspable EnergyDrInk_1)",
+            "(IsGraspable EnergyDrink_1)",
             "(IsGraspable Coke_1)",
             "(IsGraspable CanadaDry_1)",
             "(IsGraspable Plate_1)",
@@ -37,8 +37,8 @@
             "(IsGraspable BoiledEgg_1)",
             "(IsGraspable Salt_1)",
             "(On IceCream_1 StoveFire_4)",
-            "(On Syrup_1 Stovefire_2)",
-            "(On EnergyDrInk_1 StoveFire_4)",
+            "(On Syrup_1 StoveFire_2)",
+            "(On EnergyDrink_1 StoveFire_4)",
             "(On Coke_1 StoveFire_4)",
             "(On CanadaDry_1 StoveFire_4)",
             "(On Plate_1 StoveFire_4)",
@@ -46,18 +46,18 @@
             "(On BoiledEgg_1 StoveFire_4)",
             "(Near Robot StoveFire_3)",
             "(Near Robot Stove)",
-            "(state Stove Stovefire3)",
-            "(Near Robot SInk)",
+            "(state Stove StoveFire3)",
+            "(Near Robot Sink)",
             "(state Kettle Water)",
             "(state Kettle Water)",
             "(Near Robot StoveFire_4)",
-            "(graspIng Robot Kettle)",
-            "(state Stove Stovefire4)"
+            "(Grasping Robot Kettle)",
+            "(state Stove StoveFire4)"
         ],
         [
             "(state Mug_1 Coffee)",
             "(IsGraspable Mug_1)",
-            "(IsGraspable SpoOn_1)",
+            "(IsGraspable Spoon_1)",
             "(state IceCream_1 ScoopsLeft)",
             "(IsGraspable IceCream_1)",
             "(IsGraspable Kettle)",
@@ -66,10 +66,10 @@
             "(IsGraspable Syrup_1)",
             "(IsSqueezeable Syrup_1)",
             "(IsGraspable Glass_1)",
-            "(IsGraspable LOngCup_1)",
-            "(IsGraspable LOngCup_2)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
             "(IsGraspable Fork_1)",
-            "(IsGraspable EnergyDrInk_1)",
+            "(IsGraspable EnergyDrink_1)",
             "(IsGraspable Coke_1)",
             "(IsGraspable CanadaDry_1)",
             "(IsGraspable Plate_1)",
@@ -81,8 +81,8 @@
             "(IsGraspable BoiledEgg_1)",
             "(IsGraspable Salt_1)",
             "(On IceCream_1 StoveFire_4)",
-            "(On Syrup_1 Stovefire_2)",
-            "(On EnergyDrInk_1 StoveFire_4)",
+            "(On Syrup_1 StoveFire_2)",
+            "(On EnergyDrink_1 StoveFire_4)",
             "(On Coke_1 StoveFire_4)",
             "(On CanadaDry_1 StoveFire_4)",
             "(On Plate_1 StoveFire_4)",
@@ -90,21 +90,24 @@
             "(On BoiledEgg_1 StoveFire_4)",
             "(Near Robot StoveFire_3)",
             "(Near Robot Stove)",
-            "(state Stove Stovefire3)",
-            "(Near Robot SInk)",
+            "(state Stove StoveFire3)",
+            "(Near Robot Sink)",
             "(state Kettle Water)",
             "(Near Robot StoveFire_4)",
-            "(graspIng Robot Kettle)",
-            "(state Stove Stovefire4)"
+            "(Grasping Robot Kettle)",
+            "(state Stove StoveFire4)"
         ]
     ],
     "action_seq": [
-        "pour Kettle"
+        "pour Kettle",
+        "noop"
     ],
     "delta_g": [
+        [],
         []
     ],
     "delta_g_inv": [
+        [],
         []
     ]
 }

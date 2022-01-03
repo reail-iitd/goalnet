@@ -22,14 +22,14 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
             loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
             pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
             dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 
-            if epoch > 200 and dp_acc_i == 0: print(pred_delta, dp.delta_g[i])
+            # if epoch > 200 and dp_acc_i == 0: print(pred_delta, dp.delta_g[i])
             dp_loss += loss; dp_acc += dp_acc_i
         if train:
             optimizer.zero_grad(); dp_loss.backward(); 
             # if epoch==1: plot_grad_flow(model.named_parameters(), f'gradients_{iter_num}.pdf')
             optimizer.step()
         acc += (dp_acc / len(dp.states)); dp_loss /= len(dp.states); total_loss += dp_loss
-    scheduler.step()
+    if train: scheduler.step()
     return (total_loss.item() / len(data.dp_list)), acc / len(data.dp_list)
 
 result_folder = './results/'

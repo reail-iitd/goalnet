@@ -63,13 +63,8 @@ def vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, env
     if action_index == N_relations:
         return ''
     rel = all_relations[action_index]
-    if arg_map and check_arg_map(arg_map):
-        arg_mask = torch.zeros(len(all_objects))
-        for arg, mapping in arg_map.items(): arg_mask[all_objects_lower.index(mapping.lower())] = 1
-    else:
-        arg_mask = torch.ones(len(all_objects))
     obj_mask = mask_kitchen if env_domain == 'kitchen' else mask_living
-    obj1_index = torch.argmax(pred1_object * obj_mask * (mask_stateful if action_index == 0 else 1) * arg_mask).item()
+    obj1_index = torch.argmax(pred1_object * obj_mask * (mask_stateful if action_index == 0 else 1)).item()
     obj1 = all_objects[obj1_index]
     obj2_mask_temp = torch.ones(len(all_objects))
     for constr in state_dict:
@@ -78,7 +73,7 @@ def vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, env
         if action_index == a_i and obj1_index == o1_i:
             obj2_mask_temp[o2_i] = 0
     obj2_mask = 1 if action_index == 0 else obj2_mask_temp
-    obj2 = all_objects[torch.argmax(pred2_object * obj_mask * obj2_mask * arg_mask).item()]
+    obj2 = all_objects[torch.argmax(pred2_object * obj_mask * obj2_mask).item()]
     state_mask = state_masks[obj1] if action_index == 0 else 1
     state = all_fluents[torch.argmax(pred2_state * state_mask).item()]
     return "(" + rel + " " + obj1  + " " + (state if action_index == 0 else obj2) + ")" 

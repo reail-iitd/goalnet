@@ -6,7 +6,7 @@ if __name__ == '__main__':
     test_data = DGLDataset(data_file + opts.test + '/')
 
     best_model = eval(model_type + '_Model(test_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])')
-    checkpoint = torch.load(result_folder + best_model.name + "_clean.pt", map_location='cpu')
+    checkpoint = torch.load(result_folder + best_model.name + ".pt", map_location='cpu')
     best_model.load_state_dict(checkpoint); best_model.eval()
 
     with torch.no_grad():

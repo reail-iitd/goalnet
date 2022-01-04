@@ -9,7 +9,8 @@ import matplotlib.pyplot as plt
 import matplotlib.lines as line
 from .constants import *
 from .helper import *
-import subprocess
+import subprocess, random
+from copy import deepcopy
 from optparse import OptionParser
 
 parser = OptionParser()
@@ -50,6 +51,12 @@ def create_pddl(init, objects, goal_list, file_name):
             goal_string += "(" + goal[0] + " " + goal[1] + " " + goal[2] + ") "
     f.write(") \n(:goal (AND " + goal_string + ")) \n)")
     f.close()
+
+def crossval(train_data, val_data):
+    val_size = len(val_data.dp_list)
+    all_data = deepcopy(train_data.dp_list + val_data.dp_list)
+    random.shuffle(all_data)
+    train_data, val_data = all_data[val_size:], all_data[:val_size]
 
 def check_arg_map(arg_map):
     if len(arg_map.keys()) == 0: return False

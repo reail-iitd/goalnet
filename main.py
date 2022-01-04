@@ -29,6 +29,8 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
             # if epoch==1: plot_grad_flow(model.named_parameters(), f'gradients_{iter_num}.pdf')
             optimizer.step()
         acc += (dp_acc / len(dp.states)); dp_loss /= len(dp.states); total_loss += dp_loss
+        fname = dp.file_path.split('/')[-1]
+        # tqdm.write(f'{fname},{dp_acc / len(dp.states)}')
     if train: scheduler.step()
     return (total_loss.item() / len(data.dp_list)), acc / len(data.dp_list)
 
@@ -60,7 +62,7 @@ if __name__ == '__main__':
     loss_ref_pnt = -1.0
 
     for num_epochs in trange(NUM_EPOCHS, ncols=80):
-        random.shuffle(train_data.dp_list)
+        crossval(train_data, val_data)
         lrate = 0.0005 # val keep 0.0005 and train 0.00005
         optimizer = torch.optim.Adam(model.parameters(), lr=lrate)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50)
@@ -72,10 +74,10 @@ if __name__ == '__main__':
         val_loss_arr.append(val_loss); val_acc_arr.append(val_acc)
         if num_epochs % 20 == 19:
             plot_graphs(result_folder_exp, model_type + "_graph", train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr)
-            with torch.no_grad():
-                test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
-                test_sji, test_f1, test_ied = eval_accuracy(test_data, best_model, verbose = False)
-            tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest F1 : {"{:.8f}".format(test_f1)}\tTest IED : {"{:.8f}".format(test_ied)}')
+            # with torch.no_grad():
+            #     test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
+            #     test_sji, test_f1, test_ied = eval_accuracy(test_data, best_model, verbose = False)
+            # tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest F1 : {"{:.8f}".format(test_f1)}\tTest IED : {"{:.8f}".format(test_ied)}')
             torch.save(best_model.state_dict(), result_folder_exp + model.name + ".pt")
         if best_val_acc < val_acc:
             best_val_acc = val_acc

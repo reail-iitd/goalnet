@@ -76,8 +76,8 @@ if __name__ == '__main__':
             plot_graphs(result_folder_exp, model_type + "_graph", train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr)
             # with torch.no_grad():
             #     test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
-            #     test_sji, test_f1, test_ied = eval_accuracy(test_data, best_model, verbose = False)
-            # tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest F1 : {"{:.8f}".format(test_f1)}\tTest IED : {"{:.8f}".format(test_ied)}')
+            #     test_sji, test_f1, test_ied, test_gri = eval_accuracy(test_data, best_model, verbose = False)
+            # tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest F1 : {"{:.8f}".format(test_f1)}\tTest IED : {"{:.8f}".format(test_ied)}\tTest GRI : {"{:.8f}".format(test_gri)}')
             torch.save(best_model.state_dict(), result_folder_exp + model.name + ".pt")
         if best_val_acc < val_acc:
             best_val_acc = val_acc

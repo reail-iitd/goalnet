@@ -162,7 +162,7 @@ def get_sji(state_dict, init_state_dict, true_state_dict, init_true_state_dict):
     den = len(total_delta_g.union(true_delta_g)) + len(total_delta_g_inv.union(true_delta_g_inv))
     return num / (den + 1e-8)
 
-def get_god_index(state_dict, true_state_dict):
+def get_gri_index(state_dict, true_state_dict):
     state_dict, true_state_dict = set(state_dict), set(true_state_dict)
     satisfiability = (len(true_state_dict.difference(state_dict)) / len(true_state_dict))
     optimality = (len(state_dict.difference(true_state_dict)) / (len(state_dict) + 1e-8))
@@ -326,7 +326,7 @@ def run_planner(state_dict, dp, pred_delta, verbose = False):
     return planner_action, state, state_dict
 
 def eval_accuracy(data, model, verbose = False):
-    sji, f1, ied = 0, 0, 0
+    sji, f1, ied, gri = 0, 0, 0, 0
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
         state = dp.states[0]; state_dict = dp.state_dict[0]
         init_state_dict = dp.state_dict[0]
@@ -345,8 +345,9 @@ def eval_accuracy(data, model, verbose = False):
             action_seq.extend(planner_action)
         sji += get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         f1 += get_f1_index(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
+        gri += get_gri_index(state_dict, dp.state_dict[-1])
         ied += get_ied(action_seq, dp.action_seq)
-    return sji / len(data.dp_list), f1 / len(data.dp_list), ied / len(data.dp_list)
+    return sji / len(data.dp_list), f1 / len(data.dp_list), ied / len(data.dp_list), gri / len(data.dp_list)
 
 def confusion_matrix(l1, l2, classes):
     cf = np.zeros([classes, classes])

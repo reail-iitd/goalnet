@@ -93,18 +93,3 @@ class Datapoint:
         if 0 in self.goal_obj_embed.shape:
             self.goal_obj_embed = torch.zeros(1, PRETRAINED_VECTOR_SIZE)
         self.delta_g_embed = [string2vec(i) for i in self.delta_g]
-
-        # get all possible states for objects
-        env_states = []
-        for obj in all_objects:
-            if obj in all_object_states:
-                env_states += all_object_states[obj]
-        env_states = list(set(env_states))
-        # convert env objects to one hot vector
-        self.objects = np.zeros(N_objects)
-        for obj in all_objects:
-            self.objects[all_objects.index(obj)] = 1
-        # convert env states to one hot vector
-        self.obj_states = np.zeros(N_fluents)
-        for state in env_states:
-            self.obj_states[all_fluents.index(state)] = 1

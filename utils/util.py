@@ -44,6 +44,11 @@ def create_pddl(init, objects, goal_list, file_name):
                 f.write(" " + state[2] + ") ")
             else:
                 f.write(") ")
+    # non-fluent properties added to pddl
+    for obj in objects:
+        if obj in all_obj_prop.keys():
+            for prop in all_obj_prop[obj]:
+                f.write("(" + prop.lower() + " " + obj.lower() + ") ")
     goal_string = ""
     for goal in goal_list:
         goal = goal.lower()[1:-1].split()
@@ -54,7 +59,8 @@ def create_pddl(init, objects, goal_list, file_name):
 
 def crossval(train_data, val_data):
     val_size = len(val_data.dp_list)
-    all_data = deepcopy(train_data.dp_list + val_data.dp_list)
+    # all_data = deepcopy(train_data.dp_list + val_data.dp_list)
+    all_data = train_data.dp_list + val_data.dp_list
     random.shuffle(all_data)
     train_data, val_data = all_data[val_size:], all_data[:val_size]
 
@@ -160,6 +166,10 @@ def get_sji(state_dict, init_state_dict, true_state_dict, init_true_state_dict):
     true_delta_g_inv = set(init_true_state_dict).difference(set(true_state_dict))
     num = len(total_delta_g.intersection(true_delta_g)) + len(total_delta_g_inv.intersection(true_delta_g_inv))
     den = len(total_delta_g.union(true_delta_g)) + len(total_delta_g_inv.union(true_delta_g_inv))
+    print(color.GREEN, 'Pred total_delta_g', color.ENDC, total_delta_g)
+    print(color.GREEN, 'Pred total_delta_g_inv', color.ENDC, total_delta_g_inv)
+    print(color.GREEN, 'GT total_delta_g', color.ENDC, true_delta_g)
+    print(color.GREEN, 'GT total_delta_g_inv', color.ENDC, true_delta_g_inv)
     return num / (den + 1e-8)
 
 def get_gri_index(state_dict, true_state_dict):
@@ -308,19 +318,20 @@ def run_planner_simple(state_dict, dp, pred_delta, verbose = False):
     return None, state, state_dict
 
 def run_planner(state_dict, dp, pred_delta, verbose = False):
-    if verbose: print(color.GREEN, 'File', color.ENDC, dp.file_path)
-    if verbose: print(color.GREEN, 'Init state', color.ENDC, state_dict)
+    # if verbose: print(color.GREEN, 'File', color.ENDC, dp.file_path)
+    # if verbose: print(color.GREEN, 'Init state', color.ENDC, state_dict)
     if verbose: print(color.GREEN, 'Pred Delta', color.ENDC, pred_delta.lower())
     state_dict_lower = [rel.lower() for rel in state_dict]
     create_pddl(state_dict_lower, obj_set(dp.env_domain), [pred_delta.lower()], './planner/eval')
     out = subprocess.Popen(['bash', './planner/run_final_state.sh', './planner/eval.pddl'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     stdout, stderr = out.communicate()
-    if verbose: print(color.GREEN, 'Stdout', color.ENDC, stdout.decode("utf-8"))
+    # if verbose: print(color.GREEN, 'Stdout', color.ENDC, stdout.decode("utf-8"))
     planner_action = get_steps(str(stdout))
     if verbose: print(color.GREEN, 'Action', color.ENDC, planner_action)
     planner_delta_g, planner_delta_g_inv, state_dict_new = get_delta(str(stdout))
+    # if verbose: print(color.GREEN, 'Final state', color.ENDC, state_dict)
     if verbose: print(color.GREEN, 'Delta_g', color.ENDC, planner_delta_g)
-    if verbose: print(color.GREEN, 'Final state', color.ENDC, state_dict)
+    if verbose: print(color.GREEN, 'Delta_g_inv', color.ENDC, planner_delta_g_inv)
     state_dict = state_dict_new if state_dict_new == [] else state_dict # seg fault case
     state = convertToDGLGraph_util(state_dict)
     return planner_action, state, state_dict
@@ -332,21 +343,32 @@ def eval_accuracy(data, model, verbose = False):
         init_state_dict = dp.state_dict[0]
         action_seq = []
         for i in range(len(dp.states) - 1):
-            action, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
-            pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
+            if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
+            rel, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
+            pred_delta = vect2string(state_dict, rel, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
             # if pred_delta == '':
             #     break
             dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 
             if dp_acc_i:
                 action_seq.append(dp.action_seq[i])
                 state = dp.states[i+1]; state_dict = dp.state_dict[i+1]
+                if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
+                if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
+                if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])
                 continue
             planner_action, state, state_dict = run_planner(state_dict, dp, pred_delta, verbose=verbose)
+            if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
+            if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
+            if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])
             action_seq.extend(planner_action)
+        print("SJI ------------ ", get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0]))
         sji += get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         f1 += get_f1_index(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         gri += get_gri_index(state_dict, dp.state_dict[-1])
         ied += get_ied(action_seq, dp.action_seq)
+        print(color.GREEN, 'Pred action seq ', color.ENDC, action_seq)
+        print(color.GREEN, 'True action seq ', color.ENDC, dp.action_seq)
+        print("IED ------------ ", get_ied(action_seq, dp.action_seq[:-1]))
     return sji / len(data.dp_list), f1 / len(data.dp_list), ied / len(data.dp_list), gri / len(data.dp_list)
 
 def confusion_matrix(l1, l2, classes):

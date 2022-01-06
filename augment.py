@@ -1,5 +1,13 @@
 from main import *
 
+def loaddps(path):
+    dps = []
+    for f in tqdm(os.listdir(path), ncols=80):
+        file_path = path + '/' + f
+        with open(file_path, "r") as fh:
+            dps.append(json.load(fh))
+    return dps
+
 def convertdp(dp, all_possible_rel, tochange = 1):
     rel_in_all_states = set(dp['initial_states'][0])
     for state in dp['initial_states']:
@@ -22,14 +30,13 @@ def convertdp(dp, all_possible_rel, tochange = 1):
 
 def augment(all_possible_rel):
     test_path = data_file + 'test/'
+    val_path = data_file + 'val/'
     train_path = data_file + 'train/'
-    all_files = os.listdir(test_path)
-    for f in tqdm(all_files, ncols=80):
-        file_path = test_path + '/' + f
-        with open(file_path, "r") as fh:
-            dp = json.load(fh)
+    train, test, val = loaddps(train_path), loaddps(test_path), loaddps(val_path)
+    for i in range(len(test)):
+        dp = random.choice(train + val)
         dp = convertdp(dp, all_possible_rel)
-        new_file_path = train_path + '/a_' + f
+        new_file_path = train_path + '/a_' + str(i) + '.json'
         with open(new_file_path, 'w') as fh:
             json.dump(dp, fh, indent=4)
 
@@ -46,5 +53,5 @@ if __name__ == '__main__':
         # remove previously augmented files
         if 'a_' in f:
             os.remove(data_file + 'train/' + f)
-    # add augmented test data
+    # add augmented data
     augment(all_possible_rel)

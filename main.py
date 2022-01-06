@@ -48,7 +48,7 @@ if __name__ == '__main__':
     model = eval(model_type + '_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])')
 
     epoch = -1
-    NUM_EPOCHS = 250
+    NUM_EPOCHS = 80
 
     best_val_acc = 0
     best_model = None

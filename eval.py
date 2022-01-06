@@ -10,6 +10,6 @@ if __name__ == '__main__':
     best_model.load_state_dict(checkpoint); best_model.eval()
 
     with torch.no_grad():
-        test_loss, test_acc = backprop(test_data, None, None, best_model, N_objects, 0, train=False)        
-        test_sji, test_f1, test_ied, test_gri = eval_accuracy(test_data, best_model, verbose = True)
+        test_loss, test_acc = backprop(test_data, None, None, best_model, N_objects, 0, train = False)        
+        test_sji, test_f1, test_ied, test_gri = eval_accuracy(test_data, best_model, verbose = False)
     tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest F1 : {"{:.8f}".format(test_f1)}\tTest IED : {"{:.8f}".format(test_ied)}\tTest GRI : {"{:.8f}".format(test_gri)}')

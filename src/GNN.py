@@ -119,3 +119,15 @@ class fc_block(nn.Module):
 
     def forward(self, x):
         return self.block(x)
+
+def sample_gumbel(shape, eps=1e-20):
+    U = torch.rand(shape)
+    return -torch.log(-torch.log(U + eps) + eps)
+
+def gumbel_softmax_sample(logits, temperature):
+    y = logits #+ sample_gumbel(logits.size())
+    return F.softmax(y / temperature, dim=-1)
+
+def gumbel_softmax(logits, temperature, hard=False):
+    y = gumbel_softmax_sample(logits, temperature)
+    return y.view(-1)

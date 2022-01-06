@@ -59,7 +59,7 @@ def create_pddl(init, objects, goal_list, file_name):
 
 def crossval(train_data, val_data):
     val_size = len(val_data.dp_list)
-    all_data = deepcopy(train_data.dp_list + val_data.dp_list)
+    all_data = train_data.dp_list + val_data.dp_list
     random.shuffle(all_data)
     train_data, val_data = all_data[val_size:], all_data[:val_size]
 

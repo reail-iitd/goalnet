@@ -59,16 +59,10 @@ class Simple_Model(nn.Module):
         # head 1 (delta_g)
         action = self.action(final_to_decode)
 
-        one_hot_action = [0 for _ in range(action.shape[0])]
-        one_hot_action[torch.argmax(action).item()] = 1
-        one_hot_action = torch.Tensor(one_hot_action)
-
+        one_hot_action = gumbel_softmax(action, 0.01)
         pred1_object = self.obj1(torch.cat([final_to_decode, one_hot_action]))
 
-        one_hot_pred1 = [0 for _ in range(pred1_object.shape[0])]
-        one_hot_pred1[torch.argmax(pred1_object).item()] = 1 
-        one_hot_pred1 = torch.Tensor(one_hot_pred1)
-
+        one_hot_pred1 = gumbel_softmax(pred1_object, 0.01)
         pred2_object = self.obj2(torch.cat([final_to_decode, one_hot_action, one_hot_pred1]))
 
         pred2_state = self.state(torch.cat([final_to_decode, one_hot_action, one_hot_pred1]))

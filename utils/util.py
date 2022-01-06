@@ -67,8 +67,9 @@ def crossval(train_data, val_data):
 def check_arg_map(arg_map):
     if len(arg_map.keys()) == 0: return False
     for arg, mapping in arg_map.items():
-        if mapping.lower() not in all_objects_lower:
-            return False
+        for noun in mapping:
+            if noun.lower() not in all_objects_lower:
+                return False
     return True
 
 def vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, env_domain, arg_map = None):
@@ -105,18 +106,18 @@ def string2index(str_constr, train=True):
 
     return [action_index, obj1_index, obj2_index, state_index]
 
-def string2vec(constr, lower=False):
+def string2vec(state, lower=False):
     a_vect = torch.zeros(N_relations + 1, dtype=torch.float)
     obj1_vect = torch.zeros(N_objects, dtype=torch.float)
     obj2_vect = torch.zeros(N_objects, dtype=torch.float)
     state_vect = torch.zeros(N_fluents, dtype=torch.float)
-    for delta in constr:
+    for delta in state:
         action_index, obj1_index, obj2_index, state_index = string2index(delta)
         a_vect[action_index] = 1
         if obj1_index != -1: obj1_vect[obj1_index] = 1
         if obj2_index != -1: obj2_vect[obj2_index] = 1
         if state_index != -1: state_vect[state_index] = 1
-    if len(constr) == 0: a_vect[N_relations] = 1
+    if len(state) == 0: a_vect[N_relations] = 1
     return (a_vect, obj1_vect, obj2_vect, state_vect)
 
 def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l):

@@ -26,6 +26,18 @@ def preprocess(sent):
     processed_sent = ' '.join(e.lower() for e in sent.split() if e.lower() not in stop_words)
     return processed_sent
 
+def goalObjEmbedArgMap(sent, argnouns):
+    is_noun = lambda pos: pos[:2] == 'NN'
+    tokenized = nltk.word_tokenize(preprocess(sent))
+    nouns = [word.lower() for (word, pos) in nltk.pos_tag(tokenized) if is_noun(pos)]
+    embed = []
+    for word in argnouns:
+        if word in VOCAB_VECT or word in conceptnet_vectors:
+            embed.append(np.asarray(dense_vector(word)))
+    for word in nouns:
+        embed.append(np.asarray(dense_vector(word)))
+    return embed
+
 def goalObjEmbed(sent):
     is_noun = lambda pos: pos[:2] == 'NN'
     tokenized = nltk.word_tokenize(preprocess(sent))

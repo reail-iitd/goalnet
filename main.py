@@ -3,6 +3,8 @@ from utils.util import *
 from src.model import *
 from src.dataset import *
 
+NUM_EPOCHS = 80
+
 def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEnc=None, batch_size=1, train=True):
     total_loss = 0.0
     l = nn.BCELoss()
@@ -13,7 +15,7 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
         teacher_forcing = random.random()
         state = dp.states[0]
         for i in range(len(dp.states)):
-            if teacher_forcing < 0.8 or epoch < 100 or i == 0:
+            if teacher_forcing < 0.8 or epoch < NUM_EPOCHS // 2 or i == 0:
                 state, state_dict = dp.states[i], dp.state_dict[i]
             else:
                 _, state, state_dict = run_planner_simple(state_dict, dp, pred_delta, True)
@@ -30,7 +32,6 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
             optimizer.step()
         acc += (dp_acc / len(dp.states)); dp_loss /= len(dp.states); total_loss += dp_loss
         fname = dp.file_path.split('/')[-1]
-        # tqdm.write(f'{fname},{dp_acc / len(dp.states)}')
     if train: scheduler.step()
     return (total_loss.item() / len(data.dp_list)), acc / len(data.dp_list)
 
@@ -47,23 +48,16 @@ if __name__ == '__main__':
 
     model = eval(model_type + '_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])')
 
-    epoch = -1
-    NUM_EPOCHS = 80
-
     best_val_acc = 0
     best_model = None
     train_acc_arr = []
     val_acc_arr = []
     train_loss_arr = []
     val_loss_arr = []
-    train_sji_arr, val_sji_arr = [], []
-    last_train_acc = 0.0
-    last_train_loss = 0.0
-    loss_ref_pnt = -1.0
 
     lrate = 0.0005
     optimizer = torch.optim.Adam(model.parameters(), lr=lrate)
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=50, gamma=0.2)
 
     for num_epochs in trange(NUM_EPOCHS, ncols=80):
         crossval(train_data, val_data)
@@ -73,12 +67,12 @@ if __name__ == '__main__':
         tqdm.write(f'Epoch {num_epochs} Train Loss: {"{:.8f}".format(train_loss)}\tTrain Acc : {"{:.8f}".format(train_acc)}\tVal Loss: {"{:.8f}".format(val_loss)}\tVal Acc : {"{:.8f}".format(val_acc)}')
         train_loss_arr.append(train_loss); train_acc_arr.append(train_acc)
         val_loss_arr.append(val_loss); val_acc_arr.append(val_acc)
-        if num_epochs % 20 == 19:
+        if num_epochs % 10 == 9:
             plot_graphs(result_folder_exp, model_type + "_graph", train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr)
-            # with torch.no_grad():
-            #     test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
+            with torch.no_grad():
+                test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
             #     test_sji, test_f1, test_ied, test_fb, test_fbs = eval_accuracy(test_data, best_model, verbose = False)
-            # tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}\tTest SJI : {"{:.8f}".format(test_sji)}\tTest F1 : {"{:.8f}".format(test_f1)}\tTest IED : {"{:.8f}".format(test_ied)}\tTest FB : {"{:.8f}".format(test_fb)}\tTest FBS : {"{:.8f}".format(test_fbs)}')
+            tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}')
             torch.save(best_model.state_dict(), result_folder_exp + model.name + ".pt")
         if best_val_acc < val_acc:
             best_val_acc = val_acc

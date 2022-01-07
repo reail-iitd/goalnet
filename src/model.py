@@ -139,12 +139,9 @@ class HAN_model(nn.Module):
         self.name = "HAN_Model"
         self.n_hidden = n_hidden
         self.activation = nn.PReLU()
-
         self.layers = nn.ModuleList()
-        self.layers.append(HANLayer(meta_paths=[['Near', 'In', 'On', 'Grasping', "Empty"]], in_size=in_feats, out_size=n_hidden, layer_num_heads=3, dropout=0.5))
-        self.layers.append(HANLayer([['Near', 'In', 'On', 'Grasping', "Empty"]], n_hidden * 3, n_hidden, 3, 0.5))
-        self.layers.append(HANLayer([['Near', 'In', 'On', 'Grasping', "Empty"]], n_hidden * 3, n_hidden, 1, 0.5))
-
+        self.layers.append(HANLayer([['Near', 'In', 'On', 'Grasping', "Empty"]], in_feats, n_hidden, 3, 0))
+        self.layers.append(HANLayer([['Near', 'In', 'On', 'Grasping', "Empty"]], n_hidden * 3, n_hidden, 1, 0))
         self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
         self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
         self.graph_attn = nn.Sequential(nn.Linear(n_hidden + n_hidden, 1), nn.Softmax(dim=1))
@@ -181,16 +178,10 @@ class HAN_model(nn.Module):
         # head 1 (delta_g)
         action = self.action(final_to_decode)
 
-        one_hot_action = [0 for _ in range(action.shape[0])]
-        one_hot_action[torch.argmax(action).item()] = 1
-        one_hot_action = torch.Tensor(one_hot_action)
-
+        one_hot_action = gumbel_softmax(action, 0.01)
         pred1_object = self.obj1(torch.cat([final_to_decode, one_hot_action]))
 
-        one_hot_pred1 = [0 for _ in range(pred1_object.shape[0])]
-        one_hot_pred1[torch.argmax(pred1_object).item()] = 1 
-        one_hot_pred1 = torch.Tensor(one_hot_pred1)
-
+        one_hot_pred1 = gumbel_softmax(pred1_object, 0.01)
         pred2_object = self.obj2(torch.cat([final_to_decode, one_hot_action, one_hot_pred1]))
 
         pred2_state = self.state(torch.cat([final_to_decode, one_hot_action, one_hot_pred1]))

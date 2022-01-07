@@ -1,3 +1,5 @@
 sentence-transformers
 nltk
-optparse
+optparse-pretty
+dgl
+matplotlib

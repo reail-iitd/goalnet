@@ -128,7 +128,7 @@ class GGCN_Model(nn.Module):
 
         return action, pred1_object, pred2_object, pred2_state, lstm_hidden
 
-class HAN_model(nn.Module):
+class HAN_Model(nn.Module):
     def __init__(self,
                  in_feats, 
                  n_hidden,

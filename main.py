@@ -61,11 +61,12 @@ if __name__ == '__main__':
     last_train_loss = 0.0
     loss_ref_pnt = -1.0
 
+    lrate = 0.0005
+    optimizer = torch.optim.Adam(model.parameters(), lr=lrate)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50)
+
     for num_epochs in trange(NUM_EPOCHS, ncols=80):
         crossval(train_data, val_data)
-        lrate = 0.0005 # val keep 0.0005 and train 0.00005
-        optimizer = torch.optim.Adam(model.parameters(), lr=lrate)
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50)
         train_loss, train_acc = backprop(train_data, optimizer, scheduler, model, N_objects, num_epochs)
         with torch.no_grad():
             val_loss, val_acc = backprop(val_data, optimizer, scheduler, model, N_objects, num_epochs, train=False)

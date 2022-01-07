@@ -177,15 +177,15 @@ def get_fbeta(state_dict, init_state_dict, true_state_dict, init_true_state_dict
     total_delta_g_inv = set(init_state_dict).difference(set(state_dict))
     true_delta_g = set(true_state_dict).difference(set(init_true_state_dict))
     true_delta_g_inv = set(init_true_state_dict).difference(set(true_state_dict))
-    precision = len(true_delta_g.intersection(total_delta_g)) / (len(total_delta_g) + 1e-9)
-    recall = len(true_delta_g.intersection(total_delta_g)) / (len(true_delta_g) + 1e-9)
+    num = (len(true_delta_g.intersection(total_delta_g)) + len(true_delta_g_inv.intersection(total_delta_g_inv)))
+    precision = num / (len(total_delta_g) + len(total_delta_g_inv) + 1e-8)
+    recall = num / (len(true_delta_g) + len(true_delta_g_inv) + 1e-8)
     return (1 + beta ** 2) * precision * recall / (beta * beta * precision + recall + 1e-9)
 
 def get_fbeta_state(state_dict, true_state_dict, beta = 2):
     state_dict, true_state_dict = set(state_dict), set(true_state_dict)
-    num = (len(true_delta_g.intersection(total_delta_g)) + len(true_delta_g_inv.intersection(total_delta_g_inv)))
-    precision = num / (len(total_delta_g) + len(total_delta_g_inv) + 1e-8)
-    recall = num / (len(true_delta_g) + len(true_delta_g_inv) + 1e-8)
+    precision = len(state_dict.intersection(true_state_dict)) / (len(state_dict) + 1e-9)
+    recall = len(state_dict.intersection(true_state_dict)) / (len(true_state_dict) + 1e-9)
     return (1 + beta ** 2) * precision * recall / (beta * beta * precision + recall + 1e-9)
 
 def get_f1_index(state_dict, init_state_dict, true_state_dict, init_true_state_dict):

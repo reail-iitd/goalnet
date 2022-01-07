@@ -135,7 +135,7 @@ class HAN_Model(nn.Module):
                  n_objects,
                  n_states,
                  etypes):
-        super(HAN_model, self).__init__()
+        super(HAN_Model, self).__init__()
         self.name = "HAN_Model"
         self.n_hidden = n_hidden
         self.activation = nn.PReLU()

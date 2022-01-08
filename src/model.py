@@ -140,8 +140,8 @@ class HAN_Model(nn.Module):
         self.n_hidden = n_hidden
         self.activation = nn.PReLU()
         self.layers = nn.ModuleList()
-        self.layers.append(HANLayer([['Near', 'In', 'On', 'Grasping', "Empty"]], in_feats, n_hidden, 3, 0))
-        self.layers.append(HANLayer([['Near', 'In', 'On', 'Grasping', "Empty"]], n_hidden * 3, n_hidden, 1, 0))
+        self.layers.append(HANLayer([['Near'], ['In'], ['On'], ['Grasping'], ["Empty"]], in_feats, n_hidden, 1, 0))
+        # self.layers.append(HANLayer([['Near', 'In', 'On', 'Grasping', "Empty"]], n_hidden * 3, n_hidden, 1, 0))
         self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
         self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
         self.graph_attn = nn.Sequential(nn.Linear(n_hidden + n_hidden, 1), nn.Softmax(dim=1))

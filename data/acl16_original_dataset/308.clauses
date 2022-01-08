@@ -1,0 +1,11 @@
+entire sentence: , Make Breakfast   
+
+<start clause>
+start env: 3
+end env: 2
+sent: Make Breakfast  
+clause dscr: Make [   Breakfast | relation: Null ]
+words: Make Breakfast
+verb: Make
+arg mapping: 
+<end clause>

@@ -1,0 +1,51 @@
+entire sentence: , Open the gameCD with TV   ,  Put xbox and its controller in the shelf under the TV   ,  Pour chips into the bowl   and throw the container into the trash bag   , ,  Put pillows onto the coaches,   one for each ,  Put books on the study desk   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Open the gameCD with TV  
+clause dscr: Open [   gameCD |   TV | relation: (2, 2){ gameCD x  TV -> with} ]
+words: Open gameCD TV with
+verb: Open
+arg mapping: (gameCD,Cd_2) (gameCD,Cd_1) (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: 6
+sent:  . Put xbox and its controller in the shelf under the TV  
+clause dscr: Put [   xbox |   controller |   shelf |   TV | relation: (4, 4){ xbox x  controller -> and}{ xbox x  shelf -> in}{ xbox x  TV -> in}{ controller x  shelf -> in}{ controller x  TV -> in}{ shelf x  TV -> under} ]
+words: Put xbox controller shelf TV and in in in in under
+verb: Put
+arg mapping: (xbox,Xbox_1) (controller,XboxController_1) (shelf,Shelf_1) (shelf,Shelf_2) (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 6
+sent:  and throw the container into the trash bag  
+clause dscr: throw [   container |   trash bag | relation: (2, 2){ container x  trash bag -> into} ]
+words: throw container trash bag into
+verb: throw
+arg mapping: (container,GarbageBag_1) (container,GarbageBin_1) (trash bag,BagOfChips_1) (trash bag,GarbageBag_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 6
+sent:  . Put pillows onto the coaches,  
+clause dscr: Put [   pillows |   coaches | relation: (2, 2){ pillows x  coaches -> onto} ]
+words: Put pillows coaches onto
+verb: Put
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (pillows,Pillow_4)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 13
+sent:  one for each . Arrange coaches around the big table . Put books on the study desk  
+clause dscr: Put [   coaches |   table |   books |   study desk | relation: (4, 4){ coaches x  table -> around}{ coaches x  books -> around}{ coaches x  study desk -> around}{ table x  books -> on}{ table x  study desk -> on}{ books x  study desk -> on} ]
+words: Put coaches table books study desk around around around on on on
+verb: Put
+arg mapping: (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1) (books,Book_1) (books,Book_2)
+<end clause>

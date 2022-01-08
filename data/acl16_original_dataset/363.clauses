@@ -1,0 +1,71 @@
+entire sentence: , Open freezer door   and grab ice cream   , ,  Grab spoon   and use it   to put ice cream in coffee mug   , , ,  Grab chocolate syrup bottle   and add to coffee   , 
+
+<start clause>
+start env: 0
+end env: 4
+sent: Open freezer door  
+clause dscr: Open [   freezer door | relation: Null ]
+words: Open freezer door
+verb: Open
+arg mapping: (freezer door,MicrowaveDoor) (freezer door,FridgeLeftDoor) (freezer door,FridgeRightDoor)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 6
+sent:  and grab ice cream  
+clause dscr: grab [   ice cream | relation: Null ]
+words: grab ice cream
+verb: grab
+arg mapping: (ice cream,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 11
+sent:  . Grab spoon  
+clause dscr: Grab [   spoon | relation: Null ]
+words: Grab spoon
+verb: Grab
+arg mapping: (spoon,Spoon_1)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 12
+sent:  and use it  
+clause dscr: use [   it | relation: Null ]
+words: use it
+verb: use
+arg mapping: (it,Spoon_1) (it,IceCream_1) (it,Syrup_1)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 16
+sent:  to put ice cream in coffee mug  
+clause dscr: put [   ice |   cream |   coffee mug | relation: (3, 3){ ice x  cream -> in}{ ice x  coffee mug -> in}{ cream x  coffee mug -> in} ]
+words: put ice cream coffee mug in in in
+verb: put
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (coffee mug,Mug_1)
+<end clause>
+
+<start clause>
+start env: 18
+end env: 19
+sent:  . Grab chocolate syrup bottle  
+clause dscr: Grab [   chocolate syrup bottle | relation: Null ]
+words: Grab chocolate syrup bottle
+verb: Grab
+arg mapping: (chocolate syrup bottle,Syrup_1) (chocolate syrup bottle,Syrup_2)
+<end clause>
+
+<start clause>
+start env: 20
+end env: 20
+sent:  and add to coffee  
+clause dscr: add [   coffee | relation: Null ]
+words: add coffee
+verb: add
+arg mapping: (coffee,Mug_1)
+<end clause>

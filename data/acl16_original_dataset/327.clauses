@@ -1,0 +1,31 @@
+entire sentence: , Cook the ramen in the pot with water   ,  Serve the food on the plates   and pour a drink into the long cups   , 
+
+<start clause>
+start env: 0
+end env: 40
+sent: Cook the ramen in the pot with water  
+clause dscr: Cook [   ramen |   pot |   water | relation: (3, 3){ ramen x  pot -> in}{ ramen x  water -> in}{ pot x  water -> with} ]
+words: Cook ramen pot water in in with
+verb: Cook
+arg mapping: (ramen,Ramen_1) (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 41
+end env: 40
+sent:  . Serve the food on the plates  
+clause dscr: Serve [   food |   plates | relation: (2, 2){ food x  plates -> on} ]
+words: Serve food plates on
+verb: Serve
+arg mapping: (plates,Plate_1) (plates,Plate_2)
+<end clause>
+
+<start clause>
+start env: 45
+end env: 44
+sent:  and pour a drink into the long cups  
+clause dscr: pour [   drink |   cups | relation: (2, 2){ drink x  cups -> into} ]
+words: pour drink cups into
+verb: pour
+arg mapping: (drink,EnergyDrink_1) (cups,LongCup_1) (cups,LongCup_2)
+<end clause>

@@ -1,0 +1,71 @@
+entire sentence: , Take all bottles, cans, and trash   and put them in the trash can   , ,  Dump the bowl into the trash   and take the bowl to the kitchen   , ,  Take the trash bag   outside ,  Put all textbooks on the center table   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Take all bottles, cans, and trash  
+clause dscr: Take [   bottles |   cans |   trash | relation: (3, 3){ bottles x  cans -> ,}{ bottles x  trash -> ,}{ cans x  trash -> ,} ]
+words: Take bottles cans trash , , ,
+verb: Take
+arg mapping: (bottles,Bowl_1) (cans,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: 12
+sent:  and put them in the trash can  
+clause dscr: put [   trash can | relation: Null ]
+words: put trash can
+verb: put
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . Put everything  
+clause dscr: Put [   everything | relation: Null ]
+words: Put everything
+verb: Put
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . Dump the bowl into the trash  
+clause dscr: Dump [   bowl |   trash | relation: (2, 2){ bowl x  trash -> into} ]
+words: Dump bowl trash into
+verb: Dump
+arg mapping: (bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 17
+end env: 19
+sent:  and take the bowl to the kitchen  
+clause dscr: take [   bowl |   kitchen | relation: (2, 2){ bowl x  kitchen -> to} ]
+words: take bowl kitchen to
+verb: take
+arg mapping: (bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 18
+sent:  . Take the trash bag  
+clause dscr: Take [   trash bag | relation: Null ]
+words: Take trash bag
+verb: Take
+arg mapping: (trash bag,BagOfChips_1) (trash bag,GarbageBag_1)
+<end clause>
+
+<start clause>
+start env: 23
+end env: 25
+sent:  outside . Put all textbooks on the center table  
+clause dscr: Put [   textbooks |   center table | relation: (2, 2){ textbooks x  center table -> on} ]
+words: Put textbooks center table on
+verb: Put
+arg mapping: (textbooks,Book_1) (textbooks,Book_2) (center table,CoffeeTable_1) (center table,TvTable_1) (center table,SnackTable_1)
+<end clause>

@@ -1,0 +1,21 @@
+entire sentence: , Get out the ramen from the fridge   and then cook it in the pan   , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: Get out the ramen from the fridge  
+clause dscr: Get [   ramen |   fridge | relation: (2, 2){ ramen x  fridge -> from} ]
+words: Get ramen fridge from
+verb: Get
+arg mapping: (ramen,Ramen_1) (fridge,Fridge)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  and then cook it in the pan  
+clause dscr: and [ relation: Null ]
+words: and
+verb: and
+arg mapping: 
+<end clause>

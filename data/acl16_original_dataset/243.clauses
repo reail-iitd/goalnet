@@ -1,0 +1,11 @@
+entire sentence: ,  Drink some bear or coke   if you want , if, ,  And remember   to take care of the trash   though , if
+
+<start clause>
+start env: 0
+end env: -1
+sent:  to take care of the trash  
+clause dscr: take [   care |   trash | relation: (2, 2){ care x  trash -> of} ]
+words: take care trash of
+verb: take
+arg mapping: 
+<end clause>

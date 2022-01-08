@@ -1,0 +1,87 @@
+entire sentence: , Pick up trash
+Pick up remote 1
+Pick up controller 1
+Pick up cd
+pick up Xbox
+Put down cd
+Put down object
+ Pick   up trash
+Pick   up remote 1
+Pick up controller 1
+Pick   up cd
+pick up Xbox
+Put down cd
+Put down object
+  up cd
+pick up Xbox
+Put down cd
+Put down object
+ , , , , , , , , , , , , , , , , 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Pick up trash
+Pick up remote 1
+Pick up controller 1
+Pick up cd
+pick up Xbox
+Put down cd
+Put down object
+ Pick  
+clause dscr: Pick [   trash | relation: Null ]
+words: Pick trash
+verb: Pick
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 14
+end env: 13
+sent:  up trash
+Pick  
+clause dscr: trash [ relation: Null ]
+words: trash
+verb: trash
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 8
+end env: 9
+sent:  up remote 1
+Pick up controller 1
+Pick  
+clause dscr: Pick [   controller Pick | relation: Null ]
+words: Pick controller Pick
+verb: Pick
+arg mapping: (controller Pick,XboxController_1)
+<end clause>
+
+<start clause>
+start env: 29
+end env: 28
+sent:  up cd
+pick up Xbox
+Put down cd
+Put down object
+ 
+clause dscr: pick [   cd | relation: Null ]
+words: pick cd
+verb: pick
+arg mapping: (cd,Cd_2) (cd,Cd_1)
+<end clause>
+
+<start clause>
+start env: 29
+end env: 28
+sent:  up cd
+pick up Xbox
+Put down cd
+Put down object
+ .
+clause dscr: pick [   cd | relation: Null ]
+words: pick cd
+verb: pick
+arg mapping: (cd,Cd_2) (cd,Cd_1)
+<end clause>

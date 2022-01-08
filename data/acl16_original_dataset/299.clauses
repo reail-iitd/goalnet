@@ -1,0 +1,81 @@
+entire sentence: , Grasp the spoon, fork, mug, and glass   and bring to the sink   , ,  Empty the contents of the glass   and mug into the sink   and rinse the dishes   , , ,  Grab the Vanilla Syrup Bottle and Chocolate   Syrup Bottle, and open the fridge door   , ,  Place the bottles inside the fridge   and close the fridge door   , ,  Place the instant ramen   to its designated pantry   
+
+<start clause>
+start env: 0
+end env: -1
+sent:  and bring to the sink  
+clause dscr: bring [   sink | relation: Null ]
+words: bring sink
+verb: bring
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  . Empty the contents of the glass  
+clause dscr: Empty [   contents |   glass | relation: (2, 2){ contents x  glass -> of} ]
+words: Empty contents glass of
+verb: Empty
+arg mapping: (glass,Glass_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  and mug into the sink  
+clause dscr: mug [   sink | relation: Null ]
+words: mug sink
+verb: mug
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  and rinse the dishes  
+clause dscr: rinse [   dishes | relation: Null ]
+words: rinse dishes
+verb: rinse
+arg mapping: (dishes,Spoon_1) (dishes,Glass_1) (dishes,LongCup_1) (dishes,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 17
+end env: 16
+sent:  Syrup Bottle, and open the fridge door  
+clause dscr: Syrup [   Bottle | relation: Null ]
+words: Syrup Bottle
+verb: Syrup
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 17
+end env: 16
+sent:  . Place the bottles inside the fridge  
+clause dscr: Place [   bottles |   fridge | relation: (2, 2){ bottles x  fridge -> inside} ]
+words: Place bottles fridge inside
+verb: Place
+arg mapping: (fridge,Fridge)
+<end clause>
+
+<start clause>
+start env: 28
+end env: 28
+sent:  and close the fridge door  
+clause dscr: close [   door | relation: Null ]
+words: close door
+verb: close
+arg mapping: (door,MicrowaveDoor) (door,FridgeLeftDoor) (door,FridgeRightDoor)
+<end clause>
+
+<start clause>
+start env: 21
+end env: 20
+sent:  . Place the instant ramen  
+clause dscr: Place [   ramen | relation: Null ]
+words: Place ramen
+verb: Place
+arg mapping: (ramen,Ramen_1)
+<end clause>

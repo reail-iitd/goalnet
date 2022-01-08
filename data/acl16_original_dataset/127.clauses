@@ -1,0 +1,81 @@
+entire sentence: , gather ingredients (egg from fridge, ramen from counter) microwave water in cup,   or boil water in pot   (process described in previous scenario)   , ,  Pour boiling water in ramen cup   after opening the cup   and removing soup base   , , ,  pour soup base   ,  Peel egg   and add   to ramen and throw shell in trash   , , , 
+
+<start clause>
+start env: 26
+end env: 25
+sent: gather ingredients (egg from fridge, ramen from counter) microwave water in cup,  
+clause dscr: microwave [   ingredients egg |   water |   cup | relation: (3, 3){ ingredients egg x  water -> in}{ ingredients egg x  cup -> in}{ water x  cup -> in} ]
+words: microwave ingredients egg water cup in in in
+verb: microwave
+arg mapping: (ingredients egg,BoiledEgg_1) (cup,LongCup_1) (cup,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  or boil water in pot  
+clause dscr: pot [   boil |   water | relation: (2, 2){ boil x  water -> in} ]
+words: pot boil water in
+verb: pot
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  (process described in previous scenario)  
+clause dscr: described [   process |   scenario | relation: (2, 2){ process x  scenario -> in} ]
+words: described process scenario in
+verb: described
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  . Pour boiling water in ramen cup  
+clause dscr: Pour [   water |   ramen cup | relation: (2, 2){ water x  ramen cup -> in} ]
+words: Pour water ramen cup in
+verb: Pour
+arg mapping: (ramen cup,Ramen_1) (ramen cup,LongCup_1) (ramen cup,LongCup_2) (ramen cup,InstantRamen_1)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  and removing soup base  
+clause dscr: removing [   soup | relation: Null ]
+words: removing soup
+verb: removing
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  . pour soup base  
+clause dscr: pour [   soup base | relation: Null ]
+words: pour soup base
+verb: pour
+arg mapping: (soup base,Plate_1) (soup base,Plate_2)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  and add  
+clause dscr: add [ relation: Null ]
+words: add
+verb: add
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  to ramen and throw shell in trash  
+clause dscr: ramen [   shell |   trash | relation: (2, 2){ shell x  trash -> in} ]
+words: ramen shell trash in
+verb: ramen
+arg mapping: (trash,Glass_1)
+<end clause>

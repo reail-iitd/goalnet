@@ -1,0 +1,41 @@
+entire sentence: , First, you have to fill the kettle with water   , ,  Then, you put the kettle in the microwave and turn it   on , ,  Finally, wait   until the water is boiling,   and remove it from the microwave   , , , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: First, you have to fill the kettle with water  
+clause dscr: have [ relation: Null ]
+words: have
+verb: have
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 22
+end env: 26
+sent:  . Then, you put the kettle in the microwave and turn it  
+clause dscr: put [   kettle |   microwave | relation: (2, 2){ kettle x  microwave -> in} ]
+words: put kettle microwave in
+verb: put
+arg mapping: (kettle,Kettle) (microwave,Microwave)
+<end clause>
+
+<start clause>
+start env: 27
+end env: 26
+sent:  on . Finally, wait  
+clause dscr: wait [ relation: Null ]
+words: wait
+verb: wait
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 27
+end env: 29
+sent:  and remove it from the microwave  
+clause dscr: remove [   it |   microwave | relation: (2, 2){ it x  microwave -> from} ]
+words: remove it microwave from
+verb: remove
+arg mapping: (it,Microwave) (it,Kettle) (it,MicrowaveButton) (it,SinkKnob) (microwave,Microwave)
+<end clause>

@@ -1,0 +1,31 @@
+entire sentence: , Make some coffee   ,  Cook some eggs on the stove   and then bring it   to me , 
+
+<start clause>
+start env: 0
+end env: 18
+sent: Make some coffee  
+clause dscr: Make [   coffee | relation: Null ]
+words: Make coffee
+verb: Make
+arg mapping: (coffee,Mug_1)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 62
+sent:  . Cook some eggs on the stove  
+clause dscr: Cook [   eggs |   stove | relation: (2, 2){ eggs x  stove -> on} ]
+words: Cook eggs stove on
+verb: Cook
+arg mapping: (eggs,BoiledEgg_1) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 63
+end env: 62
+sent:  and then bring it  
+clause dscr: bring [   it | relation: Null ]
+words: bring it
+verb: bring
+arg mapping: (it,Stove) (it,BoiledEgg_1) (it,StoveKnob_1) (it,StoveKnob_2) (it,StoveKnob_3) (it,StoveKnob_4) (it,StoveFire_2)
+<end clause>

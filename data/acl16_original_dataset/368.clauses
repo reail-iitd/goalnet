@@ -1,0 +1,91 @@
+entire sentence: , Look   to see where things   are dirty , , ,  Look   to see where things are out of place,   which need washing   or putting   away , , , , , ,  Vacuum the carpet,   straighten any cushions,   pick up litter   , , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: Look  
+clause dscr: Look [ relation: Null ]
+words: Look
+verb: Look
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  to see where things  
+clause dscr: see [   things | relation: Null ]
+words: see things
+verb: see
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  are dirty . Look  
+clause dscr: are [   Look | relation: Null ]
+words: are Look
+verb: are
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  to see where things are out of place,  
+clause dscr: see [ relation: Null ]
+words: see
+verb: see
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  which need washing  
+clause dscr: need [ relation: Null ]
+words: need
+verb: need
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  or putting  
+clause dscr: putting [ relation: Null ]
+words: putting
+verb: putting
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  away . Vacuum the carpet,  
+clause dscr: Vacuum [   carpet | relation: Null ]
+words: Vacuum carpet
+verb: Vacuum
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: 9
+sent:  straighten any cushions,  
+clause dscr: straighten [ relation: Null ]
+words: straighten
+verb: straighten
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 28
+end env: 27
+sent:  pick up litter  
+clause dscr: pick [   litter | relation: Null ]
+words: pick litter
+verb: pick
+arg mapping: 
+<end clause>

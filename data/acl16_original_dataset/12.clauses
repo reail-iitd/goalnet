@@ -1,0 +1,14 @@
+entire sentence: , 
+Place Guiness Book on table   
+
+<start clause>
+start env: 8
+end env: 11
+sent: Dispose of trash .
+Dispose of can .
+Place Guiness Book on table  
+clause dscr: Place [   Dispose |   trash  |   Guiness |   Book |   table | relation: (6, 6){ Dispose x  trash -> of}{ Dispose x  Dispose -> of}{ Dispose x  Guiness -> of}{ Dispose x  Book -> of}{ Dispose x  table -> of}{ trash x  Dispose -> of}{ trash x  Guiness -> of}{ trash x  Book -> of}{ trash x  table -> of}{ Dispose x  Guiness -> of}{ Dispose x  Book -> of}{ Dispose x  table -> of}{ Guiness x  Book -> on}{ Guiness x  table -> on}{ Book x  table -> on} ]
+words: Place Dispose trash Dispose Guiness Book table of of of of of of of of of of of of on on on
+verb: Place
+arg mapping: (Book,Book_1) (Book,Book_2) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

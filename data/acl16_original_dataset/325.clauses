@@ -1,0 +1,31 @@
+entire sentence: , Take the dishes   and stack   neatly , ,  Put the bottles in the appropriate cabinet   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Take the dishes  
+clause dscr: Take [   dishes | relation: Null ]
+words: Take dishes
+verb: Take
+arg mapping: (dishes,Spoon_1) (dishes,Glass_1) (dishes,LongCup_1) (dishes,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  and stack  
+clause dscr: stack [ relation: Null ]
+words: stack
+verb: stack
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 23
+end env: 22
+sent:  neatly . Put the bottles in the appropriate cabinet  
+clause dscr: Put [   bottles |   cabinet | relation: (2, 2){ bottles x  cabinet -> in} ]
+words: Put bottles cabinet in
+verb: Put
+arg mapping: (cabinet,Counter_1)
+<end clause>

@@ -1,0 +1,51 @@
+entire sentence: , Open the cup of instant ramen   halfway and fill it up with water from the sink   , ,  Flatten the cover   and put the instant ramen into the microwave   and cook it   for the specified time on the cup   , , 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Open the cup of instant ramen  
+clause dscr: Open [   cup |   ramen | relation: (2, 2){ cup x  ramen -> of} ]
+words: Open cup ramen of
+verb: Open
+arg mapping: (cup,LongCup_1) (cup,LongCup_2) (ramen,Ramen_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  halfway and fill it up with water from the sink  
+clause dscr: halfway [ relation: Null ]
+words: halfway
+verb: halfway
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 13
+end env: 14
+sent:  . Flatten the cover  
+clause dscr: Flatten [   cover | relation: Null ]
+words: Flatten cover
+verb: Flatten
+arg mapping: (cover,StoveFire_1) (cover,StoveFire_2) (cover,StoveFire_3) (cover,StoveFire_4)
+<end clause>
+
+<start clause>
+start env: 15
+end env: 14
+sent:  and put the instant ramen into the microwave  
+clause dscr: put [   ramen |   microwave | relation: (2, 2){ ramen x  microwave -> into} ]
+words: put ramen microwave into
+verb: put
+arg mapping: (ramen,Ramen_1) (microwave,Microwave)
+<end clause>
+
+<start clause>
+start env: 15
+end env: 18
+sent:  and cook it  
+clause dscr: cook [   it | relation: Null ]
+words: cook it
+verb: cook
+arg mapping: (it,LongCup_2) (it,InstantRamen_1) (it,Bowl_1)
+<end clause>

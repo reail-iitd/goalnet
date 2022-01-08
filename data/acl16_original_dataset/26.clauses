@@ -1,0 +1,131 @@
+entire sentence: , Open freezer,   remove icecream,   close freezer   , , ,  Get spoon and plate,   open ice cream,   scoop   and place on plate,   close ice cream,   replace in fridge   , , , , , ,  Get mug with coffee   and pour over ice cream   , ,  Place mug in sink ,  Get chocolate syrup   and pump over ice cream   , 
+
+<start clause>
+start env: 0
+end env: 2
+sent: Open freezer,  
+clause dscr: Open [   freezer | relation: Null ]
+words: Open freezer
+verb: Open
+arg mapping: (freezer,Fridge)
+<end clause>
+
+<start clause>
+start env: 3
+end env: 4
+sent:  remove icecream,  
+clause dscr: remove [   icecream | relation: Null ]
+words: remove icecream
+verb: remove
+arg mapping: (icecream,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 6
+sent:  close freezer  
+clause dscr: close [   freezer | relation: Null ]
+words: close freezer
+verb: close
+arg mapping: (freezer,Fridge)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 12
+sent:  . Get spoon and plate,  
+clause dscr: Get [   spoon |   plate | relation: (2, 2){ spoon x  plate -> and} ]
+words: Get spoon plate and
+verb: Get
+arg mapping: (spoon,Spoon_1) (plate,Plate_1) (plate,Plate_2)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  open ice cream,  
+clause dscr: open [   ice cream | relation: Null ]
+words: open ice cream
+verb: open
+arg mapping: (ice cream,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  scoop  
+clause dscr: scoop [ relation: Null ]
+words: scoop
+verb: scoop
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 11
+end env: 13
+sent:  and place on plate,  
+clause dscr: place [   plate | relation: Null ]
+words: place plate
+verb: place
+arg mapping: (plate,Plate_1) (plate,Plate_2)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 13
+sent:  close ice cream,  
+clause dscr: close [   ice cream | relation: Null ]
+words: close ice cream
+verb: close
+arg mapping: (ice cream,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 13
+sent:  replace in fridge  
+clause dscr: replace [   fridge | relation: Null ]
+words: replace fridge
+verb: replace
+arg mapping: (fridge,Fridge)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 15
+sent:  . Get mug with coffee  
+clause dscr: Get [   mug |   coffee | relation: (2, 2){ mug x  coffee -> with} ]
+words: Get mug coffee with
+verb: Get
+arg mapping: (mug,Mug_1) (coffee,Mug_1)
+<end clause>
+
+<start clause>
+start env: 16
+end env: 17
+sent:  and pour over ice cream  
+clause dscr: pour [   ice cream | relation: Null ]
+words: pour ice cream
+verb: pour
+arg mapping: (ice cream,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  . Place mug in sink . Get chocolate syrup  
+clause dscr: Get [   Place |   mug |   sink |   chocolate syrup | relation: (4, 4){ Place x  mug -> in}{ Place x  sink -> in}{ Place x  chocolate syrup -> in}{ mug x  sink -> in}{ mug x  chocolate syrup -> in} ]
+words: Get Place mug sink chocolate syrup in in in in in
+verb: Get
+arg mapping: (mug,Mug_1) (sink,Sink) (chocolate syrup,Syrup_1) (chocolate syrup,Syrup_2)
+<end clause>
+
+<start clause>
+start env: 29
+end env: 28
+sent:  and pump over ice cream  
+clause dscr: pump [   ice cream | relation: Null ]
+words: pump ice cream
+verb: pump
+arg mapping: (ice cream,IceCream_1)
+<end clause>

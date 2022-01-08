@@ -1,0 +1,31 @@
+entire sentence: , Take the mug of coffee   and add ice cream to it   , ,  Then, add chocolate syrup to the mug   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Take the mug of coffee  
+clause dscr: Take [   mug |   coffee | relation: (2, 2){ mug x  coffee -> of} ]
+words: Take mug coffee of
+verb: Take
+arg mapping: (mug,Mug_1) (coffee,Mug_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 14
+sent:  and add ice cream to it  
+clause dscr: add [   ice |   cream |   it | relation: (3, 3){ ice x  cream -> to}{ ice x  it -> to}{ cream x  it -> to} ]
+words: add ice cream it to to to
+verb: add
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (it,Mug_1)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 21
+sent:  . Then, add chocolate syrup to the mug  
+clause dscr: add [   chocolate |   syrup |   mug | relation: (3, 3){ chocolate x  syrup -> to}{ chocolate x  mug -> to}{ syrup x  mug -> to} ]
+words: add chocolate syrup mug to to to
+verb: add
+arg mapping: (chocolate,Syrup_2) (syrup,Syrup_1) (syrup,Syrup_2) (mug,Mug_1)
+<end clause>

@@ -1,0 +1,31 @@
+entire sentence: , Dave, place the Xbox controller on the table,   put the Cola can and the bottle into the trash  put the Cola can and the bottle into the trash , 
+
+<start clause>
+start env: 0
+end env: 3
+sent: Dave, place the Xbox controller on the table,  
+clause dscr: place [   Dave |   Xbox |   controller |   table | relation: (4, 4){ Dave x  Xbox -> ,}{ Dave x  controller -> ,}{ Dave x  table -> ,}{ Xbox x  controller -> on}{ Xbox x  table -> on}{ controller x  table -> on} ]
+words: place Dave Xbox controller table , , , on on on
+verb: place
+arg mapping: (Xbox,Xbox_1) (controller,XboxController_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 8
+sent:  put the Cola can and the bottle into the trash 
+clause dscr: put [   Cola can |   bottle |   trash | relation: (3, 3){ Cola can x  bottle -> and}{ Cola can x  trash -> into}{ bottle x  trash -> into} ]
+words: put Cola can bottle trash and into into
+verb: put
+arg mapping: (Cola can,Coke_1) (bottle,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 8
+sent:  put the Cola can and the bottle into the trash .
+clause dscr: put [   Cola can |   bottle |   trash | relation: (3, 3){ Cola can x  bottle -> and}{ Cola can x  trash -> into}{ bottle x  trash -> into} ]
+words: put Cola can bottle trash and into into
+verb: put
+arg mapping: (Cola can,Coke_1) (bottle,Bowl_1)
+<end clause>

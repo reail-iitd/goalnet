@@ -1,0 +1,41 @@
+entire sentence: , Pour the pot   and wash it in the sink   , ,  Fill the pot with water up to two thirds   ,  Heat it on the stove for 10 minutes   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Pour the pot  
+clause dscr: Pour [   pot | relation: Null ]
+words: Pour pot
+verb: Pour
+arg mapping: (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 0
+end env: 5
+sent:  and wash it in the sink  
+clause dscr: wash [   it |   sink | relation: (2, 2){ it x  sink -> in} ]
+words: wash it sink in
+verb: wash
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 3
+end env: 5
+sent:  . Fill the pot with water up to two thirds  
+clause dscr: Fill [   pot |   water | relation: (2, 2){ pot x  water -> with} ]
+words: Fill pot water with
+verb: Fill
+arg mapping: (pot,Kettle) (water,Kettle)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . Heat it on the stove for 10 minutes  
+clause dscr: Heat [   it |   stove | relation: (2, 2){ it x  stove -> on} ]
+words: Heat it stove on
+verb: Heat
+arg mapping: (it,Stove) (it,Kettle) (it,StoveKnob_2) (it,StoveFire_1) (stove,Stove)
+<end clause>

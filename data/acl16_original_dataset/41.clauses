@@ -1,0 +1,41 @@
+entire sentence: , Take the game   and put it in the xbox,   turn on the TV   and arrange the couches around the TV   , , , 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Take the game  
+clause dscr: Take [   game | relation: Null ]
+words: Take game
+verb: Take
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 11
+end env: 10
+sent:  and put it in the xbox,  
+clause dscr: put [   it |   xbox | relation: (2, 2){ it x  xbox -> in} ]
+words: put it xbox in
+verb: put
+arg mapping: (it,Loveseat_1) (it,SnackTable_1) (it,Xbox_1) (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 12
+sent:  turn on the TV  
+clause dscr: turn [   TV | relation: Null ]
+words: turn TV
+verb: turn
+arg mapping: (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 11
+sent:  and arrange the couches around the TV  
+clause dscr: arrange [   couches |   TV | relation: (2, 2){ couches x  TV -> around} ]
+words: arrange couches TV around
+verb: arrange
+arg mapping: (couches,Loveseat_1) (TV,Tv_1)
+<end clause>

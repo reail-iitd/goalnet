@@ -1,0 +1,51 @@
+entire sentence: , Place ramen and instant ramen into pot and cook on top of the stove Place ramen and instant ramen into pot and cook on top of the stove   , , ,  Put the chocolate and vanilla syrup bottle into the fridge   and close the fridge door   , ,  Pour the drink into the long glass   and serve ramen on the plate   , 
+
+<start clause>
+start env: 19
+end env: 18
+sent: Place ramen and instant ramen into pot and cook on top of the stove Place ramen and instant ramen into pot and cook on top of the stove  
+clause dscr: Place [   ramen |   instant ramen |   pot | relation: (3, 3){ ramen x  instant ramen -> and}{ ramen x  pot -> into}{ instant ramen x  pot -> into} ]
+words: Place ramen instant ramen pot and into into
+verb: Place
+arg mapping: (ramen,Ramen_1) (instant ramen,InstantRamen_1) (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 18
+sent:  . Put the chocolate and vanilla syrup bottle into the fridge  
+clause dscr: Put [   chocolate |   vanilla syrup bottle |   fridge | relation: (3, 3){ chocolate x  vanilla syrup bottle -> and}{ chocolate x  fridge -> into}{ vanilla syrup bottle x  fridge -> into} ]
+words: Put chocolate vanilla syrup bottle fridge and into into
+verb: Put
+arg mapping: (chocolate,Syrup_2) (vanilla syrup bottle,Syrup_1) (vanilla syrup bottle,Syrup_2) (fridge,Fridge)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 18
+sent:  and close the fridge door  
+clause dscr: close [   door | relation: Null ]
+words: close door
+verb: close
+arg mapping: (door,MicrowaveDoor) (door,FridgeLeftDoor) (door,FridgeRightDoor)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 18
+sent:  . Pour the drink into the long glass  
+clause dscr: Pour [   drink |   glass | relation: (2, 2){ drink x  glass -> into} ]
+words: Pour drink glass into
+verb: Pour
+arg mapping: (drink,EnergyDrink_1) (glass,Glass_1)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 18
+sent:  and serve ramen on the plate  
+clause dscr: serve [   ramen |   plate | relation: (2, 2){ ramen x  plate -> on} ]
+words: serve ramen plate on
+verb: serve
+arg mapping: (ramen,Ramen_1) (plate,Plate_1) (plate,Plate_2)
+<end clause>

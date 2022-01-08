@@ -1,0 +1,41 @@
+entire sentence: , grab the beer, coke and bowl   and place them on the coffee table   , ,  Grab pillows   and put them on the couch   , 
+
+<start clause>
+start env: 0
+end env: 3
+sent: grab the beer, coke and bowl  
+clause dscr: grab [   beer |   coke bowl | relation: (2, 2){ beer x  coke bowl -> ,} ]
+words: grab beer coke bowl ,
+verb: grab
+arg mapping: (beer,Beer_1) (coke bowl,Bowl_1) (coke bowl,Coke_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 19
+sent:  and place them on the coffee table  
+clause dscr: place [   coffee table | relation: Null ]
+words: place coffee table
+verb: place
+arg mapping: (coffee table,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 20
+end env: 31
+sent:  . Grab pillows  
+clause dscr: Grab [   pillows | relation: Null ]
+words: Grab pillows
+verb: Grab
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (pillows,Pillow_4)
+<end clause>
+
+<start clause>
+start env: 31
+end env: 30
+sent:  and put them on the couch  
+clause dscr: put [   couch | relation: Null ]
+words: put couch
+verb: put
+arg mapping: (couch,Loveseat_1)
+<end clause>

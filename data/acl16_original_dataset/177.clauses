@@ -1,0 +1,41 @@
+entire sentence: , take mug form microwave   and pour its contents in the sink   , ,  Do the same to the cup and glass   ,  Finally put everything in the cupboard   
+
+<start clause>
+start env: 0
+end env: 3
+sent: take mug form microwave  
+clause dscr: take [   form microwave | relation: Null ]
+words: take form microwave
+verb: take
+arg mapping: (form microwave,MicrowaveDoor) (form microwave,Microwave) (form microwave,MicrowaveButton)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 5
+sent:  and pour its contents in the sink  
+clause dscr: pour [   contents |   sink | relation: (2, 2){ contents x  sink -> in} ]
+words: pour contents sink in
+verb: pour
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 11
+sent:  . Do the same to the cup and glass  
+clause dscr: Do [   cup |   glass | relation: (2, 2){ cup x  glass -> and} ]
+words: Do cup glass and
+verb: Do
+arg mapping: (cup,LongCup_1) (cup,LongCup_2) (glass,Glass_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . Finally put everything in the cupboard  
+clause dscr: put [   everything |   cupboard | relation: (2, 2){ everything x  cupboard -> in} ]
+words: put everything cupboard in
+verb: put
+arg mapping: (cupboard,LongCup_1) (cupboard,LongCup_2)
+<end clause>

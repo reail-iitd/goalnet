@@ -1,0 +1,31 @@
+entire sentence: , Put the game into the xbox   ,  Get the food on the table   for me ,  Pull out the coke on the table   and rearrange them to the original place   , 
+
+<start clause>
+start env: 0
+end env: 6
+sent: Put the game into the xbox  
+clause dscr: Put [   game |   xbox | relation: (2, 2){ game x  xbox -> into} ]
+words: Put game xbox into
+verb: Put
+arg mapping: (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 8
+sent:  . Get the food on the table  
+clause dscr: Get [   food |   table | relation: (2, 2){ food x  table -> on} ]
+words: Get food table on
+verb: Get
+arg mapping: (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  and rearrange them to the original place  
+clause dscr: rearrange [   place | relation: Null ]
+words: rearrange place
+verb: rearrange
+arg mapping: 
+<end clause>

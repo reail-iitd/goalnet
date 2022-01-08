@@ -1,0 +1,11 @@
+entire sentence: , Fill the pot with water from the sink and boil it on the stove   , 
+
+<start clause>
+start env: 0
+end env: 18
+sent: Fill the pot with water from the sink and boil it on the stove  
+clause dscr: Fill [   pot |   water |   sink | relation: (3, 3){ pot x  water -> with}{ pot x  sink -> with}{ water x  sink -> from} ]
+words: Fill pot water sink with with from
+verb: Fill
+arg mapping: (pot,Kettle) (sink,Sink)
+<end clause>

@@ -1,0 +1,11 @@
+entire sentence: , j want to play tennis on pc   , 
+
+<start clause>
+start env: 4
+end env: 3
+sent: j want to play tennis on pc  
+clause dscr: want [   j | relation: Null ]
+words: want j
+verb: want
+arg mapping: 
+<end clause>

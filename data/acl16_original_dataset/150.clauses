@@ -1,0 +1,41 @@
+entire sentence: , Get instant ramen cup   ,  Fill up with water from the sink to the right amount   ,  Put in microwave,   and cook   for specified time   , 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Get instant ramen cup  
+clause dscr: Get [   ramen cup | relation: Null ]
+words: Get ramen cup
+verb: Get
+arg mapping: (ramen cup,Ramen_1) (ramen cup,LongCup_1) (ramen cup,LongCup_2) (ramen cup,InstantRamen_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 3
+sent:  . Fill up with water from the sink to the right amount  
+clause dscr: Fill [   water |   sink |   amount | relation: (3, 3){ water x  sink -> from}{ water x  amount -> from}{ sink x  amount -> to} ]
+words: Fill water sink amount from from to
+verb: Fill
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 9
+sent:  . Put in microwave,  
+clause dscr: Put [   microwave | relation: Null ]
+words: Put microwave
+verb: Put
+arg mapping: (microwave,Microwave)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 10
+sent:  and cook  
+clause dscr: cook [ relation: Null ]
+words: cook
+verb: cook
+arg mapping: 
+<end clause>

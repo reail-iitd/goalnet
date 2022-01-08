@@ -1,0 +1,11 @@
+entire sentence: , Dave, take some coffee   and then mix in ice cream and syrup   , 
+
+<start clause>
+start env: 6
+end env: 7
+sent: Dave, take some coffee  
+clause dscr: take [   Dave |   coffee | relation: (2, 2){ Dave x  coffee -> ,} ]
+words: take Dave coffee ,
+verb: take
+arg mapping: (coffee,Mug_1)
+<end clause>

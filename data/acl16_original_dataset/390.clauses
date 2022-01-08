@@ -1,0 +1,31 @@
+entire sentence: , turn on the music,   put food on the table,   clean up the room    , , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: turn on the music,  
+clause dscr: turn [   music | relation: Null ]
+words: turn music
+verb: turn
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 13
+end env: 15
+sent:  put food on the table,  
+clause dscr: put [   food |   table | relation: (2, 2){ food x  table -> on} ]
+words: put food table on
+verb: put
+arg mapping: (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 32
+end env: 31
+sent:  clean up the room  
+clause dscr: clean [   room | relation: Null ]
+words: clean room
+verb: clean
+arg mapping: 
+<end clause>

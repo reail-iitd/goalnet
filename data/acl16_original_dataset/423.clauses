@@ -1,0 +1,11 @@
+entire sentence: , Put the empty cup and the dish to the sink   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Put the empty cup and the dish to the sink  
+clause dscr: Put [   cup |   dish |   sink | relation: (3, 3){ cup x  dish -> and}{ cup x  sink -> to}{ dish x  sink -> to} ]
+words: Put cup dish sink and to to
+verb: Put
+arg mapping: (cup,LongCup_1) (cup,LongCup_2) (dish,Bowl_1) (sink,Sink)
+<end clause>

@@ -1,0 +1,106 @@
+Obj list:  (Robot:) (Counter_1:IsPlaceableOn) (Sink:IsPlaceableOn) (Stove:Turnable) (Mug_1:IsGraspable,IsPourable) (MicrowaveDoor:) (Microwave:Openable,Pressable,IsPlaceableIn) (Fridge:Pressable,Openable,IsPlaceableIn) (FridgeLeftDoor:) (FridgeRightDoor:) (Spoon_1:IsGraspable,IsPlacable,IsScoopable) (IceCream_1:IsGraspable) (Kettle:IsGraspable,IsPourable) (Ramen_1:IsGraspable,IsAddable) (Syrup_1:IsGraspable,IsSqueezeable) (Glass_1:IsGraspable,IsPourable) (LongCup_1:IsGraspable,IsPourable) (LongCup_2:IsGraspable,IsPourable) (Fork_1:IsGraspable,IsPlacable) (EnergyDrink_1:IsGraspable,IsPourable) (Coke_1:IsGraspable,IsPourable,IsGraspable) (CanadaDry_1:IsGraspable,IsPourable) (Plate_1:IsGraspable) (Plate_2:IsGraspable) (Syrup_2:IsGraspable,IsSqueezeable) (InstantRamen_1:IsGraspable,IsPourable,IsGraspable) (BoiledEgg_1:IsGraspable,IsAddable) (Salt_1:IsGraspable,IsAddable) (Flower_1:) (StoveKnob_1:) (StoveKnob_2:) (StoveKnob_3:) (StoveKnob_4:) (StoveFire_1:IsPlaceableOn) (StoveFire_2:IsPlaceableOn) (StoveFire_3:IsPlaceableOn) (StoveFire_4:IsPlaceableOn) (FridgeButton:) (MicrowaveButton:) (SinkKnob:IsTurnable) (IceCreamScoop:)
+
+<start step >0
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On IceCream_1 StoveFire_4),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4)
+Instruction: moveto Microwave
+<end step >0
+
+<start step >1
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On IceCream_1 StoveFire_4),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave)
+Instruction: open Microwave
+<end step >1
+
+<start step >2
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(state Microwave DoorIsOpen),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On IceCream_1 StoveFire_4),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave)
+Instruction: moveto Mug_1
+<end step >2
+
+<start step >3
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(state Microwave DoorIsOpen),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On IceCream_1 StoveFire_4),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Mug_1)
+Instruction: grasp Mug_1
+<end step >3
+
+<start step >4
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(state Microwave DoorIsOpen),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On IceCream_1 StoveFire_4),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Grasping Robot Mug_1)
+Instruction: release Mug_1
+<end step >4
+
+<start step >5
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(state Microwave DoorIsOpen),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On IceCream_1 StoveFire_4),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave)
+Instruction: close Microwave
+<end step >5
+
+<start step >6
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On IceCream_1 StoveFire_4),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave)
+Instruction: moveto Fridge
+<end step >6
+
+<start step >7
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On IceCream_1 StoveFire_4),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge)
+Instruction: open FridgeLeftDoor
+<end step >7
+
+<start step >8
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(state Fridge LeftDoorIsOpen),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On IceCream_1 StoveFire_4),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge)
+Instruction: moveto IceCream_1
+<end step >8
+
+<start step >9
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(state Fridge LeftDoorIsOpen),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On IceCream_1 StoveFire_4),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge),(Near Robot IceCream_1)
+Instruction: grasp IceCream_1
+<end step >9
+
+<start step >10
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(state Fridge LeftDoorIsOpen),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge),(Grasping Robot IceCream_1)
+Instruction: close FridgeLeftDoor
+<end step >10
+
+<start step >11
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge),(Grasping Robot IceCream_1)
+Instruction: release IceCream_1
+<end step >11
+
+<start step >12
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge)
+Instruction: moveto Syrup_2
+<end step >12
+
+<start step >13
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On Syrup_2 StoveFire_2),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge),(Near Robot Syrup_2)
+Instruction: grasp Syrup_2
+<end step >13
+
+<start step >14
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge),(Grasping Robot Syrup_2)
+Instruction: release Syrup_2
+<end step >14
+
+<start step >15
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge)
+Instruction: open FridgeLeftDoor
+<end step >15
+
+<start step >16
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(state Fridge LeftDoorIsOpen),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge)
+Instruction: close FridgeLeftDoor
+<end step >16
+
+<start step >17
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge)
+Instruction: moveto Mug_1
+<end step >17
+
+<start step >18
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge),(Near Robot Mug_1)
+Instruction: grasp Mug_1
+<end step >18
+
+<start step >19
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge),(Grasping Robot Mug_1)
+Instruction: release Mug_1
+<end step >19
+
+<start step >20
+Env: (state Mug_1 Coffee),(IsGraspable Mug_1),(IsGraspable Spoon_1),(state IceCream_1 ScoopsLeft),(IsGraspable IceCream_1),(IsGraspable Kettle),(IsGraspable Ramen_1),(state Syrup_1 Vanilla),(IsGraspable Syrup_1),(IsSqueezeable Syrup_1),(IsGraspable Glass_1),(IsGraspable LongCup_1),(IsGraspable LongCup_2),(IsGraspable Fork_1),(IsGraspable EnergyDrink_1),(IsGraspable Coke_1),(IsGraspable CanadaDry_1),(IsGraspable Plate_1),(IsGraspable Plate_2),(state Syrup_2 Chocolate),(IsGraspable Syrup_2),(IsSqueezeable Syrup_2),(IsGraspable InstantRamen_1),(IsGraspable BoiledEgg_1),(IsGraspable Salt_1),(On Kettle StoveFire_2),(On Syrup_1 StoveFire_2),(On EnergyDrink_1 StoveFire_4),(On Coke_1 StoveFire_4),(On CanadaDry_1 StoveFire_4),(On Plate_1 StoveFire_4),(On Plate_2 StoveFire_4),(On BoiledEgg_1 StoveFire_4),(Near Robot Microwave),(Near Robot Fridge)
+Instruction: 
+<end step >20

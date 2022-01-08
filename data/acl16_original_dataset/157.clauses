@@ -1,0 +1,11 @@
+entire sentence: , Boil the water   
+
+<start clause>
+start env: 0
+end env: 8
+sent: Boil the water  
+clause dscr: Boil [   water | relation: Null ]
+words: Boil water
+verb: Boil
+arg mapping: 
+<end clause>

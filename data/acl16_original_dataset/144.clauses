@@ -1,0 +1,41 @@
+entire sentence: , Prepare the drink   by pouring the drink in the yellow bottle into an empty cup on the table   , ,  Prepare the food   and take   them to me , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: Prepare the drink  
+clause dscr: Prepare [   drink | relation: Null ]
+words: Prepare drink
+verb: Prepare
+arg mapping: (drink,EnergyDrink_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  by pouring the drink in the yellow bottle into an empty cup on the table  
+clause dscr: pouring [   drink |   bottle |   cup |   table | relation: (4, 4){ drink x  bottle -> in}{ drink x  cup -> in}{ drink x  table -> in}{ bottle x  cup -> into}{ bottle x  table -> into}{ cup x  table -> on} ]
+words: pouring drink bottle cup table in in in into into on
+verb: pouring
+arg mapping: (drink,EnergyDrink_1) (cup,LongCup_1) (cup,LongCup_2) (table,Counter_1) (table,Counter1_1)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 4
+sent:  . Prepare the food  
+clause dscr: Prepare [   food | relation: Null ]
+words: Prepare food
+verb: Prepare
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 5
+end env: 4
+sent:  and take  
+clause dscr: take [ relation: Null ]
+words: take
+verb: take
+arg mapping: 
+<end clause>

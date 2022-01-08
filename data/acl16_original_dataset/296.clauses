@@ -1,0 +1,34 @@
+entire sentence: , Boil water
+Add ramen noodles   and cook   until tender
+Add contents   of flavoring packet   , until, until, 
+
+<start clause>
+start env: 18
+end env: 17
+sent: Boil water
+Add ramen noodles  
+clause dscr: Add [   water |   ramen noodles | relation: (2, 2) ]
+words: Add water ramen noodles
+verb: Add
+arg mapping: (ramen noodles,Ramen_1) (ramen noodles,InstantRamen_1)
+<end clause>
+
+<start clause>
+start env: 18
+end env: 17
+sent:  and cook  
+clause dscr: cook [ relation: Null ]
+words: cook
+verb: cook
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 18
+end env: 17
+sent:  of flavoring packet  
+clause dscr: flavoring [   packet | relation: Null ]
+words: flavoring packet
+verb: flavoring
+arg mapping: 
+<end clause>

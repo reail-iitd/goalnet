@@ -1,0 +1,61 @@
+entire sentence: , grasp the pot,   put it in the sink   , ,  open the faucet   ,  grasp the pot   and put it on the left stove   , ,  turn on the left stove   
+
+<start clause>
+start env: 0
+end env: 1
+sent: grasp the pot,  
+clause dscr: grasp [   pot | relation: Null ]
+words: grasp pot
+verb: grasp
+arg mapping: (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 3
+sent:  put it in the sink  
+clause dscr: put [   it |   sink | relation: (2, 2){ it x  sink -> in} ]
+words: put it sink in
+verb: put
+arg mapping: (it,Kettle) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 4
+sent:  . open the faucet  
+clause dscr: open [   faucet | relation: Null ]
+words: open faucet
+verb: open
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 5
+end env: 6
+sent:  . grasp the pot  
+clause dscr: grasp [   pot | relation: Null ]
+words: grasp pot
+verb: grasp
+arg mapping: (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 8
+sent:  and put it on the left stove  
+clause dscr: put [   it |   stove | relation: (2, 2){ it x  stove -> on} ]
+words: put it stove on
+verb: put
+arg mapping: (it,Sink) (it,Kettle) (it,SinkKnob) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 10
+sent:  . turn on the left stove  
+clause dscr: turn [   stove | relation: Null ]
+words: turn stove
+verb: turn
+arg mapping: (stove,Stove)
+<end clause>

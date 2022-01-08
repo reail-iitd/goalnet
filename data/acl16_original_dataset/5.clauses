@@ -1,0 +1,31 @@
+entire sentence: , Turn on the music   ,  Place beer and chips onto the table   ,  Move all furniture to the sides of the room   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Turn on the music  
+clause dscr: Turn [   music | relation: Null ]
+words: Turn music
+verb: Turn
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: 3
+sent:  . Place beer and chips onto the table  
+clause dscr: Place [   beer |   chips |   table | relation: (3, 3){ beer x  chips -> and}{ beer x  table -> onto}{ chips x  table -> onto} ]
+words: Place beer chips table and onto onto
+verb: Place
+arg mapping: (beer,Beer_1) (chips,BagOfChips_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 3
+end env: 2
+sent:  . Pour chips into the bowl . Move all furniture to the sides of the room  
+clause dscr: Move [   chips |   bowl |   furniture |   sides |   room | relation: (5, 5){ chips x  bowl -> into}{ chips x  furniture -> into}{ chips x  sides -> into}{ chips x  room -> into}{ bowl x  furniture -> to}{ bowl x  sides -> to}{ bowl x  room -> to}{ furniture x  sides -> to}{ furniture x  room -> to}{ sides x  room -> of} ]
+words: Move chips bowl furniture sides room into into into into to to to to to of
+verb: Move
+arg mapping: (chips,BagOfChips_1) (bowl,Bowl_1) (furniture,TvTable_1)
+<end clause>

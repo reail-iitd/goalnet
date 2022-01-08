@@ -1,0 +1,11 @@
+entire sentence: , get the bag of chips and bowl on the table   
+
+<start clause>
+start env: 0
+end env: 6
+sent: get the bag of chips and bowl on the table  
+clause dscr: get [   bag |   chips |   bowl |   table | relation: (4, 4){ bag x  chips -> of}{ bag x  bowl -> of}{ bag x  table -> of}{ chips x  bowl -> and}{ chips x  table -> on}{ bowl x  table -> on} ]
+words: get bag chips bowl table of of of and on on
+verb: get
+arg mapping: (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1) (bowl,Bowl_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

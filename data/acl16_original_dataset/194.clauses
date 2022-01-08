@@ -1,0 +1,41 @@
+entire sentence: , Place the ice cream in the freezer   ,  Place all syrup bottles in the fridge   ,  Take all pots, cups, plates, and silverware   and put them in the sink   , 
+
+<start clause>
+start env: 0
+end env: 8
+sent: Place the ice cream in the freezer  
+clause dscr: Place [   ice |   cream |   freezer | relation: (3, 3){ ice x  cream -> in}{ ice x  freezer -> in}{ cream x  freezer -> in} ]
+words: Place ice cream freezer in in in
+verb: Place
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (freezer,Fridge)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 16
+sent:  . Place all syrup bottles in the fridge  
+clause dscr: Place [   syrup |   bottles |   fridge | relation: (3, 3){ syrup x  bottles -> in}{ syrup x  fridge -> in}{ bottles x  fridge -> in} ]
+words: Place syrup bottles fridge in in in
+verb: Place
+arg mapping: (syrup,Syrup_1) (syrup,Syrup_2) (fridge,Fridge)
+<end clause>
+
+<start clause>
+start env: 17
+end env: 38
+sent:  . Take all pots, cups, plates, and silverware  
+clause dscr: Take [   pots |   cups |   plates |   silverware | relation: (4, 4){ pots x  cups -> ,}{ pots x  plates -> ,}{ pots x  silverware -> ,}{ cups x  plates -> ,}{ cups x  silverware -> ,}{ plates x  silverware -> ,} ]
+words: Take pots cups plates silverware , , , , , ,
+verb: Take
+arg mapping: (pots,Kettle) (cups,LongCup_1) (cups,LongCup_2) (plates,Plate_1) (plates,Plate_2)
+<end clause>
+
+<start clause>
+start env: 50
+end env: 49
+sent:  and put them in the sink  
+clause dscr: put [   sink | relation: Null ]
+words: put sink
+verb: put
+arg mapping: (sink,Sink)
+<end clause>

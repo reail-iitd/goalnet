@@ -1,0 +1,41 @@
+entire sentence: , Go to the game system   and go to the xbox,   get the food   and arrange couch   , , , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: Go to the game system  
+clause dscr: Go [   game system | relation: Null ]
+words: Go game system
+verb: Go
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: 1
+sent:  and go to the xbox,  
+clause dscr: go [   xbox | relation: Null ]
+words: go xbox
+verb: go
+arg mapping: (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 3
+sent:  get the food  
+clause dscr: get [   food | relation: Null ]
+words: get food
+verb: get
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 3
+end env: 2
+sent:  and arrange couch  
+clause dscr: arrange [   couch | relation: Null ]
+words: arrange couch
+verb: arrange
+arg mapping: (couch,Loveseat_1)
+<end clause>

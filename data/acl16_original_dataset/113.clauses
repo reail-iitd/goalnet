@@ -1,0 +1,31 @@
+entire sentence: , Put   all the school books on the table turn off the tv   and get chips and soda on the table   , , 
+
+<start clause>
+start env: 0
+end env: 3
+sent: Put  
+clause dscr: Put [ relation: Null ]
+words: Put
+verb: Put
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 4
+end env: 5
+sent:  all the school books on the table turn off the tv  
+clause dscr: turn [   school |   books |   table |   tv | relation: (4, 4){ school x  books -> on}{ school x  table -> on}{ school x  tv -> on}{ books x  table -> on}{ books x  tv -> on} ]
+words: turn school books table tv on on on on on
+verb: turn
+arg mapping: (books,Book_1) (books,Book_2) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1) (tv,Tv_1)
+<end clause>
+
+<start clause>
+start env: 6
+end env: 14
+sent:  and get chips and soda on the table  
+clause dscr: get [   chips |   soda |   table | relation: (3, 3){ chips x  soda -> and}{ chips x  table -> on}{ soda x  table -> on} ]
+words: get chips soda table and on on
+verb: get
+arg mapping: (chips,BagOfChips_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

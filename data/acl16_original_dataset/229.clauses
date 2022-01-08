@@ -1,0 +1,31 @@
+entire sentence: , grasp the ramen   ,  grasp the pot and place on back right stove   ,  place the ramen in the pot   
+
+<start clause>
+start env: 0
+end env: 1
+sent: grasp the ramen  
+clause dscr: grasp [   ramen | relation: Null ]
+words: grasp ramen
+verb: grasp
+arg mapping: (ramen,Ramen_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  . grasp the pot and place on back right stove  
+clause dscr: grasp [   pot |   place |   right stove | relation: (3, 3){ pot x  place -> and}{ pot x  right stove -> on}{ place x  right stove -> on} ]
+words: grasp pot place right stove and on on
+verb: grasp
+arg mapping: (pot,Kettle) (right stove,Stove) (right stove,FridgeRightDoor) (right stove,StoveKnob_1) (right stove,StoveKnob_2) (right stove,StoveKnob_3) (right stove,StoveKnob_4) (right stove,StoveFire_1) (right stove,StoveFire_2) (right stove,StoveFire_3) (right stove,StoveFire_4)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . place the ramen in the pot  
+clause dscr: place [   ramen |   pot | relation: (2, 2){ ramen x  pot -> in} ]
+words: place ramen pot in
+verb: place
+arg mapping: (ramen,Ramen_1) (pot,Kettle)
+<end clause>

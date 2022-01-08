@@ -1,0 +1,65 @@
+entire sentence: , Fill the pot with water,   put it on the stove,   and turn on the stove   , , ,  When the water is boiling,   put in the instant ramen   , , ,  Fill a glass with water from the sink   ,  
+
+Place everything onto the table   
+
+<start clause>
+start env: 0
+end env: 4
+sent: Fill the pot with water,  
+clause dscr: Fill [   pot |   water | relation: (2, 2){ pot x  water -> with} ]
+words: Fill pot water with
+verb: Fill
+arg mapping: (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 9
+sent:  put it on the stove,  
+clause dscr: put [   it |   stove | relation: (2, 2){ it x  stove -> on} ]
+words: put it stove on
+verb: put
+arg mapping: (it,Sink) (it,Kettle) (it,SinkKnob) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 16
+sent:  and turn on the stove  
+clause dscr: turn [   stove | relation: Null ]
+words: turn stove
+verb: turn
+arg mapping: (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 17
+end env: 16
+sent:  put in the instant ramen  
+clause dscr: put [   ramen | relation: Null ]
+words: put ramen
+verb: put
+arg mapping: (ramen,Ramen_1)
+<end clause>
+
+<start clause>
+start env: 17
+end env: 36
+sent:  . Fill a glass with water from the sink  
+clause dscr: Fill [   glass |   water |   sink | relation: (3, 3){ glass x  water -> with}{ glass x  sink -> with}{ water x  sink -> from} ]
+words: Fill glass water sink with with from
+verb: Fill
+arg mapping: (glass,Glass_1) (water,Kettle) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 47
+end env: 46
+sent:  . 
+
+Place everything onto the table  
+clause dscr: Place [   everything |   table | relation: (2, 2){ everything x  table -> onto} ]
+words: Place everything table onto
+verb: Place
+arg mapping: (table,Counter_1)
+<end clause>

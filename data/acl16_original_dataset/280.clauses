@@ -1,0 +1,11 @@
+entire sentence: , Go grab the coffee, ice cream, and syrup 
+
+<start clause>
+start env: 0
+end env: 11
+sent: Go grab the coffee, ice cream, and syrup .
+clause dscr: grab [   Go |   coffee |   ice cream |   syrup | relation: (4, 4){ Go x  coffee -> ,}{ Go x  ice cream -> ,}{ Go x  syrup -> ,}{ coffee x  ice cream -> ,}{ coffee x  syrup -> ,}{ ice cream x  syrup -> ,} ]
+words: grab Go coffee ice cream syrup , , , , , ,
+verb: grab
+arg mapping: (coffee,Mug_1) (ice cream,IceCream_1) (syrup,Syrup_1) (syrup,Syrup_2)
+<end clause>

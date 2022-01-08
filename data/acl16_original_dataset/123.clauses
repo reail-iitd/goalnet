@@ -1,0 +1,41 @@
+entire sentence: , Put   all books required for our study night on the table   ,  Turn off the TV   ,  Put enough food for us on the table   
+
+<start clause>
+start env: 10
+end env: 9
+sent: Put  
+clause dscr: Put [ relation: Null ]
+words: Put
+verb: Put
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 10
+end env: 9
+sent:  all books required for our study night on the table  
+clause dscr: required [   books |   study |   night |   table | relation: (4, 4){ books x  study -> for}{ books x  night -> for}{ books x  table -> for}{ study x  night -> on}{ study x  table -> on}{ night x  table -> on} ]
+words: required books study night table for for for on on on
+verb: required
+arg mapping: (books,Book_1) (books,Book_2) (study,Studytable_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 5
+sent:  . Turn off the TV  
+clause dscr: Turn [   TV | relation: Null ]
+words: Turn TV
+verb: Turn
+arg mapping: (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 6
+end env: 11
+sent:  . Put enough food for us on the table  
+clause dscr: Put [   food |   table | relation: (2, 2){ food x  table -> for} ]
+words: Put food table for
+verb: Put
+arg mapping: (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

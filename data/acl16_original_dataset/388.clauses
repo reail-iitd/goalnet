@@ -1,0 +1,61 @@
+entire sentence: , Place pot on top of the stove   and turn the stove   on , ,  wait for the water to boil   ,  Get the ramen   and empty contents into hot water into the pot   , ,  Cook   
+
+<start clause>
+start env: 0
+end env: 6
+sent: Place pot on top of the stove  
+clause dscr: Place [   pot |   top |   stove | relation: (3, 3){ pot x  top -> on}{ pot x  stove -> on}{ top x  stove -> of} ]
+words: Place pot top stove on on of
+verb: Place
+arg mapping: (pot,Kettle) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 11
+sent:  and turn the stove  
+clause dscr: turn [   stove | relation: Null ]
+words: turn stove
+verb: turn
+arg mapping: (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 11
+sent:  on . wait for the water to boil  
+clause dscr: wait [   water |   boil | relation: (2, 2){ water x  boil -> to} ]
+words: wait water boil to
+verb: wait
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 12
+end env: 14
+sent:  . Get the ramen  
+clause dscr: Get [   ramen | relation: Null ]
+words: Get ramen
+verb: Get
+arg mapping: (ramen,Ramen_1)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 13
+sent:  and empty contents into hot water into the pot  
+clause dscr: empty [   contents |   water |   pot | relation: (3, 3){ contents x  water -> into}{ contents x  pot -> into}{ water x  pot -> into} ]
+words: empty contents water pot into into into
+verb: empty
+arg mapping: (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 13
+sent:  . Cook  
+clause dscr: Cook [ relation: Null ]
+words: Cook
+verb: Cook
+arg mapping: 
+<end clause>

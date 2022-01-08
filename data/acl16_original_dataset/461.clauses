@@ -1,0 +1,51 @@
+entire sentence: , Take ice cream from freezer   and scoop with spoon into the mug with coffee in it   , ,  Replace ice cream in freezer   ,  Take vanilla syrup   and pour over icecream   , 
+
+<start clause>
+start env: 0
+end env: 4
+sent: Take ice cream from freezer  
+clause dscr: Take [   ice |   cream |   freezer | relation: (3, 3){ ice x  cream -> from}{ ice x  freezer -> from}{ cream x  freezer -> from} ]
+words: Take ice cream freezer from from from
+verb: Take
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (freezer,Fridge)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 17
+sent:  and scoop with spoon into the mug with coffee in it  
+clause dscr: scoop [   spoon |   mug |   coffee |   it | relation: (4, 4){ spoon x  mug -> into}{ spoon x  coffee -> into}{ spoon x  it -> into}{ mug x  coffee -> with}{ mug x  it -> with}{ coffee x  it -> in} ]
+words: scoop spoon mug coffee it into into into with with in
+verb: scoop
+arg mapping: (spoon,Spoon_1) (mug,Mug_1) (coffee,Mug_1) (it,Fridge) (it,FridgeLeftDoor) (it,FridgeRightDoor) (it,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 32
+end env: 22
+sent:  . Replace ice cream in freezer  
+clause dscr: Replace [   ice |   cream |   freezer | relation: (3, 3){ ice x  cream -> in}{ ice x  freezer -> in}{ cream x  freezer -> in} ]
+words: Replace ice cream freezer in in in
+verb: Replace
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (freezer,Fridge)
+<end clause>
+
+<start clause>
+start env: 23
+end env: 24
+sent:  . Take vanilla syrup  
+clause dscr: Take [   vanilla syrup | relation: Null ]
+words: Take vanilla syrup
+verb: Take
+arg mapping: (vanilla syrup,Syrup_1) (vanilla syrup,Syrup_2)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  and pour over icecream  
+clause dscr: pour [   icecream | relation: Null ]
+words: pour icecream
+verb: pour
+arg mapping: (icecream,Mug_1)
+<end clause>

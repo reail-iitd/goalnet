@@ -1,0 +1,31 @@
+entire sentence: , Turn on the music   ,  Bring us chips and coke   ,  Bring us the controller   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Turn on the music  
+clause dscr: Turn [   music | relation: Null ]
+words: Turn music
+verb: Turn
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 0
+end env: 3
+sent:  . Bring us chips and coke  
+clause dscr: Bring [   chips |   coke | relation: (2, 2){ chips x  coke -> and} ]
+words: Bring chips coke and
+verb: Bring
+arg mapping: (chips,BagOfChips_1) (coke,Coke_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 6
+sent:  . Bring us the controller  
+clause dscr: Bring [   controller | relation: Null ]
+words: Bring controller
+verb: Bring
+arg mapping: (controller,XboxController_1)
+<end clause>

@@ -1,0 +1,41 @@
+entire sentence: , Put the pot on the stove and boil the water   , ,  When boiling,   place in the cup with instant ramen   , , ,  Wait a few minutes   for it to cook   , 
+
+<start clause>
+start env: 0
+end env: 15
+sent: Put the pot on the stove and boil the water  
+clause dscr: Put [   pot |   stove | relation: (2, 2){ pot x  stove -> on} ]
+words: Put pot stove on
+verb: Put
+arg mapping: (pot,Kettle) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 24
+end env: 23
+sent:  place in the cup with instant ramen  
+clause dscr: place [   cup |   ramen | relation: (2, 2){ cup x  ramen -> with} ]
+words: place cup ramen with
+verb: place
+arg mapping: (cup,LongCup_1) (cup,LongCup_2) (ramen,Ramen_1)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  . Wait a few minutes  
+clause dscr: Wait [   minutes | relation: Null ]
+words: Wait minutes
+verb: Wait
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 25
+end env: 24
+sent:  for it to cook  
+clause dscr: cook [   it | relation: Null ]
+words: cook it
+verb: cook
+arg mapping: (it,Kettle) (it,Glass_1) (it,StoveKnob_1)
+<end clause>

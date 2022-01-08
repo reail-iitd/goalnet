@@ -1,0 +1,81 @@
+entire sentence: , Find the game disk   and put it into the xbox   , ,  Hook the xbox up to the TV   and make sure the TV is on the proper channel   , ,   Put the bowl of chips   on the table near the couch facing the TV   , ,  Finally, put the xbox controller   on the couch facing the TV   , 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Find the game disk  
+clause dscr: Find [   game disk | relation: Null ]
+words: Find game disk
+verb: Find
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 2
+end env: 3
+sent:  and put it into the xbox  
+clause dscr: put [   it |   xbox | relation: (2, 2){ it x  xbox -> into} ]
+words: put it xbox into
+verb: put
+arg mapping: (it,Cd_1) (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 8
+sent:  . Hook the xbox up to the TV  
+clause dscr: Hook [   xbox |   TV | relation: (2, 2){ xbox x  TV -> to} ]
+words: Hook xbox TV to
+verb: Hook
+arg mapping: (xbox,Xbox_1) (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  and make sure the TV is on the proper channel  
+clause dscr: make [   TV |   channel | relation: (2, 2){ TV x  channel -> on} ]
+words: make TV channel on
+verb: make
+arg mapping: (TV,Tv_1) (channel,Tv_1ChannelUpButton) (channel,Tv_1ChannelDownButton) (channel,Tv_1Remote_1ChannelUpButton) (channel,Tv_1Remote_1ChannelDownButton)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  .  Put the bowl of chips  
+clause dscr: Put [   bowl |   chips | relation: (2, 2){ bowl x  chips -> of} ]
+words: Put bowl chips of
+verb: Put
+arg mapping: (bowl,Bowl_1) (chips,BagOfChips_1)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  on the table near the couch facing the TV  
+clause dscr: facing [   table |   couch |   TV | relation: (3, 3){ table x  couch -> near}{ table x  TV -> near} ]
+words: facing table couch TV near near
+verb: facing
+arg mapping: (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1) (couch,Loveseat_1) (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  . Finally, put the xbox controller  
+clause dscr: put [   xbox controller | relation: Null ]
+words: put xbox controller
+verb: put
+arg mapping: (xbox controller,XboxController_1)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  on the couch facing the TV  
+clause dscr: facing [   couch |   TV | relation: (2, 2) ]
+words: facing couch TV
+verb: facing
+arg mapping: (couch,Loveseat_1) (TV,Tv_1)
+<end clause>

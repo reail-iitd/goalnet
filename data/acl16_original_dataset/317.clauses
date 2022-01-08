@@ -1,0 +1,131 @@
+entire sentence: , Turn on the TV and XBOX   and connect   them , ,   Open the disk tray of the XBOX   and remove the video game disk from its case   , ,  Place the disk in the disk tray and close the tray  Place the disk in the disk tray and close   the tray , , , ,  Place the case on the table   ,  Place a large bowl on the table   ,   Open the bag of chips   and pour them into the bowl until it   is full , , , ,  Place the bag next to the bowl   ,  Remove anything from the table   that does not contain food   , ,  Place every XBOX controller on the table   ,  Rotate the couches so that the backs face directly away from the TV   , 
+
+<start clause>
+start env: 0
+end env: 14
+sent: Turn on the TV and XBOX  
+clause dscr: Turn [   TV |   XBOX | relation: (2, 2){ TV x  XBOX -> and} ]
+words: Turn TV XBOX and
+verb: Turn
+arg mapping: (TV,Tv_1) (XBOX,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 15
+end env: 14
+sent:  and connect  
+clause dscr: connect [ relation: Null ]
+words: connect
+verb: connect
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 15
+end env: 21
+sent:  them .  Open the disk tray of the XBOX  
+clause dscr: Open [   disk |   tray |   XBOX | relation: (3, 3){ disk x  tray -> of}{ disk x  XBOX -> of}{ tray x  XBOX -> of} ]
+words: Open disk tray XBOX of of of
+verb: Open
+arg mapping: (tray,GarbageBag_1) (tray,GarbageBin_1) (XBOX,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 29
+end env: 27
+sent:  and remove the video game disk from its case  
+clause dscr: remove [   game |   disk |   case | relation: (3, 3){ game x  disk -> from}{ game x  case -> from}{ disk x  case -> from} ]
+words: remove game disk case from from from
+verb: remove
+arg mapping: (case,GarbageBag_1) (case,GarbageBin_1)
+<end clause>
+
+<start clause>
+start env: 28
+end env: 27
+sent:  . Place the disk in the disk tray and close the tray  Place the disk in the disk tray and close  
+clause dscr: Place [   disk |   disk tray | relation: (2, 2){ disk x  disk tray -> in} ]
+words: Place disk disk tray in
+verb: Place
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 25
+end env: 27
+sent:  the tray . Place the case on the table  
+clause dscr: Place [   tray |   case |   table | relation: (3, 3){ tray x  case -> on}{ tray x  table -> on}{ case x  table -> on} ]
+words: Place tray case table on on on
+verb: Place
+arg mapping: (tray,GarbageBag_1) (tray,GarbageBin_1) (case,GarbageBag_1) (case,GarbageBin_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 31
+end env: 33
+sent:  . Place a large bowl on the table  
+clause dscr: Place [   bowl |   table | relation: (2, 2){ bowl x  table -> on} ]
+words: Place bowl table on
+verb: Place
+arg mapping: (bowl,Bowl_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 34
+end env: 36
+sent:  .  Open the bag of chips  
+clause dscr: Open [   bag |   chips | relation: (2, 2){ bag x  chips -> of} ]
+words: Open bag chips of
+verb: Open
+arg mapping: (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1)
+<end clause>
+
+<start clause>
+start env: 36
+end env: 35
+sent: 
+clause dscr: pour [   bowl | relation: Null ]
+words: pour bowl
+verb: pour
+arg mapping: (bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 37
+end env: 36
+sent:  . Remove anything from the table  
+clause dscr: Remove [   anything |   table | relation: (2, 2){ anything x  table -> from} ]
+words: Remove anything table from
+verb: Remove
+arg mapping: (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 37
+end env: 36
+sent:  that does not contain food  
+clause dscr: contain [   food | relation: Null ]
+words: contain food
+verb: contain
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 42
+end env: 44
+sent:  . Place every XBOX controller on the table  
+clause dscr: Place [   XBOX |   controller |   table | relation: (3, 3){ XBOX x  controller -> on}{ XBOX x  table -> on}{ controller x  table -> on} ]
+words: Place XBOX controller table on on on
+verb: Place
+arg mapping: (XBOX,Xbox_1) (controller,XboxController_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 41
+end env: 40
+sent:  . Rotate the couches so that the backs face directly away from the TV  
+clause dscr: Rotate [   couches | relation: Null ]
+words: Rotate couches
+verb: Rotate
+arg mapping: (couches,Loveseat_1)
+<end clause>

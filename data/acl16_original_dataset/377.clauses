@@ -1,0 +1,31 @@
+entire sentence: , Put xbox controller and game CD on the shelf   ,  And remember   to take care of the bear bottle and coke can   , 
+
+<start clause>
+start env: 0
+end env: 10
+sent: Put xbox controller and game CD on the shelf  
+clause dscr: Put [   xbox controller |   game CD |   shelf | relation: (3, 3){ xbox controller x  game CD -> and}{ xbox controller x  shelf -> on}{ game CD x  shelf -> on} ]
+words: Put xbox controller game CD shelf and on on
+verb: Put
+arg mapping: (xbox controller,XboxController_1) (game CD,Cd_2) (game CD,Cd_1) (shelf,Shelf_1) (shelf,Shelf_2)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  . And remember  
+clause dscr: remember [ relation: Null ]
+words: remember
+verb: remember
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 16
+end env: 15
+sent:  to take care of the bear bottle and coke can  
+clause dscr: take [   care |   bear bottle |   coke | relation: (3, 3){ care x  bear bottle -> of}{ care x  coke -> of}{ bear bottle x  coke -> and} ]
+words: take care bear bottle coke of of and
+verb: take
+arg mapping: (coke,Coke_1)
+<end clause>

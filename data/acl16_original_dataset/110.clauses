@@ -1,0 +1,21 @@
+entire sentence: , grasp plate   1 and plate 2 ,  Place   plate1 and plate2 together and place the cups   together , 
+
+<start clause>
+start env: 0
+end env: 3
+sent: grasp plate  
+clause dscr: grasp [   plate | relation: Null ]
+words: grasp plate
+verb: grasp
+arg mapping: (plate,Plate_1) (plate,Plate_2)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 9
+sent:  plate1 and plate2 together and place the cups  
+clause dscr: together [   plate1 |   plate2 |   cups | relation: (3, 3){ plate1 x  plate2 -> and}{ plate1 x  cups -> and}{ plate2 x  cups -> and} ]
+words: together plate1 plate2 cups and and and
+verb: together
+arg mapping: (plate1,Plate_1) (plate1,Plate_2) (plate2,Plate_1) (plate2,Plate_2) (cups,LongCup_1) (cups,LongCup_2)
+<end clause>

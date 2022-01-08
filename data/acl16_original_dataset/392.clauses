@@ -1,0 +1,71 @@
+entire sentence: , Take your coffee   ,  Grab the ice cream   and put it inside the coffee   , ,  Put the ice cream   back and take the syrup   , ,  Pour the syrup inside the coffee   and put the syrup   away , 
+
+<start clause>
+start env: 0
+end env: -1
+sent: Take your coffee  
+clause dscr: Take [   coffee | relation: Null ]
+words: Take coffee
+verb: Take
+arg mapping: (coffee,Mug_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: 5
+sent:  . Grab the ice cream  
+clause dscr: Grab [   ice cream | relation: Null ]
+words: Grab ice cream
+verb: Grab
+arg mapping: (ice cream,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  and put it inside the coffee  
+clause dscr: put [   it |   coffee | relation: (2, 2){ it x  coffee -> inside} ]
+words: put it coffee inside
+verb: put
+arg mapping: (it,Fridge) (it,FridgeRightDoor) (coffee,Mug_1)
+<end clause>
+
+<start clause>
+start env: 24
+end env: 31
+sent:  . Put the ice cream  
+clause dscr: Put [   ice cream | relation: Null ]
+words: Put ice cream
+verb: Put
+arg mapping: (ice cream,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 34
+end env: 33
+sent:  back and take the syrup  
+clause dscr: back [   syrup | relation: Null ]
+words: back syrup
+verb: back
+arg mapping: (syrup,Syrup_1) (syrup,Syrup_2)
+<end clause>
+
+<start clause>
+start env: 34
+end env: 33
+sent:  . Pour the syrup inside the coffee  
+clause dscr: Pour [   syrup |   coffee | relation: (2, 2){ syrup x  coffee -> inside} ]
+words: Pour syrup coffee inside
+verb: Pour
+arg mapping: (syrup,Syrup_1) (syrup,Syrup_2) (coffee,Mug_1)
+<end clause>
+
+<start clause>
+start env: 40
+end env: 39
+sent:  and put the syrup  
+clause dscr: put [   syrup | relation: Null ]
+words: put syrup
+verb: put
+arg mapping: (syrup,Syrup_1) (syrup,Syrup_2)
+<end clause>

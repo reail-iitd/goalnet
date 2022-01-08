@@ -1,0 +1,61 @@
+entire sentence: , Turn on the TV   and set to the music channel   , ,  Turn up the volume   ,  Grasp the chips to the table in front of the couch   ,  Arrange the couch to the corner   to give more empty space in the middle of the room   , 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Turn on the TV  
+clause dscr: Turn [   TV | relation: Null ]
+words: Turn TV
+verb: Turn
+arg mapping: (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 2
+sent:  and set to the music channel  
+clause dscr: set [   music channel | relation: Null ]
+words: set music channel
+verb: set
+arg mapping: (music channel,Tv_1ChannelUpButton) (music channel,Tv_1ChannelDownButton) (music channel,Tv_1Remote_1ChannelUpButton) (music channel,Tv_1Remote_1ChannelDownButton)
+<end clause>
+
+<start clause>
+start env: 3
+end env: 3
+sent:  . Turn up the volume  
+clause dscr: Turn [   volume | relation: Null ]
+words: Turn volume
+verb: Turn
+arg mapping: (volume,Tv_1VolumeUpButton) (volume,Tv_1VolumeDownButton) (volume,Tv_1Remote_1VolumeUpButton) (volume,Tv_1Remote_1VolumeDownButton)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 7
+sent:  . Grasp the chips to the table in front of the couch  
+clause dscr: Grasp [   chips |   table |   front |   couch | relation: (4, 4){ chips x  table -> to}{ chips x  front -> to}{ chips x  couch -> to}{ table x  front -> in}{ table x  couch -> in}{ front x  couch -> of} ]
+words: Grasp chips table front couch to to to in in of
+verb: Grasp
+arg mapping: (chips,BagOfChips_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1) (couch,Loveseat_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 6
+sent:  . Arrange the couch to the corner  
+clause dscr: Arrange [   couch |   corner | relation: (2, 2){ couch x  corner -> to} ]
+words: Arrange couch corner to
+verb: Arrange
+arg mapping: (couch,Loveseat_1) (corner,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 6
+sent:  to give more empty space in the middle of the room  
+clause dscr: give [   space |   middle |   room | relation: (3, 3){ space x  middle -> in}{ space x  room -> in}{ middle x  room -> of} ]
+words: give space middle room in in of
+verb: give
+arg mapping: 
+<end clause>

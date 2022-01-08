@@ -1,0 +1,81 @@
+entire sentence: , Throw out chips, coke and beer   ,  Take brown book and place on shelf with CD   ,  Take xbox game controller   and put with xbox   , ,  Take pillows from shelf   and put on couches   , ,  Take bowl from floor and place in kitchen   ,  Throw out the trash   
+
+<start clause>
+start env: 0
+end env: 15
+sent: Throw out chips, coke and beer  
+clause dscr: Throw [   chips |   coke beer | relation: (2, 2){ chips x  coke beer -> ,} ]
+words: Throw chips coke beer ,
+verb: Throw
+arg mapping: (chips,BagOfChips_1) (coke beer,Coke_1) (coke beer,Beer_1)
+<end clause>
+
+<start clause>
+start env: 16
+end env: 22
+sent:  . Take brown book and place on shelf with CD  
+clause dscr: Take [   book |   place |   shelf |   CD | relation: (4, 4){ book x  place -> and}{ book x  shelf -> on}{ book x  CD -> on}{ place x  shelf -> on}{ place x  CD -> on}{ shelf x  CD -> with} ]
+words: Take book place shelf CD and on on on on with
+verb: Take
+arg mapping: (book,Book_1) (book,Book_2) (shelf,Shelf_1) (shelf,Shelf_2) (CD,Cd_2) (CD,Cd_1)
+<end clause>
+
+<start clause>
+start env: 23
+end env: 25
+sent:  . Take xbox game controller  
+clause dscr: Take [   game controller | relation: Null ]
+words: Take game controller
+verb: Take
+arg mapping: (game controller,XboxController_1)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 25
+sent:  and put with xbox  
+clause dscr: put [   xbox | relation: Null ]
+words: put xbox
+verb: put
+arg mapping: (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 26
+end env: 29
+sent:  . Take pillows from shelf  
+clause dscr: Take [   pillows |   shelf | relation: (2, 2){ pillows x  shelf -> from} ]
+words: Take pillows shelf from
+verb: Take
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (pillows,Pillow_4) (shelf,Shelf_1) (shelf,Shelf_2)
+<end clause>
+
+<start clause>
+start env: 30
+end env: 31
+sent:  and put on couches  
+clause dscr: put [   couches | relation: Null ]
+words: put couches
+verb: put
+arg mapping: (couches,Loveseat_1)
+<end clause>
+
+<start clause>
+start env: 32
+end env: 35
+sent:  . Take bowl from floor and place in kitchen  
+clause dscr: Take [   bowl |   floor |   place |   kitchen | relation: (4, 4){ bowl x  floor -> from}{ bowl x  place -> from}{ bowl x  kitchen -> from}{ floor x  place -> and}{ floor x  kitchen -> in}{ place x  kitchen -> in} ]
+words: Take bowl floor place kitchen from from from and in in
+verb: Take
+arg mapping: (bowl,Bowl_1) (floor,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 36
+end env: 35
+sent:  . Throw out the trash  
+clause dscr: Throw [   trash | relation: Null ]
+words: Throw trash
+verb: Throw
+arg mapping: 
+<end clause>

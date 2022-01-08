@@ -1,0 +1,63 @@
+entire sentence: , Pick up Long Cup2   and carry it to the tap   , ,  Fill Long Cup2 with water   ,  
+Open Refrigerator, take out food   ,  Place in Microwave and heat   ,  Place food on plate   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Pick up Long Cup2  
+clause dscr: Pick [   Cup2 | relation: Null ]
+words: Pick Cup2
+verb: Pick
+arg mapping: (Cup2,LongCup_1) (Cup2,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 3
+sent:  and carry it to the tap  
+clause dscr: carry [   it |   tap | relation: (2, 2){ it x  tap -> to} ]
+words: carry it tap to
+verb: carry
+arg mapping: (it,LongCup_2) (tap,Plate_1) (tap,Plate_2)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 11
+sent:  . Fill Long Cup2 with water  
+clause dscr: Fill [   Cup2 |   water | relation: (2, 2){ Cup2 x  water -> with} ]
+words: Fill Cup2 water with
+verb: Fill
+arg mapping: (Cup2,LongCup_1) (Cup2,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 27
+end env: 26
+sent:  . 
+Open Refrigerator, take out food  
+clause dscr: take [   Open Refrigerator |   food | relation: (2, 2){ Open Refrigerator x  food -> ,} ]
+words: take Open Refrigerator food ,
+verb: take
+arg mapping: (Open Refrigerator,Fridge)
+<end clause>
+
+<start clause>
+start env: 27
+end env: 32
+sent:  . Place in Microwave and heat  
+clause dscr: Place [   Microwave |   heat | relation: (2, 2){ Microwave x  heat -> and} ]
+words: Place Microwave heat and
+verb: Place
+arg mapping: (Microwave,Microwave)
+<end clause>
+
+<start clause>
+start env: 36
+end env: 39
+sent:  . Place food on plate  
+clause dscr: Place [   food |   plate | relation: (2, 2){ food x  plate -> on} ]
+words: Place food plate on
+verb: Place
+arg mapping: (plate,Plate_1) (plate,Plate_2)
+<end clause>

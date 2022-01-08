@@ -1,0 +1,6 @@
+(define 
+(problem tmp) 
+(:objects icecream_1 fork_1 microwave armchair_4 xbox_1 counter_1 garbagebin_1 stovefire_4 book_1 pillow_2 cd_2 instantramen_1 glass_1 book_2 kettle salt_1 shelf_1 beer_1 longcup_1 pillow_4 plate_1 tv_1remote_1 stovefire_1 loveseat_1 book_3 armchair_2 plate_2 tv_1 snacktable_1 boiledegg_1 sink cd_1 bowl_1 loveseat_2 stovefire_3 pillow_1 fridge studytable_1 canadadry_1 spoon_1 syrup_1 garbagebag_1 mug_1 pillow_3 xboxcontroller_1 coke_1 sinkknob bagofchips_1 syrup_2 armchair_3 energydrink_1 stove longcup_2 armchair_1 coffeetable_1 stovefire_2 ramen_1 shelf_2 robot ) 
+(:init (state tv_1 channel3) (state tv_1 volume) (state bagofchips_1 isopen) (state bagofchips_1 haschips) (state bowl_1 haschips) (state cd_2 cd) (state cd_1 cd) (on tv_1remote_1 armchair_3) (on pillow_1 shelf_1) (on pillow_2 shelf_1) (on pillow_3 shelf_1) (on bowl_1 armchair_3) (in garbagebag_1 garbagebag_1) (on garbagebin_1 garbagebin_1) (on book_1 shelf_2) (on book_2 loveseat_1) (on beer_1 coffeetable_1) (on xboxcontroller_1 armchair_3) (on pillow_4 shelf_1) (state xbox_1 cd) (in cd_1 xbox_1) (near robot loveseat_1) (on xbox_1 loveseat_1) (near robot tv_1) (state tv_1 ison) (on cd_2 loveseat_1) (grasping robot coke_1) (grasping robot bagofchips_1) ) 
+(:goal (AND (near robot coke_1) )) 
+)

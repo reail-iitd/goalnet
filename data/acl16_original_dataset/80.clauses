@@ -1,0 +1,31 @@
+entire sentence: , Take the ice cream out of the freezer   and put several scoops into the cup with the coffee in it   , ,  Pour chocolate and vanilla syrup on top   
+
+<start clause>
+start env: 0
+end env: 6
+sent: Take the ice cream out of the freezer  
+clause dscr: Take [   ice |   cream |   freezer | relation: (3, 3){ ice x  cream -> of}{ ice x  freezer -> of}{ cream x  freezer -> of} ]
+words: Take ice cream freezer of of of
+verb: Take
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (freezer,Fridge)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  and put several scoops into the cup with the coffee in it  
+clause dscr: put [   scoops |   cup |   coffee |   it | relation: (4, 4){ scoops x  cup -> into}{ scoops x  coffee -> into}{ scoops x  it -> into}{ cup x  coffee -> with}{ cup x  it -> with}{ coffee x  it -> in} ]
+words: put scoops cup coffee it into into into with with in
+verb: put
+arg mapping: (scoops,IceCreamScoop) (cup,LongCup_1) (cup,LongCup_2) (coffee,Mug_1) (it,FridgeLeftDoor) (it,FridgeRightDoor) (it,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 9
+sent:  . Pour chocolate and vanilla syrup on top  
+clause dscr: Pour [   chocolate |   vanilla syrup |   top | relation: (3, 3){ chocolate x  vanilla syrup -> and}{ chocolate x  top -> on}{ vanilla syrup x  top -> on} ]
+words: Pour chocolate vanilla syrup top and on on
+verb: Pour
+arg mapping: (chocolate,Syrup_2) (vanilla syrup,Syrup_1) (vanilla syrup,Syrup_2)
+<end clause>

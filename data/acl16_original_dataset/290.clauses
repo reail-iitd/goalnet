@@ -1,0 +1,31 @@
+entire sentence: , Bring plates and cups to sink   ,  Put ice cream in refrigerator   ,  Put ramen in cabinet   
+
+<start clause>
+start env: 0
+end env: 18
+sent: Bring plates and cups to sink  
+clause dscr: sink [   plates |   cups | relation: (2, 2){ plates x  cups -> and} ]
+words: sink plates cups and
+verb: sink
+arg mapping: (plates,Plate_1) (plates,Plate_2) (cups,LongCup_1) (cups,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 19
+end env: 18
+sent:  . Put ice cream in refrigerator  
+clause dscr: Put [   ice |   cream |   refrigerator | relation: (3, 3){ ice x  cream -> in}{ ice x  refrigerator -> in}{ cream x  refrigerator -> in} ]
+words: Put ice cream refrigerator in in in
+verb: Put
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (refrigerator,Fridge)
+<end clause>
+
+<start clause>
+start env: 20
+end env: 19
+sent:  . Put ramen in cabinet  
+clause dscr: Put [   ramen |   cabinet | relation: (2, 2){ ramen x  cabinet -> in} ]
+words: Put ramen cabinet in
+verb: Put
+arg mapping: (ramen,Ramen_1) (cabinet,Counter_1)
+<end clause>

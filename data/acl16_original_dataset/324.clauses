@@ -1,0 +1,41 @@
+entire sentence: , Fill the kettle with water   and put it on the stove burner   , ,  Turn the burner   on ,  When the water has finished   boiling,   turn the burner   off , , 
+
+<start clause>
+start env: 0
+end env: 11
+sent: Fill the kettle with water  
+clause dscr: Fill [   kettle |   water | relation: (2, 2){ kettle x  water -> with} ]
+words: Fill kettle water with
+verb: Fill
+arg mapping: (kettle,Kettle)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 13
+sent:  and put it on the stove burner  
+clause dscr: put [   it |   stove burner | relation: (2, 2){ it x  stove burner -> on} ]
+words: put it stove burner on
+verb: put
+arg mapping: (it,Sink) (it,Kettle) (it,SinkKnob) (stove burner,Stove) (stove burner,StoveKnob_1) (stove burner,StoveKnob_2) (stove burner,StoveKnob_3) (stove burner,StoveKnob_4) (stove burner,StoveFire_1) (stove burner,StoveFire_2) (stove burner,StoveFire_3) (stove burner,StoveFire_4)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 16
+sent:  . Turn the burner  
+clause dscr: Turn [   burner | relation: Null ]
+words: Turn burner
+verb: Turn
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 16
+end env: 15
+sent:  turn the burner  
+clause dscr: turn [   burner | relation: Null ]
+words: turn burner
+verb: turn
+arg mapping: 
+<end clause>

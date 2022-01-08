@@ -1,0 +1,51 @@
+entire sentence: , Get all the plates, cups, and spoons on the counters   and put them in the sink   , ,  Take the mug from the microwave   and pour its contents into the sink   and then place it in the sink   , , 
+
+<start clause>
+start env: 0
+end env: 3
+sent: Get all the plates, cups, and spoons on the counters  
+clause dscr: Get [   plates |   cups |   spoons |   counters | relation: (4, 4){ plates x  cups -> ,}{ plates x  spoons -> ,}{ plates x  counters -> ,}{ cups x  spoons -> ,}{ cups x  counters -> ,}{ spoons x  counters -> on} ]
+words: Get plates cups spoons counters , , , , , on
+verb: Get
+arg mapping: (plates,Plate_1) (plates,Plate_2) (cups,LongCup_1) (cups,LongCup_2) (spoons,Spoon_1) (counters,Counter_1) (counters,Counter1_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: 15
+sent:  and put them in the sink  
+clause dscr: put [   sink | relation: Null ]
+words: put sink
+verb: put
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 16
+end env: 19
+sent:  . Take the mug from the microwave  
+clause dscr: Take [   mug |   microwave | relation: (2, 2){ mug x  microwave -> from} ]
+words: Take mug microwave from
+verb: Take
+arg mapping: (mug,Mug_1) (microwave,Microwave)
+<end clause>
+
+<start clause>
+start env: 21
+end env: 31
+sent:  and pour its contents into the sink  
+clause dscr: pour [   contents |   sink | relation: (2, 2){ contents x  sink -> into} ]
+words: pour contents sink into
+verb: pour
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 32
+end env: 32
+sent:  and then place it in the sink  
+clause dscr: place [   it |   sink | relation: (2, 2){ it x  sink -> in} ]
+words: place it sink in
+verb: place
+arg mapping: (it,Sink) (it,Mug_1) (it,Fork_1) (sink,Sink)
+<end clause>

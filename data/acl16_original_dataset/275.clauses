@@ -1,0 +1,51 @@
+entire sentence: , Connect the Xbox to the TV   ,  Turn on the TV and Xbox   ,  Find the Far Cry Game xbox   game and put it into the xbox   , ,  Put   the Bowl filled with chips on the table   ,  Arrange the couch   
+
+<start clause>
+start env: 0
+end env: 8
+sent: Connect the Xbox to the TV  
+clause dscr: Connect [   Xbox |   TV | relation: (2, 2){ Xbox x  TV -> to} ]
+words: Connect Xbox TV to
+verb: Connect
+arg mapping: (Xbox,Xbox_1) (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 3
+sent:  . Turn on the TV and Xbox  
+clause dscr: Turn [   TV |   Xbox | relation: (2, 2){ TV x  Xbox -> and} ]
+words: Turn TV Xbox and
+verb: Turn
+arg mapping: (TV,Tv_1) (Xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 10
+sent:  . Find the Far Cry Game xbox  
+clause dscr: Find [   Far Cry Game xbox | relation: Null ]
+words: Find Far Cry Game xbox
+verb: Find
+arg mapping: (Far Cry Game xbox,XboxController_1) (Far Cry Game xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 15
+end env: 14
+sent:  . Put  
+clause dscr: Put [ relation: Null ]
+words: Put
+verb: Put
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 15
+end env: 14
+sent:  . Arrange the couch  
+clause dscr: Arrange [   couch | relation: Null ]
+words: Arrange couch
+verb: Arrange
+arg mapping: (couch,Loveseat_1)
+<end clause>

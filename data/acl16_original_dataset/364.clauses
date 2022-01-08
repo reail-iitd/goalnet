@@ -1,0 +1,61 @@
+entire sentence: , Take the pot,   place it under the sink   and fill it with water   , , ,  Put the pot on the stove   and turn on its respective burner   , ,  Keep it on until the water comes to a boil   , , 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Take the pot,  
+clause dscr: Take [   pot | relation: Null ]
+words: Take pot
+verb: Take
+arg mapping: (pot,Kettle)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 3
+sent:  place it under the sink  
+clause dscr: place [   it |   sink | relation: (2, 2){ it x  sink -> under} ]
+words: place it sink under
+verb: place
+arg mapping: (it,Kettle) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 4
+sent:  and fill it with water  
+clause dscr: fill [   it |   water | relation: (2, 2){ it x  water -> with} ]
+words: fill it water with
+verb: fill
+arg mapping: (it,Sink) (it,Kettle)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 9
+sent:  . Put the pot on the stove  
+clause dscr: Put [   pot |   stove | relation: (2, 2){ pot x  stove -> on} ]
+words: Put pot stove on
+verb: Put
+arg mapping: (pot,Kettle) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 11
+sent:  and turn on its respective burner  
+clause dscr: turn [   burner | relation: Null ]
+words: turn burner
+verb: turn
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 15
+end env: 14
+sent: 
+clause dscr: Keep [   it | relation: Null ]
+words: Keep it
+verb: Keep
+arg mapping: (it,Stove) (it,Kettle) (it,StoveKnob_4) (it,StoveFire_3) (it,StoveFire_4)
+<end clause>

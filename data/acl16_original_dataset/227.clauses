@@ -1,0 +1,61 @@
+entire sentence: , Take glass out of cupboard   ,  Put orange juice in to the glass   ,  Take bowl out of cupboard ,  Add corn flakes   ,  Pour milk into bowl   ,  Put glass and bowl on tray   ,  Take tray to user   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Take glass out of cupboard  
+clause dscr: Take [   glass |   cupboard | relation: (2, 2){ glass x  cupboard -> of} ]
+words: Take glass cupboard of
+verb: Take
+arg mapping: (glass,Glass_1) (cupboard,LongCup_1) (cupboard,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 0
+end env: -1
+sent:  . Put orange juice in to the glass  
+clause dscr: Put [   juice |   glass | relation: (2, 2){ juice x  glass -> in} ]
+words: Put juice glass in
+verb: Put
+arg mapping: (juice,EnergyDrink_1) (glass,Glass_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 3
+sent:  . Take bowl out of cupboard . Add corn flakes  
+clause dscr: bowl [   Take |   cupboard Add corn flakes | relation: (2, 2){ Take x  cupboard Add corn flakes -> of} ]
+words: bowl Take cupboard Add corn flakes of
+verb: bowl
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 4
+end env: 3
+sent:  . Pour milk into bowl  
+clause dscr: Pour [   milk |   bowl | relation: (2, 2){ milk x  bowl -> into} ]
+words: Pour milk bowl into
+verb: Pour
+arg mapping: (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 3
+sent:  . Put glass and bowl on tray  
+clause dscr: Put [   glass |   bowl |   tray | relation: (3, 3){ glass x  bowl -> and}{ glass x  tray -> on}{ bowl x  tray -> on} ]
+words: Put glass bowl tray and on on
+verb: Put
+arg mapping: (glass,Glass_1) (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2) (tray,Plate_1) (tray,Plate_2)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 3
+sent:  . Take tray to user  
+clause dscr: Take [   user | relation: Null ]
+words: Take user
+verb: Take
+arg mapping: 
+<end clause>

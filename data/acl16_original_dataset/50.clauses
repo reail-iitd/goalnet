@@ -1,0 +1,41 @@
+entire sentence: , Take the mug in the microwave   and go to the sink   and add water to it   , , ,  After there is water in the mug put the mug back in the microwave and set it to no more than 3 minutes  After there is water in the mug put the mug back in the microwave and set it to no more than 3 minutes   , After there is water in the mug , , , , 
+
+<start clause>
+start env: 0
+end env: 4
+sent: Take the mug in the microwave  
+clause dscr: Take [   mug |   microwave | relation: (2, 2){ mug x  microwave -> in} ]
+words: Take mug microwave in
+verb: Take
+arg mapping: (mug,Mug_1) (microwave,Microwave)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 5
+sent:  and go to the sink  
+clause dscr: go [   sink | relation: Null ]
+words: go sink
+verb: go
+arg mapping: (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 6
+end env: 7
+sent:  and add water to it  
+clause dscr: add [   water |   it | relation: (2, 2){ water x  it -> to} ]
+words: add water it to
+verb: add
+arg mapping: (water,Mug_1) (it,Sink) (it,Mug_1) (it,Microwave) (it,SinkKnob)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 12
+sent: 
+clause dscr: put [   mug |   microwave | relation: (2, 2){ mug x  microwave -> in} ]
+words: put mug microwave in
+verb: put
+arg mapping: (mug,Mug_1) (microwave,Microwave)
+<end clause>

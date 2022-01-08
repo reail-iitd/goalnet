@@ -1,0 +1,61 @@
+entire sentence: , Set up the xbox and tv   and turn   both on , ,  Put the movie   in ,  Put the chips on the table   and dump the bowl   , ,  Put the pillows on the couch   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Set up the xbox and tv  
+clause dscr: Set [   xbox |   tv | relation: (2, 2){ xbox x  tv -> and} ]
+words: Set xbox tv and
+verb: Set
+arg mapping: (xbox,Xbox_1) (tv,Tv_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  and turn  
+clause dscr: turn [ relation: Null ]
+words: turn
+verb: turn
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 2
+end env: 7
+sent:  both on . Put the movie  
+clause dscr: Put [   movie | relation: Null ]
+words: Put movie
+verb: Put
+arg mapping: (movie,Book_1) (movie,Book_2)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 11
+sent:  in . Put the chips on the table  
+clause dscr: Put [   chips |   table | relation: (2, 2){ chips x  table -> on} ]
+words: Put chips table on
+verb: Put
+arg mapping: (chips,BagOfChips_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 14
+sent:  and dump the bowl  
+clause dscr: dump [   bowl | relation: Null ]
+words: dump bowl
+verb: dump
+arg mapping: (bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 13
+sent:  . Put the pillows on the couch  
+clause dscr: Put [   pillows |   couch | relation: (2, 2){ pillows x  couch -> on} ]
+words: Put pillows couch on
+verb: Put
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (couch,Loveseat_1)
+<end clause>

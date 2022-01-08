@@ -1,0 +1,81 @@
+entire sentence: , Boil some water   and make some coffee   , ,  Find a white bowl   ,  Take ice cream out of the freezer   ,  Put coffee into the white bowl,   then put two scoops of ice cream   over that , ,  Finally, take the syrup on the counter   and drizzle it over the ice cream   , 
+
+<start clause>
+start env: 64
+end env: 63
+sent: Boil some water  
+clause dscr: Boil [   water | relation: Null ]
+words: Boil water
+verb: Boil
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 64
+end env: 63
+sent:  and make some coffee  
+clause dscr: make [   coffee | relation: Null ]
+words: make coffee
+verb: make
+arg mapping: (coffee,Mug_1)
+<end clause>
+
+<start clause>
+start env: 64
+end env: 63
+sent:  . Find a white bowl  
+clause dscr: Find [   bowl | relation: Null ]
+words: Find bowl
+verb: Find
+arg mapping: (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 64
+end env: 63
+sent:  . Take ice cream out of the freezer  
+clause dscr: Take [   ice |   cream |   freezer | relation: (3, 3){ ice x  cream -> of}{ ice x  freezer -> of}{ cream x  freezer -> of} ]
+words: Take ice cream freezer of of of
+verb: Take
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (freezer,Fridge)
+<end clause>
+
+<start clause>
+start env: 64
+end env: 63
+sent:  . Put coffee into the white bowl,  
+clause dscr: Put [   coffee |   bowl | relation: (2, 2){ coffee x  bowl -> into} ]
+words: Put coffee bowl into
+verb: Put
+arg mapping: (coffee,Mug_1) (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 64
+end env: 63
+sent:  then put two scoops of ice cream  
+clause dscr: put [   scoops |   ice cream | relation: (2, 2){ scoops x  ice cream -> of} ]
+words: put scoops ice cream of
+verb: put
+arg mapping: (scoops,IceCreamScoop) (ice cream,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 64
+end env: 63
+sent:  over that . Finally, take the syrup on the counter  
+clause dscr: take [   syrup |   counter | relation: (2, 2){ syrup x  counter -> on} ]
+words: take syrup counter on
+verb: take
+arg mapping: (syrup,Syrup_1) (syrup,Syrup_2) (counter,Counter_1) (counter,Counter1_1)
+<end clause>
+
+<start clause>
+start env: 64
+end env: 63
+sent:  and drizzle it over the ice cream  
+clause dscr: drizzle [   it |   ice cream | relation: (2, 2){ it x  ice cream -> over} ]
+words: drizzle it ice cream over
+verb: drizzle
+arg mapping: (it,Spoon_1) (it,Plate_1) (it,Syrup_2) (it,IceCreamScoop) (ice cream,IceCream_1)
+<end clause>

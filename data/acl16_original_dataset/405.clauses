@@ -1,0 +1,31 @@
+entire sentence: , Take the icecream out of the freezer   and put several scoops in the cup with the coffee in it   , ,  Put chocolate and vanilla syrup on top   
+
+<start clause>
+start env: 0
+end env: 3
+sent: Take the icecream out of the freezer  
+clause dscr: Take [   icecream |   freezer | relation: (2, 2){ icecream x  freezer -> of} ]
+words: Take icecream freezer of
+verb: Take
+arg mapping: (icecream,IceCream_1) (freezer,Fridge)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 12
+sent:  and put several scoops in the cup with the coffee in it  
+clause dscr: put [   scoops |   cup |   coffee |   it | relation: (4, 4){ scoops x  cup -> in}{ scoops x  coffee -> in}{ scoops x  it -> in}{ cup x  coffee -> with}{ cup x  it -> with}{ coffee x  it -> in} ]
+words: put scoops cup coffee it in in in with with in
+verb: put
+arg mapping: (scoops,IceCreamScoop) (cup,LongCup_1) (cup,LongCup_2) (coffee,Mug_1) (it,Fridge) (it,FridgeLeftDoor) (it,IceCream_1)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 19
+sent:  . Put chocolate and vanilla syrup on top  
+clause dscr: Put [   chocolate |   vanilla syrup |   top | relation: (3, 3){ chocolate x  vanilla syrup -> and}{ chocolate x  top -> on}{ vanilla syrup x  top -> on} ]
+words: Put chocolate vanilla syrup top and on on
+verb: Put
+arg mapping: (chocolate,Syrup_2) (vanilla syrup,Syrup_1) (vanilla syrup,Syrup_2)
+<end clause>

@@ -1,0 +1,27 @@
+entire sentence: , Pick up ramen
+fill with water from fridge
+place ramen   in microwave
+turn the microwave on , 
+
+<start clause>
+start env: 7
+end env: 8
+sent: Pick up ramen
+fill with water from fridge
+place ramen  
+clause dscr: Pick [   ramen |   fill |   water |   place ramen | relation: (4, 4){ ramen x  fill -> with}{ ramen x  water -> with}{ ramen x  place ramen -> with}{ fill x  water -> with}{ fill x  place ramen -> with}{ water x  place ramen -> from} ]
+words: Pick ramen fill water place ramen with with with with with from
+verb: Pick
+arg mapping: (ramen,Ramen_1) (place ramen,Ramen_1) (place ramen,InstantRamen_1)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  in microwave
+turn the microwave on .
+clause dscr: turn [   microwave |   microwave | relation: (2, 2) ]
+words: turn microwave microwave
+verb: turn
+arg mapping: (microwave,Microwave) (microwave,Microwave)
+<end clause>

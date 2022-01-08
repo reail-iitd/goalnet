@@ -1,0 +1,71 @@
+entire sentence: , Turn off the TV and the XBOX   if applicable ,   Move all controllers off of the coffee table   ,   Remove beer from the coffee table   ,  Bring all books to the coffee table   ,   Bring the bowl of chips to the coffee table   ,   Open the bag of chips,   and pour the contents into the bowl until it   is full , , , ,   Move all chairs around the coffee table   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Turn off the TV and the XBOX  
+clause dscr: Turn [   TV |   XBOX | relation: (2, 2){ TV x  XBOX -> and} ]
+words: Turn TV XBOX and
+verb: Turn
+arg mapping: (TV,Tv_1) (XBOX,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 0
+end env: 3
+sent:  .  Remove beer from the coffee table  
+clause dscr: Remove [   beer |   coffee table | relation: (2, 2){ beer x  coffee table -> from} ]
+words: Remove beer coffee table from
+verb: Remove
+arg mapping: (beer,Beer_1) (coffee table,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 4
+end env: 6
+sent:  . Bring all books to the coffee table  
+clause dscr: Bring [   books |   coffee table | relation: (2, 2){ books x  coffee table -> to} ]
+words: Bring books coffee table to
+verb: Bring
+arg mapping: (books,Book_1) (books,Book_2) (coffee table,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 12
+sent:  .  Bring the bowl of chips to the coffee table  
+clause dscr: Bring [   bowl |   chips |   coffee table | relation: (3, 3){ bowl x  chips -> of}{ bowl x  coffee table -> of}{ chips x  coffee table -> to} ]
+words: Bring bowl chips coffee table of of to
+verb: Bring
+arg mapping: (bowl,Bowl_1) (chips,BagOfChips_1) (coffee table,CoffeeTable_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 6
+sent:  .  Open the bag of chips,  
+clause dscr: Open [   bag |   chips | relation: (2, 2){ bag x  chips -> of} ]
+words: Open bag chips of
+verb: Open
+arg mapping: (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 8
+sent: 
+clause dscr: pour [   contents |   bowl | relation: (2, 2){ contents x  bowl -> into} ]
+words: pour contents bowl into
+verb: pour
+arg mapping: (bowl,Bowl_1)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 10
+sent:  is full .  Move all chairs around the coffee table  
+clause dscr: Move [   chairs |   coffee table | relation: (2, 2){ chairs x  coffee table -> around} ]
+words: Move chairs coffee table around
+verb: Move
+arg mapping: (chairs,Armchair_1) (chairs,Armchair_2) (coffee table,CoffeeTable_1)
+<end clause>

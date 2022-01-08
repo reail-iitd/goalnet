@@ -1,0 +1,71 @@
+entire sentence: , Arrange the couch in front of the tv   ,  Put some snacks and drinks on the table   ,  Make   sure the xbox and the tv are connected   , ,  Place the controllers on the table   ,  Check the dvd boxes   if the right dvd is in the right box, and place all boxes on the table   , , , 
+
+<start clause>
+start env: 0
+end env: 9
+sent: Arrange the couch in front of the tv  
+clause dscr: Arrange [   couch |   front |   tv | relation: (3, 3){ couch x  front -> in}{ couch x  tv -> in}{ front x  tv -> of} ]
+words: Arrange couch front tv in in of
+verb: Arrange
+arg mapping: (couch,Loveseat_1) (tv,Tv_1)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 13
+sent:  . Put some snacks and drinks on the table  
+clause dscr: Put [   snacks |   drinks |   table | relation: (3, 3){ snacks x  drinks -> and}{ snacks x  table -> on}{ drinks x  table -> on} ]
+words: Put snacks drinks table and on on
+verb: Put
+arg mapping: (snacks,SnackTable_1) (drinks,CoffeeTable_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 14
+end env: 13
+sent:  . Make  
+clause dscr: Make [ relation: Null ]
+words: Make
+verb: Make
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 14
+end env: 24
+sent:  sure the xbox and the tv are connected  
+clause dscr: are [   xbox |   tv | relation: (2, 2){ xbox x  tv -> and} ]
+words: are xbox tv and
+verb: are
+arg mapping: (xbox,Xbox_1) (tv,Tv_1)
+<end clause>
+
+<start clause>
+start env: 25
+end env: 27
+sent:  . Place the controllers on the table  
+clause dscr: Place [   controllers |   table | relation: (2, 2){ controllers x  table -> on} ]
+words: Place controllers table on
+verb: Place
+arg mapping: (controllers,XboxController_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 28
+end env: 29
+sent:  . Check the dvd boxes  
+clause dscr: Check [   dvd boxes | relation: Null ]
+words: Check dvd boxes
+verb: Check
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 30
+end env: 33
+sent: 
+clause dscr: place [   box |   boxes |   table | relation: (3, 3){ box x  boxes -> ,}{ box x  table -> ,}{ boxes x  table -> on} ]
+words: place box boxes table , , on
+verb: place
+arg mapping: (box,Xbox_1) (boxes,Bowl_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>

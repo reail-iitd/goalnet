@@ -1,0 +1,21 @@
+entire sentence: , Get the egg from the fridge   and put it on the plate   , 
+
+<start clause>
+start env: 0
+end env: 4
+sent: Get the egg from the fridge  
+clause dscr: Get [   egg |   fridge | relation: (2, 2){ egg x  fridge -> from} ]
+words: Get egg fridge from
+verb: Get
+arg mapping: (egg,BoiledEgg_1) (fridge,Fridge)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 7
+sent:  and put it on the plate  
+clause dscr: put [   it |   plate | relation: (2, 2){ it x  plate -> on} ]
+words: put it plate on
+verb: put
+arg mapping: (it,Fridge) (it,FridgeRightDoor) (it,Plate_1) (it,BoiledEgg_1) (plate,Plate_1) (plate,Plate_2)
+<end clause>

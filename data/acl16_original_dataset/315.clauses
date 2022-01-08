@@ -1,0 +1,31 @@
+entire sentence: , Put   all used dishes into the sink   , ,  Put away water, ramen, and flavors in the cupboard   
+
+<start clause>
+start env: 0
+end env: -1
+sent: Put  
+clause dscr: Put [ relation: Null ]
+words: Put
+verb: Put
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  all used dishes into the sink  
+clause dscr: used [   dishes |   sink | relation: (2, 2){ dishes x  sink -> into} ]
+words: used dishes sink into
+verb: used
+arg mapping: (dishes,Spoon_1) (dishes,Glass_1) (dishes,LongCup_1) (dishes,LongCup_2) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 16
+end env: 15
+sent:  . Put away water, ramen, and flavors in the cupboard  
+clause dscr: Put [   water |   ramen |   flavors |   cupboard | relation: (4, 4){ water x  ramen -> ,}{ water x  flavors -> ,}{ water x  cupboard -> ,}{ ramen x  flavors -> ,}{ ramen x  cupboard -> ,}{ flavors x  cupboard -> in} ]
+words: Put water ramen flavors cupboard , , , , , in
+verb: Put
+arg mapping: (ramen,Ramen_1) (flavors,Salt_1) (cupboard,LongCup_1) (cupboard,LongCup_2)
+<end clause>

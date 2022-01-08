@@ -1,0 +1,31 @@
+entire sentence: , Put all the pillows on the couch   and then turn on the TV   , ,  Put the beer on the table in front of the couch   
+
+<start clause>
+start env: 0
+end env: 6
+sent: Put all the pillows on the couch  
+clause dscr: Put [   pillows |   couch | relation: (2, 2){ pillows x  couch -> on} ]
+words: Put pillows couch on
+verb: Put
+arg mapping: (pillows,Pillow_1) (pillows,Pillow_2) (pillows,Pillow_3) (pillows,Pillow_4) (couch,Loveseat_1)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 8
+sent:  and then turn on the TV  
+clause dscr: turn [   TV | relation: Null ]
+words: turn TV
+verb: turn
+arg mapping: (TV,Tv_1)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 12
+sent:  . Put the beer on the table in front of the couch  
+clause dscr: Put [   beer |   table |   front |   couch | relation: (4, 4){ beer x  table -> on}{ beer x  front -> on}{ beer x  couch -> on}{ table x  front -> in}{ table x  couch -> in}{ front x  couch -> of} ]
+words: Put beer table front couch on on on in in of
+verb: Put
+arg mapping: (beer,Beer_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1) (couch,Loveseat_1)
+<end clause>

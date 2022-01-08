@@ -1,0 +1,31 @@
+entire sentence: , grasp cd put in xbox   ,  grasp bag of chips   ,  grasp trash   
+
+<start clause>
+start env: 0
+end env: 4
+sent: grasp cd put in xbox  
+clause dscr: put [   grasp cd |   xbox | relation: (2, 2){ grasp cd x  xbox -> in} ]
+words: put grasp cd xbox in
+verb: put
+arg mapping: (grasp cd,Cd_2) (grasp cd,Cd_1) (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 6
+sent:  . grasp bag of chips  
+clause dscr: grasp [   bag |   chips | relation: (2, 2){ bag x  chips -> of} ]
+words: grasp bag chips of
+verb: grasp
+arg mapping: (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1)
+<end clause>
+
+<start clause>
+start env: 8
+end env: 7
+sent:  . grasp trash  
+clause dscr: grasp [   trash | relation: Null ]
+words: grasp trash
+verb: grasp
+arg mapping: 
+<end clause>

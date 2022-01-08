@@ -1,0 +1,41 @@
+entire sentence: , Put the game in the  xbox   ,  Turn the television input to Xbox   ,  Put bag of chips and coke on table   ,  Move couch in front of television   
+
+<start clause>
+start env: 0
+end env: 4
+sent: Put the game in the  xbox  
+clause dscr: Put [   game |   xbox | relation: (2, 2){ game x  xbox -> in} ]
+words: Put game xbox in
+verb: Put
+arg mapping: (xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 5
+end env: 8
+sent:  . Turn the television input to Xbox  
+clause dscr: Turn [   television |   input |   Xbox | relation: (3, 3){ television x  input -> to}{ television x  Xbox -> to}{ input x  Xbox -> to} ]
+words: Turn television input Xbox to to to
+verb: Turn
+arg mapping: (television,Tv_1) (Xbox,Xbox_1)
+<end clause>
+
+<start clause>
+start env: 9
+end env: 17
+sent:  . Put bag of chips and coke on table  
+clause dscr: Put [   bag |   chips |   coke |   table | relation: (4, 4){ bag x  chips -> of}{ bag x  coke -> of}{ bag x  table -> of}{ chips x  coke -> and}{ chips x  table -> on}{ coke x  table -> on} ]
+words: Put bag chips coke table of of of and on on
+verb: Put
+arg mapping: (bag,BagOfChips_1) (bag,GarbageBag_1) (chips,BagOfChips_1) (coke,Coke_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 17
+end env: 16
+sent:  . Move couch in front of television  
+clause dscr: Move [   couch |   front |   television | relation: (3, 3){ couch x  front -> in}{ couch x  television -> in}{ front x  television -> of} ]
+words: Move couch front television in in of
+verb: Move
+arg mapping: (couch,Loveseat_1) (television,Tv_1)
+<end clause>

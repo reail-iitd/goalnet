@@ -1,0 +1,71 @@
+entire sentence: , Take a cup   and fill it with water from the sink   , ,  Make ramen   and put it in a plate   , ,  Take both items   and serve   them to whomever   it is meant   for , , 
+
+<start clause>
+start env: 0
+end env: 1
+sent: Take a cup  
+clause dscr: Take [   cup | relation: Null ]
+words: Take cup
+verb: Take
+arg mapping: (cup,LongCup_1) (cup,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 4
+sent:  and fill it with water from the sink  
+clause dscr: fill [   it |   water |   sink | relation: (3, 3){ it x  water -> with}{ it x  sink -> with}{ water x  sink -> from} ]
+words: fill it water sink with with from
+verb: fill
+arg mapping: (it,Sink) (it,Glass_1) (it,SinkKnob) (water,Glass_1) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 19
+sent:  . Make ramen  
+clause dscr: Make [   ramen | relation: Null ]
+words: Make ramen
+verb: Make
+arg mapping: (ramen,Ramen_1)
+<end clause>
+
+<start clause>
+start env: 22
+end env: 25
+sent:  and put it in a plate  
+clause dscr: put [   it |   plate | relation: (2, 2){ it x  plate -> in} ]
+words: put it plate in
+verb: put
+arg mapping: (it,Kettle) (it,Plate_2) (it,InstantRamen_1) (plate,Plate_1) (plate,Plate_2)
+<end clause>
+
+<start clause>
+start env: 25
+end env: 24
+sent:  . Take both items  
+clause dscr: Take [   items | relation: Null ]
+words: Take items
+verb: Take
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 25
+end env: 24
+sent:  and serve  
+clause dscr: serve [ relation: Null ]
+words: serve
+verb: serve
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 25
+end env: 24
+sent:  them to whomever  
+clause dscr: whomever [ relation: Null ]
+words: whomever
+verb: whomever
+arg mapping: 
+<end clause>

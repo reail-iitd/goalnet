@@ -1,0 +1,22 @@
+entire sentence: , Fill kettle with water   , 
+Pick   up instantRamen1 ,  Pour water in kettle into mug   
+
+<start clause>
+start env: 0
+end env: 10
+sent: Fill kettle with water  
+clause dscr: Fill [   kettle |   water | relation: (2, 2){ kettle x  water -> with} ]
+words: Fill kettle water with
+verb: Fill
+arg mapping: (kettle,Kettle)
+<end clause>
+
+<start clause>
+start env: 45
+end env: 44
+sent:  up instantRamen1 . Pour instantRamen1 in mug . Pour water in kettle into mug  
+clause dscr: instantRamen1 [   instantRamen1 Pour |   mug |   Pour |   water |   kettle |   mug | relation: (6, 6){ instantRamen1 Pour x  mug -> in}{ instantRamen1 Pour x  Pour -> in}{ instantRamen1 Pour x  water -> in}{ instantRamen1 Pour x  kettle -> in}{ instantRamen1 Pour x  mug -> in}{ mug x  Pour -> in}{ mug x  water -> in}{ mug x  kettle -> in}{ mug x  mug -> in}{ Pour x  water -> in}{ Pour x  kettle -> in}{ Pour x  mug -> in}{ water x  kettle -> in}{ water x  mug -> in}{ kettle x  mug -> into} ]
+words: instantRamen1 instantRamen1 Pour mug Pour water kettle mug in in in in in in in in in in in in in in into
+verb: instantRamen1
+arg mapping: (mug,Mug_1) (water,LongCup_2) (kettle,Kettle) (mug,Mug_1)
+<end clause>

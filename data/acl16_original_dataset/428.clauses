@@ -1,0 +1,11 @@
+entire sentence: , Go get me a bowl of chicken ramen 
+
+<start clause>
+start env: 0
+end env: 23
+sent: Go get me a bowl of chicken ramen .
+clause dscr: get [   Go |   bowl |   chicken ramen | relation: (3, 3){ Go x  bowl -> of}{ Go x  chicken ramen -> of}{ bowl x  chicken ramen -> of} ]
+words: get Go bowl chicken ramen of of of
+verb: get
+arg mapping: (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2) (chicken ramen,Ramen_1) (chicken ramen,InstantRamen_1)
+<end clause>

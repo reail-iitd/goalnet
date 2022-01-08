@@ -1,0 +1,31 @@
+entire sentence: , grasp soda,  grasp chips,  grasp beer ,  grasp trash bag   
+
+<start clause>
+start env: 0
+end env: 3
+sent: grasp soda, 
+clause dscr: grasp [   soda | relation: Null ]
+words: grasp soda
+verb: grasp
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 6
+end env: 9
+sent:  grasp beer 
+clause dscr: grasp [   beer | relation: Null ]
+words: grasp beer
+verb: grasp
+arg mapping: (beer,Beer_1)
+<end clause>
+
+<start clause>
+start env: 10
+end env: 13
+sent: . grasp trash bag  
+clause dscr: grasp [   trash bag | relation: Null ]
+words: grasp trash bag
+verb: grasp
+arg mapping: (trash bag,BagOfChips_1) (trash bag,GarbageBag_1)
+<end clause>

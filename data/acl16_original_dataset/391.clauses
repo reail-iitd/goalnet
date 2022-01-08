@@ -1,0 +1,71 @@
+entire sentence: , Get the mug   and heat up coffee in the microwave   , ,  Get the ice cream out of the fridge   ,  Scoop ice cream into a bowl   ,  Pour coffee into the bowl   ,  Add syrup to the bowl   ,  Put ice cream back into the fridge   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Get the mug  
+clause dscr: Get [   mug | relation: Null ]
+words: Get mug
+verb: Get
+arg mapping: (mug,Mug_1)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 6
+sent:  and heat up coffee in the microwave  
+clause dscr: heat [   coffee |   microwave | relation: (2, 2){ coffee x  microwave -> in} ]
+words: heat coffee microwave in
+verb: heat
+arg mapping: (coffee,Mug_1) (microwave,Microwave)
+<end clause>
+
+<start clause>
+start env: 7
+end env: 10
+sent:  . Get the ice cream out of the fridge  
+clause dscr: Get [   ice |   cream |   fridge | relation: (3, 3){ ice x  cream -> of}{ ice x  fridge -> of}{ cream x  fridge -> of} ]
+words: Get ice cream fridge of of of
+verb: Get
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (fridge,Fridge)
+<end clause>
+
+<start clause>
+start env: 11
+end env: 61
+sent:  . Scoop ice cream into a bowl  
+clause dscr: Scoop [   ice |   cream |   bowl | relation: (3, 3){ ice x  cream -> into}{ ice x  bowl -> into}{ cream x  bowl -> into} ]
+words: Scoop ice cream bowl into into into
+verb: Scoop
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 66
+end env: 65
+sent:  . Pour coffee into the bowl  
+clause dscr: Pour [   coffee |   bowl | relation: (2, 2){ coffee x  bowl -> into} ]
+words: Pour coffee bowl into
+verb: Pour
+arg mapping: (coffee,Mug_1) (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 66
+end env: 65
+sent:  . Add syrup to the bowl  
+clause dscr: Add [   syrup |   bowl | relation: (2, 2){ syrup x  bowl -> to} ]
+words: Add syrup bowl to
+verb: Add
+arg mapping: (syrup,Syrup_1) (syrup,Syrup_2) (bowl,Spoon_1) (bowl,Glass_1) (bowl,LongCup_1) (bowl,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 71
+end env: 70
+sent:  . Put ice cream back into the fridge  
+clause dscr: Put [   ice |   cream |   fridge | relation: (3, 3){ ice x  cream -> into}{ ice x  fridge -> into}{ cream x  fridge -> into} ]
+words: Put ice cream fridge into into into
+verb: Put
+arg mapping: (ice,IceCream_1) (ice,IceCreamScoop) (cream,IceCream_1) (cream,IceCreamScoop) (fridge,Fridge)
+<end clause>

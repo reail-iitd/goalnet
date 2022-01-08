@@ -1,0 +1,29 @@
+entire sentence: , Get cups and drinks out
+Make food for breakfast
+Serve food for everyone  Get cups and drinks out
+Make food for breakfast
+Serve food for everyone , 
+
+<start clause>
+start env: 18
+end env: 17
+sent: Get cups and drinks out
+Make food for breakfast
+Serve food for everyone 
+clause dscr: Get [   cups |   drinks |   Make |   food |   breakfast |   Serve |   food |   everyone | relation: (8, 8){ cups x  drinks -> and}{ cups x  Make -> out}{ cups x  food -> out}{ cups x  breakfast -> out}{ cups x  Serve -> out}{ cups x  food -> out}{ cups x  everyone -> out}{ drinks x  Make -> out}{ drinks x  food -> out}{ drinks x  breakfast -> out}{ drinks x  Serve -> out}{ drinks x  food -> out}{ drinks x  everyone -> out}{ Make x  food -> for}{ Make x  breakfast -> for}{ Make x  Serve -> for}{ Make x  food -> for}{ Make x  everyone -> for}{ food x  breakfast -> for}{ food x  Serve -> for}{ food x  food -> for}{ food x  everyone -> for}{ breakfast x  Serve -> for}{ breakfast x  food -> for}{ breakfast x  everyone -> for}{ Serve x  food -> for}{ Serve x  everyone -> for}{ food x  everyone -> for} ]
+words: Get cups drinks Make food breakfast Serve food everyone and out out out out out out out out out out out out for for for for for for for for for for for for for for for
+verb: Get
+arg mapping: (cups,LongCup_1) (cups,LongCup_2) (drinks,EnergyDrink_1)
+<end clause>
+
+<start clause>
+start env: 18
+end env: 17
+sent:  Get cups and drinks out
+Make food for breakfast
+Serve food for everyone .
+clause dscr: Get [   cups |   drinks |   Make |   food |   breakfast |   Serve |   food |   everyone | relation: (8, 8){ cups x  drinks -> and}{ cups x  Make -> out}{ cups x  food -> out}{ cups x  breakfast -> out}{ cups x  Serve -> out}{ cups x  food -> out}{ cups x  everyone -> out}{ drinks x  Make -> out}{ drinks x  food -> out}{ drinks x  breakfast -> out}{ drinks x  Serve -> out}{ drinks x  food -> out}{ drinks x  everyone -> out}{ Make x  food -> for}{ Make x  breakfast -> for}{ Make x  Serve -> for}{ Make x  food -> for}{ Make x  everyone -> for}{ food x  breakfast -> for}{ food x  Serve -> for}{ food x  food -> for}{ food x  everyone -> for}{ breakfast x  Serve -> for}{ breakfast x  food -> for}{ breakfast x  everyone -> for}{ Serve x  food -> for}{ Serve x  everyone -> for}{ food x  everyone -> for} ]
+words: Get cups drinks Make food breakfast Serve food everyone and out out out out out out out out out out out out for for for for for for for for for for for for for for for
+verb: Get
+arg mapping: (cups,LongCup_1) (cups,LongCup_2) (drinks,EnergyDrink_1)
+<end clause>

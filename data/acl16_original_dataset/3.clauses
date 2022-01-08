@@ -1,0 +1,61 @@
+entire sentence: , If anything is disposable and used, put it in the trash bag   , If, ,   If a not disposable item contains only disposable objects, dump them into the trash bag,   and treat the object   like it was on the floor   , If, If, If, ,   Remove the trash bag from the scenario   
+
+<start clause>
+start env: 0
+end env: -1
+sent: 
+clause dscr: put [   it |   trash bag | relation: (2, 2){ it x  trash bag -> in} ]
+words: put it trash bag in
+verb: put
+arg mapping: (trash bag,BagOfChips_1) (trash bag,GarbageBag_1)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 11
+sent: 
+clause dscr: put [   it |   table |   items | relation: (3, 3){ it x  table -> on}{ it x  items -> on}{ table x  items -> nearest} ]
+words: put it table items on on nearest
+verb: put
+arg mapping: (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 11
+sent: 
+clause dscr: put [   it |   table |   items | relation: (3, 3){ it x  table -> on}{ it x  items -> on}{ table x  items -> nearest} ]
+words: put it table items on on nearest
+verb: put
+arg mapping: (it,Loveseat_1) (it,CoffeeTable_1) (it,GarbageBag_1) (it,Beer_1) (table,CoffeeTable_1) (table,TvTable_1) (table,SnackTable_1)
+<end clause>
+
+<start clause>
+start env: 12
+end env: 11
+sent:  and treat the object  
+clause dscr: treat [   object | relation: Null ]
+words: treat object
+verb: treat
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 12
+end env: 11
+sent:  like it was on the floor  
+clause dscr: like [ relation: Null ]
+words: like
+verb: like
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 12
+end env: 11
+sent:  .  Remove the trash bag from the scenario  
+clause dscr: Remove [   trash |   bag |   scenario | relation: (3, 3){ trash x  bag -> from}{ trash x  scenario -> from}{ bag x  scenario -> from} ]
+words: Remove trash bag scenario from from from
+verb: Remove
+arg mapping: (bag,BagOfChips_1) (bag,GarbageBag_1) (scenario,Book_1) (scenario,Book_2)
+<end clause>

@@ -1,0 +1,41 @@
+entire sentence: , Take the dishes   and place them on top   of each other , ,  Stack the cups   ,  Put the bottles away in the appropriate cabinets   
+
+<start clause>
+start env: 0
+end env: 1
+sent: Take the dishes  
+clause dscr: Take [   dishes | relation: Null ]
+words: Take dishes
+verb: Take
+arg mapping: (dishes,Spoon_1) (dishes,Glass_1) (dishes,LongCup_1) (dishes,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 2
+end env: 1
+sent:  and place them on top  
+clause dscr: place [   top | relation: Null ]
+words: place top
+verb: place
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 7
+end env: 9
+sent:  of each other . Stack the cups  
+clause dscr: Stack [   cups | relation: Null ]
+words: Stack cups
+verb: Stack
+arg mapping: (cups,LongCup_1) (cups,LongCup_2)
+<end clause>
+
+<start clause>
+start env: 13
+end env: 12
+sent:  . Put the bottles away in the appropriate cabinets  
+clause dscr: Put [   bottles |   cabinets | relation: (2, 2){ bottles x  cabinets -> in} ]
+words: Put bottles cabinets in
+verb: Put
+arg mapping: (cabinets,Counter_1) (cabinets,Counter1_1)
+<end clause>

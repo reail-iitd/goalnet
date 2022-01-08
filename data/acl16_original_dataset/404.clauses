@@ -1,0 +1,91 @@
+entire sentence: , Grasp pot to the sink   ,  Toggle tap   to fill the pot with water   , ,  Grasp pot to the stove   ,  Toggle the burner   ,  Then grasp the instant ramen,   open it   and add seasoning   , , ,  After the pot is boiling,   pour the hot water to the cup of ramen   , , 
+
+<start clause>
+start env: 0
+end env: 10
+sent: Grasp pot to the sink  
+clause dscr: Grasp [   pot |   sink | relation: (2, 2){ pot x  sink -> to} ]
+words: Grasp pot sink to
+verb: Grasp
+arg mapping: (pot,Kettle) (sink,Sink)
+<end clause>
+
+<start clause>
+start env: 6
+end env: 6
+sent:  . Toggle tap  
+clause dscr: tap [ relation: Null ]
+words: tap
+verb: tap
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 3
+end env: 7
+sent:  to fill the pot with water  
+clause dscr: fill [   pot |   water | relation: (2, 2){ pot x  water -> with} ]
+words: fill pot water with
+verb: fill
+arg mapping: (pot,Kettle) (water,Kettle)
+<end clause>
+
+<start clause>
+start env: 23
+end env: 26
+sent:  . Grasp pot to the stove  
+clause dscr: Grasp [   pot |   stove | relation: (2, 2){ pot x  stove -> to} ]
+words: Grasp pot stove to
+verb: Grasp
+arg mapping: (pot,Kettle) (stove,Stove)
+<end clause>
+
+<start clause>
+start env: 27
+end env: 28
+sent:  . Toggle the burner  
+clause dscr: Toggle [   burner | relation: Null ]
+words: Toggle burner
+verb: Toggle
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 29
+end env: 33
+sent:  . Then grasp the instant ramen,  
+clause dscr: grasp [ relation: Null ]
+words: grasp
+verb: grasp
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 40
+end env: 39
+sent:  open it  
+clause dscr: open [   it | relation: Null ]
+words: open it
+verb: open
+arg mapping: (it,Kettle) (it,Ramen_1) (it,StoveKnob_1) (it,StoveKnob_2) (it,StoveFire_1)
+<end clause>
+
+<start clause>
+start env: 40
+end env: 41
+sent:  and add seasoning  
+clause dscr: add [ relation: Null ]
+words: add
+verb: add
+arg mapping: 
+<end clause>
+
+<start clause>
+start env: 49
+end env: 51
+sent:  pour the hot water to the cup of ramen  
+clause dscr: pour [   water |   cup |   ramen | relation: (3, 3){ water x  cup -> to}{ water x  ramen -> to}{ cup x  ramen -> of} ]
+words: pour water cup ramen to to of
+verb: pour
+arg mapping: (water,Kettle) (cup,LongCup_1) (cup,LongCup_2) (ramen,Ramen_1)
+<end clause>

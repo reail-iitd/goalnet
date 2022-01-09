@@ -3,7 +3,7 @@ from utils.util import *
 from src.model import *
 from src.dataset import *
 
-NUM_EPOCHS = 80
+NUM_EPOCHS = 200
 
 def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEnc=None, batch_size=1, train=True):
     total_loss = 0.0
@@ -20,7 +20,8 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
             else:
                 _, state, state_dict = run_planner_simple(state_dict, dp, pred_delta, True)
             delta_g_true = dp.delta_g_embed[i]
-            action, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
+            action, pred1_object, pred2_object, pred2_state, l_h, lstm_pred_hidden = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None, pred_delta if i else "", lstm_pred_hidden if i else None)
+            #action, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
             loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
             pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
             dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 
@@ -67,15 +68,17 @@ if __name__ == '__main__':
         tqdm.write(f'Epoch {num_epochs} Train Loss: {"{:.8f}".format(train_loss)}\tTrain Acc : {"{:.8f}".format(train_acc)}\tVal Loss: {"{:.8f}".format(val_loss)}\tVal Acc : {"{:.8f}".format(val_acc)}')
         train_loss_arr.append(train_loss); train_acc_arr.append(train_acc)
         val_loss_arr.append(val_loss); val_acc_arr.append(val_acc)
-        if num_epochs % 10 == 9:
-            plot_graphs(result_folder_exp, model_type + "_graph", train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr)
+
+        if best_val_acc < val_acc:
+            best_val_acc = val_acc
+            best_model = deepcopy(model)
             with torch.no_grad():
                 test_loss, test_acc = backprop(test_data, optimizer, scheduler, best_model, N_objects, num_epochs, train=False)        
             #     test_sji, test_f1, test_ied, test_fb, test_fbs = eval_accuracy(test_data, best_model, verbose = False)
             tqdm.write(f'Test Loss: {"{:.8f}".format(test_loss)}\tTest Acc : {"{:.8f}".format(test_acc)}')
             torch.save(best_model.state_dict(), result_folder_exp + model.name + ".pt")
-        if best_val_acc < val_acc:
-            best_val_acc = val_acc
-            best_model = deepcopy(model)
+
+        if num_epochs % 10 == 9:
+            plot_graphs(result_folder_exp, model_type + "_graph", train_loss_arr, train_acc_arr, val_loss_arr, val_acc_arr)
 
     print(f'Best validation accuracy: {max(val_acc_arr)} at epoch {np.argmax(val_acc_arr)}')

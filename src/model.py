@@ -30,14 +30,15 @@ class Simple_Model(nn.Module):
         self.graph_attn = nn.Sequential(nn.Linear(in_feats + n_hidden, 1), nn.Softmax(dim=1))
         self.graph_embed = nn.Sequential(nn.Linear(in_feats, n_hidden), self.activation)
         self.goal_obj_attention = nn.Sequential(nn.Linear(n_hidden * 2, 1), nn.Softmax(dim=0))
-        self.fc = nn.Sequential(nn.Linear(n_hidden * 4, n_hidden), self.activation)
+        self.fc = nn.Sequential(nn.Linear(n_hidden * 5, n_hidden), self.activation)
+        #self.fc = nn.Sequential(nn.Linear(n_hidden * 4, n_hidden), self.activation)
         self.lstm = nn.LSTM(n_hidden, n_hidden)
         self.action = nn.Sequential(nn.Linear(n_hidden, len(all_relations) + 1), nn.Softmax(dim=0)) # +1 for null delta_g
         self.obj1 = nn.Sequential(nn.Linear(n_hidden + len(all_relations) + 1, n_objects),  nn.Softmax(dim=0))
         self.obj2 = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_objects), nn.Softmax(dim=0))
         self.state = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_states), nn.Softmax(dim=0))
-
-    def forward(self, g, goalVec, goalObjectsVec, lstm_hidden=None):
+        self.pred_lstm = nn.LSTM(len(all_relations) + 1 + 2 * PRETRAINED_VECTOR_SIZE, n_hidden)
+    def forward(self, g, goalVec, goalObjectsVec, lstm_hidden=None, y_pred = "", lstm_pred_hidden = None):
         # embed graph, goal vec based attention
         h = g.ndata['feat']
         goal_embed = self.embed_sbert(goalVec)
@@ -54,7 +55,17 @@ class Simple_Model(nn.Module):
         # concatenate goal purpose embedding
         lstm_h = (torch.randn(1, 1, self.n_hidden),torch.randn(1, 1, self.n_hidden)) if lstm_hidden is None else lstm_hidden
         h_hist, lstm_hidden = self.lstm(h_embed.view(1,1,-1), lstm_h)
-        final_to_decode = self.fc(torch.cat([h_embed, h_hist.view(-1), goal_obj_embed, goal_embed]))
+        
+        #pred lstm embedding
+        '''
+        pred_lstm_out = torch.zeros(1,1, self.n_hidden)
+        if(len(y_pred) > 0):
+            pred_embed = string2embed(y_pred)
+            lstm_pred_hidden = (torch.randn(1, 1, self.n_hidden),torch.randn(1, 1, self.n_hidden)) if lstm_pred_hidden is None else lstm_pred_hidden
+            pred_lstm_out, lstm_pred_hidden = self.pred_lstm(pred_embed.view(1,1,-1), lstm_pred_hidden)    
+        '''
+        final_to_decode = self.fc(torch.cat([h_embed, h_hist.view(-1), goal_obj_embed, goal_embed, pred_lstm_out.view(-1)]))
+        #final_to_decode = self.fc(torch.cat([h_embed, h_hist.view(-1), goal_obj_embed, goal_embed]))
 
         # head 1 (delta_g)
         action = self.action(final_to_decode)
@@ -67,7 +78,8 @@ class Simple_Model(nn.Module):
 
         pred2_state = self.state(torch.cat([final_to_decode, one_hot_action, one_hot_pred1]))
 
-        return action, pred1_object, pred2_object, pred2_state, lstm_hidden
+        return action, pred1_object, pred2_object, pred2_state, lstm_hidden, lstm_pred_hidden
+        #return action, pred1_object, pred2_object, pred2_state, lstm_hidden
 
 class GGCN_Model(nn.Module):
     def __init__(self,

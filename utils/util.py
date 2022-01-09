@@ -119,6 +119,21 @@ def string2vec(state, lower=False):
     if len(state) == 0: a_vect[N_relations] = 1
     return (a_vect, obj1_vect, obj2_vect, state_vect)
 
+def string2embed(str_constr):
+    words = str_constr.replace('(', '').replace(')', '').split()
+    a_vect = torch.zeros(N_relations + 1, dtype=torch.float)
+    if len(str_constr) == 0: 
+        a_vect[N_relations] = 1
+        obj1 = torch.ones(PRETRAINED_VECTOR_SIZE) * -1
+        obj2 = torch.ones(PRETRAINED_VECTOR_SIZE) * -1
+    else:
+        action_index = all_relations_lower.index(words[0].lower())
+        a_vect[action_index] = 1
+        obj1_string = words[1]
+        obj2_state_string = words[2]
+        obj1 = torch.tensor((dense_vector(obj1_string)))
+        obj2 = torch.tensor((dense_vector(obj2_state_string)))
+    return torch.cat((a_vect,obj1,obj2))
 def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l):
     a_vect, obj1_vect, obj2_vect, state_vect = y_true
     l_act, l_obj1, l_obj2, l_state = l(action, a_vect), l(pred1_obj, obj1_vect), l(pred2_obj, obj2_vect), l(pred2_state, state_vect)
@@ -351,7 +366,8 @@ def eval_accuracy(data, model, verbose = False):
         action_seq = []
         for i in range(len(dp.states) - 1):
             if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
-            rel, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
+			rel, pred1_object, pred2_object, pred2_state, l_h, lstm_pred_hidden = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None, pred_delta if i else "", lstm_pred_hidden if i else None)
+            #rel, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
             pred_delta = vect2string(state_dict, rel, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
             # if pred_delta == '':
             #     break

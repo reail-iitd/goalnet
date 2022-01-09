@@ -8,7 +8,7 @@ NUM_EPOCHS = 100
 def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEnc=None, batch_size=1, train=True):
     total_loss = 0.0
     l = nn.BCELoss()
-    acc = 0
+    acc = 0; pred_delta, pred_delta_inv = '', ''    
 
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
         dp_loss, dp_acc = 0, 0
@@ -20,7 +20,7 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
             else:
                 _, state, state_dict = run_planner_simple(state_dict, dp, pred_delta, True)
             delta_g_true = dp.delta_g_embed[i]
-            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
+            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, pred_delta_inv, l_h if i else None)
             action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
             loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
             loss += loss_function(action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.delta_g_inv_embed[i], dp.delta_g_inv[i], l)

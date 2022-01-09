@@ -29,7 +29,7 @@ opts, args = parser.parse_args()
 def obj_set(env_domain):
     return all_objects # all_objects_kitchen if env_domain == 'kitchen' else all_objects_living
 
-def create_pddl(init, objects, goal_list, file_name):
+def create_pddl(init, objects, goal_list, file_name, inverse=False):
     f = open(file_name + ".pddl", "w")
     f.write("(define \n(problem tmp) \n(:objects ")
     for obj in objects:
@@ -54,7 +54,10 @@ def create_pddl(init, objects, goal_list, file_name):
         goal = goal.lower()[1:-1].split()
         if len(goal) > 0:
             goal_string += "(" + goal[0] + " " + goal[1] + " " + goal[2] + ") "
-    f.write(") \n(:goal (AND " + goal_string + ")) \n)")
+    if inverse:
+        f.write(") \n(:goal (AND (NOT " + goal_string + "))) \n)")
+    else:
+        f.write(") \n(:goal (AND " + goal_string + ")) \n)")
     f.close()
 
 def crossval(train_data, val_data):
@@ -122,11 +125,6 @@ def string2vec(state, lower=False):
 def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l):
     a_vect, obj1_vect, obj2_vect, state_vect = y_true
     l_act, l_obj1, l_obj2, l_state = l(action, a_vect), l(pred1_obj, obj1_vect), l(pred2_obj, obj2_vect), l(pred2_state, state_vect)
-    # l_act, l_obj1, l_obj2, l_state = \
-    #     l(action.view(1,-1), torch.argmax(a_vect).view(-1)), \
-    #     l(pred1_obj.view(1,-1), torch.argmax(obj1_vect).view(-1)), \
-    #     l(pred2_obj.view(1,-1), torch.argmax(obj2_vect).view(-1)), \
-    #     l(pred2_state.view(1,-1), torch.argmax(state_vect).view(-1))
     l_sum = l_act
     if delta_g:
         l_sum += l_obj1
@@ -328,10 +326,13 @@ def run_planner_simple(state_dict, dp, pred_delta, verbose = False):
     state = dp.convertToDGLGraph(state_dict)
     return None, state, state_dict
 
-def run_planner(state_dict, dp, pred_delta, verbose = False):
+def run_planner(state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
     if verbose: print(color.GREEN, 'Pred Delta', color.ENDC, pred_delta.lower())
     state_dict_lower = [rel.lower() for rel in state_dict]
-    create_pddl(state_dict_lower, obj_set(dp.env_domain), [pred_delta.lower()], './planner/eval')
+    if pred_delta != '':
+        create_pddl(state_dict_lower, obj_set(dp.env_domain), [pred_delta.lower()], './planner/eval')
+    else:
+        create_pddl(state_dict_lower, obj_set(dp.env_domain), [pred_delta_inv.lower()], './planner/eval', inverse=True)
     out = subprocess.Popen(['bash', './planner/run_final_state.sh', './planner/eval.pddl'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     stdout, stderr = out.communicate()
     planner_action = get_steps(str(stdout))
@@ -351,11 +352,13 @@ def eval_accuracy(data, model, verbose = False):
         action_seq = []
         for i in range(len(dp.states) - 1):
             if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
-            rel, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
-            pred_delta = vect2string(state_dict, rel, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
-            # if pred_delta == '':
-            #     break
-            dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 
+            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
+            action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
+            pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
+            pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
+            if pred_delta == '' and pred_delta_inv == '':
+                break
+            dp_acc_i = int(pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]) 
             if dp_acc_i:
                 action_seq.append(dp.action_seq[i])
                 state = dp.states[i+1]; state_dict = dp.state_dict[i+1]
@@ -363,7 +366,7 @@ def eval_accuracy(data, model, verbose = False):
                 if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
                 if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])
                 continue
-            planner_action, state, state_dict = run_planner(state_dict, dp, pred_delta, verbose=verbose)
+            planner_action, state, state_dict = run_planner(state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
             if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
             if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
             if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])

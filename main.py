@@ -3,7 +3,7 @@ from utils.util import *
 from src.model import *
 from src.dataset import *
 
-NUM_EPOCHS = 80
+NUM_EPOCHS = 100
 
 def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEnc=None, batch_size=1, train=True):
     total_loss = 0.0
@@ -15,15 +15,18 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
         teacher_forcing = random.random()
         state = dp.states[0]
         for i in range(len(dp.states)):
-            if teacher_forcing < 0.8 or epoch < NUM_EPOCHS // 2 or i == 0:
+            if teacher_forcing < 0.8 or epoch < 0.4 * NUM_EPOCHS or i == 0:
                 state, state_dict = dp.states[i], dp.state_dict[i]
             else:
                 _, state, state_dict = run_planner_simple(state_dict, dp, pred_delta, True)
             delta_g_true = dp.delta_g_embed[i]
-            action, pred1_object, pred2_object, pred2_state, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
+            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
+            action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
             loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
+            loss += loss_function(action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.delta_g_inv_embed[i], dp.delta_g_inv[i], l)
             pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
-            dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 
+            pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
+            dp_acc_i = int((pred_delta == '' and pred_delta_inv == '' and dp.delta_g[i] == [] and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]) 
             # if epoch > 200 and dp_acc_i == 0: print(pred_delta, dp.delta_g[i])
             dp_loss += loss; dp_acc += dp_acc_i
         if train:

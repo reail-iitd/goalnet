@@ -92,4 +92,5 @@ class Datapoint:
         self.goal_obj_embed = torch.tensor(goalObjEmbedArgMap(self.sent, self.goal_objects), dtype=torch.float)
         if 0 in self.goal_obj_embed.shape:
             self.goal_obj_embed = torch.zeros(1, PRETRAINED_VECTOR_SIZE)
-        self.delta_g_embed = [string2vec(i) for i in self.delta_g]
+        self.delta_g_embed = [string2vec(i[:1]) for i in self.delta_g]
+        self.delta_g_inv_embed = [string2vec(i[:1]) for i in self.delta_g_inv]

@@ -36,6 +36,10 @@ class Simple_Model(nn.Module):
         self.obj1 = nn.Sequential(nn.Linear(n_hidden + len(all_relations) + 1, n_objects),  nn.Softmax(dim=0))
         self.obj2 = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_objects), nn.Softmax(dim=0))
         self.state = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_states), nn.Softmax(dim=0))
+        self.action_inv = nn.Sequential(nn.Linear(n_hidden, len(all_relations) + 1), nn.Softmax(dim=0)) # +1 for null delta_g
+        self.obj1_inv = nn.Sequential(nn.Linear(n_hidden + len(all_relations) + 1, n_objects),  nn.Softmax(dim=0))
+        self.obj2_inv = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_objects), nn.Softmax(dim=0))
+        self.state_inv = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_states), nn.Softmax(dim=0))
 
     def forward(self, g, goalVec, goalObjectsVec, lstm_hidden=None):
         # embed graph, goal vec based attention
@@ -58,16 +62,21 @@ class Simple_Model(nn.Module):
 
         # head 1 (delta_g)
         action = self.action(final_to_decode)
-
         one_hot_action = gumbel_softmax(action, 0.01)
         pred1_object = self.obj1(torch.cat([final_to_decode, one_hot_action]))
-
         one_hot_pred1 = gumbel_softmax(pred1_object, 0.01)
         pred2_object = self.obj2(torch.cat([final_to_decode, one_hot_action, one_hot_pred1]))
-
         pred2_state = self.state(torch.cat([final_to_decode, one_hot_action, one_hot_pred1]))
 
-        return action, pred1_object, pred2_object, pred2_state, lstm_hidden
+        # head 2 (delta_g_inv)
+        action_inv = self.action_inv(final_to_decode)
+        one_hot_action_inv = gumbel_softmax(action_inv, 0.01)
+        pred1_object_inv = self.obj1_inv(torch.cat([final_to_decode, one_hot_action_inv]))
+        one_hot_pred1_inv = gumbel_softmax(pred1_object_inv, 0.01)
+        pred2_object_inv = self.obj2(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
+        pred2_state_inv = self.state(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
+
+        return (action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv), lstm_hidden
 
 class GGCN_Model(nn.Module):
     def __init__(self,

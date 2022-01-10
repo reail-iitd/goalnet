@@ -368,7 +368,7 @@ def eval_accuracy(data, model, verbose = False):
         action_seq = []
         for i in range(len(dp.states) - 1):
             if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
-            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
+            pred, l_h, l_h_pred = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None, l_h_pred if i else None)
             action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
             pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
             pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)

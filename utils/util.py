@@ -24,6 +24,8 @@ parser.add_option("-v", "--val", action="store", dest="val", default="val",
                   help="validation set folder")
 parser.add_option("-t", "--test", action="store", dest="test", default="test",
                   help="testing set folder")
+parser.add_option("-n", "--nofixlen", action="store_true", dest="nofixlen", default=False,
+                  help="run with stopping criterion = GT plan length")
 opts, args = parser.parse_args()
 
 def obj_set(env_domain):
@@ -329,7 +331,7 @@ def convertToDGLGraph_util(state):
     g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)
     return g
 
-def run_planner_simple(state_dict, dp, pred_delta, verbose = False):
+def run_planner_simple(state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
     if pred_delta == '': return None, dp.convertToDGLGraph(state_dict), state_dict
     state_dict = state_dict + [pred_delta]
     a_i, o1_i, o2_i, s_i = string2index(pred_delta)
@@ -339,6 +341,7 @@ def run_planner_simple(state_dict, dp, pred_delta, verbose = False):
         if a_i2 == 0 and a_i == 0 and o1_i == o1_i2:
             state_dict.remove(constr)
             break
+    if pred_delta_inv in state_dict: state_dict.remove(pred_delta_inv)
     state = dp.convertToDGLGraph(state_dict)
     return None, state, state_dict
 
@@ -357,7 +360,10 @@ def run_planner(state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
     if verbose: print(color.GREEN, 'Delta_g', color.ENDC, planner_delta_g)
     if verbose: print(color.GREEN, 'Delta_g_inv', color.ENDC, planner_delta_g_inv)
     state_dict = state_dict_new if state_dict_new else state_dict # seg fault case
-    state = convertToDGLGraph_util(state_dict)
+    try:
+        state = convertToDGLGraph_util(state_dict)
+    except:
+        state = convertToDGLGraph_util(state_dict_lower)
     return planner_action, state, state_dict
 
 def eval_accuracy(data, model, verbose = False):
@@ -367,7 +373,7 @@ def eval_accuracy(data, model, verbose = False):
         state = dp.states[0]; state_dict = dp.state_dict[0]
         init_state_dict = dp.state_dict[0]
         action_seq = []
-        for i in range(len(dp.states) - 1):
+        for i in range(len(dp.states) - 1 if opts.nofixlen else max_len):
             if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
             pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
             action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
@@ -375,7 +381,7 @@ def eval_accuracy(data, model, verbose = False):
             pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
             if pred_delta == '' and pred_delta_inv == '':
                 break
-            dp_acc_i = int(pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]) 
+            dp_acc_i = int(i < len(dp.states) and (pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]))
             if dp_acc_i:
                 action_seq.append(dp.action_seq[i])
                 state = dp.states[i+1]; state_dict = dp.state_dict[i+1]

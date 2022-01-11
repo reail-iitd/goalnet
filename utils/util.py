@@ -362,14 +362,13 @@ def run_planner(state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
 
 def eval_accuracy(data, model, verbose = False):
     sji, f1, ied, fb, fbs = 0, 0, 0, 0, 0
-    pred_delta, pred_delta_inv = '', ''
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
         state = dp.states[0]; state_dict = dp.state_dict[0]
         init_state_dict = dp.state_dict[0]
         action_seq = []
         for i in range(len(dp.states) - 1):
             if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
-            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed,pred_delta, pred_delta_inv, l_h if i else None)
+            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
             action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
             pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
             pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)

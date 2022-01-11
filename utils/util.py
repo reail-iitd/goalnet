@@ -331,8 +331,8 @@ def convertToDGLGraph_util(state):
     g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)
     return g
 
-def run_planner_simple(state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
-    if pred_delta == '': return None, dp.convertToDGLGraph(state_dict), state_dict
+def run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
+    if pred_delta == '': return [], dp.convertToDGLGraph(state_dict), state_dict
     state_dict = state_dict + [pred_delta]
     a_i, o1_i, o2_i, s_i = string2index(pred_delta)
     for constr in state_dict:
@@ -343,9 +343,9 @@ def run_planner_simple(state_dict, dp, pred_delta, pred_delta_inv, verbose = Fal
             break
     if pred_delta_inv in state_dict: state_dict.remove(pred_delta_inv)
     state = dp.convertToDGLGraph(state_dict)
-    return None, state, state_dict
+    return [], state, state_dict
 
-def run_planner(state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
+def run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
     if verbose: print(color.GREEN, 'Pred Delta', color.ENDC, pred_delta.lower())
     state_dict_lower = [rel.lower() for rel in state_dict]
     if pred_delta != '':
@@ -363,7 +363,7 @@ def run_planner(state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
     try:
         state = convertToDGLGraph_util(state_dict)
     except:
-        state = convertToDGLGraph_util(state_dict_lower)
+        pass
     return planner_action, state, state_dict
 
 def eval_accuracy(data, model, verbose = False):
@@ -381,20 +381,7 @@ def eval_accuracy(data, model, verbose = False):
             pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
             if pred_delta == '' and pred_delta_inv == '':
                 break
-            dp_acc_i = int(i < len(dp.states) and (pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]))
-            if dp_acc_i:
-                action_seq.append(dp.action_seq[i])
-                state_dict_lower = [rel.lower() for rel in state_dict]
-                state_dict = set(state_dict).union(dp.delta_g[i]).difference(dp.delta_g_inv[i])
-                try:
-                    state = convertToDGLGraph_util(state_dict)
-                except:
-                    state = convertToDGLGraph_util(state_dict_lower)
-                if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
-                if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
-                if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])
-                continue
-            planner_action, state, state_dict = run_planner(state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
+            planner_action, state, state_dict = run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
             if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
             if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
             if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])

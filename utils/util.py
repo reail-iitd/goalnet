@@ -356,12 +356,13 @@ def run_planner(state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
     planner_delta_g, planner_delta_g_inv, state_dict_new = get_delta(str(stdout))
     if verbose: print(color.GREEN, 'Delta_g', color.ENDC, planner_delta_g)
     if verbose: print(color.GREEN, 'Delta_g_inv', color.ENDC, planner_delta_g_inv)
-    state_dict = state_dict_new if state_dict_new == [] else state_dict # seg fault case
+    state_dict = state_dict_new if state_dict_new else state_dict # seg fault case
     state = convertToDGLGraph_util(state_dict)
     return planner_action, state, state_dict
 
 def eval_accuracy(data, model, verbose = False):
     sji, f1, ied, fb, fbs = 0, 0, 0, 0, 0
+    max_len = max([len(dp.states) - 1 for dp in data.dp_list])
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
         state = dp.states[0]; state_dict = dp.state_dict[0]
         init_state_dict = dp.state_dict[0]

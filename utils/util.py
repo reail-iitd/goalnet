@@ -384,7 +384,8 @@ def eval_accuracy(data, model, verbose = False):
             dp_acc_i = int(i < len(dp.states) and (pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]))
             if dp_acc_i:
                 action_seq.append(dp.action_seq[i])
-                state = dp.states[i+1]; state_dict = dp.state_dict[i+1]
+                state_dict = set(state_dict).union(dp.delta_g[i]).difference(dp.delta_g_inv[i])
+                state = convertToDGLGraph_util(state_dict)
                 if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
                 if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
                 if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])

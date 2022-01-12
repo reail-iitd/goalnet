@@ -159,6 +159,8 @@ def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l)
 def get_ied(instseq1, instseq2):
     instseq1 = [act.lower() for act in instseq1]
     instseq2 = [act.lower() for act in instseq2]
+    instseq1 = [i.lower().replace('_', ' ') for i in instseq1]
+    instseq2 = [i.lower().replace('_', ' ') for i in instseq2]
     m = len(instseq1)
     n = len(instseq2)
     if min(m,n) == 0: return 0
@@ -367,6 +369,7 @@ def run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv, verbos
 
 def run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
     if verbose: print(color.GREEN, 'Pred Delta', color.ENDC, pred_delta.lower())
+    if verbose: print(color.GREEN, 'Pred Delta inv', color.ENDC, pred_delta_inv.lower())
     state_dict_lower = [rel.lower() for rel in state_dict]
     if pred_delta != '':
         create_pddl(state_dict_lower, obj_set(dp.env_domain), [pred_delta.lower()], './planner/eval')
@@ -375,9 +378,10 @@ def run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose = Fal
     out = subprocess.Popen(['bash', './planner/run_final_state.sh', './planner/eval.pddl'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     stdout, stderr = out.communicate()
     planner_action = get_steps(str(stdout))
-    # if verbose: print(color.GREEN, 'STDOUT', color.ENDC, str(stdout))
+    if verbose: print(color.GREEN, 'STDOUT', color.ENDC, str(stdout))
     if verbose: print(color.GREEN, 'Action', color.ENDC, planner_action)
     planner_delta_g, planner_delta_g_inv, state_dict_new = get_delta(str(stdout))
+    state_dict_new = list(set(state_dict_lower).union(set(planner_delta_g)).difference(set(planner_delta_g_inv)))
     if verbose: print(color.GREEN, 'Delta_g', color.ENDC, planner_delta_g)
     if verbose: print(color.GREEN, 'Delta_g_inv', color.ENDC, planner_delta_g_inv)
     state_dict = state_dict_new if state_dict_new else state_dict # seg fault case
@@ -402,6 +406,14 @@ def eval_accuracy(data, model, verbose = False):
             pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
             if pred_delta == '' and pred_delta_inv == '':
                 break
+            # dp_acc_i = int(pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]) 
+            # if dp_acc_i:
+            #     action_seq.append(dp.action_seq[i])
+            #     state = dp.states[i+1]; state_dict = dp.state_dict[i+1]
+            #     if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
+            #     if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
+            #     if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])
+            #     continue
             planner_action, state, state_dict = run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
             if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
             if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])

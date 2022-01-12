@@ -103,7 +103,11 @@ def string2index(str_constr, train=True):
 
     if words[0].lower() == "state":
         obj2_index = -1  # None
-        state_index = all_fluents_lower.index(words[2].lower())
+        try:
+            state_index = all_fluents_lower.index(words[2].lower())
+        except:
+            state_index = 0
+            print("State out of vocab: ", words[2].lower())
     else:
         state_index = -1
         obj2_index = all_objects_lower.index(words[2].lower())
@@ -153,6 +157,8 @@ def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l)
     return l_sum
 
 def get_ied(instseq1, instseq2):
+    instseq1 = [act.lower() for act in instseq1]
+    instseq2 = [act.lower() for act in instseq2]
     m = len(instseq1)
     n = len(instseq2)
     if min(m,n) == 0: return 0
@@ -176,6 +182,10 @@ def get_ied(instseq1, instseq2):
     return 1 - (ed / max(m,n))
 
 def get_sji(state_dict, init_state_dict, true_state_dict, init_true_state_dict, verbose = False):
+    state_dict = [st.lower() for st in state_dict]
+    init_state_dict = [st.lower() for st in init_state_dict]
+    true_state_dict = [st.lower() for st in true_state_dict]
+    init_true_state_dict = [st.lower() for st in init_true_state_dict]
     total_delta_g = set(state_dict).difference(set(init_state_dict))
     total_delta_g_inv = set(init_state_dict).difference(set(state_dict))
     true_delta_g = set(true_state_dict).difference(set(init_true_state_dict))
@@ -189,6 +199,10 @@ def get_sji(state_dict, init_state_dict, true_state_dict, init_true_state_dict, 
     return num / (den + 1e-8)
 
 def get_fbeta(state_dict, init_state_dict, true_state_dict, init_true_state_dict, beta = 2):
+    state_dict = [st.lower() for st in state_dict]
+    init_state_dict = [st.lower() for st in init_state_dict]
+    true_state_dict = [st.lower() for st in true_state_dict]
+    init_true_state_dict = [st.lower() for st in init_true_state_dict]
     total_delta_g = set(state_dict).difference(set(init_state_dict))
     total_delta_g_inv = set(init_state_dict).difference(set(state_dict))
     true_delta_g = set(true_state_dict).difference(set(init_true_state_dict))
@@ -199,12 +213,18 @@ def get_fbeta(state_dict, init_state_dict, true_state_dict, init_true_state_dict
     return (1 + beta ** 2) * precision * recall / (beta * beta * precision + recall + 1e-9)
 
 def get_fbeta_state(state_dict, true_state_dict, beta = 2):
+    state_dict = [st.lower() for st in state_dict]
+    true_state_dict = [st.lower() for st in true_state_dict]
     state_dict, true_state_dict = set(state_dict), set(true_state_dict)
     precision = len(state_dict.intersection(true_state_dict)) / (len(state_dict) + 1e-9)
     recall = len(state_dict.intersection(true_state_dict)) / (len(true_state_dict) + 1e-9)
     return (1 + beta ** 2) * precision * recall / (beta * beta * precision + recall + 1e-9)
 
 def get_f1_index(state_dict, init_state_dict, true_state_dict, init_true_state_dict):
+    state_dict = [st.lower() for st in state_dict]
+    init_state_dict = [st.lower() for st in init_state_dict]
+    true_state_dict = [st.lower() for st in true_state_dict]
+    init_true_state_dict = [st.lower() for st in init_true_state_dict]
     total_delta_g = set(state_dict).difference(set(init_state_dict))
     total_delta_g_inv = set(init_state_dict).difference(set(state_dict))
     true_delta_g = set(true_state_dict).difference(set(init_true_state_dict))
@@ -355,6 +375,7 @@ def run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose = Fal
     out = subprocess.Popen(['bash', './planner/run_final_state.sh', './planner/eval.pddl'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     stdout, stderr = out.communicate()
     planner_action = get_steps(str(stdout))
+    # if verbose: print(color.GREEN, 'STDOUT', color.ENDC, str(stdout))
     if verbose: print(color.GREEN, 'Action', color.ENDC, planner_action)
     planner_delta_g, planner_delta_g_inv, state_dict_new = get_delta(str(stdout))
     if verbose: print(color.GREEN, 'Delta_g', color.ENDC, planner_delta_g)

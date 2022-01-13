@@ -413,11 +413,11 @@ def eval_accuracy(data, model, verbose = False):
             #     if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
             #     if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
             #     if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])
-            #     continue
+                continue
             planner_action, state, state_dict = run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
-            if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
-            if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
-            if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])
+            if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i] if i < len(dp.action_seq) else "")
+            if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i] if i < len(dp.delta_g) else "")
+            if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i]if i < len(dp.delta_g_inv) else "")
             action_seq.extend(planner_action)
         if verbose: print("SJI ------------ ", get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0], verbose=verbose))
         sji += get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0], verbose=verbose)

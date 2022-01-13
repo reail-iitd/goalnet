@@ -15,7 +15,7 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
         teacher_forcing = random.random()
         state = dp.states[0]
         for i in range(len(dp.states)):
-            if teacher_forcing < 0.8 or epoch < 0.4 * NUM_EPOCHS or i == 0:
+            if teacher_forcing < 0.8 or epoch < 0.4 * NUM_EPOCHS or i == 0 or not train:
                 state, state_dict = dp.states[i], dp.state_dict[i]
             else:
                 _, state, state_dict = run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv)

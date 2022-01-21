@@ -1,0 +1,880 @@
+./data_clean/test//208_80.json
+and put in xbox
+ Pred total_delta_g  {'(grasping robot xbox_1)', '(in cd_1 xbox_1)', '(state xbox_1 cd)'}
+
+ Pred total_delta_g_inv  {'(on xbox_1 snacktable_1)', '(grasping robot cd_1)'}
+
+ GT total_delta_g  {'(grasping robot xbox_1)', '(in cd_1 xbox_1)', '(state xbox_1 cd)'}
+
+ GT total_delta_g_inv  {'(on xbox_1 snacktable_1)', '(grasping robot cd_1)'}
+
+ Pred action seq   ['moveto xbox_1', 'grasp xbox_1', 'insert cd_1 xbox_1']
+
+ True action seq   ['moveto Xbox_1', 'grasp Xbox_1', 'insert Cd_1 Xbox_1', 'noop']
+
+SJI =  0.9999999980000001
+IED =  1.0
+./data_clean/test//113_37.json
+all the school books on the table turn off the tv
+ Pred total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto tv_1', 'press_tv_1powerbutton']
+
+ True action seq   ['moveto Tv_1', 'press tv_1powerbutton', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//363_142.json
+. grab spoon
+ Pred total_delta_g  {'(grasping robot spoon_1)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(grasping robot spoon_1)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto spoon_1', 'grasp spoon_1']
+
+ True action seq   ['moveto Spoon_1', 'grasp Spoon_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//363_140.json
+open freezer door
+ Pred total_delta_g  {'(near robot fridge)', '(state fridge rightdoorisopen)', '(state fridge leftdoorisopen)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(near robot fridge)', '(state fridge rightdoorisopen)', '(state fridge leftdoorisopen)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto fridge', 'open_fridgeleftdoor', 'open_fridgerightdoor', 'close_fridgerightdoor', 'open_fridgerightdoor']
+
+ True action seq   ['moveto Fridge', 'open fridgeleftdoor', 'open fridgerightdoor', 'close fridgerightdoor', 'open fridgerightdoor', 'noop']
+
+SJI =  0.9999999966666667
+IED =  1.0
+./data_clean/test//62_19.json
+put the game into the xbox,
+ Pred total_delta_g  {'(grasping robot xbox_1)', '(in cd_1 xbox_1)', '(state xbox_1 cd)'}
+
+ Pred total_delta_g_inv  {'(on xbox_1 snacktable_1)', '(on cd_1 studytable_1)'}
+
+ GT total_delta_g  {'(grasping robot xbox_1)', '(in cd_1 xbox_1)', '(state xbox_1 cd)'}
+
+ GT total_delta_g_inv  {'(on xbox_1 snacktable_1)', '(on cd_1 studytable_1)'}
+
+ Pred action seq   ['moveto cd_1', 'grasp cd_1', 'moveto xbox_1', 'grasp xbox_1', 'insert cd_1 xbox_1']
+
+ True action seq   ['moveto Cd_1', 'grasp Cd_1', 'moveto Xbox_1', 'grasp Xbox_1', 'insert Cd_1 Xbox_1', 'noop']
+
+SJI =  0.9999999980000001
+IED =  1.0
+./data_clean/test//363_146.json
+and add to coffee
+ Pred total_delta_g  {'(state mug_1 chocolate)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(state mug_1 chocolate)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['squeeze syrup_2 mug_1']
+
+ True action seq   ['squeeze Syrup_2 Mug_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//379_148.json
+. move the cd to the television
+ Pred total_delta_g  {'(grasping robot cd_2)'}
+
+ Pred total_delta_g_inv  {'(on cd_2 shelf_1)'}
+
+ GT total_delta_g  {'(grasping robot cd_2)'}
+
+ GT total_delta_g_inv  {'(on cd_2 shelf_1)'}
+
+ Pred action seq   ['moveto cd_2', 'grasp cd_2']
+
+ True action seq   ['moveto Cd_2', 'grasp Cd_2', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//88_29.json
+turn on the television
+ Pred total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto tv_1', 'press_tv_1powerbutton']
+
+ True action seq   ['moveto Tv_1', 'press tv_1powerbutton', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//346_136.json
+.
+ Pred total_delta_g  {'(state mug_1 chocolate)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(state mug_1 chocolate)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['squeeze syrup_2 mug_1']
+
+ True action seq   ['squeeze Syrup_2 Mug_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//48_12.json
+take the coffee
+ Pred total_delta_g  {'(grasping robot mug_1)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(grasping robot mug_1)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto mug_1', 'grasp mug_1']
+
+ True action seq   ['moveto Mug_1', 'grasp Mug_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//457_174.json
+turn on the tv
+ Pred total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto tv_1', 'press_tv_1powerbutton']
+
+ True action seq   ['moveto Tv_1', 'press tv_1powerbutton', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//323_128.json
+. take the ice cream out of the freezer
+ Pred total_delta_g  {'(near robot fridge)', '(grasping robot icecream_1)', '(state fridge leftdoorisopen)'}
+
+ Pred total_delta_g_inv  {'(on icecream_1 stovefire_4)'}
+
+ GT total_delta_g  {'(near robot fridge)', '(grasping robot icecream_1)', '(state fridge leftdoorisopen)'}
+
+ GT total_delta_g_inv  {'(on icecream_1 stovefire_4)'}
+
+ Pred action seq   ['moveto icecream_1', 'grasp icecream_1', 'moveto fridge', 'open_fridgeleftdoor']
+
+ True action seq   ['moveto IceCream_1', 'grasp IceCream_1', 'moveto Fridge', 'open fridgeleftdoor', 'noop']
+
+SJI =  0.9999999975
+IED =  1.0
+./data_clean/test//138_48.json
+. turn on the television
+ Pred total_delta_g  {'(state tv_1 ison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(state tv_1 ison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['press_tv_1powerbutton']
+
+ True action seq   ['press tv_1powerbutton', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//465_179.json
+turn on the tv and the xbox,
+ Pred total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto tv_1', 'press_tv_1powerbutton']
+
+ True action seq   ['moveto Tv_1', 'press tv_1powerbutton', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//20_5.json
+. take beer
+ Pred total_delta_g  {'(grasping robot beer_1)'}
+
+ Pred total_delta_g_inv  {'(on beer_1 coffeetable_1)'}
+
+ GT total_delta_g  {'(grasping robot beer_1)'}
+
+ GT total_delta_g_inv  {'(on beer_1 coffeetable_1)'}
+
+ Pred action seq   ['moveto beer_1', 'grasp beer_1']
+
+ True action seq   ['moveto Beer_1', 'grasp Beer_1', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//380_150.json
+. pick up the instant ramen
+ Pred total_delta_g  {'(grasping robot instantramen_1)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(grasping robot instantramen_1)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto instantramen_1', 'grasp instantramen_1']
+
+ True action seq   ['moveto InstantRamen_1', 'grasp InstantRamen_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//289_115.json
+. grasp the pot
+ Pred total_delta_g  {'(grasping robot kettle)'}
+
+ Pred total_delta_g_inv  {'(on kettle sink)'}
+
+ GT total_delta_g  {'(grasping robot kettle)'}
+
+ GT total_delta_g_inv  {'(on kettle sink)'}
+
+ Pred action seq   ['moveto kettle', 'grasp kettle']
+
+ True action seq   ['moveto Kettle', 'grasp Kettle', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//405_156.json
+take the icecream out of the freezer
+ Pred total_delta_g  {'(near robot fridge)', '(grasping robot icecream_1)'}
+
+ Pred total_delta_g_inv  {'(on icecream_1 stovefire_2)'}
+
+ GT total_delta_g  {'(near robot fridge)', '(grasping robot icecream_1)', '(state fridge leftdoorisopen)'}
+
+ GT total_delta_g_inv  {'(on icecream_1 stovefire_2)'}
+
+ Pred action seq   ['moveto icecream_1', 'grasp icecream_1', 'moveto fridge', 'open_fridgeleftdoor', 'close_fridgeleftdoor']
+
+ True action seq   ['moveto IceCream_1', 'grasp IceCream_1', 'moveto Fridge', 'open fridgeleftdoor', 'noop']
+
+SJI =  0.7499999981250001
+IED =  0.8
+./data_clean/test//86_24.json
+grasp the pot,
+ Pred total_delta_g  {'(grasping robot kettle)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(grasping robot kettle)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto kettle', 'grasp kettle']
+
+ True action seq   ['moveto Kettle', 'grasp Kettle', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//323_129.json
+. pick up the bottle of syrup
+ Pred total_delta_g  {'(grasping robot syrup_1)'}
+
+ Pred total_delta_g_inv  {'(on syrup_1 stovefire_2)'}
+
+ GT total_delta_g  {'(grasping robot syrup_1)'}
+
+ GT total_delta_g_inv  {'(on syrup_1 stovefire_2)'}
+
+ Pred action seq   ['moveto syrup_1', 'grasp syrup_1']
+
+ True action seq   ['moveto Syrup_1', 'grasp Syrup_1', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//88_30.json
+three .
+ Pred total_delta_g  {'(near robot coffeetable_1)', '(on coke_1 coffeetable_1)'}
+
+ Pred total_delta_g_inv  {'(on coke_1 armchair_2)'}
+
+ GT total_delta_g  {'(near robot coffeetable_1)', '(on coke_1 coffeetable_1)'}
+
+ GT total_delta_g_inv  {'(on coke_1 armchair_2)'}
+
+ Pred action seq   ['moveto coke_1', 'grasp coke_1', 'moveto coffeetable_1', 'on_keep coke_1 coffeetable_1']
+
+ True action seq   ['moveto Coke_1', 'grasp Coke_1', 'moveto CoffeeTable_1', 'keep Coke_1 On CoffeeTable_1', 'noop']
+
+SJI =  0.9999999966666667
+IED =  0.75
+./data_clean/test//72_23.json
+take the coffee
+ Pred total_delta_g  {'(grasping robot mug_1)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(grasping robot mug_1)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto mug_1', 'grasp mug_1']
+
+ True action seq   ['moveto Mug_1', 'grasp Mug_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//256_93.json
+-take coffee-ice cream-milk-syrup .
+ Pred total_delta_g  {'(near robot fridge)', '(grasping robot icecream_1)', '(state fridge leftdoorisopen)'}
+
+ Pred total_delta_g_inv  {'(on icecream_1 stovefire_4)'}
+
+ GT total_delta_g  {'(near robot fridge)', '(grasping robot icecream_1)', '(state fridge leftdoorisopen)'}
+
+ GT total_delta_g_inv  {'(on icecream_1 stovefire_4)'}
+
+ Pred action seq   ['moveto icecream_1', 'grasp icecream_1', 'moveto fridge', 'open_fridgeleftdoor']
+
+ True action seq   ['moveto IceCream_1', 'grasp IceCream_1', 'moveto Fridge', 'open fridgeleftdoor', 'noop']
+
+SJI =  0.9999999975
+IED =  1.0
+./data_clean/test//171_57.json
+turn on xbox
+ Pred total_delta_g  {'(grasping robot xbox_1)'}
+
+ Pred total_delta_g_inv  {'(on xbox_1 snacktable_1)'}
+
+ GT total_delta_g  {'(grasping robot xbox_1)'}
+
+ GT total_delta_g_inv  {'(on xbox_1 snacktable_1)'}
+
+ Pred action seq   ['moveto xbox_1', 'grasp xbox_1']
+
+ True action seq   ['moveto Xbox_1', 'grasp Xbox_1', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//132_47.json
+-take coffee-ice cream-milk-syrup .
+ Pred total_delta_g  {'(near robot fridge)', '(grasping robot icecream_1)'}
+
+ Pred total_delta_g_inv  {'(on icecream_1 stovefire_4)'}
+
+ GT total_delta_g  {'(near robot fridge)', '(grasping robot icecream_1)', '(state fridge leftdoorisopen)'}
+
+ GT total_delta_g_inv  {'(on icecream_1 stovefire_4)'}
+
+ Pred action seq   ['moveto icecream_1', 'grasp icecream_1', 'moveto fridge']
+
+ True action seq   ['moveto IceCream_1', 'grasp IceCream_1', 'moveto Fridge', 'open fridgeleftdoor', 'noop']
+
+SJI =  0.7499999981250001
+IED =  0.75
+./data_clean/test//363_145.json
+. grab chocolate syrup bottle
+ Pred total_delta_g  {'(grasping robot syrup_2)'}
+
+ Pred total_delta_g_inv  {'(on syrup_2 stovefire_2)'}
+
+ GT total_delta_g  {'(grasping robot syrup_2)'}
+
+ GT total_delta_g_inv  {'(on syrup_2 stovefire_2)'}
+
+ Pred action seq   ['moveto syrup_2', 'grasp syrup_2']
+
+ True action seq   ['moveto Syrup_2', 'grasp Syrup_2', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//289_114.json
+. open the faucet
+ Pred total_delta_g  {'(state kettle water)', '(state sinkknob tapison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(state kettle water)', '(state sinkknob tapison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['turn_sinkknob']
+
+ True action seq   ['turn SinkKnob', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//340_131.json
+down coke
+ Pred total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto tv_1', 'press_tv_1powerbutton']
+
+ True action seq   ['moveto Tv_1', 'press tv_1powerbutton', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//182_64.json
+and pour its contents in the sink
+ Pred total_delta_g  set()
+
+ Pred total_delta_g_inv  {'(state mug_1 coffee)'}
+
+ GT total_delta_g  set()
+
+ GT total_delta_g_inv  {'(state mug_1 coffee)'}
+
+ Pred action seq   ['pour mug_1']
+
+ True action seq   ['pour Mug_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//2_0.json
+. turn on the television
+ Pred total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto tv_1', 'press_tv_1powerbutton']
+
+ True action seq   ['moveto Tv_1', 'press tv_1powerbutton', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//392_155.json
+. grab the ice cream
+ Pred total_delta_g  {'(grasping robot icecream_1)'}
+
+ Pred total_delta_g_inv  {'(on icecream_1 stovefire_2)'}
+
+ GT total_delta_g  {'(grasping robot icecream_1)'}
+
+ GT total_delta_g_inv  {'(on icecream_1 stovefire_2)'}
+
+ Pred action seq   ['moveto icecream_1', 'grasp icecream_1']
+
+ True action seq   ['moveto IceCream_1', 'grasp IceCream_1', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//278_109.json
+open the gamecd with tv
+ Pred total_delta_g  {'(grasping robot cd_1)'}
+
+ Pred total_delta_g_inv  {'(on cd_1 shelf_1)'}
+
+ GT total_delta_g  {'(grasping robot cd_1)'}
+
+ GT total_delta_g_inv  {'(on cd_1 shelf_1)'}
+
+ Pred action seq   ['moveto cd_1', 'grasp cd_1']
+
+ True action seq   ['moveto Cd_1', 'grasp Cd_1', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//215_86.json
+pour the pot's contents into the trash
+ Pred total_delta_g  {'(grasping robot kettle)'}
+
+ Pred total_delta_g_inv  {'(on kettle stovefire_2)'}
+
+ GT total_delta_g  {'(grasping robot kettle)'}
+
+ GT total_delta_g_inv  {'(on kettle stovefire_2)'}
+
+ Pred action seq   ['moveto kettle', 'grasp kettle']
+
+ True action seq   ['moveto Kettle', 'grasp Kettle', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//273_103.json
+put some water into the kettle
+ Pred total_delta_g  {'(state kettle water)', '(on kettle sink)', '(near robot sink)', '(state sinkknob tapison)'}
+
+ Pred total_delta_g_inv  {'(on kettle stovefire_2)'}
+
+ GT total_delta_g  {'(state kettle water)', '(on kettle sink)', '(near robot sink)', '(state sinkknob tapison)'}
+
+ GT total_delta_g_inv  {'(on kettle stovefire_2)'}
+
+ Pred action seq   ['moveto kettle', 'grasp kettle', 'moveto sink', 'keep_on_sink kettle', 'turn_sinkknob']
+
+ True action seq   ['moveto Kettle', 'grasp Kettle', 'moveto Sink', 'keep Kettle On Sink', 'turn SinkKnob', 'noop']
+
+SJI =  0.9999999980000001
+IED =  0.8
+./data_clean/test//140_49.json
+turn on tv
+ Pred total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto tv_1', 'press_tv_1powerbutton']
+
+ True action seq   ['moveto Tv_1', 'press tv_1powerbutton', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//86_26.json
+. grasp the pot
+ Pred total_delta_g  {'(grasping robot kettle)'}
+
+ Pred total_delta_g_inv  {'(on kettle sink)'}
+
+ GT total_delta_g  {'(grasping robot kettle)'}
+
+ GT total_delta_g_inv  {'(on kettle sink)'}
+
+ Pred action seq   ['moveto kettle', 'grasp kettle']
+
+ True action seq   ['moveto Kettle', 'grasp Kettle', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//346_132.json
+pick up coffee mug
+ Pred total_delta_g  {'(grasping robot mug_1)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(grasping robot mug_1)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto mug_1', 'grasp mug_1']
+
+ True action seq   ['moveto Mug_1', 'grasp Mug_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//446_169.json
+first find the shrek 2 movie
+ Pred total_delta_g  {'(grasping robot cd_2)'}
+
+ Pred total_delta_g_inv  {'(on cd_2 shelf_1)'}
+
+ GT total_delta_g  {'(grasping robot cd_2)'}
+
+ GT total_delta_g_inv  {'(on cd_2 shelf_1)'}
+
+ Pred action seq   ['moveto cd_2', 'grasp cd_2']
+
+ True action seq   ['moveto Cd_2', 'grasp Cd_2', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//120_40.json
+. open the chips
+ Pred total_delta_g  {'(grasping robot bagofchips_1)'}
+
+ Pred total_delta_g_inv  {'(on bagofchips_1 armchair_4)'}
+
+ GT total_delta_g  {'(grasping robot bagofchips_1)'}
+
+ GT total_delta_g_inv  {'(on bagofchips_1 armchair_4)'}
+
+ Pred action seq   ['moveto bagofchips_1', 'grasp bagofchips_1']
+
+ True action seq   ['moveto BagOfChips_1', 'grasp BagOfChips_1', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//20_3.json
+. turn on the tv
+ Pred total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto tv_1', 'press_tv_1powerbutton']
+
+ True action seq   ['moveto Tv_1', 'press tv_1powerbutton', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//56_16.json
+. hold the trash bag in one hand
+ Pred total_delta_g  {'(grasping robot garbagebag_1)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(grasping robot garbagebag_1)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto garbagebag_1', 'grasp garbagebag_1']
+
+ True action seq   ['moveto GarbageBag_1', 'grasp GarbageBag_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//363_143.json
+and use it
+ Pred total_delta_g  {'(state spoon_1 scoopsleft)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(state spoon_1 scoopsleft)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['scoop spoon_1 icecream_1']
+
+ True action seq   ['scoop Spoon_1 IceCream_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//70_21.json
+take book
+ Pred total_delta_g  {'(grasping robot book_1)'}
+
+ Pred total_delta_g_inv  {'(on book_1 armchair_3)'}
+
+ GT total_delta_g  {'(grasping robot book_1)'}
+
+ GT total_delta_g_inv  {'(on book_1 armchair_3)'}
+
+ Pred action seq   ['moveto book_1', 'grasp book_1']
+
+ True action seq   ['moveto Book_1', 'grasp Book_1', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//273_104.json
+and use the stove
+ Pred total_delta_g  {'(grasping robot kettle)', '(near robot stove)'}
+
+ Pred total_delta_g_inv  {'(on kettle sink)'}
+
+ GT total_delta_g  {'(grasping robot kettle)', '(state stove stovefire2)', '(near robot stove)'}
+
+ GT total_delta_g_inv  {'(on kettle sink)'}
+
+ Pred action seq   ['moveto kettle', 'grasp kettle', 'moveto stove']
+
+ True action seq   ['moveto Kettle', 'grasp Kettle', 'moveto Stove', 'turn stoveknob_2', 'noop']
+
+SJI =  0.7499999981250001
+IED =  0.75
+./data_clean/test//289_112.json
+grasp the pot,
+ Pred total_delta_g  {'(grasping robot kettle)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(grasping robot kettle)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto kettle', 'grasp kettle']
+
+ True action seq   ['moveto Kettle', 'grasp Kettle', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//362_139.json
+get
+ Pred total_delta_g  {'(grasping robot instantramen_1)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(grasping robot instantramen_1)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto instantramen_1', 'grasp instantramen_1']
+
+ True action seq   ['moveto InstantRamen_1', 'grasp InstantRamen_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//340_130.json
+pick up trash bag
+ Pred total_delta_g  {'(grasping robot garbagebag_1)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(grasping robot garbagebag_1)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto garbagebag_1', 'grasp garbagebag_1']
+
+ True action seq   ['moveto GarbageBag_1', 'grasp GarbageBag_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//299_118.json
+and close the fridge door
+ Pred total_delta_g  set()
+
+ Pred total_delta_g_inv  {'(state fridge rightdoorisopen)'}
+
+ GT total_delta_g  set()
+
+ GT total_delta_g_inv  {'(state fridge rightdoorisopen)'}
+
+ Pred action seq   ['close_fridgerightdoor']
+
+ True action seq   ['close fridgerightdoor', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//192_72.json
+and turn on the fire for that burner
+ Pred total_delta_g  set()
+
+ Pred total_delta_g_inv  {'(state stove stovefire1)'}
+
+ GT total_delta_g  set()
+
+ GT total_delta_g_inv  {'(state stove stovefire1)'}
+
+ Pred action seq   ['turn_stoveknob_1']
+
+ True action seq   ['turn stoveknob_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//129_45.json
+get the egg from the fridge
+ Pred total_delta_g  {'(near robot fridge)', '(grasping robot boiledegg_1)'}
+
+ Pred total_delta_g_inv  {'(on boiledegg_1 stovefire_4)'}
+
+ GT total_delta_g  {'(near robot fridge)', '(grasping robot boiledegg_1)'}
+
+ GT total_delta_g_inv  {'(on boiledegg_1 stovefire_4)'}
+
+ Pred action seq   ['moveto fridge', 'open_fridgerightdoor', 'moveto boiledegg_1', 'grasp boiledegg_1', 'close_fridgerightdoor']
+
+ True action seq   ['moveto Fridge', 'open fridgerightdoor', 'moveto BoiledEgg_1', 'grasp BoiledEgg_1', 'close fridgerightdoor', 'noop']
+
+SJI =  0.9999999966666667
+IED =  1.0
+./data_clean/test//249_90.json
+. hold the trash bag in one hand
+ Pred total_delta_g  {'(grasping robot garbagebag_1)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(grasping robot garbagebag_1)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto garbagebag_1', 'grasp garbagebag_1']
+
+ True action seq   ['moveto GarbageBag_1', 'grasp GarbageBag_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//192_69.json
+turn on the tap, and fill with water turn on the tap,
+ Pred total_delta_g  {'(state kettle water)', '(state sinkknob tapison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(state kettle water)', '(state sinkknob tapison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['turn_sinkknob']
+
+ True action seq   ['turn SinkKnob', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//363_141.json
+and grab ice cream
+ Pred total_delta_g  {'(grasping robot icecream_1)'}
+
+ Pred total_delta_g_inv  {'(on icecream_1 stovefire_2)'}
+
+ GT total_delta_g  {'(grasping robot icecream_1)'}
+
+ GT total_delta_g_inv  {'(on icecream_1 stovefire_2)'}
+
+ Pred action seq   ['moveto icecream_1', 'grasp icecream_1']
+
+ True action seq   ['moveto IceCream_1', 'grasp IceCream_1', 'noop']
+
+SJI =  0.999999995
+IED =  1.0
+./data_clean/test//323_127.json
+and pour it in the bigger plate
+ Pred total_delta_g  set()
+
+ Pred total_delta_g_inv  {'(state mug_1 coffee)'}
+
+ GT total_delta_g  set()
+
+ GT total_delta_g_inv  {'(state mug_1 coffee)'}
+
+ Pred action seq   ['pour mug_1']
+
+ True action seq   ['pour Mug_1', 'noop']
+
+SJI =  0.9999999900000002
+IED =  1.0
+./data_clean/test//62_20.json
+. turn on the television
+ Pred total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ Pred total_delta_g_inv  set()
+
+ GT total_delta_g  {'(near robot tv_1)', '(state tv_1 ison)'}
+
+ GT total_delta_g_inv  set()
+
+ Pred action seq   ['moveto tv_1', 'press_tv_1powerbutton']
+
+ True action seq   ['moveto Tv_1', 'press tv_1powerbutton', 'noop']
+
+SJI =  0.999999995
+IED =  1.0

@@ -31,7 +31,6 @@ class Simple_Model(nn.Module):
         self.graph_embed = nn.Sequential(nn.Linear(in_feats, n_hidden), self.activation)
         self.goal_obj_attention = nn.Sequential(nn.Linear(n_hidden * 2, 1), nn.Softmax(dim=0))
         self.fc = nn.Sequential(nn.Linear(n_hidden * 4, n_hidden), self.activation)
-        #self.lstm = nn.LSTM(n_hidden, n_hidden)
         self.pred_lstm = nn.LSTM((len(all_relations) + 1 + 2 * PRETRAINED_VECTOR_SIZE), n_hidden)
         self.action = nn.Sequential(nn.Linear(n_hidden, len(all_relations) + 1), nn.Softmax(dim=0)) # +1 for null delta_g
         self.obj1 = nn.Sequential(nn.Linear(n_hidden + len(all_relations) + 1, n_objects),  nn.Softmax(dim=0))
@@ -42,7 +41,7 @@ class Simple_Model(nn.Module):
         self.obj2_inv = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_objects), nn.Softmax(dim=0))
         self.state_inv = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_states), nn.Softmax(dim=0))
 
-    def forward(self, g, goalVec, goalObjectsVec, pred, pred_inv, lstm_hidden=None, lstm_hidden_pred = None):
+    def forward(self, g, goalVec, goalObjectsVec, pred, pred_inv, lstm_hidden=None):
         # embed graph, goal vec based attention
         h = g.ndata['feat']
         goal_embed = self.embed_sbert(goalVec)
@@ -58,13 +57,8 @@ class Simple_Model(nn.Module):
 
         # feed predicted constraint in LSTM
         lstm_h = (torch.randn(1, 1, self.n_hidden),torch.randn(1, 1, self.n_hidden)) if lstm_hidden is None else lstm_hidden
-        #pred_hist, lstm_hidden_pred = self.pred_lstm(torch.cat([string2embed(pred), string2embed(pred_inv)]).view(1,1,-1), lstm_h)
         pred_hist, lstm_hidden = self.pred_lstm(torch.cat([string2embed(pred)]).view(1,1,-1), lstm_h)
         
-        #feed updated graph in LSTM
-        #lstm_h = (torch.randn(1, 1, self.n_hidden),torch.randn(1, 1, self.n_hidden)) if lstm_hidden is None else lstm_hidden
-        #h_hist, lstm_hidden = self.lstm(h_embed.view(1,1,-1), lstm_h)
-
         final_to_decode = self.fc(torch.cat([h_embed, goal_obj_embed, goal_embed, pred_hist.view(-1)]))
     
         # head 1 (delta_g)

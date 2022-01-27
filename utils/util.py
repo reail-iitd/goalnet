@@ -15,7 +15,7 @@ from optparse import OptionParser
 
 parser = OptionParser()
 parser.add_option("-m", "--model", action="store", dest="model", default="Simple",
-                  choices=['Simple', 'GGCN', 'HAN'], help="model type")
+                  choices=['Simple', 'GGCN', 'GCN', 'HAN'], help="model type")
 parser.add_option("-e", "--expname", action="store", dest="expname", default="",
                   help="experiment name")
 parser.add_option("-r", "--train", action="store", dest="train", default="train",
@@ -30,7 +30,7 @@ opts, args = parser.parse_args()
 
 def obj_set(env_domain):
     return all_objects # all_objects_kitchen if env_domain == 'kitchen' else all_objects_living
-
+       
 def create_pddl(init, objects, goal_list, file_name, inverse=False):
     f = open(file_name + ".pddl", "w")
     f.write("(define \n(problem tmp) \n(:objects ")
@@ -156,11 +156,27 @@ def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l)
             l_sum += l_obj2
     return l_sum
 
+def correct_act(action, pred):
+    if len(action)==0:
+        return action
+    action = action.replace("'", "")
+    if pred:
+        action_new = "_".join(action.strip().split())
+        return action_new
+    else:
+        words = action.strip().split()
+        if len(words)>0 and words[0] == "keep" and words[-1] == "sink":
+            action = "keep_on_sink " + words[1]
+        elif len(words)>0 and words[0] == "keep":
+            action = "on_keep " + words[1] +  " " + words[3]
+        action_new = "_".join(action.strip().split())
+        return action_new
+
 def get_ied(instseq1, instseq2):
-    instseq1 = [act.lower() for act in instseq1]
-    instseq2 = [act.lower() for act in instseq2]
-    instseq1 = [i.lower().replace('_', ' ') for i in instseq1]
-    instseq2 = [i.lower().replace('_', ' ') for i in instseq2]
+    instseq1 = [correct_act(act.lower(), True) for act in instseq1]
+    instseq2 = [correct_act(act.lower(), False) for act in instseq2]
+    # instseq1 = [i.lower().replace('_', ' ') for i in instseq1]
+    # instseq2 = [i.lower().replace('_', ' ') for i in instseq2]
     m = len(instseq1)
     n = len(instseq2)
     if min(m,n) == 0: return 0
@@ -413,7 +429,7 @@ def eval_accuracy(data, model, verbose = False):
             #     if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
             #     if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
             #     if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])
-                continue
+            #     continue
             planner_action, state, state_dict = run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
             if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i] if i < len(dp.action_seq) else "")
             if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i] if i < len(dp.delta_g) else "")

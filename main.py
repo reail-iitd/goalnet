@@ -15,7 +15,7 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
         teacher_forcing = random.random()
         state = dp.states[0]
         for i in range(len(dp.states)):
-            if teacher_forcing < 0.8 or epoch < 0.4 * NUM_EPOCHS or i == 0 or not train:
+            if (train and (teacher_forcing < 0.8 or epoch < 0.4 * NUM_EPOCHS))  or i == 0:
                 state, state_dict = dp.states[i], dp.state_dict[i]
             else:
                 _, state, state_dict = run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv)
@@ -31,6 +31,7 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
             dp_loss += loss; dp_acc += dp_acc_i
         if train:
             optimizer.zero_grad(); dp_loss.backward(); 
+            # torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=2.0, norm_type=2)
             # if epoch==1: plot_grad_flow(model.named_parameters(), f'gradients_{iter_num}.pdf')
             optimizer.step()
         acc += (dp_acc / len(dp.states)); dp_loss /= len(dp.states); total_loss += dp_loss
@@ -58,7 +59,7 @@ if __name__ == '__main__':
     train_loss_arr = []
     val_loss_arr = []
 
-    lrate = 0.0005
+    lrate = 0.0001
     optimizer = torch.optim.Adam(model.parameters(), lr=lrate)
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=50, gamma=0.2)
 

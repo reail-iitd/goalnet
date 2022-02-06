@@ -221,7 +221,6 @@ class GCN_Model(nn.Module):
         pred2_object_inv = self.obj2(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
         pred2_state_inv = self.state(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
 
-        print(action, pred1_object, pred2_object, pred2_state)
         return (action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv), lstm_hidden
 
 class HAN_Model(nn.Module):

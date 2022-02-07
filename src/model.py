@@ -157,7 +157,7 @@ class GCN_Model(nn.Module):
         self.name = "GCN_Model"
         self.n_hidden = n_hidden
         self.activation = nn.PReLU()
-        self.skip_connection = nn.Sequential(nn.Linear(in_feats, 2), nn.Softmax(dim=0))
+        self.skip_connection = nn.Sequential(nn.Linear(in_feats * 2, 2), nn.Softmax(dim=0))
         self.gcn = HeteroRGCNLayer(in_feats, in_feats, etypes, activation=self.activation)
         self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
         self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
@@ -190,7 +190,7 @@ class GCN_Model(nn.Module):
         h_gcn_embed = torch.mm(attn_weights_h_gcn.t(), h_gcn).view(-1)
 
         # weighted skip connection
-        weights = self.skip_connection(h_embed)
+        weights = self.skip_connection(torch.cat([h_embed, h_gcn_embed]))
         h_embed = weights[0] * h_embed + weights[1] * h_gcn_embed
         h_embed = self.graph_embed(h_embed)
 

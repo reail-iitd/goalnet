@@ -2,6 +2,7 @@ import pickle
 import dgl
 import numpy as np
 import os
+import json
 from os import path
 import torch
 from tqdm import tqdm, trange
@@ -25,6 +26,8 @@ parser.add_option("-v", "--val", action="store", dest="val", default="val",
 parser.add_option("-t", "--test", action="store", dest="test", default="test",
                   help="testing set folder")
 parser.add_option("-n", "--nofixlen", action="store_true", dest="nofixlen", default=False,
+                  help="run with stopping criterion = GT plan length")
+parser.add_option("-s", "--save", action="store_true", dest="save_json", default=False,
                   help="run with stopping criterion = GT plan length")
 opts, args = parser.parse_args()
 
@@ -252,6 +255,22 @@ def get_f1_index(state_dict, init_state_dict, true_state_dict, init_true_state_d
     recall = num / (len(true_delta_g) + len(true_delta_g_inv) + 1e-8)
     return 2 * precision * recall / (precision + recall + 1e-8)
 
+def get_goal_reaching(state_dict, init_state_dict, true_state_dict, init_true_state_dict):
+    state_dict = [st.lower() for st in state_dict]
+    init_state_dict = [st.lower() for st in init_state_dict]
+    true_state_dict = [st.lower() for st in true_state_dict]
+    init_true_state_dict = [st.lower() for st in init_true_state_dict]
+    total_delta_g = set(state_dict).difference(set(init_state_dict))
+    total_delta_g_inv = set(init_state_dict).difference(set(state_dict))
+    true_delta_g = set(true_state_dict).difference(set(init_true_state_dict))
+    true_delta_g_inv = set(init_true_state_dict).difference(set(true_state_dict))
+    
+    if len(set(true_delta_g) - set(total_delta_g)) == 0: # total_delta_g is superset of true_delta_g
+        if len(set(true_delta_g_inv) - set(total_delta_g_inv)) == 0:
+            return 1
+    
+    return 0
+
 def convert(state):
     converted_state = []
     for i in range(len(state)):
@@ -408,44 +427,77 @@ def run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose = Fal
     return planner_action, state, state_dict
 
 def eval_accuracy(data, model, verbose = False):
-    sji, f1, ied, fb, fbs = 0, 0, 0, 0, 0
+    sji, f1, ied, fb, fbs, grr = 0, 0, 0, 0, 0, 0
     max_len = max([len(dp.states) - 1 for dp in data.dp_list])
     pred_delta, pred_delta_inv = '',''
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
         state = dp.states[0]; state_dict = dp.state_dict[0]
         init_state_dict = dp.state_dict[0]
         action_seq = []
-        for i in range(len(dp.states) - 1 if opts.nofixlen else max_len):
-            if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
-            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
-            action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
-            pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
-            pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
-            if pred_delta == '' and pred_delta_inv == '':
-                break
-            # dp_acc_i = int(pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]) 
-            # if dp_acc_i:
-            #     action_seq.append(dp.action_seq[i])
-            #     state = dp.states[i+1]; state_dict = dp.state_dict[i+1]
-            #     if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
-            #     if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
-            #     if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])
-            #     continue
-            planner_action, state, state_dict = run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
-            if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i] if i < len(dp.action_seq) else "")
-            if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i] if i < len(dp.delta_g) else "")
-            if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i]if i < len(dp.delta_g_inv) else "")
-            action_seq.extend(planner_action)
+        json_file_name = dp.file_path.split("/")[-1].split(".")[0] + "_eval.json"
+        json_dict = {}
+        ############################
+        if not opts.save_json:
+            result_folder_exp = './results/' + opts.expname + '/eval_json/'
+            if os.path.exists(result_folder_exp + json_file_name):
+                with open(result_folder_exp + json_file_name) as json_file:
+                    data = json.load(json_file)
+                action_seq = data["planner_action"]
+                for i in range(len(data["pred_delta"])):
+                    pred_delta, pred_delta_inv = data["pred_delta"][i], data["pred_delta_inv"][i]
+                    planner_action, state_dict = data["planner_action"][i], data["planner_state_dict"][i]
+                else:
+                    "ERROR: Path to the json doesn't exist!"
+            
+        else:
+            print("Save the output to json for ", json_file_name)
+            for i in range(len(dp.states) - 1 if opts.nofixlen else max_len):
+                if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
+                pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
+                action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
+                pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
+                pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
+                if pred_delta == '' and pred_delta_inv == '':
+                    break
+                # dp_acc_i = int(pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]) 
+                # if dp_acc_i:
+                #     action_seq.append(dp.action_seq[i])
+                #     state = dp.states[i+1]; state_dict = dp.state_dict[i+1]
+                #     if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
+                #     if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
+                #     if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])
+                #     continue
+                planner_action, state, state_dict = run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
+                if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i] if i < len(dp.action_seq) else "")
+                if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i] if i < len(dp.delta_g) else "")
+                if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i]if i < len(dp.delta_g_inv) else "")
+                action_seq.extend(planner_action)
+
+                ############################
+                json_dict["pred_delta"] =  [pred_delta] if i==0 else json_dict["pred_delta"] + [pred_delta]
+                json_dict["pred_delta_inv"] =  [pred_delta_inv] if i==0 else json_dict["pred_delta_inv"] + [pred_delta_inv]
+                json_dict["planner_action"] = [planner_action] if i==0 else json_dict["planner_action"] + [planner_action]
+                json_dict["planner_state_dict"] = [state_dict] if i==0 else json_dict["planner_state_dict"] + [state_dict]
+
+            ############################
+            result_folder_exp = './results/' + opts.expname + '/eval_json/'
+            print(type(json_dict))
+            json_string = json.dumps(json_dict)
+            os.makedirs(result_folder_exp, exist_ok=True)
+            with open(result_folder_exp + json_file_name, 'w') as outfile:
+                outfile.write(json_string)
+
         if verbose: print("SJI ------------ ", get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0], verbose=verbose))
         sji += get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0], verbose=verbose)
         f1 += get_f1_index(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         fb += get_fbeta(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         fbs += get_fbeta_state(state_dict, dp.state_dict[-1])
         ied += get_ied(action_seq, dp.action_seq[:-1])
+        grr += get_goal_reaching(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         if verbose: print(color.GREEN, 'Pred action seq ', color.ENDC, action_seq)
         if verbose: print(color.GREEN, 'True action seq ', color.ENDC, dp.action_seq)
         if verbose: print("IED ------------ ", get_ied(action_seq, dp.action_seq[:-1]))
-    return sji / len(data.dp_list), f1 / len(data.dp_list), ied / len(data.dp_list), fb / len(data.dp_list), fbs / len(data.dp_list)
+    return sji / len(data.dp_list), f1 / len(data.dp_list), ied / len(data.dp_list), fb / len(data.dp_list), fbs / len(data.dp_list), grr / len(data.dp_list)
 
 def confusion_matrix(l1, l2, classes):
     cf = np.zeros([classes, classes])

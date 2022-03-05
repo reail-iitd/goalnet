@@ -2,6 +2,7 @@ import pickle
 import dgl
 import numpy as np
 import os
+import json
 from os import path
 import torch
 from tqdm import tqdm, trange
@@ -15,7 +16,7 @@ from optparse import OptionParser
 
 parser = OptionParser()
 parser.add_option("-m", "--model", action="store", dest="model", default="Simple",
-                  choices=['Simple', 'GGCN', 'HAN'], help="model type")
+                  choices=['Simple', 'GGCN', 'GCN', 'HAN'], help="model type")
 parser.add_option("-e", "--expname", action="store", dest="expname", default="",
                   help="experiment name")
 parser.add_option("-r", "--train", action="store", dest="train", default="train",
@@ -26,11 +27,13 @@ parser.add_option("-t", "--test", action="store", dest="test", default="test",
                   help="testing set folder")
 parser.add_option("-n", "--nofixlen", action="store_true", dest="nofixlen", default=False,
                   help="run with stopping criterion = GT plan length")
+parser.add_option("-s", "--save", action="store_true", dest="save_json", default=False,
+                  help="run with stopping criterion = GT plan length")
 opts, args = parser.parse_args()
 
 def obj_set(env_domain):
     return all_objects # all_objects_kitchen if env_domain == 'kitchen' else all_objects_living
-
+       
 def create_pddl(init, objects, goal_list, file_name, inverse=False):
     f = open(file_name + ".pddl", "w")
     f.write("(define \n(problem tmp) \n(:objects ")
@@ -140,11 +143,46 @@ def loss_function(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l)
             l_sum += l_obj2
     return l_sum
 
+def loss_function_ce(action, pred1_obj, pred2_obj, pred2_state, y_true, delta_g, l):
+    a_vect, obj1_vect, obj2_vect, state_vect = y_true
+    target_a = torch.ones(1, dtype=torch.long) * a_vect.argmax()
+    action = torch.unsqueeze(action, 0)
+    # print(action, action.shape)
+    # print(target_a, target_a.shape)
+    l_sum = l(action, target_a)/N_relations
+    if delta_g:
+        target_obj1 = torch.ones(1, dtype=torch.long) * obj1_vect.argmax()
+        l_sum += l(torch.unsqueeze(pred1_obj,0), target_obj1)/N_objects
+        if a_vect[0] == 1: #state
+            target_state = torch.ones(1, dtype=torch.long) * state_vect.argmax()
+            l_sum += l(torch.unsqueeze(pred2_state,0), target_state)/N_fluents
+        else:
+            target_obj2 = torch.ones(1, dtype=torch.long) * obj2_vect.argmax()
+            l_sum += l(torch.unsqueeze(pred2_obj,0), target_obj2)/N_objects
+    return l_sum
+
+def correct_act(action, pred):
+    if len(action)==0:
+        return action
+    action = action.replace("'", "")
+    if pred:
+        action_new = "_".join(action.strip().split())
+        return action_new
+    else:
+        words = action.strip().split()
+        if len(words)>0 and words[0] == "keep" and words[-1] == "sink":
+            action = "keep_on_sink " + words[1]
+        elif len(words)>0 and words[0] == "keep":
+            action = "on_keep " + words[1] +  " " + words[3]
+        action_new = "_".join(action.strip().split())
+        return action_new
+
 def get_ied(instseq1, instseq2):
-    instseq1 = [act.lower() for act in instseq1]
-    instseq2 = [act.lower() for act in instseq2]
-    instseq1 = [i.lower().replace('_', ' ') for i in instseq1]
-    instseq2 = [i.lower().replace('_', ' ') for i in instseq2]
+    # print(instseq1)
+    instseq1 = [correct_act(act.lower(), True) for act in instseq1]
+    instseq2 = [correct_act(act.lower(), False) for act in instseq2]
+    # instseq1 = [i.lower().replace('_', ' ') for i in instseq1]
+    # instseq2 = [i.lower().replace('_', ' ') for i in instseq2]
     m = len(instseq1)
     n = len(instseq2)
     if min(m,n) == 0: return 0
@@ -219,6 +257,22 @@ def get_f1_index(state_dict, init_state_dict, true_state_dict, init_true_state_d
     precision = num / (len(total_delta_g) + len(total_delta_g_inv) + 1e-8)
     recall = num / (len(true_delta_g) + len(true_delta_g_inv) + 1e-8)
     return 2 * precision * recall / (precision + recall + 1e-8)
+
+def get_goal_reaching(state_dict, init_state_dict, true_state_dict, init_true_state_dict):
+    state_dict = [st.lower() for st in state_dict]
+    init_state_dict = [st.lower() for st in init_state_dict]
+    true_state_dict = [st.lower() for st in true_state_dict]
+    init_true_state_dict = [st.lower() for st in init_true_state_dict]
+    total_delta_g = set(state_dict).difference(set(init_state_dict))
+    total_delta_g_inv = set(init_state_dict).difference(set(state_dict))
+    true_delta_g = set(true_state_dict).difference(set(init_true_state_dict))
+    true_delta_g_inv = set(init_true_state_dict).difference(set(true_state_dict))
+    
+    if len(set(true_delta_g) - set(total_delta_g)) == 0: # total_delta_g is superset of true_delta_g
+        if len(set(true_delta_g_inv) - set(total_delta_g_inv)) == 0:
+            return 1
+    
+    return 0
 
 def convert(state):
     converted_state = []
@@ -351,14 +405,20 @@ def run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv, verbos
     state = dp.convertToDGLGraph(state_dict)
     return [], state, state_dict
 
-def run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
+def run_planner(state, state_dict, dp, pred_delta="", pred_delta_inv="", verbose = False):
     if verbose: print(color.GREEN, 'Pred Delta', color.ENDC, pred_delta.lower())
     if verbose: print(color.GREEN, 'Pred Delta inv', color.ENDC, pred_delta_inv.lower())
     state_dict_lower = [rel.lower() for rel in state_dict]
+    
+    ######## no delta_g_inv
+    # create_pddl(state_dict_lower, obj_set(dp.env_domain), [pred_delta.lower()], './planner/eval')
+    
+    ######## both delta_g and delta_g_inv
     if pred_delta != '':
         create_pddl(state_dict_lower, obj_set(dp.env_domain), [pred_delta.lower()], './planner/eval')
     else:
         create_pddl(state_dict_lower, obj_set(dp.env_domain), [pred_delta_inv.lower()], './planner/eval', inverse=True)
+    ########
     out = subprocess.Popen(['bash', './planner/run_final_state.sh', './planner/eval.pddl'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     stdout, stderr = out.communicate()
     planner_action = get_steps(str(stdout))
@@ -376,43 +436,85 @@ def run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose = Fal
     return planner_action, state, state_dict
 
 def eval_accuracy(data, model, verbose = False):
-    sji, f1, ied, fb, fbs = 0, 0, 0, 0, 0
+    sji, f1, ied, fb, fbs, grr = 0, 0, 0, 0, 0, 0
     max_len = max([len(dp.states) - 1 for dp in data.dp_list])
+    pred_delta, pred_delta_inv = '',''
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
         state = dp.states[0]; state_dict = dp.state_dict[0]
         init_state_dict = dp.state_dict[0]
         action_seq = []
-        for i in range(len(dp.states) - 1 if opts.nofixlen else max_len):
-            if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
-            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
-            action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
-            pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
-            pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
-            if pred_delta == '' and pred_delta_inv == '':
-                break
-            # dp_acc_i = int(pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]) 
-            # if dp_acc_i:
-            #     action_seq.append(dp.action_seq[i])
-            #     state = dp.states[i+1]; state_dict = dp.state_dict[i+1]
-            #     if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i])
-            #     if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i])
-            #     if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i])
-                continue
-            planner_action, state, state_dict = run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
-            if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i] if i < len(dp.action_seq) else "")
-            if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i] if i < len(dp.delta_g) else "")
-            if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i]if i < len(dp.delta_g_inv) else "")
-            action_seq.extend(planner_action)
+        json_file_name = dp.file_path.split("/")[-1].split(".")[0] + "_eval.json"
+        json_dict = {}
+        ############################
+        if not opts.save_json:
+            result_folder_exp = './results/' + opts.expname + '/eval_json/'
+            if os.path.exists(result_folder_exp + json_file_name):
+                with open(result_folder_exp + json_file_name) as json_file:
+                    data_json = json.load(json_file)
+                if len(data_json["planner_action"])>0 and type(data_json["planner_action"][0]) == list:
+                    action_seq = []
+                    for d in data_json["planner_action"]:
+                        action_seq += d
+                else:
+                    action_seq = data_json["planner_action"]
+                state_dict = data_json["planner_state_dict"][-1]
+                # for i in range(len(data["pred_delta"])):
+                #     pred_delta, pred_delta_inv = data["pred_delta"][i], data["pred_delta_inv"][i]
+                    # planner_action, state_dict = data["planner_action"][i], data["planner_state_dict"][i]
+                # else:
+                #     "ERROR: Path to the json doesn't exist!"
+            
+        else:
+            print("Save the output to json for ", json_file_name)
+            for i in range(len(dp.states) - 1 if opts.nofixlen else max_len):
+                if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
+                # ########### both delta positive and negative ###########
+                pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
+                action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
+                pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
+                pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
+                if pred_delta == '' and pred_delta_inv == '':
+                    break
+                planner_action, state, state_dict = run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
+                ###########
+
+                # ########### only delta positive ###########
+                # pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
+                # action, pred1_object, pred2_object, pred2_state = pred
+                # pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
+                # planner_action, state, state_dict = run_planner(state, state_dict, dp, pred_delta, verbose=verbose)
+                ###########
+
+                if verbose: print(color.GREEN, 'GT action', color.ENDC, dp.action_seq[i] if i < len(dp.action_seq) else "")
+                if verbose: print(color.GREEN, 'GT Delta_g', color.ENDC, dp.delta_g[i] if i < len(dp.delta_g) else "")
+                if verbose: print(color.GREEN, 'GT Delta_g_inv', color.ENDC, dp.delta_g_inv[i]if i < len(dp.delta_g_inv) else "")
+                action_seq.extend(planner_action)
+
+                ############################
+                json_dict["pred_delta"] =  [pred_delta] if i==0 else json_dict["pred_delta"] + [pred_delta]
+                json_dict["pred_delta_inv"] =  [pred_delta_inv] if i==0 else json_dict["pred_delta_inv"] + [pred_delta_inv]
+                json_dict["planner_action"] = planner_action if i==0 else json_dict["planner_action"] + planner_action
+                json_dict["planner_state_dict"] = [state_dict] if i==0 else json_dict["planner_state_dict"] + [state_dict]
+
+            ############################
+            result_folder_exp = './results/' + opts.expname + '/eval_json/'
+            # print(type(json_dict))
+            json_string = json.dumps(json_dict)
+            os.makedirs(result_folder_exp, exist_ok=True)
+            with open(result_folder_exp + json_file_name, 'w') as outfile:
+                outfile.write(json_string)
+
         if verbose: print("SJI ------------ ", get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0], verbose=verbose))
         sji += get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0], verbose=verbose)
         f1 += get_f1_index(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         fb += get_fbeta(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         fbs += get_fbeta_state(state_dict, dp.state_dict[-1])
         ied += get_ied(action_seq, dp.action_seq[:-1])
+        grr += get_goal_reaching(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         if verbose: print(color.GREEN, 'Pred action seq ', color.ENDC, action_seq)
         if verbose: print(color.GREEN, 'True action seq ', color.ENDC, dp.action_seq)
         if verbose: print("IED ------------ ", get_ied(action_seq, dp.action_seq[:-1]))
-    return sji / len(data.dp_list), f1 / len(data.dp_list), ied / len(data.dp_list), fb / len(data.dp_list), fbs / len(data.dp_list)
+    return sji / len(data.dp_list), f1 / len(data.dp_list), ied / len(data.dp_list), fb / len(data.dp_list), fbs / len(data.dp_list), grr / len(data.dp_list)
 
 def confusion_matrix(l1, l2, classes):
     cf = np.zeros([classes, classes])

@@ -8,29 +8,43 @@ NUM_EPOCHS = 100
 def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEnc=None, batch_size=1, train=True):
     total_loss = 0.0
     l = nn.BCELoss()
-    acc = 0
+    # l = nn.CrossEntropyLoss()
+    acc = 0; pred_delta, pred_delta_inv = '',''
 
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
         dp_loss, dp_acc = 0, 0
         teacher_forcing = random.random()
         state = dp.states[0]
         for i in range(len(dp.states)):
-            if teacher_forcing < 0.8 or epoch < 0.4 * NUM_EPOCHS or i == 0 or not train:
+            if (train and (teacher_forcing < 0.8 or epoch < 0.4 * NUM_EPOCHS))  or i == 0:
                 state, state_dict = dp.states[i], dp.state_dict[i]
             else:
                 _, state, state_dict = run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv)
             delta_g_true = dp.delta_g_embed[i]
-            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, l_h if i else None)
+            # ########### both delta positive and negative ###########
+            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
             action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
             loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
             loss += loss_function(action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.delta_g_inv_embed[i], dp.delta_g_inv[i], l)
             pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
             pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
-            dp_acc_i = int((pred_delta == '' and pred_delta_inv == '' and dp.delta_g[i] == [] and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]) 
+            dp_acc_i = int((pred_delta == '' and pred_delta_inv == '' and dp.delta_g[i] == [] and dp.delta_g_inv[i] == []) or pred_delta in dp.delta_g[i] or pred_delta_inv in dp.delta_g_inv[i]) 
             # if epoch > 200 and dp_acc_i == 0: print(pred_delta, dp.delta_g[i])
             dp_loss += loss; dp_acc += dp_acc_i
+            ###########
+
+            # ########### only delta positive ###########
+            # pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
+            # action, pred1_object, pred2_object, pred2_state = pred
+            # loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
+            # pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
+            # dp_acc_i = int((pred_delta == '' and dp.delta_g[i] == []) or pred_delta in dp.delta_g[i]) 
+            # dp_loss += loss; dp_acc += dp_acc_i
+            ###########
+
         if train:
             optimizer.zero_grad(); dp_loss.backward(); 
+            # torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=2.0, norm_type=2)
             # if epoch==1: plot_grad_flow(model.named_parameters(), f'gradients_{iter_num}.pdf')
             optimizer.step()
         acc += (dp_acc / len(dp.states)); dp_loss /= len(dp.states); total_loss += dp_loss

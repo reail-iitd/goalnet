@@ -26,6 +26,7 @@ class Simple_Model(nn.Module):
         self.n_hidden = n_hidden
         self.activation = nn.PReLU()
         self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
+        # self.embed_sbert = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
         self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
         self.graph_attn = nn.Sequential(nn.Linear(in_feats + n_hidden, 1), nn.Softmax(dim=1))
         self.graph_embed = nn.Sequential(nn.Linear(in_feats, n_hidden), self.activation)
@@ -73,10 +74,11 @@ class Simple_Model(nn.Module):
         one_hot_action_inv = gumbel_softmax(action_inv, 0.01)
         pred1_object_inv = self.obj1_inv(torch.cat([final_to_decode, one_hot_action_inv]))
         one_hot_pred1_inv = gumbel_softmax(pred1_object_inv, 0.01)
-        pred2_object_inv = self.obj2(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
-        pred2_state_inv = self.state(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
+        pred2_object_inv = self.obj2_inv(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
+        pred2_state_inv = self.state_inv(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
 
         return (action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv), lstm_hidden
+        # return (action, pred1_object, pred2_object, pred2_state), lstm_hidden
 
 class GGCN_Model(nn.Module):
     def __init__(self,
@@ -141,8 +143,8 @@ class GGCN_Model(nn.Module):
         one_hot_action_inv = gumbel_softmax(action_inv, 0.01)
         pred1_object_inv = self.obj1_inv(torch.cat([final_to_decode, one_hot_action_inv]))
         one_hot_pred1_inv = gumbel_softmax(pred1_object_inv, 0.01)
-        pred2_object_inv = self.obj2(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
-        pred2_state_inv = self.state(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
+        pred2_object_inv = self.obj2_inv(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
+        pred2_state_inv = self.state_inv(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
 
         return (action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv), lstm_hidden
 
@@ -218,8 +220,8 @@ class GCN_Model(nn.Module):
         one_hot_action_inv = gumbel_softmax(action_inv, 0.01)
         pred1_object_inv = self.obj1_inv(torch.cat([final_to_decode, one_hot_action_inv]))
         one_hot_pred1_inv = gumbel_softmax(pred1_object_inv, 0.01)
-        pred2_object_inv = self.obj2(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
-        pred2_state_inv = self.state(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
+        pred2_object_inv = self.obj2_inv(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
+        pred2_state_inv = self.state_inv(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
 
         return (action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv), lstm_hidden
 
@@ -295,7 +297,7 @@ class HAN_Model(nn.Module):
         one_hot_action_inv = gumbel_softmax(action_inv, 0.01)
         pred1_object_inv = self.obj1_inv(torch.cat([final_to_decode, one_hot_action_inv]))
         one_hot_pred1_inv = gumbel_softmax(pred1_object_inv, 0.01)
-        pred2_object_inv = self.obj2(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
-        pred2_state_inv = self.state(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
+        pred2_object_inv = self.obj2_inv(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
+        pred2_state_inv = self.state_inv(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
 
         return (action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv), lstm_hidden

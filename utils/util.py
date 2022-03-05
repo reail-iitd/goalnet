@@ -421,7 +421,7 @@ def run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv, verbos
     state = dp.convertToDGLGraph(state_dict)
     return [], state, state_dict
 
-def run_planner(state, state_dict, dp, pred_delta, pred_delta_inv="", verbose = False):
+def run_planner(state, state_dict, dp, pred_delta="", pred_delta_inv="", verbose = False):
     if verbose: print(color.GREEN, 'Pred Delta', color.ENDC, pred_delta.lower())
     if verbose: print(color.GREEN, 'Pred Delta inv', color.ENDC, pred_delta_inv.lower())
     state_dict_lower = [rel.lower() for rel in state_dict]

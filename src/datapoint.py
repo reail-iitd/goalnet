@@ -66,6 +66,12 @@ class Datapoint:
         node_prop = torch.zeros([n_nodes, len(all_non_fluents)], dtype=torch.float)  # Non-fluent vector
         node_fluents = torch.zeros([n_nodes, MAX_REL], dtype=torch.float) # fluent states
         node_vectors = torch.zeros([n_nodes, word_embed_size], dtype=torch.float)  # Conceptnet embedding
+        adj_matrix = torch.zeros([n_nodes, N_objects], dtype=torch.float)  # Relations with other adjacent nodes
+        
+        for edge in graph_data["edges"]:
+            if not edge['relation'] == "Empty":
+                adj_matrix[edge["from"]][edge["to"]] = 1
+
         for i, node in enumerate(graph_data["nodes"]):
             if not node['populate']: continue
             states = node["state_var"]
@@ -80,15 +86,19 @@ class Datapoint:
                     idx = all_non_fluents.index(state)
                     node_prop[node_id][idx] = 1  # node_states is a 2D matrix of objects * states
             node_vectors[node_id] = torch.FloatTensor(node["vector"])
-        feat_mat = torch.cat((node_vectors, node_fluents, node_prop), 1)
+        # feat_mat = torch.cat((node_vectors, node_fluents, node_prop, node_vectors), 1)
         g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)
-        return g
+        return g, adj_matrix 
 
     # returns a complete encoding of initial_state to dgl graph and language embedding for a datapoint
     def encode_datapoint(self):
         self.env_domain = get_env_domain(self.states[0])
         self.sent_embed  = torch.tensor(form_goal_vec_sBERT(self.sent), dtype=torch.float)
-        self.states = [self.convertToDGLGraph(state) for state in self.states]
+        # self.sent_embed  = torch.tensor(dense_vector_embed(self.sent), dtype=torch.float)
+        self.adj_matrix = [self.convertToDGLGraph(state)[1] for state in self.states]
+
+        self.states = [self.convertToDGLGraph(state)[0] for state in self.states]
+        
         self.goal_obj_embed = torch.tensor(goalObjEmbedArgMap(self.sent, self.goal_objects), dtype=torch.float)
         if 0 in self.goal_obj_embed.shape:
             self.goal_obj_embed = torch.zeros(1, PRETRAINED_VECTOR_SIZE)

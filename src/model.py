@@ -27,6 +27,7 @@ class Simple_Model(nn.Module):
         self.activation = nn.PReLU()
         self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
         # self.embed_sbert = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
+        self.embed_adj = nn.Sequential(nn.Linear(n_objects, 1), nn.Softmax(dim=1))
         self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
         self.graph_attn = nn.Sequential(nn.Linear(in_feats + n_hidden, 1), nn.Softmax(dim=1))
         self.graph_embed = nn.Sequential(nn.Linear(in_feats, n_hidden), self.activation)
@@ -42,9 +43,13 @@ class Simple_Model(nn.Module):
         self.obj2_inv = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_objects), nn.Softmax(dim=0))
         self.state_inv = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_states), nn.Softmax(dim=0))
 
-    def forward(self, g, goalVec, goalObjectsVec, pred, lstm_hidden=None):
+    def forward(self, g, adj_matrix, goalVec, goalObjectsVec, pred, lstm_hidden=None):
         # embed graph, goal vec based attention
-        h = g.ndata['feat']
+        h_vec = g.ndata['feat']
+        # print(g.ndata['feat'].shape)
+        # print(adj_matrix.shape)
+        h_adj = self.embed_adj(adj_matrix)
+        h = torch.cat((h_vec, h_adj), 1)
         goal_embed = self.embed_sbert(goalVec)
         attn_weights = self.graph_attn(torch.cat([h, goal_embed.repeat(h.shape[0], 1)], 1))
         h_embed = torch.mm(attn_weights.t(), h)

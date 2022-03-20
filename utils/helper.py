@@ -31,9 +31,11 @@ def goalObjEmbedArgMap(sent, argnouns):
     tokenized = nltk.word_tokenize(preprocess(sent))
     nouns = [word.lower() for (word, pos) in nltk.pos_tag(tokenized) if is_noun(pos)]
     embed = []
+    ######## without argument mapping ########
     for word in argnouns:
         if word in VOCAB_VECT or word in conceptnet_vectors:
             embed.append(np.asarray(dense_vector(word)))
+    ######## without argument mapping ########
     for word in nouns:
         embed.append(np.asarray(dense_vector(word)))
     return embed
@@ -50,6 +52,21 @@ def goalObjEmbed(sent):
 
 def form_goal_vec_sBERT(text):
     return sBERT_model.encode(text)
+
+def dense_vector_embed(sent):
+    sent = preprocess(sent)
+    embed = np.asarray([0.0] * PRETRAINED_VECTOR_SIZE)
+    obj_count = 0
+    for obj in sent:
+        if obj in VOCAB_VECT:
+            embed += VOCAB_VECT[obj]
+            obj_count += 1
+        elif obj in conceptnet_vectors:
+            embed += conceptnet_vectors[obj]
+            obj_count += 1
+        # else:
+        #     print(obj, " - no dense embedding found for it!")
+    return embed/max(1, obj_count)
 
 # get environment domain based on the object set (for masking)
 def get_env_domain(state):

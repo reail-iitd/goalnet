@@ -1,0 +1,1590 @@
+test on data 2.clauses
+IED:  0.6666667777777407
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.8333333295833334
+GRR:  1
+Precision:  0.49999999875
+Recall:  0.999999995
+test on data 13.clauses
+IED:  0.37500007812499014
+SJI:  0.9999997500000625
+F1:  0.9999999925
+Fbeta:  0.9999999973
+GRR:  1
+Precision:  0.9999999975
+Recall:  0.9999999975
+test on data 20.clauses
+test
+IED:  0.3333333888888842
+SJI:  0.33333329629630043
+F1:  0.4999999943055557
+Fbeta:  0.4545454536960514
+GRR:  0
+Precision:  0.5999999988
+Recall:  0.4285714279591837
+test on data 20.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 20.clauses
+IED:  9.99998999939855e-07
+SJI:  0.33333322222225925
+F1:  0.4999999925000001
+Fbeta:  0.49999999730000005
+GRR:  0
+Precision:  0.4999999975
+Recall:  0.4999999975
+test on data 20.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 25.clauses
+IED:  0.5000001249999688
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.5555555538888888
+GRR:  0
+Precision:  0.999999995
+Recall:  0.49999999875
+test on data 25.clauses
+IED:  0.6666667777777407
+SJI:  0.399999920000016
+F1:  0.5714285657142857
+Fbeta:  0.7692307659763314
+GRR:  1
+Precision:  0.3999999992
+Recall:  0.999999995
+test on data 25.clauses
+IED:  1.4285712246486781e-07
+SJI:  0.1428571224489825
+F1:  0.24999999468750006
+Fbeta:  0.29411764593425604
+GRR:  0
+Precision:  0.1999999996
+Recall:  0.3333333322222222
+test on data 25.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 40.clauses
+IED:  0.14285726530610499
+SJI:  0.199999960000008
+F1:  0.33333332944444444
+Fbeta:  0.23809523747165537
+GRR:  0
+Precision:  0.9999999900000002
+Recall:  0.1999999996
+test on data 40.clauses
+test
+IED:  0.7500000624999844
+SJI:  0.22222219753086697
+F1:  0.36363636
+Fbeta:  0.5882352920761246
+GRR:  1
+Precision:  0.2222222219753086
+Recall:  0.999999995
+test on data 48.clauses
+IED:  1.0
+SJI:  0.9999990000010001
+F1:  0.9999999850000002
+Fbeta:  0.9999999898000002
+GRR:  1
+Precision:  0.9999999900000002
+Recall:  0.9999999900000002
+test on data 54.clauses
+IED:  0.714285755102035
+SJI:  0.57142848979593
+F1:  0.7272727209917357
+Fbeta:  0.6896551710463733
+GRR:  0
+Precision:  0.7999999984
+Recall:  0.6666666655555555
+test on data 54.clauses
+IED:  3.333332222466012e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 56.clauses
+IED:  1.0
+SJI:  0.9999996666667778
+F1:  0.9999999916666666
+Fbeta:  0.9999999964666667
+GRR:  1
+Precision:  0.9999999966666667
+Recall:  0.9999999966666667
+test on data 56.clauses
+IED:  4.999997500476638e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 56.clauses
+IED:  0.2857143877550875
+SJI:  0.1428571224489825
+F1:  0.24999999468750006
+Fbeta:  0.21739130373345936
+GRR:  0
+Precision:  0.3333333322222222
+Recall:  0.1999999996
+test on data 58.clauses
+test
+IED:  0.2857143877550875
+SJI:  0.1428571224489825
+F1:  0.24999999468750006
+Fbeta:  0.29411764593425604
+GRR:  0
+Precision:  0.1999999996
+Recall:  0.3333333322222222
+test on data 62.clauses
+IED:  1.0
+SJI:  0.99999980000004
+F1:  0.9999999930000001
+Fbeta:  0.9999999978
+GRR:  1
+Precision:  0.9999999980000001
+Recall:  0.9999999980000001
+test on data 62.clauses
+IED:  0.6666667777777407
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.8333333295833334
+GRR:  1
+Precision:  0.49999999875
+Recall:  0.999999995
+test on data 70.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 70.clauses
+IED:  0.42857151020407
+SJI:  0.99999980000004
+F1:  0.9999999930000001
+Fbeta:  0.9999999978
+GRR:  1
+Precision:  0.9999999980000001
+Recall:  0.9999999980000001
+test on data 72.clauses
+IED:  1.0
+SJI:  0.9999990000010001
+F1:  0.9999999850000002
+Fbeta:  0.9999999898000002
+GRR:  1
+Precision:  0.9999999900000002
+Recall:  0.9999999900000002
+test on data 86.clauses
+IED:  1.0
+SJI:  0.9999990000010001
+F1:  0.9999999850000002
+Fbeta:  0.9999999898000002
+GRR:  1
+Precision:  0.9999999900000002
+Recall:  0.9999999900000002
+test on data 86.clauses
+test
+IED:  0.16666680555553248
+SJI:  0.99999980000004
+F1:  0.9999999930000001
+Fbeta:  0.9999999978
+GRR:  1
+Precision:  0.9999999980000001
+Recall:  0.9999999980000001
+test on data 86.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 86.clauses
+IED:  1.0
+SJI:  0.9999996666667778
+F1:  0.9999999916666666
+Fbeta:  0.9999999964666667
+GRR:  1
+Precision:  0.9999999966666667
+Recall:  0.9999999966666667
+test on data 86.clauses
+IED:  0.200000159999968
+SJI:  0.49999987500003124
+F1:  0.6666666594444445
+Fbeta:  0.6666666642444444
+GRR:  0
+Precision:  0.6666666644444444
+Recall:  0.6666666644444444
+test on data 88.clauses
+IED:  0.6666667777777407
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.8333333295833334
+GRR:  1
+Precision:  0.49999999875
+Recall:  0.999999995
+test on data 88.clauses
+test
+IED:  1.0
+SJI:  0.9999996666667778
+F1:  0.9999999916666666
+Fbeta:  0.9999999964666667
+GRR:  1
+Precision:  0.9999999966666667
+Recall:  0.9999999966666667
+test on data 88.clauses
+IED:  1.1111109865513669e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 101.clauses
+IED:  8.333332635057644e-08
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 101.clauses
+IED:  0.2307692899408238
+SJI:  0.285714244897965
+F1:  0.44444444000000005
+Fbeta:  0.33333333270000004
+GRR:  0
+Precision:  0.999999995
+Recall:  0.2857142853061225
+test on data 111.clauses
+IED:  1.0
+SJI:  0.99999980000004
+F1:  0.9999999930000001
+Fbeta:  0.9999999978
+GRR:  1
+Precision:  0.9999999980000001
+Recall:  0.9999999980000001
+test on data 111.clauses
+IED:  0.5714286326530524
+SJI:  0.7142856122449125
+F1:  0.8333333270833335
+Fbeta:  0.9259259239711934
+GRR:  1
+Precision:  0.7142857132653061
+Recall:  0.9999999980000001
+test on data 111.clauses
+IED:  0.7500000624999844
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.5555555538888888
+GRR:  0
+Precision:  0.999999995
+Recall:  0.49999999875
+test on data 113.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 113.clauses
+IED:  0.22222230864196568
+SJI:  0.1428571224489825
+F1:  0.24999999562500003
+Fbeta:  0.1923076918491124
+GRR:  0
+Precision:  0.4999999975
+Recall:  0.16666666638888888
+test on data 120.clauses
+IED:  1.4285712246486781e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 120.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 121.clauses
+IED:  0.400000119999976
+SJI:  0.499999750000125
+F1:  0.6666666577777778
+Fbeta:  0.5555555523456791
+GRR:  0
+Precision:  0.9999999900000002
+Recall:  0.4999999975
+test on data 121.clauses
+IED:  0.3333334444444259
+SJI:  0.33333322222225925
+F1:  0.4999999925000001
+Fbeta:  0.49999999730000005
+GRR:  0
+Precision:  0.4999999975
+Recall:  0.4999999975
+test on data 124.clauses
+IED:  0.5000001249999688
+SJI:  0.33333322222225925
+F1:  0.49999999375000004
+Fbeta:  0.3846153830473373
+GRR:  0
+Precision:  0.9999999900000002
+Recall:  0.3333333322222222
+test on data 124.clauses
+IED:  0.400000119999976
+SJI:  0.24999993750001562
+F1:  0.39999999360000005
+Fbeta:  0.35714285571428567
+GRR:  0
+Precision:  0.4999999975
+Recall:  0.3333333322222222
+test on data 129.clauses
+IED:  0.400000119999976
+SJI:  0.6666664444445185
+F1:  0.799999992
+Fbeta:  0.7142857115816326
+GRR:  0
+Precision:  0.999999995
+Recall:  0.6666666644444444
+test on data 129.clauses
+test
+IED:  0.5000001249999688
+SJI:  0.1428571224489825
+F1:  0.24999999468750006
+Fbeta:  0.21739130373345936
+GRR:  0
+Precision:  0.3333333322222222
+Recall:  0.1999999996
+test on data 132.clauses
+IED:  0.5000001249999688
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.5555555538888888
+GRR:  0
+Precision:  0.999999995
+Recall:  0.49999999875
+test on data 138.clauses
+IED:  0.500000249999875
+SJI:  0.33333322222225925
+F1:  0.49999999375000004
+Fbeta:  0.714285708877551
+GRR:  1
+Precision:  0.3333333322222222
+Recall:  0.9999999900000002
+test on data 140.clauses
+IED:  3.333332222466012e-07
+SJI:  0.24999993750001562
+F1:  0.39999999360000005
+Fbeta:  0.4545454522314049
+GRR:  0
+Precision:  0.3333333322222222
+Recall:  0.4999999975
+test on data 143.clauses
+IED:  3.3333332205565114e-08
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 143.clauses
+IED:  0.045454588842973265
+SJI:  0.57142848979593
+F1:  0.7272727209917357
+Fbeta:  0.6896551710463733
+GRR:  0
+Precision:  0.7999999984
+Recall:  0.6666666655555555
+test on data 143.clauses
+IED:  0.7500000624999844
+SJI:  0.6666664444445185
+F1:  0.799999992
+Fbeta:  0.7142857115816326
+GRR:  0
+Precision:  0.999999995
+Recall:  0.6666666644444444
+test on data 143.clauses
+IED:  6.666666219068418e-08
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 161.clauses
+IED:  0.2857143877550875
+SJI:  0.9999996666667778
+F1:  0.9999999916666666
+Fbeta:  0.9999999964666667
+GRR:  1
+Precision:  0.9999999966666667
+Recall:  0.9999999966666667
+test on data 161.clauses
+test
+IED:  7.142856628394867e-08
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 161.clauses
+test
+IED:  0.6666667222222129
+SJI:  0.4285713673469475
+F1:  0.5999999938
+Fbeta:  0.5999999986
+GRR:  0
+Precision:  0.5999999988
+Recall:  0.5999999988
+test on data 171.clauses
+IED:  4.999997500476638e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 171.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 171.clauses
+IED:  1.0
+SJI:  0.9999996666667778
+F1:  0.9999999916666666
+Fbeta:  0.9999999964666667
+GRR:  1
+Precision:  0.9999999966666667
+Recall:  0.9999999966666667
+test on data 171.clauses
+IED:  9.090908259512531e-08
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 171.clauses
+IED:  0.12500005468749664
+SJI:  0.12499998437500197
+F1:  0.22222221827160496
+Fbeta:  0.16666666631111113
+GRR:  0
+Precision:  0.4999999975
+Recall:  0.14285714265306124
+test on data 177.clauses
+IED:  2.499999375293882e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 182.clauses
+IED:  2.499999375293882e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 182.clauses
+IED:  1.0
+SJI:  0.9999990000010001
+F1:  0.9999999850000002
+Fbeta:  0.9999999898000002
+GRR:  1
+Precision:  0.9999999900000002
+Recall:  0.9999999900000002
+test on data 186.clauses
+IED:  1.9999996003772225e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 190.clauses
+IED:  0.5000001249999688
+SJI:  0.33333322222225925
+F1:  0.49999999375000004
+Fbeta:  0.3846153830473373
+GRR:  0
+Precision:  0.9999999900000002
+Recall:  0.3333333322222222
+test on data 190.clauses
+IED:  0.30000006999999296
+SJI:  0.16666663888889352
+F1:  0.28571428000000004
+Fbeta:  0.26315789387811633
+GRR:  0
+Precision:  0.3333333322222222
+Recall:  0.249999999375
+test on data 192.clauses
+IED:  1.4285712246486781e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 192.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 192.clauses
+IED:  2.499999375293882e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 192.clauses
+IED:  0.07692314792898858
+SJI:  0.24999996875000394
+F1:  0.39999999500000005
+Fbeta:  0.526315787797784
+GRR:  0
+Precision:  0.2857142853061225
+Recall:  0.6666666644444444
+test on data 192.clauses
+IED:  9.99998999939855e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 201.clauses
+IED:  2.499999375293882e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 201.clauses
+IED:  3.846153706632549e-08
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 201.clauses
+IED:  0.14285720408162828
+SJI:  0.11111109876543349
+F1:  0.19999999640000002
+Fbeta:  0.14705882324394462
+GRR:  0
+Precision:  0.4999999975
+Recall:  0.12499999984374999
+test on data 203.clauses
+IED:  1.0
+SJI:  0.9999996666667778
+F1:  0.9999999916666666
+Fbeta:  0.9999999964666667
+GRR:  1
+Precision:  0.9999999966666667
+Recall:  0.9999999966666667
+test on data 203.clauses
+IED:  0.3333334444444259
+SJI:  0.16666663888889352
+F1:  0.28571428000000004
+Fbeta:  0.26315789387811633
+GRR:  0
+Precision:  0.3333333322222222
+Recall:  0.249999999375
+test on data 203.clauses
+IED:  0.5000000833333195
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.5555555538888888
+GRR:  0
+Precision:  0.999999995
+Recall:  0.49999999875
+test on data 208.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 208.clauses
+IED:  1.0
+SJI:  0.99999980000004
+F1:  0.9999999930000001
+Fbeta:  0.9999999978
+GRR:  1
+Precision:  0.9999999980000001
+Recall:  0.9999999980000001
+test on data 208.clauses
+IED:  0.15384621893490624
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 208.clauses
+IED:  0.400000119999976
+SJI:  0.33333327777778704
+F1:  0.49999999500000003
+Fbeta:  0.38461538378698223
+GRR:  0
+Precision:  0.999999995
+Recall:  0.33333333277777777
+test on data 208.clauses
+IED:  2.499999375293882e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 212.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 212.clauses
+IED:  0.2500000937499882
+SJI:  0.24999996875000394
+F1:  0.39999999420000004
+Fbeta:  0.399999999
+GRR:  0
+Precision:  0.3999999992
+Recall:  0.3999999992
+test on data 215.clauses
+IED:  0.5000001249999688
+SJI:  0.399999920000016
+F1:  0.5714285657142857
+Fbeta:  0.7692307659763314
+GRR:  1
+Precision:  0.3999999992
+Recall:  0.999999995
+test on data 220.clauses
+IED:  1.1111109865513669e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 235.clauses
+IED:  0.714285755102035
+SJI:  0.399999920000016
+F1:  0.5714285648979592
+Fbeta:  0.6249999978124999
+GRR:  0
+Precision:  0.49999999875
+Recall:  0.6666666644444444
+test on data 249.clauses
+IED:  0.5000000624999921
+SJI:  0.49999991666668053
+F1:  0.6666666607407408
+Fbeta:  0.5555555544032922
+GRR:  0
+Precision:  0.9999999966666667
+Recall:  0.49999999916666665
+test on data 249.clauses
+IED:  4.999997500476638e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 254.clauses
+IED:  0.400000119999976
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 254.clauses
+IED:  1.249999842523053e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 256.clauses
+IED:  0.5000001249999688
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.5555555538888888
+GRR:  0
+Precision:  0.999999995
+Recall:  0.49999999875
+test on data 257.clauses
+IED:  0.400000119999976
+SJI:  0.24999993750001562
+F1:  0.3999999952
+Fbeta:  0.2941176461245675
+GRR:  0
+Precision:  0.9999999900000002
+Recall:  0.249999999375
+test on data 257.clauses
+test
+IED:  1.0
+SJI:  0.99999980000004
+F1:  0.9999999930000001
+Fbeta:  0.9999999978
+GRR:  1
+Precision:  0.9999999980000001
+Recall:  0.9999999980000001
+test on data 257.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 257.clauses
+IED:  0.3333335555554815
+SJI:  0.24999993750001562
+F1:  0.39999999360000005
+Fbeta:  0.4545454522314049
+GRR:  0
+Precision:  0.3333333322222222
+Recall:  0.4999999975
+test on data 269.clauses
+IED:  2.499999375293882e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 269.clauses
+IED:  0.6000000799999841
+SJI:  0.399999920000016
+F1:  0.5714285657142857
+Fbeta:  0.7692307659763314
+GRR:  1
+Precision:  0.3999999992
+Recall:  0.999999995
+test on data 269.clauses
+IED:  0.1250001093749863
+SJI:  0.11111109876543349
+F1:  0.1999999978
+Fbeta:  0.38461538286982244
+GRR:  1
+Precision:  0.1111111109876543
+Recall:  0.9999999900000002
+test on data 269.clauses
+IED:  0.2500001874999531
+SJI:  0.24999993750001562
+F1:  0.3999999952
+Fbeta:  0.2941176461245675
+GRR:  0
+Precision:  0.9999999900000002
+Recall:  0.249999999375
+test on data 269.clauses
+IED:  2.499999375293882e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 273.clauses
+IED:  0.400000119999976
+SJI:  0.1428571224489825
+F1:  0.24999999468750006
+Fbeta:  0.21739130373345936
+GRR:  0
+Precision:  0.3333333322222222
+Recall:  0.1999999996
+test on data 273.clauses
+IED:  1.9999996003772225e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 274.clauses
+test
+IED:  0.14285726530610499
+SJI:  0.399999920000016
+F1:  0.5714285648979592
+Fbeta:  0.6249999978124999
+GRR:  0
+Precision:  0.49999999875
+Recall:  0.6666666644444444
+test on data 276.clauses
+IED:  1.1111109865513669e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 276.clauses
+IED:  0.2500000937499882
+SJI:  0.4999999375000079
+F1:  0.6666666606944446
+Fbeta:  0.6060606049816345
+GRR:  0
+Precision:  0.7999999984
+Recall:  0.571428570612245
+test on data 276.clauses
+IED:  0.5000000833333195
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.5555555538888888
+GRR:  0
+Precision:  0.999999995
+Recall:  0.49999999875
+test on data 278.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 278.clauses
+test
+IED:  0.2857143877550875
+SJI:  0.16666663888889352
+F1:  0.28571428081632655
+Fbeta:  0.3846153828402367
+GRR:  0
+Precision:  0.1999999996
+Recall:  0.4999999975
+test on data 278.clauses
+IED:  0.400000119999976
+SJI:  0.199999960000008
+F1:  0.33333332777777785
+Fbeta:  0.277777776882716
+GRR:  0
+Precision:  0.4999999975
+Recall:  0.249999999375
+test on data 289.clauses
+IED:  1.0
+SJI:  0.9999990000010001
+F1:  0.9999999850000002
+Fbeta:  0.9999999898000002
+GRR:  1
+Precision:  0.9999999900000002
+Recall:  0.9999999900000002
+test on data 289.clauses
+test
+IED:  0.6666667777777407
+SJI:  0.599999880000024
+F1:  0.7499999934375
+Fbeta:  0.8823529383217993
+GRR:  1
+Precision:  0.5999999988
+Recall:  0.9999999966666667
+test on data 289.clauses
+IED:  4.999997500476638e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 289.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 289.clauses
+IED:  1.0
+SJI:  0.9999996666667778
+F1:  0.9999999916666666
+Fbeta:  0.9999999964666667
+GRR:  1
+Precision:  0.9999999966666667
+Recall:  0.9999999966666667
+test on data 289.clauses
+IED:  0.6666667777777407
+SJI:  0.6666664444445185
+F1:  0.799999992
+Fbeta:  0.9090909047107438
+GRR:  1
+Precision:  0.6666666644444444
+Recall:  0.999999995
+test on data 299.clauses
+IED:  1.0
+SJI:  0.9999990000010001
+F1:  0.9999999850000002
+Fbeta:  0.9999999898000002
+GRR:  1
+Precision:  0.9999999900000002
+Recall:  0.9999999900000002
+test on data 306.clauses
+IED:  1.0
+SJI:  0.9999997500000625
+F1:  0.9999999925
+Fbeta:  0.9999999973
+GRR:  1
+Precision:  0.9999999975
+Recall:  0.9999999975
+test on data 313.clauses
+IED:  0.5000001249999688
+SJI:  0.33333322222225925
+F1:  0.49999999375000004
+Fbeta:  0.3846153830473373
+GRR:  0
+Precision:  0.9999999900000002
+Recall:  0.3333333322222222
+test on data 313.clauses
+IED:  0.37500007812499014
+SJI:  0.16666663888889352
+F1:  0.28571428000000004
+Fbeta:  0.26315789387811633
+GRR:  0
+Precision:  0.3333333322222222
+Recall:  0.249999999375
+test on data 314.clauses
+IED:  0.45454550413222683
+SJI:  0.799999840000032
+F1:  0.8888888819753088
+Fbeta:  0.8333333314236111
+GRR:  0
+Precision:  0.9999999975
+Recall:  0.7999999984
+test on data 320.clauses
+IED:  9.99999899553572e-08
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 320.clauses
+IED:  0.6666667777777407
+SJI:  0.33333322222225925
+F1:  0.4999999925000001
+Fbeta:  0.49999999730000005
+GRR:  0
+Precision:  0.4999999975
+Recall:  0.4999999975
+test on data 320.clauses
+IED:  0.400000119999976
+SJI:  0.16666663888889352
+F1:  0.28571428081632655
+Fbeta:  0.3846153828402367
+GRR:  0
+Precision:  0.1999999996
+Recall:  0.4999999975
+test on data 323.clauses
+IED:  0.400000119999976
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 323.clauses
+IED:  1.0
+SJI:  0.9999990000010001
+F1:  0.9999999850000002
+Fbeta:  0.9999999898000002
+GRR:  1
+Precision:  0.9999999900000002
+Recall:  0.9999999900000002
+test on data 323.clauses
+IED:  1.0
+SJI:  0.9999997500000625
+F1:  0.9999999925
+Fbeta:  0.9999999973
+GRR:  1
+Precision:  0.9999999975
+Recall:  0.9999999975
+test on data 323.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 340.clauses
+IED:  1.0
+SJI:  0.9999990000010001
+F1:  0.9999999850000002
+Fbeta:  0.9999999898000002
+GRR:  1
+Precision:  0.9999999900000002
+Recall:  0.9999999900000002
+test on data 340.clauses
+IED:  3.333332222466012e-07
+SJI:  0.24999993750001562
+F1:  0.39999999360000005
+Fbeta:  0.4545454522314049
+GRR:  0
+Precision:  0.3333333322222222
+Recall:  0.4999999975
+test on data 346.clauses
+IED:  1.0
+SJI:  0.9999990000010001
+F1:  0.9999999850000002
+Fbeta:  0.9999999898000002
+GRR:  1
+Precision:  0.9999999900000002
+Recall:  0.9999999900000002
+test on data 346.clauses
+IED:  0.5000001249999688
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.5555555538888888
+GRR:  0
+Precision:  0.999999995
+Recall:  0.49999999875
+test on data 346.clauses
+IED:  0.25000006249999474
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 346.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 346.clauses
+IED:  9.99998999939855e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 354.clauses
+IED:  0.3333334444444259
+SJI:  0.1428571224489825
+F1:  0.24999999468750006
+Fbeta:  0.21739130373345936
+GRR:  0
+Precision:  0.3333333322222222
+Recall:  0.1999999996
+test on data 354.clauses
+IED:  9.99998999939855e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 362.clauses
+IED:  1.0
+SJI:  0.9999990000010001
+F1:  0.9999999850000002
+Fbeta:  0.9999999898000002
+GRR:  1
+Precision:  0.9999999900000002
+Recall:  0.9999999900000002
+test on data 363.clauses
+IED:  0.400000119999976
+SJI:  0.6666664444445185
+F1:  0.799999992
+Fbeta:  0.7142857115816326
+GRR:  0
+Precision:  0.999999995
+Recall:  0.6666666644444444
+test on data 363.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 363.clauses
+IED:  1.0
+SJI:  0.9999990000010001
+F1:  0.9999999850000002
+Fbeta:  0.9999999898000002
+GRR:  1
+Precision:  0.9999999900000002
+Recall:  0.9999999900000002
+test on data 363.clauses
+IED:  1.9999996003772225e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 363.clauses
+IED:  0.5000001249999688
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 363.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 363.clauses
+IED:  3.333332222466012e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 379.clauses
+IED:  9.99999899553572e-08
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 379.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 380.clauses
+IED:  0.2857143877550875
+SJI:  0.1428571224489825
+F1:  0.24999999562500003
+Fbeta:  0.1923076918491124
+GRR:  0
+Precision:  0.4999999975
+Recall:  0.16666666638888888
+test on data 380.clauses
+IED:  4.999997500476638e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 380.clauses
+IED:  3.333332222466012e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  1
+Precision:  0.0
+Recall:  0.0
+test on data 385.clauses
+IED:  0.700000029999997
+SJI:  0.7142856122449125
+F1:  0.8333333270833335
+Fbeta:  0.7575757562672176
+GRR:  0
+Precision:  0.9999999980000001
+Recall:  0.7142857132653061
+test on data 385.clauses
+IED:  1.4285712246486781e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 385.clauses
+IED:  3.333332222466012e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 392.clauses
+IED:  1.0
+SJI:  0.99999950000025
+F1:  0.9999999900000001
+Fbeta:  0.9999999948000001
+GRR:  1
+Precision:  0.999999995
+Recall:  0.999999995
+test on data 405.clauses
+IED:  0.7500000624999844
+SJI:  0.7499998125000469
+F1:  0.8571428497959185
+Fbeta:  0.7894736819667592
+GRR:  0
+Precision:  0.9999999966666667
+Recall:  0.7499999981250001
+test on data 405.clauses
+test
+IED:  1.4285712246486781e-07
+SJI:  0.12499998437500197
+F1:  0.2222222167901236
+Fbeta:  0.20833333272569443
+GRR:  0
+Precision:  0.249999999375
+Recall:  0.1999999996
+test on data 409.clauses
+IED:  0.5000001249999688
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.5555555538888888
+GRR:  0
+Precision:  0.999999995
+Recall:  0.49999999875
+test on data 409.clauses
+IED:  0.400000119999976
+SJI:  0.33333327777778704
+F1:  0.49999999500000003
+Fbeta:  0.38461538378698223
+GRR:  0
+Precision:  0.999999995
+Recall:  0.33333333277777777
+test on data 430.clauses
+IED:  1.0
+SJI:  0.99999980000004
+F1:  0.9999999930000001
+Fbeta:  0.9999999978
+GRR:  1
+Precision:  0.9999999980000001
+Recall:  0.9999999980000001
+test on data 430.clauses
+IED:  1.1111109865513669e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 430.clauses
+IED:  0.500000249999875
+SJI:  0.33333322222225925
+F1:  0.4999999925000001
+Fbeta:  0.49999999730000005
+GRR:  0
+Precision:  0.4999999975
+Recall:  0.4999999975
+test on data 434.clauses
+IED:  8.333332635057644e-08
+SJI:  0.07692307100591762
+F1:  0.14285713806122466
+Fbeta:  0.12195121922962522
+GRR:  0
+Precision:  0.1999999996
+Recall:  0.1111111109876543
+test on data 434.clauses
+IED:  1.9999996003772225e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  1
+Precision:  0.0
+Recall:  0.0
+test on data 434.clauses
+IED:  0.2857143877550875
+SJI:  0.1428571224489825
+F1:  0.24999999468750006
+Fbeta:  0.29411764593425604
+GRR:  0
+Precision:  0.1999999996
+Recall:  0.3333333322222222
+test on data 435.clauses
+IED:  1.0
+SJI:  0.99999980000004
+F1:  0.9999999930000001
+Fbeta:  0.9999999978
+GRR:  1
+Precision:  0.9999999980000001
+Recall:  0.9999999980000001
+test on data 435.clauses
+IED:  0.5000000833333195
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.5555555538888888
+GRR:  0
+Precision:  0.999999995
+Recall:  0.49999999875
+test on data 444.clauses
+IED:  0.200000159999968
+SJI:  0.33333327777778704
+F1:  0.49999999406250006
+Fbeta:  0.43478260760869564
+GRR:  0
+Precision:  0.6666666644444444
+Recall:  0.3999999992
+test on data 446.clauses
+IED:  4.999997500476638e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 446.clauses
+IED:  0.400000119999976
+SJI:  0.4285713673469475
+F1:  0.5999999938
+Fbeta:  0.5999999986
+GRR:  0
+Precision:  0.5999999988
+Recall:  0.5999999988
+test on data 446.clauses
+IED:  1.4285712246486781e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 446.clauses
+IED:  7.142856628394867e-08
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 450.clauses
+IED:  0.363636421487598
+SJI:  1.249999687500078
+F1:  0.9999999925
+Fbeta:  0.9999999973
+GRR:  1
+Precision:  0.9999999975
+Recall:  0.9999999975
+test on data 457.clauses
+IED:  3.333332222466012e-07
+SJI:  0.24999993750001562
+F1:  0.39999999360000005
+Fbeta:  0.4545454522314049
+GRR:  0
+Precision:  0.3333333322222222
+Recall:  0.4999999975
+test on data 457.clauses
+IED:  9.99998999939855e-07
+SJI:  0.33333322222225925
+F1:  0.4999999925000001
+Fbeta:  0.49999999730000005
+GRR:  0
+Precision:  0.4999999975
+Recall:  0.4999999975
+test on data 460.clauses
+IED:  0.400000119999976
+SJI:  0.33333327777778704
+F1:  0.4999999937500001
+Fbeta:  0.49999999855
+GRR:  0
+Precision:  0.49999999875
+Recall:  0.49999999875
+test on data 462.clauses
+IED:  1.9999996003772225e-07
+SJI:  0.0
+F1:  0.0
+Fbeta:  0.0
+GRR:  0
+Precision:  0.0
+Recall:  0.0
+test on data 462.clauses
+IED:  0.2500001874999531
+SJI:  0.4285713673469475
+F1:  0.5999999938
+Fbeta:  0.5999999986
+GRR:  0
+Precision:  0.5999999988
+Recall:  0.5999999988
+test on data 465.clauses
+IED:  0.5000001249999688
+SJI:  0.49999987500003124
+F1:  0.6666666600000001
+Fbeta:  0.8333333295833334
+GRR:  1
+Precision:  0.49999999875
+Recall:  0.999999995
+test on data 465.clauses
+IED:  0.400000119999976
+SJI:  0.16666663888889352
+F1:  0.28571428081632655
+Fbeta:  0.3846153828402367
+GRR:  0
+Precision:  0.1999999996
+Recall:  0.4999999975
+Heuristic1+highest_node_freq ied: 0.40446
+Heuristic1+memory_based ied: 0.39330
+Heuristic1+most_general_node ied: 0.41372
+Heuristic1+with_optimizer ied: 0.40334
+Heuristic2+highest_node_freq ied: 0.42031
+Heuristic2+memory_based ied: 0.36504
+Heuristic2+most_general_node ied: 0.42800
+Heuristic2+with_optimizer ied: 0.45354
+Heuristic3+highest_node_freq ied: 0.39483
+Heuristic3+memory_based ied: 0.34219
+Heuristic3+most_general_node ied: 0.40674
+Heuristic3+with_optimizer ied: 0.39643
+Heuristic4+highest_node_freq ied: 0.42583
+Heuristic4+memory_based ied: 0.37734
+Heuristic4+most_general_node ied: 0.44098
+Heuristic4+with_optimizer ied: 0.44495
+Heuristic1+highest_node_freq sji: 0.37527
+Heuristic1+highest_node_freq f1: 0.43451
+Heuristic1+highest_node_freq f_beta: 0.41102
+Heuristic1+highest_node_freq f_beta_state: 0.73901
+Heuristic1+highest_node_freq grr: 0.25414
+Heuristic1+highest_node_freq precision: 0.51954
+Heuristic1+highest_node_freq recall: 0.40037
+Heuristic1+memory_based sji: 0.37369
+Heuristic1+memory_based f1: 0.44026
+Heuristic1+memory_based f_beta: 0.41390
+Heuristic1+memory_based f_beta_state: 0.72967
+Heuristic1+memory_based grr: 0.23757
+Heuristic1+memory_based precision: 0.54258
+Heuristic1+memory_based recall: 0.40288
+Heuristic1+most_general_node sji: 0.37972
+Heuristic1+most_general_node f1: 0.44020
+Heuristic1+most_general_node f_beta: 0.41422
+Heuristic1+most_general_node f_beta_state: 0.73988
+Heuristic1+most_general_node grr: 0.25414
+Heuristic1+most_general_node precision: 0.53687
+Heuristic1+most_general_node recall: 0.40217
+Heuristic1+with_optimizer sji: 0.39834
+Heuristic1+with_optimizer f1: 0.46302
+Heuristic1+with_optimizer f_beta: 0.44775
+Heuristic1+with_optimizer f_beta_state: 0.71646
+Heuristic1+with_optimizer grr: 0.28729
+Heuristic1+with_optimizer precision: 0.53521
+Heuristic1+with_optimizer recall: 0.44483
+Heuristic2+highest_node_freq sji: 0.40031
+Heuristic2+highest_node_freq f1: 0.46335
+Heuristic2+highest_node_freq f_beta: 0.43916
+Heuristic2+highest_node_freq f_beta_state: 0.87645
+Heuristic2+highest_node_freq grr: 0.27624
+Heuristic2+highest_node_freq precision: 0.55558
+Heuristic2+highest_node_freq recall: 0.42906
+Heuristic2+memory_based sji: 0.35571
+Heuristic2+memory_based f1: 0.43242
+Heuristic2+memory_based f_beta: 0.41153
+Heuristic2+memory_based f_beta_state: 0.85525
+Heuristic2+memory_based grr: 0.23757
+Heuristic2+memory_based precision: 0.53969
+Heuristic2+memory_based recall: 0.40926
+Heuristic2+most_general_node sji: 0.40424
+Heuristic2+most_general_node f1: 0.46347
+Heuristic2+most_general_node f_beta: 0.43507
+Heuristic2+most_general_node f_beta_state: 0.87624
+Heuristic2+most_general_node grr: 0.27624
+Heuristic2+most_general_node precision: 0.56123
+Heuristic2+most_general_node recall: 0.42123
+Heuristic2+with_optimizer sji: 0.45303
+Heuristic2+with_optimizer f1: 0.51950
+Heuristic2+with_optimizer f_beta: 0.51209
+Heuristic2+with_optimizer f_beta_state: 0.87466
+Heuristic2+with_optimizer grr: 0.35912
+Heuristic2+with_optimizer precision: 0.58066
+Heuristic2+with_optimizer recall: 0.52033
+Heuristic3+highest_node_freq sji: 0.36473
+Heuristic3+highest_node_freq f1: 0.42377
+Heuristic3+highest_node_freq f_beta: 0.40099
+Heuristic3+highest_node_freq f_beta_state: 0.74827
+Heuristic3+highest_node_freq grr: 0.25414
+Heuristic3+highest_node_freq precision: 0.50964
+Heuristic3+highest_node_freq recall: 0.39121
+Heuristic3+memory_based sji: 0.32288
+Heuristic3+memory_based f1: 0.39292
+Heuristic3+memory_based f_beta: 0.37252
+Heuristic3+memory_based f_beta_state: 0.73747
+Heuristic3+memory_based grr: 0.21547
+Heuristic3+memory_based precision: 0.49761
+Heuristic3+memory_based recall: 0.36930
+Heuristic3+most_general_node sji: 0.37192
+Heuristic3+most_general_node f1: 0.42782
+Heuristic3+most_general_node f_beta: 0.40248
+Heuristic3+most_general_node f_beta_state: 0.74995
+Heuristic3+most_general_node grr: 0.25967
+Heuristic3+most_general_node precision: 0.52201
+Heuristic3+most_general_node recall: 0.39038
+Heuristic3+with_optimizer sji: 0.38982
+Heuristic3+with_optimizer f1: 0.45404
+Heuristic3+with_optimizer f_beta: 0.44558
+Heuristic3+with_optimizer f_beta_state: 0.72998
+Heuristic3+with_optimizer grr: 0.29834
+Heuristic3+with_optimizer precision: 0.50873
+Heuristic3+with_optimizer recall: 0.44727
+Heuristic4+highest_node_freq sji: 0.40639
+Heuristic4+highest_node_freq f1: 0.47006
+Heuristic4+highest_node_freq f_beta: 0.44684
+Heuristic4+highest_node_freq f_beta_state: 0.88698
+Heuristic4+highest_node_freq grr: 0.28177
+Heuristic4+highest_node_freq precision: 0.55957
+Heuristic4+highest_node_freq recall: 0.43734
+Heuristic4+memory_based sji: 0.36722
+Heuristic4+memory_based f1: 0.44170
+Heuristic4+memory_based f_beta: 0.42423
+Heuristic4+memory_based f_beta_state: 0.86129
+Heuristic4+memory_based grr: 0.25414
+Heuristic4+memory_based precision: 0.53692
+Heuristic4+memory_based recall: 0.42363
+Heuristic4+most_general_node sji: 0.40923
+Heuristic4+most_general_node f1: 0.46784
+Heuristic4+most_general_node f_beta: 0.44242
+Heuristic4+most_general_node f_beta_state: 0.88684
+Heuristic4+most_general_node grr: 0.28729
+Heuristic4+most_general_node precision: 0.55562
+Heuristic4+most_general_node recall: 0.43007
+Heuristic4+with_optimizer sji: 0.44797
+Heuristic4+with_optimizer f1: 0.51290
+Heuristic4+with_optimizer f_beta: 0.51081
+Heuristic4+with_optimizer f_beta_state: 0.88476
+Heuristic4+with_optimizer grr: 0.36464
+Heuristic4+with_optimizer precision: 0.56344
+Heuristic4+with_optimizer recall: 0.52244
+finished

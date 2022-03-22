@@ -373,6 +373,12 @@ def convertToDGLGraph_util(state):
     node_prop = torch.zeros([n_nodes, len(all_non_fluents)], dtype=torch.float)  # Non-fluent vector
     node_fluents = torch.zeros([n_nodes, MAX_REL], dtype=torch.float) # fluent states
     node_vectors = torch.zeros([n_nodes, word_embed_size], dtype=torch.float)  # Conceptnet embedding
+    adj_matrix = torch.zeros([n_nodes, N_objects], dtype=torch.float)  # Relations with other adjacent nodes
+        
+    for edge in graph_data["edges"]:
+        if not edge['relation'] == "Empty":
+            adj_matrix[edge["from"]][edge["to"]] = 1
+
     for i, node in enumerate(graph_data["nodes"]):
         if not node['populate']: continue
         states = node["state_var"]
@@ -387,12 +393,14 @@ def convertToDGLGraph_util(state):
                 idx = all_non_fluents.index(state)
                 node_prop[node_id][idx] = 1 
         node_vectors[node_id] = torch.FloatTensor(node["vector"])
-    feat_mat = torch.cat((node_vectors, node_fluents, node_prop), 1)
+    # feat_mat = torch.cat((node_vectors, node_fluents, node_prop), 1)
     g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)
-    return g
+    return g, adj_matrix
 
 def run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
-    if pred_delta == '': return [], dp.convertToDGLGraph(state_dict), state_dict
+    if pred_delta == '': 
+        state, adj_matrix = dp.convertToDGLGraph(state_dict)
+        return [], state, state_dict, adj_matrix
     state_dict = state_dict + [pred_delta]
     a_i, o1_i, o2_i, s_i = string2index(pred_delta)
     for constr in state_dict:
@@ -402,10 +410,10 @@ def run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv, verbos
             state_dict.remove(constr)
             break
     if pred_delta_inv in state_dict: state_dict.remove(pred_delta_inv)
-    state = dp.convertToDGLGraph(state_dict)
-    return [], state, state_dict
+    state, adj_matrix = dp.convertToDGLGraph(state_dict)
+    return [], state, state_dict, adj_matrix
 
-def run_planner(state, state_dict, dp, pred_delta="", pred_delta_inv="", verbose = False):
+def run_planner(state, state_dict, adj_matrix, dp, pred_delta="", pred_delta_inv="", verbose = False):
     if verbose: print(color.GREEN, 'Pred Delta', color.ENDC, pred_delta.lower())
     if verbose: print(color.GREEN, 'Pred Delta inv', color.ENDC, pred_delta_inv.lower())
     state_dict_lower = [rel.lower() for rel in state_dict]
@@ -430,10 +438,10 @@ def run_planner(state, state_dict, dp, pred_delta="", pred_delta_inv="", verbose
     if verbose: print(color.GREEN, 'Delta_g_inv', color.ENDC, planner_delta_g_inv)
     state_dict = state_dict_new if state_dict_new else state_dict # seg fault case
     try:
-        state = convertToDGLGraph_util(state_dict)
+        state, adj_matrix = convertToDGLGraph_util(state_dict)
     except:
         pass
-    return planner_action, state, state_dict
+    return planner_action, state, state_dict, adj_matrix
 
 def eval_accuracy(data, model, verbose = False):
     sji, f1, ied, fb, fbs, grr = 0, 0, 0, 0, 0, 0
@@ -441,6 +449,7 @@ def eval_accuracy(data, model, verbose = False):
     pred_delta, pred_delta_inv = '',''
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
         state = dp.states[0]; state_dict = dp.state_dict[0]
+        adj_matrix = dp.adj_matrix[0]
         init_state_dict = dp.state_dict[0]
         action_seq = []
         json_file_name = dp.file_path.split("/")[-1].split(".")[0] + "_eval.json"
@@ -469,13 +478,13 @@ def eval_accuracy(data, model, verbose = False):
             for i in range(len(dp.states) - 1 if opts.nofixlen else max_len):
                 if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
                 # ########### both delta positive and negative ###########
-                pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
+                pred, l_h = model(state, adj_matrix, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
                 action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
                 pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
                 pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
                 if pred_delta == '' and pred_delta_inv == '':
                     break
-                planner_action, state, state_dict = run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
+                planner_action, state, state_dict, adj_matrix = run_planner(state, state_dict, adj_matrix, dp, pred_delta, pred_delta_inv, verbose=verbose)
                 ###########
 
                 # ########### only delta positive ###########

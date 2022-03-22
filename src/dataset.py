@@ -9,4 +9,4 @@ class DGLDataset():
         for f in tqdm(all_files, ncols=80):
             self.dp_list.append(Datapoint(program_dir + "/" + f))
         if shuffle: random.shuffle(self.dp_list)
-        self.features = len(all_non_fluents) + MAX_REL + word_embed_size
+        self.features = len(all_non_fluents) + MAX_REL + word_embed_size + 1

@@ -29,7 +29,7 @@ class Simple_Model(nn.Module):
         # self.embed_sbert = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
         self.embed_adj = nn.Sequential(nn.Linear(n_objects, 1), nn.Softmax(dim=1))
         self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
-        self.graph_attn = nn.Sequential(nn.Linear(in_feats + n_hidden, 1), nn.Softmax(dim=1))
+        self.graph_attn = nn.Sequential(nn.Linear(in_feats + n_hidden, 1), nn.Sigmoid())
         self.graph_embed = nn.Sequential(nn.Linear(in_feats, n_hidden), self.activation)
         self.goal_obj_attention = nn.Sequential(nn.Linear(n_hidden * 2, 1), nn.Softmax(dim=0))
         self.fc = nn.Sequential(nn.Linear(n_hidden * 4, n_hidden), self.activation)

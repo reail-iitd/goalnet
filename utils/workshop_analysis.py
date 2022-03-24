@@ -284,7 +284,8 @@ def analyse_acl_prediction_allmetric_constraintlen():
     print("SJI  || IED || GRR || F1")
     for key in sorted(sji_ied_grr_f1_count_constraintlenwise):
         print (key, 
-                np.mean(np.array(sji_ied_grr_f1_count_constraintlenwise[key][0])),
+                np.mean(np.array(
+                    [key][0])),
                 np.mean(np.array(sji_ied_grr_f1_count_constraintlenwise[key][1])),
                 np.mean(np.array(sji_ied_grr_f1_count_constraintlenwise[key][2])),
                 np.mean(np.array(sji_ied_grr_f1_count_constraintlenwise[key][3])))
@@ -300,7 +301,7 @@ def analyse_acl_prediction_allmetric_constraintlen():
             
 
 
-analyse_acl_prediction_allmetric_constraintlen()
+#analyse_acl_prediction_allmetric_constraintlen()
 
 #This code is to compute plan lenght wise avg SJI and IED from old format of ACL predcitions
 def analyse_acl_model_oldfile_plan_vs_constraint_len():
@@ -330,3 +331,29 @@ def analyse_acl_model_oldfile_plan_vs_constraint_len():
                 print(pred_true_action_list,":",len_pred_delta_g_list+len_pred_delta_g_inv_list)
 
 #analyse_acl_model_oldfile_plan_vs_constraint_len()
+
+
+#find train plan len frequency
+import json
+import os
+def train_plan_len_freq():
+    len_Action_count = {}
+    folder = "data_clean/train/"
+    files = os.listdir(folder)
+    for f in files:
+        if ('a' in f):
+            continue
+        file_path = folder + f
+        with open(file_path, "r") as fh:
+            data = json.load(fh)
+        len_action = len(data["action_seq"]) - 1
+        if(len_action in len_Action_count):
+            len_Action_count[len_action] +=1
+        else:
+            len_Action_count[len_action] =1
+        if(len_action > 21):
+            print(data["sent"])
+            #print(data["action_seq"])
+    for key in sorted(len_Action_count):
+        print (key,len_Action_count[key])
+train_plan_len_freq()

@@ -32,9 +32,9 @@ def goalObjEmbedArgMap(sent, argnouns):
     nouns = [word.lower() for (word, pos) in nltk.pos_tag(tokenized) if is_noun(pos)]
     embed = []
     ######## without argument mapping ########
-    #for word in argnouns:
-    #    if word in VOCAB_VECT or word in conceptnet_vectors:
-    #        embed.append(np.asarray(dense_vector(word)))
+    for word in argnouns:
+        if word in VOCAB_VECT or word in conceptnet_vectors:
+            embed.append(np.asarray(dense_vector(word)))
     ######## without argument mapping ########
     for word in nouns:
         embed.append(np.asarray(dense_vector(word)))

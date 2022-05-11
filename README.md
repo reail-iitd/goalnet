@@ -1,40 +1,42 @@
-# goal-prediction
-Goal Constraint learning
+# GOALNET: Inferring Conjunctive Goal Predicates from Human Plan Demonstrations for Robot Instruction Following
 
-## Todo
-Critical:
-1. Loss masking based on interaction predicted (teacher forcing initially) [done]
-2. Instance agnostic state representation (max of states of all instances --> one-hot) [done]
-3. Crowd-sourced data cleaning 
+This repository contains code implementation of the paper "GOALNET: Inferring Conjunctive Goal Predicates from Human Plan Demonstrations for Robot Instruction Following".
 
-Code structure:
-1. Dataset, conceptnet embeddings, vocab etc to be human readable [done]
-2. Hard coded elements to be encoded in jsons.
-3. Folder structure
-4. Ensure same states for same objects with different instance [done]
+**Shreya Sharma, Jigyasa Gupta, Shreshth Tuli, Rohan Paul and Mausam**. Department of Computer Science and Engineering, Indian Institute of Techonology Delhi. Department of Computing, Imperial College London, UK.
 
-New Issues - 
-1. ConceptNet Embeddings -- Give same conceptnet for weird words like loveseat as seat only
-2. Elif correction in  dence_vector
-3. Structure the datapoint class
-4. DGL dataset as list of datapoints
-5. Vocab embeddings (other than avg)
-6. DGL graph has all_object nodes irrespective of the domain --> prediction on all_objects --> masking
-6. Masking based on object set (for likelihood scores)
+To appear in **Bridging the Gap Between AI Planning and Reinforcement Learning (PRL @ ICAPS) – Workshop at ICAPS 2022**.
 
-Shreya TO DOs:
-1. Try ovrefitting on training data
-    a. Use Hetero GAT
-    b. Hyperparameter Tuning
-2. Resolve segfault issue in planner
-3. Check BCE Loss correctness for number of predicates in relation
+## Abstract
 
-Issues fixed:
-3. Line 274 -  277 in util.py
-4. Fine tune model to remove training bias
-5. Calculate f1, p, r for delta_g, g_p
-6. Reduce teacher forcing inversely compared to accuracy
-7. How is pruning working in ACL16
-8. ACL16 is updating on clause phase
-9. Pre-process the state output from planner to handle lower and upper case inconsistency
-10. Non-fluent property predicated
+Our goal is to enable a robot to learn how to sequence its actions to perform tasks specified as natural language instructions, given successful demonstrations from a human partner. The ability to plan high-level tasks can be factored as (i) inferring specific goal predicates that characterize the task implied by a language instruction for a given world state and (ii) synthesizing a feasi- ble goal-reaching action-sequence with such predicates. For the former, we leverage a neural network prediction model, while utilizing a symbolic planner for the latter. We introduce a novel neuro-symbolic model, GOAL- NET, for contextual and task dependent inference of goal predicates from human demonstrations and lin- guistic task descriptions. GOALNET combines (i) learn- ing, where dense representations are acquired for lan- guage instruction and the world state that enables gen- eralization to novel settings and (ii) planning, where the cause-effect modeling by the symbolic planner es- chews irrelevant predicates facilitating multi-stage deci- sion making in large domains. GOALNET demonstrates a significant improvement (51%) in the task comple- tion rate in comparison to a state-of-the-art rule-based approach on a benchmark data set displaying linguistic variations, particularly for multi-stage instructions.
+
+<!-- ## Supplementary video
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/lUWU3rK1Gno/0.jpg)](https://www.youtube.com/watch?v=lUWU3rK1Gno) -->
+
+## Getting Started
+
+This implementation contains all the models mentioned in the paper for goal-constraint prediction along with action plan generation. This readme gives a broad idea of the work that has been accomplished. The code start point is `main.py`. For more details on replicating results, running the data collection platform and visualizing the collected dataset, refer to this [wiki](https://github.com/reail-iitd/goalnet/wiki).
+
+<!-- For our GOALNET model, use $MODEL_NAME as **GGCN_Metric_Attn_Aseq_L_Auto_Cons_C_Tool_Action**. -->
+
+## Arxiv preprint
+<!-- https://arxiv.org/abs/2105.04556. -->
+
+## Cite this work
+```
+@article{tuli2021tango,
+  title={TANGO: Commonsense Generalization in Predicting Tool Interactions for Mobile Manipulators},
+  author={Tuli, Shreshth and Bansal, Rajas and Paul, Rohan and Mausam},
+  journal={arXiv preprint arXiv:2105.04556},
+  year={2021}
+}
+```
+
+## License
+
+BSD-2-Clause. 
+Copyright (c) 2021, Shreshth Tuli, Rajas Basal, Rohan Paul, Mausam
+All rights reserved.
+
+See License file for more details.

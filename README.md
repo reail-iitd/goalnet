@@ -23,9 +23,14 @@ This implementation contains the GoalNet model mentioned in the paper for goal-c
 The model mentioned in the paper can be trained through the command
 
 ```bash
-$ python3 train.py <todo> -m Simple -r $EXPERIMENT_NAME -r $TRAIN_DATA_PATH -v $VALIDATION_DATA_PATH -t $TEST_DATA_PATH
+$ python3 train.py -m Simple -r $EXPERIMENT_NAME -r $TRAIN_DATA_PATH -v $VALIDATION_DATA_PATH -t $TEST_DATA_PATH
 ```
 This command will train GOALNET on the training dataset for `NUM_EPOCHS` epochs specified in `main.py`. It will save a checkpoint file `results/EXPERIMENT_NAME/Simple_Model.pt` after the `EPOCH` epoch. It will also save a training graph `results/EXPERIMENT_NAME/Simple_graph.pdf` where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say `N`) corresponding to the maximum validation accuracy using early stopping criteria.
+
+## Sample Commands
+```
+python3 train.py -m Simple -e GoalNet_best -r train -v val -t test
+```
 
 **Pre-trained models:** The pretrained model mentioned in the GoalNet paper can be found [here](insert link here).
 

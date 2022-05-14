@@ -16,27 +16,33 @@ Our goal is to enable a robot to learn how to sequence its actions to perform ta
 
 ## Getting Started
 
-This implementation contains all the models mentioned in the paper for goal-constraint prediction along with action plan generation. This readme gives a broad idea of the work that has been accomplished. The code start point is `main.py`. For more details on replicating results, running the data collection platform and visualizing the collected dataset, refer to this [wiki](https://github.com/reail-iitd/goalnet/wiki).
+This implementation contains the GoalNet model mentioned in the paper for goal-constraint prediction along with action plan generation. 
 
-<!-- For our GOALNET model, use $MODEL_NAME as **GGCN_Metric_Attn_Aseq_L_Auto_Cons_C_Tool_Action**. -->
+## Model Training 
+
+The model mentioned in the paper can be trained through the command
+
+```bash
+$ python3 train.py <todo> -m Simple -r $EXPERIMENT_NAME -r $TRAIN_DATA_PATH -v $VALIDATION_DATA_PATH -t $TEST_DATA_PATH
+```
+This command will train GOALNET on the training dataset for `NUM_EPOCHS` epochs specified in `main.py`. It will save a checkpoint file `results/EXPERIMENT_NAME/Simple_Model.pt` after the `EPOCH` epoch. It will also save a training graph `results/EXPERIMENT_NAME/Simple_graph.pdf` where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say `N`) corresponding to the maximum validation accuracy using early stopping criteria.
+
+**Pre-trained models:** The pretrained model mentioned in the GoalNet paper can be found [here](insert link here).
+
 
 ## Arxiv preprint
-<!-- https://arxiv.org/abs/2105.04556. -->
+<!-- https://arxiv.org/. -->
 
 ## Cite this work
 ```
-@article{tuli2021tango,
-  title={TANGO: Commonsense Generalization in Predicting Tool Interactions for Mobile Manipulators},
-  author={Tuli, Shreshth and Bansal, Rajas and Paul, Rohan and Mausam},
-  journal={arXiv preprint arXiv:2105.04556},
-  year={2021}
+@article{
 }
 ```
 
 ## License
 
 BSD-3-Clause. 
-Copyright (c) 2022, Shreshth Tuli, Rajas Basal, Rohan Paul, Mausam
+Copyright (c) 2022, Shreya Sharma, Jigyasa Gupta, Shreshth Tuli, Rohan Paul and Mausam
 All rights reserved.
 
 See License file for more details.

@@ -23,16 +23,30 @@ This implementation contains the GoalNet model mentioned in the paper for goal-c
 The model mentioned in the paper can be trained through the command
 
 ```bash
-$ python3 train.py -m Simple -r $EXPERIMENT_NAME -r $TRAIN_DATA_PATH -v $VALIDATION_DATA_PATH -t $TEST_DATA_PATH
+$ python3 main.py -m Simple -e $EXPERIMENT_NAME -r $TRAIN_DATA_PATH -v $VALIDATION_DATA_PATH -t $TEST_DATA_PATH
 ```
 This command will train GOALNET on the training dataset for `NUM_EPOCHS` epochs specified in `main.py`. It will save a checkpoint file `results/EXPERIMENT_NAME/Simple_Model.pt` after the `EPOCH` epoch. It will also save a training graph `results/EXPERIMENT_NAME/Simple_graph.pdf` where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say `N`) corresponding to the maximum validation accuracy using early stopping criteria. The dataset is loaded from `data_clean` folder. It has `train`, `val` and `test` folders.
 
-## Sample Commands
-```
-python3 train.py -m Simple -e GoalNet_best -r train -v val -t test
+## Model Testing 
+
+The model mentioned in the paper can be tested through the command
+
+```bash
+$ python3 eval.py -m Simple -e $EXPERIMENT_NAME -t $TEST_DATA_PATH -s True/False
 ```
 
-**Pre-trained models:** The pretrained model mentioned in the GoalNet paper can be found [here](insert link here).
+This command will run inference on the trained model stored in `results/EXPERIMENT_NAME/` and output `SJI`, `IED`, `GRR` and `F1` score.
+`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file. This can be used to quickly compute new evaluation metrics on final output without running the `RINTANEN` planner.
+
+## Sample Commands
+```
+python3 main.py -m Simple -e GoalNet_best -r train -v val -t test
+```
+```
+python3 eval.py -m Simple -e GoalNet_best -t test -s True
+```
+
+**Pre-trained models:** The pretrained model mentioned in the GoalNet paper can be found `results/GoalNet_best` folder.
 
 
 ## Arxiv preprint

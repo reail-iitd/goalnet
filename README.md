@@ -35,8 +35,8 @@ This implementation contains all the models mentioned in the paper for goal-cons
 
 ## License
 
-BSD-2-Clause. 
-Copyright (c) 2021, Shreshth Tuli, Rajas Basal, Rohan Paul, Mausam
+BSD-3-Clause. 
+Copyright (c) 2022, Shreshth Tuli, Rajas Basal, Rohan Paul, Mausam
 All rights reserved.
 
 See License file for more details.

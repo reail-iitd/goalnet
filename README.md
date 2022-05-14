@@ -36,7 +36,8 @@ $ python3 eval.py -m Simple -e $EXPERIMENT_NAME -t $TEST_DATA_PATH -s True/False
 ```
 
 This command will run inference on the trained model stored in `results/EXPERIMENT_NAME/` and output `SJI`, `IED`, `GRR` and `F1` score.<br />
-`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file. This can be used to quickly compute new evaluation metrics on final output without running the `RINTANEN` planner.
+`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in `results/EXPERIMENT_NAME/eval_json` folder. This can be used to quickly compute new evaluation metrics on final output without running the `RINTANEN` planner. To check evaluation metrics without running `RINTANEN` planner, set `-s` to `False`. It will load the pre-saved jsons from `results/EXPERIMENT_NAME/eval_json` and compute metric values.
+
 
 ## Sample Commands
 ```

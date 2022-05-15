@@ -25,7 +25,7 @@ The model mentioned in the paper can be trained through the command
 ```bash
 $ python3 main.py -m Simple -e $EXPERIMENT_NAME -r $TRAIN_DATA_PATH -v $VALIDATION_DATA_PATH -t $TEST_DATA_PATH
 ```
-This command will train GOALNET on the training dataset for `NUM_EPOCHS` epochs specified in `main.py`. It will save a checkpoint file `results/EXPERIMENT_NAME/Simple_Model.pt` after the `EPOCH` epoch. It will also save a training graph `results/EXPERIMENT_NAME/Simple_graph.pdf` where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say `N`) corresponding to the maximum validation accuracy using early stopping criteria. The dataset is loaded from `data_clean` folder. It has `train`, `val` and `test` folders.
+This command will train GOALNET on the training dataset for `NUM_EPOCHS` epochs specified in `main.py`. It will save a checkpoint file `results/EXPERIMENT_NAME/Simple_Model.pt` after the `EPOCH` epoch. It will also save a training graph `results/EXPERIMENT_NAME/Simple_graph.pdf` where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say `N`) corresponding to the maximum validation accuracy using early stopping criteria. The dataset is by default loaded from `data_clean` folder. It has `train`, `val` and `test` folders if not specified in the execution command.
 
 ## Model Testing 
 
@@ -36,7 +36,7 @@ $ python3 eval.py -m Simple -e $EXPERIMENT_NAME -t $TEST_DATA_PATH -s True/False
 ```
 
 This command will run inference on the trained model stored in `results/EXPERIMENT_NAME/` and output `SJI`, `IED`, `GRR` and `F1` score.<br />
-`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in `results/EXPERIMENT_NAME/eval_json` folder. This can be used to quickly compute new evaluation metrics on final output without running the `RINTANEN` planner. To check evaluation metrics without running `RINTANEN` planner, set `-s` to `False`. It will load the pre-saved jsons from `results/EXPERIMENT_NAME/eval_json` and compute metric values.
+`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in `results/EXPERIMENT_NAME/eval_json` folder. This can be later used to quickly compute new evaluation metrics on final output without running the `RINTANEN` planner again. To check evaluation metrics without running `RINTANEN` planner, set `-s` to `False`. It will load the pre-saved jsons from `results/EXPERIMENT_NAME/eval_json` and compute metric values.
 
 
 ## Sample Commands

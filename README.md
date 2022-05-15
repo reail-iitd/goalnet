@@ -2,7 +2,7 @@
 
 This repository contains code implementation of the paper "GOALNET: Inferring Conjunctive Goal Predicates from Human Plan Demonstrations for Robot Instruction Following".
 
-**Shreya Sharma, Jigyasa Gupta, Shreshth Tuli, Rohan Paul and Mausam**. Department of Computer Science and Engineering, Indian Institute of Techonology Delhi. Department of Computing, Imperial College London, UK.
+**Shreya Sharma, Jigyasa Gupta, Shreshth Tuli, Rohan Paul and Mausam**. Department of Computer Science and Engineering, Indian Institute of Techonology Delhi. Samsung R&D Institute India, Delhi. Department of Computing, Imperial College London, UK.
 
 To appear in **Bridging the Gap Between AI Planning and Reinforcement Learning (PRL @ ICAPS) – Workshop at ICAPS 2022**.
 

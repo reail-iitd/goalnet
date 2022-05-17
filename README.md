@@ -51,11 +51,15 @@ python3 eval.py -m Simple -e GoalNet_best -t test -s True
 
 
 ## Arxiv preprint
-<!-- https://arxiv.org/. -->
+https://arxiv.org/abs/2205.07081.
 
 ## Cite this work
-```
-@article{
+```bibtex
+@article{sharma2022goalnet,
+  title={GoalNet: Inferring Conjunctive Goal Predicates from Human Plan Demonstrations for Robot Instruction Following},
+  author={Sharma, Shreya and Gupta, Jigyasa and Tuli, Shreshth and Paul, Rohan and Mausam},
+  journal={arXiv preprint arXiv:2205.07081},
+  year={2022}
 }
 ```
 

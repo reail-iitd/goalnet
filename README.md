@@ -58,7 +58,7 @@ https://arxiv.org/abs/2205.07081.
 @article{sharma2022goalnet,
   title={GoalNet: Inferring Conjunctive Goal Predicates from Human Plan Demonstrations for Robot Instruction Following},
   author={Sharma, Shreya and Gupta, Jigyasa and Tuli, Shreshth and Paul, Rohan and Mausam},
-  journal={arXiv preprint arXiv:2205.07081},
+  journal={International Conference on Automated Planning and Scheduling (ICAPS) - Planning and Reinforcement Learning Workshop},
   year={2022}
 }
 ```

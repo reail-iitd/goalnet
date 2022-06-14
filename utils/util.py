@@ -16,7 +16,7 @@ from optparse import OptionParser
 
 parser = OptionParser()
 parser.add_option("-m", "--model", action="store", dest="model", default="Simple",
-                  choices=['Simple', 'GGCN', 'GCN', 'HAN'], help="model type")
+                  choices=['Simple','Simple_Factored', 'GGCN', 'GCN', 'HAN'], help="model type")
 parser.add_option("-e", "--expname", action="store", dest="expname", default="",
                   help="experiment name")
 parser.add_option("-r", "--train", action="store", dest="train", default="train",

@@ -78,7 +78,7 @@ if __name__ == '__main__':
     val_loss_arr = []
 
 
-    if model_type == "Simple":
+    if "Simple" in model_type:
         lrate = 0.0005
     else:
         lrate = 0.0001

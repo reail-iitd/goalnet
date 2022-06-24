@@ -111,15 +111,17 @@ class Simple_Factored_Model(nn.Module):
         self.action = nn.Sequential(nn.Linear(n_hidden, len(all_relations) + 1), nn.Softmax(dim=0)) # +1 for null delta_g
         self.obj1 = nn.Sequential(nn.Linear(n_hidden*2 + len(all_relations) + 1 + 1, n_hidden),self.activation,nn.Linear(n_hidden,1))
         self.obj2 = nn.Sequential(nn.Linear(n_hidden*2 + len(all_relations) + 1 + 1 + 1, n_hidden), self.activation, nn.Linear(n_hidden,1))
-        self.state = nn.Sequential(nn.Linear(n_hidden*3 + len(all_relations) + 1 + 1, n_hidden),self.activation, nn.Linear(n_hidden,1))
-        
+        #self.state = nn.Sequential(nn.Linear(n_hidden*3 + len(all_relations) + 1 + 1, n_hidden),self.activation, nn.Linear(n_hidden,1))
+        self.state = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_states), nn.Softmax(dim=0))
+
         self.action_inv = nn.Sequential(nn.Linear(n_hidden, len(all_relations) + 1), nn.Softmax(dim=0)) # +1 for null delta_g
         self.obj1_inv = nn.Sequential(nn.Linear(n_hidden*2 + len(all_relations) + 1 + 1 , n_hidden),self.activation,nn.Linear(n_hidden,1))
         self.obj2_inv = nn.Sequential(nn.Linear(n_hidden*2 + len(all_relations) + 1 + 1 +1 , n_hidden), self.activation, nn.Linear(n_hidden,1))
-        self.state_inv = nn.Sequential(nn.Linear(n_hidden*3 + len(all_relations) + 1 + 1, n_hidden),self.activation, nn.Linear(n_hidden,1))
-     
+        #self.state_inv = nn.Sequential(nn.Linear(n_hidden*3 + len(all_relations) + 1 + 1, n_hidden),self.activation, nn.Linear(n_hidden,1))
+        self.state_inv = nn.Sequential(nn.Linear(n_hidden + n_objects + len(all_relations) + 1, n_states), nn.Softmax(dim=0))
+        
         self.n_objects = n_objects
-        self.n_states = n_states
+        #self.n_states = n_states
         l = []
         pos = []
         for obj in all_objects:
@@ -132,6 +134,7 @@ class Simple_Factored_Model(nn.Module):
         self.object_vec = torch.Tensor(l)
         self.object_pos = torch.Tensor(pos)
 
+        '''
         l = []
         pos = []
         for state in all_fluents:
@@ -143,15 +146,17 @@ class Simple_Factored_Model(nn.Module):
             pos.append(inst_arr)
         self.state_vec = torch.Tensor(l)
         self.state_pos = torch.Tensor(pos)
+        '''
 
     def forward(self, g, adj_matrix, goalVec, goalObjectsVec, pred, lstm_hidden=None):
         # embed graph, goal vec based attention
-        h_vec = g.ndata['feat']
+        h = g.ndata['feat']  #GNN 
         # print(g.ndata['feat'].shape)
         # print(adj_matrix.shape)
-        h_adj = self.embed_adj(adj_matrix)
-        h = torch.cat((h_vec, h_adj), 1)
-        goal_embed = self.embed_sbert(goalVec)
+        #h_adj = self.embed_adj(adj_matrix)  
+        
+        #h = torch.cat((h_vec, h_adj), 1)  
+        goal_embed = self.embed_sbert(goalVec) 
         attn_weights = self.graph_attn(torch.cat([h, goal_embed.repeat(h.shape[0], 1)], 1))
         h_embed = torch.mm(attn_weights.t(), h)
         h_embed = self.graph_embed(h_embed.view(-1))
@@ -173,25 +178,33 @@ class Simple_Factored_Model(nn.Module):
 
         pred1_input = torch.cat([final_to_decode, one_hot_action],0)
         pred1_object = self.obj1(
-                        torch.cat([pred1_input.view(-1).repeat(self.n_objects).view(self.n_objects, -1), 
-                                   self.activation(self.embed(self.object_vec)),self.embed_pos(self.object_pos)], 1))
+                        torch.cat([pred1_input.repeat(self.n_objects).view(self.n_objects,-1), 
+                                   self.activation(self.embed(self.object_vec)), 
+                                   self.embed_pos(self.object_pos)], 1)) 
+                        #n_obj * 1 .
         pred1_object = torch.sigmoid(pred1_object)
         
         pred2_input = torch.cat([final_to_decode, one_hot_action], 0)
         pred2_object = self.activation(self.obj2(
-                        torch.cat([pred2_input.view(-1).repeat(self.n_objects).view(self.n_objects, -1), 
-                                   self.activation(self.embed(self.object_vec)), self.embed_pos(self.object_pos),
+                        torch.cat([pred2_input.repeat(self.n_objects).view(self.n_objects, -1), #T
+                                   self.activation(self.embed(self.object_vec)), 
+                                   self.embed_pos(self.object_pos),
                                    pred1_object.view(self.n_objects, 1)], 1)))
         pred2_object = torch.sigmoid(pred2_object)
 
+        one_hot_pred1 = gumbel_softmax(pred1_object, 0.01)
+        pred2_state = self.state(torch.cat([final_to_decode, one_hot_action, one_hot_pred1]))
+        #not needed factored
+        '''
         pred1_obj_embed = self.activation(self.embed(torch.tensor(dense_vector(all_objects[torch.argmax(pred1_object)]))))
         pred2_state = torch.cat([final_to_decode, one_hot_action], 0)
         pred2_state = self.activation(self.state(
                         torch.cat([pred2_state.view(-1).repeat(self.n_states).view(self.n_states, -1), 
-                                   self.activation(self.embed(self.state_vec)), self.embed_pos(self.state_pos),
+                                   self.activation(self.embed_state(self.state_vec)), #embed_state
+                                   self.embed_pos(self.state_pos),
                                    pred1_obj_embed.repeat(self.n_states).view(self.n_states, -1)], 1)))
         pred2_state = torch.sigmoid(pred2_state)
-
+        '''
         # head 2 (delta_g_inv)
         action_inv = self.action_inv(final_to_decode)
         one_hot_action_inv = gumbel_softmax(action_inv, 0.01)
@@ -210,6 +223,10 @@ class Simple_Factored_Model(nn.Module):
                                    pred1_object_inv.view(self.n_objects, 1)], 1)))
         pred2_object_inv = torch.sigmoid(pred2_object_inv)
 
+        one_hot_pred1_inv = gumbel_softmax(pred1_object_inv, 0.01)
+        pred2_state_inv = self.state_inv(torch.cat([final_to_decode, one_hot_action_inv, one_hot_pred1_inv]))
+
+        '''
         pred1_obj_embed_inv = self.activation(self.embed(torch.tensor(dense_vector(all_objects[torch.argmax(pred1_object_inv)]))))
         pred2_state_inv = torch.cat([final_to_decode, one_hot_action_inv], 0)
         pred2_state_inv = self.activation(self.state_inv(
@@ -217,7 +234,7 @@ class Simple_Factored_Model(nn.Module):
                                    self.activation(self.embed(self.state_vec)), self.embed_pos(self.state_pos),
                                    pred1_obj_embed_inv.repeat(self.n_states).view(self.n_states, -1)], 1)))
         pred2_state_inv = torch.sigmoid(pred2_state_inv)
-
+        '''
         return (action, torch.squeeze(pred1_object), torch.squeeze(pred2_object), torch.squeeze(pred2_state), action_inv, torch.squeeze(pred1_object_inv), torch.squeeze(pred2_object_inv), torch.squeeze(pred2_state_inv)), lstm_hidden
         # return (action, pred1_object, pred2_object, pred2_state), lstm_hidden
 

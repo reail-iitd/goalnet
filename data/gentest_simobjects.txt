@@ -27,4 +27,3 @@ Xbox=home_console,playstation,wii,ps3
 Lamp=mood_light
 Glass=drinking_glass
 Microwave=microwave_oven
-

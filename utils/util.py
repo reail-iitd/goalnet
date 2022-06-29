@@ -463,6 +463,9 @@ def eval_accuracy(data, model, verbose = False):
     sji, f1, ied, fb, fbs, grr = 0, 0, 0, 0, 0, 0
     max_len = max([len(dp.states) - 1 for dp in data.dp_list])
     pred_delta, pred_delta_inv = '',''
+    tmp_pred1_obj_ana = []
+    tmp_pred2_obj_ana = []
+    tmp_pred_state_ana = []
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
         state = dp.states[0]; state_dict = dp.state_dict[0]
         adj_matrix = dp.adj_matrix[0]
@@ -496,6 +499,10 @@ def eval_accuracy(data, model, verbose = False):
                 # ########### both delta positive and negative ###########
                 pred, l_h = model(state, adj_matrix, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
                 action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
+                tmp_pred1_obj_ana.append([torch.max(pred1_object),torch.min(pred1_object),torch.std_mean(pred1_object)])
+                tmp_pred2_obj_ana.append([torch.max(pred2_object),torch.min(pred2_object),torch.std_mean(pred2_object),torch.argmax(action)])
+                tmp_pred_state_ana.append([torch.max(pred2_state),torch.min(pred2_state),torch.std_mean(pred2_state),torch.argmax(action)])
+                
                 pred_delta = vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, dp.env_domain, dp.arg_map)
                 pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
                 if pred_delta == '' and pred_delta_inv == '':
@@ -539,6 +546,17 @@ def eval_accuracy(data, model, verbose = False):
         if verbose: print(color.GREEN, 'Pred action seq ', color.ENDC, action_seq)
         if verbose: print(color.GREEN, 'True action seq ', color.ENDC, dp.action_seq)
         if verbose: print("IED ------------ ", get_ied(action_seq, dp.action_seq[:-1]))
+    
+    print("pred1 obj")
+    for i in tmp_pred1_obj_ana:
+        print(i)
+    print("pred2 obj")
+    for i in tmp_pred2_obj_ana:
+        print(i)
+    print("pred state")
+    for i in tmp_pred_state_ana:
+        print(i)
+
     return sji / len(data.dp_list), f1 / len(data.dp_list), ied / len(data.dp_list), fb / len(data.dp_list), fbs / len(data.dp_list), grr / len(data.dp_list)
 
 def confusion_matrix(l1, l2, classes):

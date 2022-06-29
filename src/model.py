@@ -93,9 +93,10 @@ class Simple_Factored_Model(nn.Module):
                  n_states,
                  etypes):
         super(Simple_Factored_Model, self).__init__()
-        self.name = "Simple_Model"
+        self.name = "Simple_Factored_Model"
         self.n_hidden = n_hidden
         self.activation = nn.PReLU()
+        #self.gcn = HeteroRGCNLayer(in_feats, in_feats, etypes, activation=self.activation)
         self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
         # self.embed_sbert = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
         self.embed = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation, nn.Linear(n_hidden, n_hidden))
@@ -151,6 +152,7 @@ class Simple_Factored_Model(nn.Module):
     def forward(self, g, adj_matrix, goalVec, goalObjectsVec, pred, lstm_hidden=None):
         # embed graph, goal vec based attention
         h = g.ndata['feat']  #GNN 
+        #h = self.gcn(g, h)
         # print(g.ndata['feat'].shape)
         # print(adj_matrix.shape)
         #h_adj = self.embed_adj(adj_matrix)  

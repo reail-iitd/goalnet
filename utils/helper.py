@@ -17,6 +17,8 @@ def dense_vector(obj):
         return VOCAB_VECT[obj]
     if obj in conceptnet_vectors:
         return conceptnet_vectors[obj]
+    if obj in gen_obj_conceptnet:
+        return gen_obj_conceptnet[obj]
     raise Exception("No dense representation found for: " + obj)
 
 def preprocess(sent):
@@ -71,8 +73,8 @@ def dense_vector_embed(sent):
 # get environment domain based on the object set (for masking)
 def get_env_domain(state):
     _, objects = get_environment(state)
-    inter1 = len(set(objects).intersection(all_objects_kitchen))
-    inter2 = len(set(objects).intersection(all_objects_living))
+    inter1 = len(set(objects).intersection(universal_objects_kitchen))
+    inter2 = len(set(objects).intersection(universal_objects_living))
     return 'kitchen' if inter1 > inter2 else 'living'
 
 def get_environment(relations):
@@ -98,12 +100,12 @@ def get_graph(state):
     env, objects = get_environment(state)
     nodes = []
 
-    for obj in all_objects:
+    for obj in universal_objects:
         node = {}
         node['populate'] = obj in objects
-        node["id"] = all_objects.index(obj)
+        node["id"] = universal_objects.index(obj)
         node["name"] = obj
-        node["prop"] = all_obj_prop[obj]
+        node["prop"] = universal_objects_prop[obj]
         node["vector"] = dense_vector(obj)
         node["state_var"] = []
 
@@ -121,10 +123,10 @@ def get_graph(state):
     relation = {"Near", "On", "In", "Grasping"}
     for rel in relation:
         for t in env[rel]:
-            fromID = all_objects.index(remove_braces(t[0]))
-            toID = all_objects.index(remove_braces(t[1]))
+            fromID = universal_objects.index(remove_braces(t[0]))
+            toID = universal_objects.index(remove_braces(t[1]))
             edges.append({'from': fromID, 'to': toID, 'relation': rel})
-    for i, obj in enumerate(all_objects):
+    for i, obj in enumerate(universal_objects):
         edges.append({'from': i, 'to': i, 'relation': 'Empty'})
 
     return {'nodes': nodes, 'edges': edges}

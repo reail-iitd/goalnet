@@ -32,7 +32,7 @@ parser.add_option("-s", "--save", action="store_true", dest="save_json", default
 opts, args = parser.parse_args()
 
 def obj_set(env_domain):
-    return all_objects # all_objects_kitchen if env_domain == 'kitchen' else all_objects_living
+    return universal_objects # all_objects_kitchen if env_domain == 'kitchen' else all_objects_living
        
 def create_pddl(init, objects, goal_list, file_name, inverse=False):
     f = open(file_name + ".pddl", "w")
@@ -75,7 +75,7 @@ def check_arg_map(arg_map):
     if len(arg_map.keys()) == 0: return False
     for arg, mapping in arg_map.items():
         for noun in mapping:
-            if noun.lower() not in all_objects_lower:
+            if noun.lower() not in universal_objects_lower:
                 return False
     return True
 
@@ -86,15 +86,15 @@ def vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, env
     rel = all_relations[action_index]
     obj_mask = mask_kitchen if env_domain == 'kitchen' else mask_living
     obj1_index = torch.argmax(pred1_object * obj_mask * (mask_stateful if action_index == 0 else 1)).item()
-    obj1 = all_objects[obj1_index]
-    obj2_mask_temp = torch.ones(len(all_objects))
+    obj1 = universal_objects[obj1_index]
+    obj2_mask_temp = torch.ones(len(universal_objects))
     for constr in state_dict:
         if constr == '' or constr.replace('(', '').replace(')', '').split()[0] not in all_relations: continue
         a_i, o1_i, o2_i, s_i = string2index(constr)
         if action_index == a_i and obj1_index == o1_i:
             obj2_mask_temp[o2_i] = 0
     obj2_mask = 1 if action_index == 0 else obj2_mask_temp
-    obj2 = all_objects[torch.argmax(pred2_object * obj_mask * obj2_mask).item()]
+    obj2 = universal_objects[torch.argmax(pred2_object * obj_mask * obj2_mask).item()]
     state_mask = state_masks[obj1] if action_index == 0 else 1
     state = all_fluents[torch.argmax(pred2_state * state_mask).item()]
     return "(" + rel + " " + obj1  + " " + (state if action_index == 0 else obj2) + ")" 
@@ -102,7 +102,7 @@ def vect2string(state_dict, action, pred1_object, pred2_object, pred2_state, env
 def string2index(str_constr, train=True):
     words = str_constr.replace('(', '').replace(')', '').split()
     action_index = all_relations_lower.index(words[0].lower())
-    obj1_index = all_objects_lower.index(words[1].lower())
+    obj1_index = universal_objects_lower.index(words[1].lower())
 
     if words[0].lower() == "state":
         obj2_index = -1  # None
@@ -113,7 +113,7 @@ def string2index(str_constr, train=True):
             print("State out of vocab: ", words[2].lower())
     else:
         state_index = -1
-        obj2_index = all_objects_lower.index(words[2].lower())
+        obj2_index = universal_objects_lower.index(words[2].lower())
 
     return [action_index, obj1_index, obj2_index, state_index]
 
@@ -335,10 +335,10 @@ def get_new_state(state, delta_g, delta_g_inv):
 def get_graph_util(state):
     env, objects = get_environment(state)
     nodes = []
-    for obj in all_objects_lower:
+    for obj in universal_objects_lower:
         node = {}
         node['populate'] = obj in objects
-        node["id"] = all_objects_lower.index(obj)
+        node["id"] = universal_objects_lower.index(obj)
         node["name"] = obj
         node["prop"] = all_obj_prop_lower[obj]
         node["vector"] = dense_vector(obj)
@@ -354,10 +354,10 @@ def get_graph_util(state):
     relation = {"Near", "On", "In", "Grasping"}
     for rel in relation:
         for t in env[rel]:
-            fromID = all_objects.index(remove_braces(t[0]))
-            toID = all_objects.index(remove_braces(t[1]))
+            fromID = universal_objects.index(remove_braces(t[0]))
+            toID = universal_objects.index(remove_braces(t[1]))
             edges.append({'from': fromID, 'to': toID, 'relation': rel})
-    for i, obj in enumerate(all_objects):
+    for i, obj in enumerate(universal_objects):
         edges.append({'from': i, 'to': i, 'relation': 'Empty'})
     return {'nodes': nodes, 'edges': edges}
 
@@ -389,11 +389,6 @@ def convertToDGLGraph_util(state):
     node_prop = torch.zeros([n_nodes, len(all_non_fluents)], dtype=torch.float)  # Non-fluent vector
     node_fluents = torch.zeros([n_nodes, MAX_REL], dtype=torch.float) # fluent states
     node_vectors = torch.zeros([n_nodes, word_embed_size], dtype=torch.float)  # Conceptnet embedding
-    adj_matrix = torch.zeros([n_nodes, N_objects], dtype=torch.float)  # Relations with other adjacent nodes
-        
-    for edge in graph_data["edges"]:
-        if not edge['relation'] == "Empty":
-            adj_matrix[edge["from"]][edge["to"]] = 1
 
     for i, node in enumerate(graph_data["nodes"]):
         if not node['populate']: continue
@@ -402,7 +397,7 @@ def convertToDGLGraph_util(state):
         node_id = node["id"]
         count = 0
         for state in states:
-            idx = all_object_states_lower[node["name"]].index(state)
+            idx = universal_object_states_lower[node["name"]].index(state)
             node_fluents[node_id][idx] = 1   
         for state in prop:
             if len(state) > 0:
@@ -411,12 +406,12 @@ def convertToDGLGraph_util(state):
         node_vectors[node_id] = torch.FloatTensor(node["vector"])
     # feat_mat = torch.cat((node_vectors, node_fluents, node_prop), 1)
     g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)
-    return g, adj_matrix
+    return g
 
 def run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
     if pred_delta == '': 
-        state, adj_matrix = dp.convertToDGLGraph(state_dict)
-        return [], state, state_dict, adj_matrix
+        state = dp.convertToDGLGraph(state_dict)
+        return [], state, state_dict
     state_dict = state_dict + [pred_delta]
     a_i, o1_i, o2_i, s_i = string2index(pred_delta)
     for constr in state_dict:
@@ -426,10 +421,10 @@ def run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv, verbos
             state_dict.remove(constr)
             break
     if pred_delta_inv in state_dict: state_dict.remove(pred_delta_inv)
-    state, adj_matrix = dp.convertToDGLGraph(state_dict)
-    return [], state, state_dict, adj_matrix
+    state = dp.convertToDGLGraph(state_dict)
+    return [], state, state_dict
 
-def run_planner(state, state_dict, adj_matrix, dp, pred_delta="", pred_delta_inv="", verbose = False):
+def run_planner(state, state_dict, dp, pred_delta="", pred_delta_inv="", verbose = False):
     if verbose: print(color.GREEN, 'Pred Delta', color.ENDC, pred_delta.lower())
     if verbose: print(color.GREEN, 'Pred Delta inv', color.ENDC, pred_delta_inv.lower())
     state_dict_lower = [rel.lower() for rel in state_dict]
@@ -454,10 +449,10 @@ def run_planner(state, state_dict, adj_matrix, dp, pred_delta="", pred_delta_inv
     if verbose: print(color.GREEN, 'Delta_g_inv', color.ENDC, planner_delta_g_inv)
     state_dict = state_dict_new if state_dict_new else state_dict # seg fault case
     try:
-        state, adj_matrix = convertToDGLGraph_util(state_dict)
+        state = convertToDGLGraph_util(state_dict)
     except:
         pass
-    return planner_action, state, state_dict, adj_matrix
+    return planner_action, state, state_dict
 
 def eval_accuracy(data, model, verbose = False):
     sji, f1, ied, fb, fbs, grr = 0, 0, 0, 0, 0, 0
@@ -468,7 +463,6 @@ def eval_accuracy(data, model, verbose = False):
     tmp_pred_state_ana = []
     for iter_num, dp in tqdm(list(enumerate(data.dp_list)), leave=False, ncols=80):
         state = dp.states[0]; state_dict = dp.state_dict[0]
-        adj_matrix = dp.adj_matrix[0]
         init_state_dict = dp.state_dict[0]
         action_seq = []
         json_file_name = dp.file_path.split("/")[-1].split(".")[0] + "_eval.json"
@@ -497,7 +491,7 @@ def eval_accuracy(data, model, verbose = False):
             for i in range(len(dp.states) - 1 if opts.nofixlen else max_len):
                 if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
                 # ########### both delta positive and negative ###########
-                pred, l_h = model(state, adj_matrix, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
+                pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
                 action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
                 tmp_pred1_obj_ana.append([torch.max(pred1_object),torch.min(pred1_object),torch.std_mean(pred1_object)])
                 tmp_pred2_obj_ana.append([torch.max(pred2_object),torch.min(pred2_object),torch.std_mean(pred2_object),torch.argmax(action)])
@@ -507,7 +501,7 @@ def eval_accuracy(data, model, verbose = False):
                 pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
                 if pred_delta == '' and pred_delta_inv == '':
                     break
-                planner_action, state, state_dict, adj_matrix = run_planner(state, state_dict, adj_matrix, dp, pred_delta, pred_delta_inv, verbose=verbose)
+                planner_action, state, state_dict = run_planner(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
                 ###########
 
                 # ########### only delta positive ###########

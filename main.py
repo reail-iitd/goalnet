@@ -17,12 +17,12 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
         state = dp.states[0]
         for i in range(len(dp.states)):
             if (train and (teacher_forcing < 0.8 or epoch < 0.4 * NUM_EPOCHS))  or i == 0:
-                state, state_dict, adj_matrix = dp.states[i], dp.state_dict[i], dp.adj_matrix[i]
+                state, state_dict = dp.states[i], dp.state_dict[i]
             else:
-                _, state, state_dict, adj_matrix = run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv)
+                _, state, state_dict = run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv)
             delta_g_true = dp.delta_g_embed[i]
             # ########### both delta positive and negative ###########
-            pred, l_h = model(state, adj_matrix, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
+            pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
             action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
             loss = loss_function(action, pred1_object, pred2_object, pred2_state, dp.delta_g_embed[i], dp.delta_g[i], l)
             loss += loss_function(action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.delta_g_inv_embed[i], dp.delta_g_inv[i], l)
@@ -64,10 +64,10 @@ if __name__ == '__main__':
     test_data = DGLDataset(data_file + opts.test + '/')
     # print("Node features = ", train_data.features)
     # print("n_hidden = ", 2 * GRAPH_HIDDEN)
-    model = eval(model_type + '_Model(train_data.features, 2 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])')
-    # checkpoint = torch.load(result_folder + opts.expname + '/' + model.name + ".pt", map_location='cpu')
-    # print(checkpoint)
-    # model.load_state_dict(checkpoint)
+    model = eval(model_type + '_Model(train_data.features, 4 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])')
+    #checkpoint = torch.load(result_folder + opts.expname + '/' + model.name + ".pt", map_location='cpu')
+    #print(checkpoint)
+    #model.load_state_dict(checkpoint)
 
 
     best_val_acc = 0

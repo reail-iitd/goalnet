@@ -32,27 +32,35 @@ with open(f'{data_file}constants.json', 'r') as fh:
         ON_obj2 = constants_dict['ON_obj2']
         Grasp_obj2 = constants_dict['Grasp_obj2']
         state_obj1 = constants_dict['state_obj1']
+        universal_objects = constants_dict['universal_objects']
+        universal_objects_kitchen = constants_dict['universal_objects_kitchen']
+        universal_objects_living = constants_dict['universal_objects_living']
+        universal_objects_prop = constants_dict['universal_objects_prop']
+        universal_object_states = constants_dict['universal_object_states']
 all_objects_lower = [i.lower() for i in all_objects]
+universal_objects_lower = [i.lower() for i in universal_objects]
 all_relations_lower = [i.lower() for i in all_relations]
 all_fluents_lower = [i.lower() for i in all_fluents]
 all_obj_prop_lower = {}
 for obj in all_obj_prop: all_obj_prop_lower[obj.lower()] = all_obj_prop[obj]
 all_object_states_lower = {}
 for obj in all_object_states: all_object_states_lower[obj.lower()] = [i.lower() for i in all_object_states[obj]]
-MAX_REL = max([len(all_object_states[obj]) for obj in all_object_states.keys()])
+universal_object_states_lower = {}
+for obj in universal_object_states: universal_object_states_lower[obj.lower()] = [i.lower() for i in universal_object_states[obj]]
+MAX_REL = max([len(universal_object_states[obj]) for obj in universal_object_states.keys()])
 N_STATES = len(all_states)
-N_objects = len(all_objects)
+N_objects = len(universal_objects)
 N_relations = len(all_relations)
 N_fluents = len(all_fluents)
 total_valid_constr0 = len(ON_obj1[0])*len(ON_obj2[0]) + len(IN_obj1[0])*len(IN_obj2[0])+ len(Grasp_obj2[0]) + len(all_objects_kitchen) + 31 #fluents of kitchen
 total_valid_constr1 =  len(ON_obj1[1])*len(ON_obj2[1]) + len(IN_obj1[1])*len(IN_obj2[1]) + len(Grasp_obj2[1]) + N_objects + 7 # object fluents
 total_valid_constr = [total_valid_constr0, total_valid_constr1]
-mask_kitchen = torch.Tensor([1 if obj in all_objects_kitchen else 0 for obj in all_objects])
-mask_living = torch.Tensor([1 if obj in all_objects_living else 0 for obj in all_objects])
-mask_stateful = torch.Tensor([1 if obj in all_object_states else 0 for obj in all_objects])
+mask_kitchen = torch.Tensor([1 if obj in universal_objects_kitchen else 0 for obj in universal_objects])
+mask_living = torch.Tensor([1 if obj in universal_objects_living else 0 for obj in universal_objects])
+mask_stateful = torch.Tensor([1 if obj in universal_object_states else 0 for obj in universal_objects])
 state_masks = {}
-for obj in all_object_states:
-        state_masks[obj] = torch.Tensor([(1 if state in all_object_states[obj] else 0) for state in all_fluents])
+for obj in universal_object_states:
+        state_masks[obj] = torch.Tensor([(1 if state in universal_object_states[obj] else 0) for state in all_fluents])
 
 # LOADING DATASET SPECIFIC VOCABULARY
 with open(f'{data_file}vocab.json', 'r') as fh:
@@ -65,6 +73,9 @@ with open(f'{data_file}vocab.json', 'r') as fh:
 # LOADING DATASET AGNOSTIC CONCEPTNET EMBEDDINGS
 with open('./jsons/conceptnet.json', 'r') as fh:
         conceptnet_vectors = json.load(fh)
+
+with open('./jsons/gen_obj.json', 'r') as fh:
+        gen_obj_conceptnet = json.load(fh)
 
 all_vectors = {}
 for obj in conceptnet_vectors: all_vectors[obj.lower()] = np.array(conceptnet_vectors[obj])

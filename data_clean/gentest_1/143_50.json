@@ -1,12 +1,12 @@
 {
-    "sent": "collect the food_holders, utensils, and cups",
+    "sent": "collect the foodholders, utensils, and cups",
     "filename": "143",
     "arg_mapping": {
         "cups": [
             "(LongCup_1)",
             "(LongCup_2)"
         ],
-        "plates": [
+        "foodholders": [
             "(food_holder_1)",
             "(food_holder_2)"
         ]

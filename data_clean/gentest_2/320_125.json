@@ -1,5 +1,5 @@
 {
-    "sent": "outside . put all textscience_books on the center table",
+    "sent": "outside . put all science_books on the center table",
     "filename": "320",
     "arg_mapping": {
         "centertable": [
@@ -7,7 +7,7 @@
             "(tvtable_1)",
             "(SnackTable_1)"
         ],
-        "textbooks": [
+        "science_books": [
             "(science_book_1)",
             "(science_book_2)"
         ]

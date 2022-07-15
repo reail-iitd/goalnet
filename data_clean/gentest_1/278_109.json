@@ -1,8 +1,8 @@
 {
-    "sent": "open the gamecompact_disk with tv",
+    "sent": "open the compact_disk with tv",
     "filename": "278",
     "arg_mapping": {
-        "gamecd": [
+        "compact_disk": [
             "(compact_disk_2)",
             "(compact_disk_1)"
         ],

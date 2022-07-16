@@ -8,8 +8,7 @@ import torch
 from tqdm import tqdm, trange
 import matplotlib.pyplot as plt
 import matplotlib.lines as line
-from .constants import *
-from .helper import *
+
 import subprocess, random
 from copy import deepcopy
 from optparse import OptionParser
@@ -29,7 +28,13 @@ parser.add_option("-n", "--nofixlen", action="store_true", dest="nofixlen", defa
                   help="run with stopping criterion = GT plan length")
 parser.add_option("-s", "--save", action="store_true", dest="save_json", default=False,
                   help="run with stopping criterion = GT plan length")
+parser.add_option("-o", "--run_option", action="store", dest="run_option", default="test",
+                  help="choose between \"train\" and \"test\")")
+
 opts, args = parser.parse_args()
+
+from .constants import *
+from .helper import *
 
 def obj_set(env_domain):
     return universal_objects # all_objects_kitchen if env_domain == 'kitchen' else all_objects_living

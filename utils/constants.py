@@ -1,5 +1,6 @@
 import pickle, os, json, torch
 import numpy as np
+from .util import opts
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
@@ -32,11 +33,20 @@ with open(f'{data_file}constants.json', 'r') as fh:
         ON_obj2 = constants_dict['ON_obj2']
         Grasp_obj2 = constants_dict['Grasp_obj2']
         state_obj1 = constants_dict['state_obj1']
+
         universal_objects = constants_dict['universal_objects']
         universal_objects_kitchen = constants_dict['universal_objects_kitchen']
         universal_objects_living = constants_dict['universal_objects_living']
         universal_objects_prop = constants_dict['universal_objects_prop']
         universal_object_states = constants_dict['universal_object_states']
+
+if(opts.run_option == "train"):
+        universal_objects = all_objects
+        universal_objects_kitchen = all_objects_kitchen
+        universal_objects_living = all_objects_living
+        universal_objects_prop = all_obj_prop
+        universal_object_states = all_object_states
+
 all_objects_lower = [i.lower() for i in all_objects]
 universal_objects_lower = [i.lower() for i in universal_objects]
 all_relations_lower = [i.lower() for i in all_relations]

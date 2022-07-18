@@ -45,9 +45,7 @@ class Simple_Model(nn.Module):
 
     def forward(self, g, goalVec, goalObjectsVec, pred, lstm_hidden=None):
         # embed graph, goal vec based attention
-        h_vec = g.ndata['feat']
-
-        h = torch.cat((h_vec), 1)
+        h = g.ndata['feat']
         goal_embed = self.embed_sbert(goalVec)
         attn_weights = self.graph_attn(torch.cat([h, goal_embed.repeat(h.shape[0], 1)], 1))
         h_embed = torch.mm(attn_weights.t(), h)
@@ -158,7 +156,6 @@ class Simple_Factored_Model(nn.Module):
         # head 1 (delta_g)
         action = self.action(final_to_decode)
         one_hot_action = gumbel_softmax(action, 0.01)
-
         pred1_input = torch.cat([final_to_decode, one_hot_action],0)
         pred1_object = self.obj1(
                         torch.cat([pred1_input.repeat(self.n_objects).view(self.n_objects,-1), 

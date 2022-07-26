@@ -56,8 +56,8 @@ def create_pddl(init, objects, goal_list, file_name, inverse=False):
                 f.write(") ")
     # non-fluent properties added to pddl
     for obj in objects:
-        if obj in all_obj_prop.keys():
-            for prop in all_obj_prop[obj]:
+        if obj in universal_objects_prop.keys():
+            for prop in universal_objects_prop[obj]:
                 f.write("(" + prop.lower() + " " + obj.lower() + ") ")
     goal_string = ""
     for goal in goal_list:

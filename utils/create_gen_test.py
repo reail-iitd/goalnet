@@ -45,7 +45,7 @@ def find_similar_objects():
         sim_vec.sort(key = lambda x: x[1])
         print(sim_vec)
     
-data = load_all_vectors("../data_clean/numberbatch-en-19.08.txt")
+#data = load_all_vectors("../data_clean/numberbatch-en-19.08.txt")
 #find_similar_objects()
 
 #store embeddings of new objects
@@ -72,7 +72,7 @@ def gen_obj_embed():
 
 #write o/p in json file
 #>>python create_gen_test.py > ../jsons/gen_obj.json
-gen_obj_embed()
+#gen_obj_embed()
 
 #replace objects
 def find_objects(input):
@@ -124,20 +124,23 @@ def replace_util(obj_list,dp,gen_obj_dict):
     arg_mapping = dp["arg_mapping"]
     new_arg_mapping = arg_mapping
     #--------------------------------------#--------------------------------------
-    #replace sentence
+    
     for obj in obj_list:   #these are the objects manipulated, change only these
         if(obj in gen_obj_dict.keys()):  #check if object present in generalization list
+            
+            #replace sentence
+            '''
             if(obj in dp["sent"]):
                 new_dp["sent"] = dp["sent"].replace(obj,gen_obj_dict[obj][0])
-    #--------------------------------------#--------------------------------------
-
-    #--------------------------------------#--------------------------------------
-    #replace arg mapping
+            '''
+            #--------------------------------------#--------------------------------------
+            #replace arg mapping
+            '''
             if(obj in arg_mapping.keys()):
                 #replace key
                 new_arg_mapping[gen_obj_dict[obj][0]] = new_arg_mapping[obj]
                 del new_arg_mapping[obj]
-            
+            '''
             #replace values (object replacement)
             for key,value in new_arg_mapping.items():
                 new_value = []
@@ -166,7 +169,7 @@ def replace_util(obj_list,dp,gen_obj_dict):
 
 def replace_objects():
     data_folder = "../data_clean/test/"
-    gen_data = "../data_clean/gentest_2/"
+    gen_data = "../data_clean/gentest_3/"
 
     ####
     file_inst = open("../data_clean/gentest_simobjects.txt", 'r').readlines()
@@ -204,6 +207,7 @@ def replace_objects():
             
 
 #replace_objects()
+
 def count_instances(obj):
     count = 0
     match_obj = ""
@@ -220,27 +224,63 @@ def make_universal_object_set():
     universal_objects_living = all_objects_living
     universal_objects_states = all_object_states
     #print(universal_objects_prop)
+    print(all_objects)
+    print(len(all_objects))
+
+    print(all_objects_kitchen)
+    print(len(all_objects_kitchen))
+
+    print(all_objects_living)
+    print(len(all_objects_living))
+
     file_inst = open("../data_clean/gentest_simobjects.txt", 'r').readlines()
-    gen_obj_dict = {}
+    replace_dict = {}
     for line in file_inst:
-        obj_list = line.split("=")[1].rstrip().split(",")
+        obj_replace = line.split("=")[1].rstrip().split(",")[0]
         og_obj = line.split("=")[0]
-        num_instances, match_obj = count_instances(og_obj)
-        for num in range(max(num_instances,1)):
-            for obj_i in obj_list:
-                #print("Add "+obj_i+"_"+str(num + 1))
-                universal_objects.append(obj_i+"_"+str(num + 1))
-                universal_objects_prop[obj_i+"_"+str(num + 1)] = all_obj_prop[match_obj] 
-                if(match_obj in all_object_states.keys()):
-                    universal_objects_states[obj_i+"_"+str(num + 1)] = all_object_states[match_obj] 
-                if(match_obj in all_objects_kitchen):
-                    universal_objects_kitchen.append(obj_i+"_"+str(num + 1))
-                else:
-                    universal_objects_living.append(obj_i+"_"+str(num + 1))
-    #print(universal_objects)
-    #print(universal_objects_prop)
-    print(universal_objects_states)
-  
-#make_universal_object_set()
+        replace_dict[og_obj] = obj_replace
+    
+    for i,obj in enumerate(universal_objects):
+        obj_split = obj.split("_")[0].lower()
+        try:
+            obj_instance = obj.split("_")[1]
+        except:
+            obj_instance = ""
+        if(obj_split in replace_dict.keys()):
+            universal_objects[i] = replace_dict[obj_split] 
+            if(obj_instance):
+                universal_objects[i] += "_" + obj_instance
+
+    
+    for i,obj in enumerate(universal_objects_kitchen):
+        obj_split = obj.split("_")[0].lower()
+        try:
+            obj_instance = obj.split("_")[1]
+        except:
+            obj_instance = ""
+        if(obj_split in replace_dict.keys()):
+            universal_objects_kitchen[i] = replace_dict[obj_split] 
+            if(obj_instance):
+                universal_objects_kitchen[i] += "_" + obj_instance
+
+    
+    for i,obj in enumerate(universal_objects_living):
+        obj_split = obj.split("_")[0].lower()
+        try:
+            obj_instance = obj.split("_")[1]
+        except:
+            obj_instance = ""
+        if(obj_split in replace_dict.keys()):
+            universal_objects_living[i] = replace_dict[obj_split] 
+            if(obj_instance):
+                universal_objects_living[i] += "_" + obj_instance
+
+    print(universal_objects)
+    print(len(universal_objects))
+    print(universal_objects_kitchen)
+    print(len(universal_objects_kitchen))
+    print(universal_objects_living)
+    print(len(universal_objects_living))
+make_universal_object_set()
 
 

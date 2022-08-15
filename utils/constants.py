@@ -40,7 +40,7 @@ with open(f'{data_file}constants.json', 'r') as fh:
         universal_objects_prop = constants_dict['universal_objects_prop']
         universal_object_states = constants_dict['universal_object_states']
 
-if(opts.run_option == "train"):
+if(opts.object_set == "seen"):
         universal_objects = all_objects
         universal_objects_kitchen = all_objects_kitchen
         universal_objects_living = all_objects_living
@@ -73,7 +73,7 @@ mask_stateful = torch.Tensor([1 if obj in universal_object_states else 0 for obj
 state_masks = {}
 for obj in universal_object_states:
         state_masks[obj] = torch.Tensor([(1 if state in universal_object_states[obj] else 0) for state in all_fluents])
-if(opts.model == "Simple"):
+if(opts.model == "GoalNet"):
         mask_kitchen = mask_kitchen * torch.Tensor([int(x==y) for x,y in zip(all_objects,universal_objects)])
         mask_living = mask_living * torch.Tensor([int(x==y) for x,y in zip(all_objects,universal_objects)])
 

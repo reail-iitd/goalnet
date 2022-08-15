@@ -64,6 +64,8 @@ if __name__ == '__main__':
     test_data = DGLDataset(data_file + opts.test + '/')
     # print("Node features = ", train_data.features)
     # print("n_hidden = ", 2 * GRAPH_HIDDEN)
+    if(model_type == "Tango" or model_type == "Aggregated"):
+        model_type = "GoalNet"
     model = eval(model_type + '_Model(train_data.features, 4 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])')
     #checkpoint = torch.load(result_folder + opts.expname + '/' + model.name + ".pt", map_location='cpu')
     #print(checkpoint)
@@ -78,10 +80,7 @@ if __name__ == '__main__':
     val_loss_arr = []
 
 
-    if "Simple" in model_type:
-        lrate = 0.0005
-    else:
-        lrate = 0.0001
+    lrate = 0.0001
         
     optimizer = torch.optim.Adam(model.parameters(), lr=lrate)
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=50, gamma=0.2)

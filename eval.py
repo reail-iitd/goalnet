@@ -3,6 +3,8 @@ from main import *
 if __name__ == '__main__':
     result_folder = './results/' + opts.expname + '/'
     model_type = opts.model
+    if(model_type == "Tango" or model_type == "Aggregated"):
+        model_type = "GoalNet"
     test_data = DGLDataset(data_file + opts.test + '/')
 
     best_model = eval(model_type + '_Model(test_data.features, 4 * GRAPH_HIDDEN, N_objects, len(all_fluents), ["Empty"] + all_relations[1:])')

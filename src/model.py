@@ -14,15 +14,15 @@ from utils.constants import *
 from .datapoint import *
 from dgl.nn import GraphConv
 
-class Simple_Model(nn.Module):
+class GoalNet_Model(nn.Module):
     def __init__(self,
                  in_feats, 
                  n_hidden,
                  n_objects,
                  n_states,
                  etypes):
-        super(Simple_Model, self).__init__()
-        self.name = "Simple_Model"
+        super(GoalNet_Model, self).__init__()
+        self.name = "GoalNet_Model"
         self.n_hidden = n_hidden
         self.activation = nn.PReLU()
         self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
@@ -81,15 +81,15 @@ class Simple_Model(nn.Module):
         return (action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv), lstm_hidden
         # return (action, pred1_object, pred2_object, pred2_state), lstm_hidden
 
-class Simple_Factored_Model(nn.Module):
+class GoalNet_Star_Model(nn.Module):
     def __init__(self,
                  in_feats, 
                  n_hidden,
                  n_objects,
                  n_states,
                  etypes):
-        super(Simple_Factored_Model, self).__init__()
-        self.name = "Simple_Factored_Model"
+        super(GoalNet_Star_Model, self).__init__()
+        self.name = "GoalNet_Star_Model"
         self.n_hidden = n_hidden
         self.activation = nn.PReLU()
         #self.gcn = HeteroRGCNLayer(in_feats, in_feats, etypes, activation=self.activation)

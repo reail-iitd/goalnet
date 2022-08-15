@@ -3,7 +3,7 @@ from utils.util import *
 from src.model import *
 from src.dataset import *
 
-NUM_EPOCHS = 100
+NUM_EPOCHS = 200
 
 def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEnc=None, batch_size=1, train=True):
     total_loss = 0.0

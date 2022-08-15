@@ -545,16 +545,8 @@ def eval_accuracy(data, model, verbose = False):
         if verbose: print(color.GREEN, 'Pred action seq ', color.ENDC, action_seq)
         if verbose: print(color.GREEN, 'True action seq ', color.ENDC, dp.action_seq)
         if verbose: print("IED ------------ ", get_ied(action_seq, dp.action_seq[:-1]))
-    
-    print("pred1 obj")
-    for i in tmp_pred1_obj_ana:
-        print(i)
-    print("pred2 obj")
-    for i in tmp_pred2_obj_ana:
-        print(i)
-    print("pred state")
-    for i in tmp_pred_state_ana:
-        print(i)
+        if verbose: print("GRR ------------ ", get_goal_reaching(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0]))
+        if verbose: print("F1 ------------ ", get_f1_index(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])) 
 
     return sji / len(data.dp_list), f1 / len(data.dp_list), ied / len(data.dp_list), fb / len(data.dp_list), fbs / len(data.dp_list), grr / len(data.dp_list)
 

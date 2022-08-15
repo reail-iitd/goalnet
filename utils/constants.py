@@ -53,6 +53,8 @@ all_relations_lower = [i.lower() for i in all_relations]
 all_fluents_lower = [i.lower() for i in all_fluents]
 all_obj_prop_lower = {}
 for obj in all_obj_prop: all_obj_prop_lower[obj.lower()] = all_obj_prop[obj]
+universal_obj_prop_lower = {}
+for obj in all_obj_prop: universal_obj_prop_lower[obj.lower()] = all_obj_prop[obj]
 all_object_states_lower = {}
 for obj in all_object_states: all_object_states_lower[obj.lower()] = [i.lower() for i in all_object_states[obj]]
 universal_object_states_lower = {}
@@ -71,6 +73,9 @@ mask_stateful = torch.Tensor([1 if obj in universal_object_states else 0 for obj
 state_masks = {}
 for obj in universal_object_states:
         state_masks[obj] = torch.Tensor([(1 if state in universal_object_states[obj] else 0) for state in all_fluents])
+if(opts.model == "Simple"):
+        mask_kitchen = mask_kitchen * torch.Tensor([int(x==y) for x,y in zip(all_objects,universal_objects)])
+        mask_living = mask_living * torch.Tensor([int(x==y) for x,y in zip(all_objects,universal_objects)])
 
 # LOADING DATASET SPECIFIC VOCABULARY
 with open(f'{data_file}vocab.json', 'r') as fh:

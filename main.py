@@ -80,7 +80,7 @@ if __name__ == '__main__':
     val_loss_arr = []
 
 
-    lrate = 0.0001
+    lrate = 0.0005
         
     optimizer = torch.optim.Adam(model.parameters(), lr=lrate)
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=50, gamma=0.2)

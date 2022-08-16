@@ -3,7 +3,7 @@
 This repository contains code implementation of the paper "GOALNET: Interleaving Neural Goal Predicate Inference with Classical Planning for Generalization in Robot Instruction Following".
 
 
-Subitted to **37th AAAI Conference on Artifical Intelligence 2023**.
+Submitted to **37th AAAI Conference on Artifical Intelligence 2023**.
 
 ## Abstract
 
@@ -46,7 +46,7 @@ Run GOALNET* with unseen object test set
 ```bash
 $ python eval.py -m GoalNet_Star -e GoalNet_Star_exp -t unseen_object_test -s True -o unseen  
 ```
-Run GOALNET* with very replacement dataset
+Run GOALNET* with verb replacement dataset
 ```bash
 $ python eval.py -m GoalNet_Star -e GoalNet_Star_exp -t verb_replacement_test -s True -o seen 
 ```

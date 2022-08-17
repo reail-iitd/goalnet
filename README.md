@@ -22,8 +22,9 @@ $ import nltk
 $ nltk.download('punkt')
 $ nltk.download('averaged_perceptron_tagger')
 ```
+
 ## Table 2 results
-In order to reproduce the results mentioned in Table 2, please run following commands
+To reproduce the results mentioned in Table 2, please run following commands
 
 Tango Model (Table 2, Row 2)
 ```bash
@@ -35,13 +36,74 @@ Aggregated model (Table 2, Row 3)
 $ python 
 ```
 
-## Installation
-
-Install pip packages using
+GoalNet (Trained model also provided) (Table 2, Row 4)
 ```bash
-pip3 install -r requirements.txt
+$ python main.py
+$ python eval.py
 ```
 
+Model Ablations
+w/o Relational information (Table 2, Row 5)
+```bash
+$ python main.py
+$ python eval.py
+```
+
+w/o Instance grounding (Table 2, Row 6)
+```bash
+$ python main.py
+$ python eval.py
+```
+
+w/o δ− prediction(Table 2, Row 7)
+```bash
+$ python main.py
+$ python eval.py
+```
+
+w/o δ+ prediction (Table 2, Row 8)
+```bash
+$ python main.py
+$ python eval.py
+```
+w/o Temporal context encoding (Table 2, Row 9)
+```bash
+$ python main.py
+$ python eval.py
+```
+w/o Grammar mask (Table 2, Row 10)
+```bash
+$ python main.py
+$ python eval.py
+```
+
+Model explorations
+Instruction encoding : Conceptnet (Table 2, Row 11)
+```bash
+$ python main.py
+$ python eval.py
+```
+Temporal Context (δ+t−1 ∪ δ−t−1) (Table 2, Row 12)
+```bash
+$ python main.py
+$ python eval.py
+```
+Temporal Context (st+1) (Table 2, Row 13)
+```bash
+$ python main.py
+$ python eval.py
+```
+
+Training using RINTANEN (Table 2, Row 14)
+```bash
+$ python main.py
+$ python eval.py
+```
+GOALNET* (Table 2, Row 15)
+```bash
+$ python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen
+$ python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t test -s True -o seen
+```
 ## Model Training 
 
 The model mentioned in the paper can be trained through the command

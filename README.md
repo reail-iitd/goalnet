@@ -166,7 +166,7 @@ This command will run inference on the trained model stored in `results/GoalNet_
 `-r` train dataset path (inside `dataset` folder) <br />
 `-v` validation dataset path (inside `dataset` folder) <br />
 `-t` test dataset path (inside `dataset` folder) <br />
-`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in results/GoalNet_Star_exp/eval_json folder. <br />
+`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in results/GoalNet_exp/eval_json folder. <br />
 `-o` parameter is `seen` when running evaluation for object set used in training and `unseen` for object set unseen in training
 
 

@@ -42,7 +42,7 @@ $ python main.py
 $ python eval.py
 ```
 
-#Model Ablations
+### Model Ablations
 w/o Relational information (Table 2, Row 5)
 ```bash
 $ python main.py

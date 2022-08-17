@@ -14,6 +14,13 @@ Our goal is to enable a robot to learn how to sequence its actions to perform ta
 
 This implementation contains the GoalNet* mentioned in the paper for goal-constraint prediction along with action plan generation in case of unseen objects 
 
+## Installation
+
+Install pip packages using
+```bash
+pip3 install -r requirements.txt
+```
+
 ## Model Training 
 
 The model mentioned in the paper can be trained through the command

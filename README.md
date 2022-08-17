@@ -150,9 +150,25 @@ $ python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t unseen_obje
 ```
 
 ## About the code
-This command will train GOALNET* on the training dataset for NUM_EPOCHS epochs specified in main.py. It will save a checkpoint file results/GoalNet_Star_exp/GoalNet_Star_Model.pt after the EPOCH epoch. It will also save a training graph results/GoalNet_Star_exp/GoalNet_Star_graph.pdf where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say N) corresponding to the maximum validation accuracy using early stopping criteria. The dataset is loaded from data_clean folder. It has train, val and test folders.
-This command will run inference on the trained model stored in results/GoalNet_Star_exp/ and output SJI, IED, GRR and F1 score.
--s parameter if True will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in results/GoalNet_Star_exp/eval_json folder. This can be used to quickly compute new evaluation metrics on final output without running the RINTANEN planner. To check evaluation metrics without running RINTANEN planner, set -s to False. It will load the pre-saved jsons from results/GoalNet_Star_exp/eval_json and compute metric values. -o parameter is seen when running evaluation for object set used in training and unseen for object set unseen in training
+```bash
+python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test -o seen
+```
+This command will train `GOALNET` on the training dataset for `NUM_EPOCHS` epochs specified in main.py. It will save a checkpoint file in `results/GoalNet_exp/GoalNet_Model.pt` after the EPOCH epoch. It will also save a training graph `results/GoalNet_exp/GoalNet_graph.pdf` where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say N) corresponding to the maximum validation accuracy using early stopping criteria. The dataset is loaded from `dataset` folder. It has train, val and test folders. It also contains the generalization dataset - verb_replacement_test, paraphrasing_test and unseen_object_test.
+
+```bash
+python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t test -o seen -s True
+```
+This command will run inference on the trained model stored in `results/GoalNet_exp/` and output SJI, IED, GRR and F1 score.
+
+### Input parameters
+`-m` select the model to run - choices=['GoalNet','GoalNet_Star','Tango','Aggregated']
+`-e` experiment name
+`-r` train dataset path (inside `dataset` folder)
+`-v` validation dataset path (inside `dataset` folder)
+`-t` test dataset path (inside `dataset` folder)
+`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in results/GoalNet_Star_exp/eval_json folder. <\br>
+`-o` parameter is `seen` when running evaluation for object set used in training and `unseen` for object set unseen in training
+
 
 
 

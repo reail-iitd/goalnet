@@ -10,9 +10,30 @@ Submitted to **37th AAAI Conference on Artifical Intelligence 2023**.
 Our goal is to enable a robot to learn how to sequence its actions to perform tasks specified as natural language instructions, given successful demonstrations from a human partner. We build an iterative two-step approach that interleaves (i) inferring goal predicates implied by the language instruction for a given world state and (ii) synthesizing a feasible goal-reaching plan from that state. The agent executes the first action of the plan, andthe two steps are repeated. For goal prediction, we lever-age a neural network prediction model, while utilizinga classical planner for synthesizing plans. Our novel neuro-symbolic model, GOALNET, performs contextual and task dependent inference of goal predicatesfrom human demonstrations and a textual task description. GOALNET combines (i) learning, where dense representations are acquired for language instruction and the world state, enabling generalization to novel settings and (ii) planning, where the cause-effect modeling by the classical planner eschews irrelevant predicates, facilitating multi-stage decision making in large domains. GOALNET obtains 79% improvement in the goal reaching rate in comparison to a state-of-the-art rule- based approach on benchmark data with multi-stage instructions. Further, GOALNET can generalize to novel instructions for scenes with unseen objects.
 
 
-## Getting Started
+## Installation
+Install pip packages using
+```bash
+$ pip3 install -r requirements.txt
+```
 
-This implementation contains the GoalNet* mentioned in the paper for goal-constraint prediction along with action plan generation in case of unseen objects 
+Run the following on python interpreter
+```bash
+$ import nltk
+$ nltk.download('punkt')
+$ nltk.download('averaged_perceptron_tagger')
+```
+## Table 2 results
+In order to reproduce the results mentioned in Table 2, please run following commands
+
+Tango Model (Table 2, Row 2)
+```bash
+$ python 
+```
+
+Aggregated model (Table 2, Row 3)
+```bash
+$ python 
+```
 
 ## Installation
 

@@ -161,12 +161,12 @@ python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t test -o seen -s True
 This command will run inference on the trained model stored in `results/GoalNet_exp/` and output SJI, IED, GRR and F1 score.
 
 ### Input parameters
-`-m` select the model to run - choices=['GoalNet','GoalNet_Star','Tango','Aggregated'] <\br >
-`-e` experiment name <\br >
-`-r` train dataset path (inside `dataset` folder) <\br >
-`-v` validation dataset path (inside `dataset` folder) <\br >
-`-t` test dataset path (inside `dataset` folder) <\br >
-`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in results/GoalNet_Star_exp/eval_json folder. <\br >
+`-m` select the model to run - choices=['GoalNet','GoalNet_Star','Tango','Aggregated'] <br />
+`-e` experiment name <br />
+`-r` train dataset path (inside `dataset` folder) <br />
+`-v` validation dataset path (inside `dataset` folder) <br />
+`-t` test dataset path (inside `dataset` folder) <br />
+`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in results/GoalNet_Star_exp/eval_json folder. <br />
 `-o` parameter is `seen` when running evaluation for object set used in training and `unseen` for object set unseen in training
 
 

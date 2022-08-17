@@ -77,7 +77,7 @@ $ python main.py
 $ python eval.py
 ```
 
-Model explorations
+### Model explorations
 Instruction encoding : Conceptnet (Table 2, Row 11)
 ```bash
 $ python main.py

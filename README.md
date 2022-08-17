@@ -104,62 +104,55 @@ GOALNET* (Table 2, Row 15)
 $ python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen
 $ python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t test -s True -o seen
 ```
-## Model Training 
+## Table 3 results
+To reproduce the results mentioned in Table 3, please run following commands
 
-The model mentioned in the paper can be trained through the command
-
+### Model training
+GoalNet (Trained model provided <mention path>)
 ```bash
-$ python main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen 
-```
-This command will train GOALNET* on the training dataset for `NUM_EPOCHS` epochs specified in `main.py`. It will save a checkpoint file `results/GoalNet_Star_exp/GoalNet_Star_Model.pt` after the `EPOCH` epoch. It will also save a training graph `results/GoalNet_Star_exp/GoalNet_Star_graph.pdf` where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say `N`) corresponding to the maximum validation accuracy using early stopping criteria. The dataset is loaded from `data_clean` folder. It has `train`, `val` and `test` folders. <br />
-
-In order to train the GOALNET model agnostic to object set size, we remove the adjacency matrix of the relation information from the encoder. To train this model, use the following command
-```bash
-$ python main.py -m GoalNet -e GoalNet_exp -r train -v val -t test -o seen
+$ python 
 ```
 
-## Model Testing 
-
-The model mentioned in the paper can be tested through the command
-
+GoalNet (modified to handle unseen object set) (Trained model provided <mention path>)
 ```bash
-$ python eval.py -m GoalNet_Star -e GoalNet_Star_exp -t test -s True -o seen 
+$ python GoalNet_Star/main.py -m GoalNet -e GoalNet_unseen_exp -r train -v val -t test -o seen 
 ```
 
-This command will run inference on the trained model stored in `results/GoalNet_Star_exp/` and output `SJI`, `IED`, `GRR` and `F1` score.<br />
-`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in `results/GoalNet_Star_exp/eval_json` folder. This can be used to quickly compute new evaluation metrics on final output without running the `RINTANEN` planner. To check evaluation metrics without running `RINTANEN` planner, set `-s` to `False`. It will load the pre-saved jsons from `results/GoalNet_Star_exp/eval_json` and compute metric values.
-`-o` parameter is `seen` when running evaluation for object set used in training and `unseen` for object set unseen in training
-
-Other commands to generate results mentione in paper <br />
-
-Run GOALNET* with unseen object test set
+GoalNet* (Trained model provided <mention path>)
 ```bash
-$ python eval.py -m GoalNet_Star -e GoalNet_Star_exp -t unseen_object_test -s True -o unseen  
-```
-Run GOALNET* with verb replacement dataset
-```bash
-$ python eval.py -m GoalNet_Star -e GoalNet_Star_exp -t verb_replacement_test -s True -o seen 
+$ python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen 
 ```
 
-Run GOALNET* with paraphrasing test set
+
+Tango - Verb Replacement, Paraphrasing and Unseen Objects
 ```bash
-$ python eval.py -m GoalNet_Star -e GoalNet_Star_exp -t paraphrasing_test -s True -o seen 
+$ python 
+$ python 
+$ python GoalNet_Star/eval.py -m Tango -e GoalNet_unseen_exp -t unseen_object_test -s True -o unseen
+```
+Aggregated - Verb Replacement, Paraphrasing and Unseen Objects
+```bash
+$ python 
+$ python 
+$ python GoalNet_Star/eval.py -m Aggregated -e GoalNet_unseen_exp -t unseen_object_test -s True -o unseen
+```
+GoalNet - Verb Replacement, Paraphrasing and Unseen Objects
+```bash
+$ python 
+$ python 
+$ python GoalNet_Star/eval.py -m GoalNet -e GoalNet_unseen_exp -t unseen_object_test -s True -o unseen 
+```
+GoalNet* - Verb Replacement, Paraphrasing and Unseen Objects
+```bash
+$ python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t verb_replacement_test -s True -o seen  
+$ python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t paraphrasing_test -s True -o seen  
+$ python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t unseen_object_test -s True -o unseen  
 ```
 
-Run GOALNET with unseen object test set
-```bash
-$ python eval.py -m GoalNet -e GoalNet_exp -t unseen_object_test -s True -o unseen 
-```
+## About the code
+This command will train GOALNET* on the training dataset for NUM_EPOCHS epochs specified in main.py. It will save a checkpoint file results/GoalNet_Star_exp/GoalNet_Star_Model.pt after the EPOCH epoch. It will also save a training graph results/GoalNet_Star_exp/GoalNet_Star_graph.pdf where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say N) corresponding to the maximum validation accuracy using early stopping criteria. The dataset is loaded from data_clean folder. It has train, val and test folders.
+This command will run inference on the trained model stored in results/GoalNet_Star_exp/ and output SJI, IED, GRR and F1 score.
+-s parameter if True will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in results/GoalNet_Star_exp/eval_json folder. This can be used to quickly compute new evaluation metrics on final output without running the RINTANEN planner. To check evaluation metrics without running RINTANEN planner, set -s to False. It will load the pre-saved jsons from results/GoalNet_Star_exp/eval_json and compute metric values. -o parameter is seen when running evaluation for object set used in training and unseen for object set unseen in training
 
-In order to run the two baselines mentioned in paper, `Tango` and `Aggregated` on unseen object test set, use the below two commands.
-TANGO (Tuli et al. 2021), an imitation learning model that directly learns to predict actions from demonstrations. We use a refactored version of Tango assuming one to one correspondance between actions and goal predicates.
-```bash
-$ python eval.py -m Tango -e GoalNet_exp -t unseen_object_test -s True -o unseen
-```
 
-`Aggregated` is a variation of GOALNET, that excludes interleaving of goal prediction and planning. Here, SYMSIM is used to directly predict an aggregate predicate set, used by RINTANEN to output the final robot plan. Hence only evaluation part is changed.
-```bash
-$ python eval.py -m Aggregated -e GoalNet_exp -t unseen_object_test -s True -o unseen 
-```
 
-**Pre-trained models:** The pretrained model mentioned in the GoalNet paper can be found `results` folder.

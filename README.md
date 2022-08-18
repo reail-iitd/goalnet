@@ -2,7 +2,7 @@
 
 This repository contains code implementation of the paper "GOALNET: Interleaving Neural Goal Predicate Inference with Classical Planning for Generalization in Robot Instruction Following".
 
-Submitted to **37th AAAI Conference on Artifical Intelligence 2023**.
+Submitted for review at **AAAI 2023**.
 
 ## Abstract
 
@@ -32,7 +32,10 @@ chmod +x ./planner/MpC_final_state
 ```
 
 
-## Table 2 results
+## Results reported in Table 2
+The results compare the goal-prediction and goal-reaching per-
+formance for the baseline, the proposed GOALNET model, abla-
+tions and explorations. Results are presented for test set derived from benchmark data set by (Misra et al. 2015).
 
 To train the GoalNet model use following command
 ```bash
@@ -143,7 +146,8 @@ python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val 
 python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t test  -o seen
 ```
 
-## Table 3 results
+## Results reported in table 3
+Generalization in case of verb re-placement and paraphrasing. Comparisons for Goalnet, Goalnet* and baseline models. 
 
 ### Model training
 

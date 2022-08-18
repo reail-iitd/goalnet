@@ -39,8 +39,8 @@ To train the GoalNet model use following command
 python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test
 ```
 
-However, we provide pre-trained model files that can used directly. `<br />`
-Pretrained model path - `results/GoalNet_exp/GoalNet_Model.pt` `<br />`
+However, we provide pre-trained model files that can used directly. <br />
+Pretrained model path - `results/GoalNet_exp/GoalNet_Model.pt` <br />
 
 Use the below instructions to utilize the saved model. It takes approximately 1 hr to run each evaluation command. All the results reported in paper are an average of 4 train and test runs.
 
@@ -214,10 +214,10 @@ This command will run inference on the trained model stored in `results/GoalNet_
 
 ### Input parameters
 
-`-m` select the model to run - choices=['GoalNet','GoalNet_Star','Tango','Aggregated'] `<br />`
-`-e` experiment name `<br />`
-`-r` train dataset path (inside `dataset` folder) `<br />`
-`-v` validation dataset path (inside `dataset` folder) `<br />`
-`-t` test dataset path (inside `dataset` folder) `<br />`
-`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in results/GoalNet_exp/eval_json folder. `<br />`
+`-m` select the model to run - choices=['GoalNet','GoalNet_Star','Tango','Aggregated'] <br />
+`-e` experiment name <br />
+`-r` train dataset path (inside `dataset` folder) <br />
+`-v` validation dataset path (inside `dataset` folder) <br />
+`-t` test dataset path (inside `dataset` folder) <br />
+`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in results/GoalNet_exp/eval_json folder. <br />
 `-o` parameter is `seen` when running evaluation for object set used in training and `unseen` for object set unseen in training

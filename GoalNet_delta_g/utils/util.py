@@ -110,7 +110,7 @@ def string2index(str_constr, train=True):
             state_index = all_fluents_lower.index(words[2].lower())
         except:
             state_index = 0
-            print("State out of vocab: ", words[2].lower())
+            #print("State out of vocab: ", words[2].lower())
     else:
         state_index = -1
         obj2_index = all_objects_lower.index(words[2].lower())
@@ -489,7 +489,7 @@ def eval_accuracy(data, model, verbose = False):
                 #     "ERROR: Path to the json doesn't exist!"
             
         else:
-            print("Save the output to json for ", json_file_name)
+            #print("Save the output to json for ", json_file_name)
             for i in range(len(dp.states) - 1 if opts.nofixlen else max_len):
                 if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
                 # ########### both delta positive and negative ###########
@@ -589,7 +589,7 @@ def plot_grad_flow(named_parameters, filename):
     for n, p in named_parameters:
         if(p.requires_grad) and ("bias" not in n):
             if type(p.grad) == type(None):
-                print("None gradient ", n)
+                #print("None gradient ", n)
                 continue
             layers.append(n)
             ave_grads.append(p.grad.abs().mean())

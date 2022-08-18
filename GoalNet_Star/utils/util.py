@@ -115,7 +115,7 @@ def string2index(str_constr, train=True):
             state_index = all_fluents_lower.index(words[2].lower())
         except:
             state_index = 0
-            print("State out of vocab: ", words[2].lower())
+            #print("State out of vocab: ", words[2].lower())
     else:
         state_index = -1
         obj2_index = universal_objects_lower.index(words[2].lower())

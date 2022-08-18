@@ -523,12 +523,14 @@ def eval_accuracy(data, model, verbose = False):
                 json_dict["planner_state_dict"] = [state_dict] if i==0 else json_dict["planner_state_dict"] + [state_dict]
 
             ############################
+            '''
             result_folder_exp = './results/' + opts.expname + '/eval_json/'
             # print(type(json_dict))
             json_string = json.dumps(json_dict)
             os.makedirs(result_folder_exp, exist_ok=True)
             with open(result_folder_exp + json_file_name, 'w') as outfile:
                 outfile.write(json_string)
+            '''
 
         if verbose: print("SJI ------------ ", get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0], verbose=verbose))
         sji += get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0], verbose=verbose)

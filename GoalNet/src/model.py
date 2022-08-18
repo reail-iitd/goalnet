@@ -29,8 +29,8 @@ class GoalNet_Model(nn.Module):
             self.embed_sbert = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
         else:
             self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
-        
-        self.embed_adj = nn.Sequential(nn.Linear(n_objects, 1), nn.Sigmoid())
+        if not opts.no_relational_info:
+            self.embed_adj = nn.Sequential(nn.Linear(n_objects, 1), nn.Sigmoid())
         self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
         self.graph_attn = nn.Sequential(nn.Linear(in_feats + n_hidden, 1), nn.Softmax(dim=1))
         self.graph_embed = nn.Sequential(nn.Linear(in_feats, n_hidden), self.activation)
@@ -52,8 +52,11 @@ class GoalNet_Model(nn.Module):
     def forward(self, g, adj_matrix, goalVec, goalObjectsVec, pred, lstm_hidden=None):
         # embed graph, goal vec based attention
         h_vec = g.ndata['feat']
-        h_adj = self.embed_adj(adj_matrix)
-        h = torch.cat((h_vec, h_adj), 1)
+        if opts.no_relational_info:
+            h = h_vec
+        else:
+            h_adj = self.embed_adj(adj_matrix)
+            h = torch.cat((h_vec, h_adj), 1)
         goal_embed = self.embed_sbert(goalVec)
         attn_weights = self.graph_attn(torch.cat([h, goal_embed.repeat(h.shape[0], 1)], 1))
         h_embed = torch.mm(attn_weights.t(), h)

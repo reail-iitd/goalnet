@@ -1,0 +1,108 @@
+{
+    "sent": "and close the fridge door",
+    "filename": "299",
+    "arg_mapping": {
+        "door": [
+            "(microwavedoor)",
+            "(fridgeleftdoor)",
+            "(fridgerightdoor)"
+        ]
+    },
+    "initial_states": [
+        [
+            "(IsGraspable Mug_1)",
+            "(IsGraspable Spoon_1)",
+            "(state IceCream_1 ScoopsLeft)",
+            "(IsGraspable IceCream_1)",
+            "(IsGraspable Kettle)",
+            "(IsGraspable Ramen_1)",
+            "(state Syrup_1 Vanilla)",
+            "(IsGraspable Syrup_1)",
+            "(IsSqueezeable Syrup_1)",
+            "(IsGraspable Glass_1)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
+            "(IsGraspable Fork_1)",
+            "(IsGraspable EnergyDrink_1)",
+            "(IsGraspable Coke_1)",
+            "(IsGraspable CanadaDry_1)",
+            "(IsGraspable Plate_1)",
+            "(IsGraspable Plate_2)",
+            "(state Syrup_2 Chocolate)",
+            "(IsGraspable Syrup_2)",
+            "(IsSqueezeable Syrup_2)",
+            "(IsGraspable InstantRamen_1)",
+            "(IsGraspable BoiledEgg_1)",
+            "(IsGraspable Salt_1)",
+            "(On IceCream_1 StoveFire_2)",
+            "(On LongCup_1 StoveFire_3)",
+            "(On EnergyDrink_1 StoveFire_4)",
+            "(On CanadaDry_1 StoveFire_4)",
+            "(On Plate_1 StoveFire_4)",
+            "(On BoiledEgg_1 StoveFire_4)",
+            "(Near Robot Sink)",
+            "(On Spoon_1 Sink)",
+            "(On Mug_1 Sink)",
+            "(state SinkKnob TapIsOn)",
+            "(state Mug_1 Water)",
+            "(state Spoon_1 Water)",
+            "(Near Robot Fridge)",
+            "(state Fridge RightDoorIsOpen)",
+            "(On GarbageBag_1 SnackTable_1)"
+        ],
+        [
+            "(IsGraspable Mug_1)",
+            "(IsGraspable Spoon_1)",
+            "(state IceCream_1 ScoopsLeft)",
+            "(IsGraspable IceCream_1)",
+            "(IsGraspable Kettle)",
+            "(IsGraspable Ramen_1)",
+            "(state Syrup_1 Vanilla)",
+            "(IsGraspable Syrup_1)",
+            "(IsSqueezeable Syrup_1)",
+            "(IsGraspable Glass_1)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
+            "(IsGraspable Fork_1)",
+            "(IsGraspable EnergyDrink_1)",
+            "(IsGraspable Coke_1)",
+            "(IsGraspable CanadaDry_1)",
+            "(IsGraspable Plate_1)",
+            "(IsGraspable Plate_2)",
+            "(state Syrup_2 Chocolate)",
+            "(IsGraspable Syrup_2)",
+            "(IsSqueezeable Syrup_2)",
+            "(IsGraspable InstantRamen_1)",
+            "(IsGraspable BoiledEgg_1)",
+            "(IsGraspable Salt_1)",
+            "(On IceCream_1 StoveFire_2)",
+            "(On LongCup_1 StoveFire_3)",
+            "(On EnergyDrink_1 StoveFire_4)",
+            "(On CanadaDry_1 StoveFire_4)",
+            "(On Plate_1 StoveFire_4)",
+            "(On BoiledEgg_1 StoveFire_4)",
+            "(Near Robot Sink)",
+            "(On Spoon_1 Sink)",
+            "(On Mug_1 Sink)",
+            "(state SinkKnob TapIsOn)",
+            "(state Mug_1 Water)",
+            "(state Spoon_1 Water)",
+            "(Near Robot Fridge)",
+            "(On GarbageBag_1 SnackTable_1)"
+        ]
+    ],
+    "action_seq": [
+        "close fridgerightdoor",
+        "noop"
+    ],
+    "delta_g": [
+        [],
+        []
+    ],
+    "delta_g_inv": [
+        [
+            "(state Fridge RightDoorIsOpen)"
+        ],
+        []
+    ]
+}

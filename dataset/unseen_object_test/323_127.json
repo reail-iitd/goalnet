@@ -1,0 +1,107 @@
+{
+    "sent": "and pour it in the bigger food_holder",
+    "filename": "323",
+    "arg_mapping": {
+        "it": [
+            "(Mug_1)",
+            "(microwave_oven)"
+        ],
+        "food_holder": [
+            "(food_holder_1)",
+            "(food_holder_2)"
+        ]
+    },
+    "initial_states": [
+        [
+            "(state Mug_1 Coffee)",
+            "(IsGraspable Mug_1)",
+            "(IsGraspable big_spoon_1)",
+            "(state frozen_dessert_1 ScoopsLeft)",
+            "(IsGraspable frozen_dessert_1)",
+            "(IsGraspable iron_pot)",
+            "(IsGraspable instant_noodle_1)",
+            "(state sugar_syrup_1 Vanilla)",
+            "(IsGraspable sugar_syrup_1)",
+            "(IsSqueezeable sugar_syrup_1)",
+            "(IsGraspable drinking_glass_1)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
+            "(IsGraspable tablefork_1)",
+            "(IsGraspable sports_drink_1)",
+            "(IsGraspable popular_soda_1)",
+            "(IsGraspable CanadaDry_1)",
+            "(IsGraspable food_holder_1)",
+            "(IsGraspable food_holder_2)",
+            "(state sugar_syrup_2 Chocolate)",
+            "(IsGraspable sugar_syrup_2)",
+            "(IsSqueezeable sugar_syrup_2)",
+            "(IsGraspable InstantRamen_1)",
+            "(IsGraspable salted_egg_1)",
+            "(IsGraspable Salt_1)",
+            "(On frozen_dessert_1 cookfire_4)",
+            "(On iron_pot cookfire_2)",
+            "(On sugar_syrup_1 cookfire_2)",
+            "(On sports_drink_1 cookfire_4)",
+            "(On popular_soda_1 cookfire_4)",
+            "(On CanadaDry_1 cookfire_4)",
+            "(On food_holder_1 cookfire_4)",
+            "(On food_holder_2 cookfire_4)",
+            "(On sugar_syrup_2 cookfire_2)",
+            "(On salted_egg_1 cookfire_4)",
+            "(Near Robot microwave_oven)",
+            "(Grasping Robot Mug_1)"
+        ],
+        [
+            "(IsGraspable Mug_1)",
+            "(IsGraspable big_spoon_1)",
+            "(state frozen_dessert_1 ScoopsLeft)",
+            "(IsGraspable frozen_dessert_1)",
+            "(IsGraspable iron_pot)",
+            "(IsGraspable instant_noodle_1)",
+            "(state sugar_syrup_1 Vanilla)",
+            "(IsGraspable sugar_syrup_1)",
+            "(IsSqueezeable sugar_syrup_1)",
+            "(IsGraspable drinking_glass_1)",
+            "(IsGraspable LongCup_1)",
+            "(IsGraspable LongCup_2)",
+            "(IsGraspable tablefork_1)",
+            "(IsGraspable sports_drink_1)",
+            "(IsGraspable popular_soda_1)",
+            "(IsGraspable CanadaDry_1)",
+            "(IsGraspable food_holder_1)",
+            "(IsGraspable food_holder_2)",
+            "(state sugar_syrup_2 Chocolate)",
+            "(IsGraspable sugar_syrup_2)",
+            "(IsSqueezeable sugar_syrup_2)",
+            "(IsGraspable InstantRamen_1)",
+            "(IsGraspable salted_egg_1)",
+            "(IsGraspable Salt_1)",
+            "(On frozen_dessert_1 cookfire_4)",
+            "(On iron_pot cookfire_2)",
+            "(On sugar_syrup_1 cookfire_2)",
+            "(On sports_drink_1 cookfire_4)",
+            "(On popular_soda_1 cookfire_4)",
+            "(On CanadaDry_1 cookfire_4)",
+            "(On food_holder_1 cookfire_4)",
+            "(On food_holder_2 cookfire_4)",
+            "(On sugar_syrup_2 cookfire_2)",
+            "(On salted_egg_1 cookfire_4)",
+            "(Near Robot microwave_oven)",
+            "(Grasping Robot Mug_1)"
+        ]
+    ],
+    "action_seq": [
+        "pour Mug_1",
+        "noop"
+    ],
+    "delta_g": [
+        [],
+        []
+    ],
+    "delta_g_inv": [
+        [
+            "(state Mug_1 Coffee)"
+        ],
+        []
+    ]
+}

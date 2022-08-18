@@ -32,6 +32,30 @@ chmod +x ./planner/MpC_final_state
 ```
 
 
+## About the code
+
+```bash
+python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test -o seen
+```
+
+This command will train `GOALNET` on the training dataset for `NUM_EPOCHS` epochs specified in main.py. It will save a checkpoint file in `results/GoalNet_exp/GoalNet_Model.pt` after the EPOCH epoch. It will also save a training graph `results/GoalNet_exp/GoalNet_graph.pdf` where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say N) corresponding to the maximum validation accuracy using early stopping criteria. The dataset is loaded from `dataset` folder. It has train, val and test folders. It also contains the generalization dataset - verb_replacement_test, paraphrasing_test and unseen_object_test.
+
+```bash
+python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t test -o seen 
+```
+
+This command will run inference on the trained model stored in `results/GoalNet_exp/` and output SJI, IED, GRR and F1 score.
+
+### Input parameters
+
+`-m` select the model to run - choices=['GoalNet','GoalNet_Star','Tango','Aggregated'] <br />
+`-e` experiment name <br />
+`-r` train dataset path (inside `dataset` folder) <br />
+`-v` validation dataset path (inside `dataset` folder) <br />
+`-t` test dataset path (inside `dataset` folder) <br />
+`-o` parameter is `seen` when running evaluation for object set used in training and `unseen` for object set unseen in training
+
+
 ## Results reported in Table 2
 The results compare the goal-prediction and goal-reaching per-
 formance for the baseline, the proposed GOALNET model, abla-
@@ -202,25 +226,3 @@ python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t paraphrasing_
 python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t unseen_object_test  -o unseen  
 ```
 
-## About the code
-
-```bash
-python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test -o seen
-```
-
-This command will train `GOALNET` on the training dataset for `NUM_EPOCHS` epochs specified in main.py. It will save a checkpoint file in `results/GoalNet_exp/GoalNet_Model.pt` after the EPOCH epoch. It will also save a training graph `results/GoalNet_exp/GoalNet_graph.pdf` where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say N) corresponding to the maximum validation accuracy using early stopping criteria. The dataset is loaded from `dataset` folder. It has train, val and test folders. It also contains the generalization dataset - verb_replacement_test, paraphrasing_test and unseen_object_test.
-
-```bash
-python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t test -o seen 
-```
-
-This command will run inference on the trained model stored in `results/GoalNet_exp/` and output SJI, IED, GRR and F1 score.
-
-### Input parameters
-
-`-m` select the model to run - choices=['GoalNet','GoalNet_Star','Tango','Aggregated'] <br />
-`-e` experiment name <br />
-`-r` train dataset path (inside `dataset` folder) <br />
-`-v` validation dataset path (inside `dataset` folder) <br />
-`-t` test dataset path (inside `dataset` folder) <br />
-`-o` parameter is `seen` when running evaluation for object set used in training and `unseen` for object set unseen in training

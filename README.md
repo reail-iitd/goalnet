@@ -47,19 +47,19 @@ Use the below instructions to utilize the saved model. It takes approximately 1 
 Tango Model (Table 2, Row 2)
 
 ```bash
-python GoalNet/eval.py -m Tango -e GoalNet_exp -s True -t test 
+python GoalNet/eval.py -m Tango -e GoalNet_exp  -t test 
 ```
 
 Aggregated model (Table 2, Row 3)
 
 ```bash
-python GoalNet/eval.py -m Aggregated -e GoalNet_exp -s True -t test
+python GoalNet/eval.py -m Aggregated -e GoalNet_exp  -t test
 ```
 
 GoalNet (Trained model also provided) (Table 2, Row 4)
 
 ```bash
-python GoalNet/eval.py -m GoalNet -e GoalNet_exp -s True -t test
+python GoalNet/eval.py -m GoalNet -e GoalNet_exp  -t test
 ```
 
 ### Model Ablations
@@ -68,42 +68,42 @@ w/o Relational information (Table 2, Row 5)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_NoRelationInfo_exp -r train -v val -t test --no_relation
-python GoalNet/eval.py -m GoalNet -e GoalNet_NoRelationInfo_exp -s True -t test --no_relation
+python GoalNet/eval.py -m GoalNet -e GoalNet_NoRelationInfo_exp  -t test --no_relation
 ```
 
 w/o Instance grounding (Table 2, Row 6)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_NoInstanceGrounding_exp -r train -v val -t test --no_instance_grounding
-python GoalNet/eval.py -m GoalNet -e GoalNet_NoInstanceGrounding_exp -s True -t test --no_instance_grounding
+python GoalNet/eval.py -m GoalNet -e GoalNet_NoInstanceGrounding_exp  -t test --no_instance_grounding
 ```
 
 w/o δ− prediction(Table 2, Row 7)
 
 ```bash
 python GoalNet_delta_g/main.py -m GoalNet -e GoalNet_delta_g_exp -r train -v val -t test
-python GoalNet_delta_g/eval.py -m GoalNet -e GoalNet_delta_g_exp -s True -t test
+python GoalNet_delta_g/eval.py -m GoalNet -e GoalNet_delta_g_exp  -t test
 ```
 
 w/o δ+ prediction (Table 2, Row 8)
 
 ```bash
 $ python GoalNet_delta_g_inv/main.py -m GoalNet -e GoalNet_delta_g_inv_exp -r train -v val -t test
-$ python GoalNet_delta_g_inv/eval.py -m GoalNet -e GoalNet_delta_g_inv_exp -s True -t test
+$ python GoalNet_delta_g_inv/eval.py -m GoalNet -e GoalNet_delta_g_inv_exp  -t test
 ```
 
 w/o Temporal context encoding (Table 2, Row 9)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_NoTempContext_exp -r train -v val -t test --no_temporal_context
-python GoalNet/eval.py -m GoalNet -e GoalNet_NoTempContext_exp -s True -t test --no_temporal_context
+python GoalNet/eval.py -m GoalNet -e GoalNet_NoTempContext_exp -t test --no_temporal_context
 ```
 
 w/o Grammar mask (Table 2, Row 10)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_NoGrammarMask_exp -r train -v val -t test --no_grammar_mask
-python GoalNet/eval.py -m GoalNet -e GoalNet_NoGrammarMask_exp -s True -t test --no_grammar_mask
+python GoalNet/eval.py -m GoalNet -e GoalNet_NoGrammarMask_exp -t test --no_grammar_mask
 ```
 
 ### Model explorations
@@ -112,35 +112,35 @@ Instruction encoding : Conceptnet (Table 2, Row 11)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_Conceptnet_exp -r train -v val -t test --conceptnet
-python GoalNet/eval.py -m GoalNet -e GoalNet_Conceptnet_exp -s True -t test --conceptnet
+python GoalNet/eval.py -m GoalNet -e GoalNet_Conceptnet_exp -t test --conceptnet
 ```
 
 Temporal Context (δ+t−1 ∪ δ−t−1) (Table 2, Row 12)
 
 ```bash
 python GoalNet_tc_delta/main.py -m GoalNet -e GoalNet_tc_delta_exp -r train -v val -t test
-python GoalNet_tc_delta/eval.py -m GoalNet -e GoalNet_tc_delta_exp -s True -t test
+python GoalNet_tc_delta/eval.py -m GoalNet -e GoalNet_tc_delta_exp -t test
 ```
 
 Temporal Context (st+1) (Table 2, Row 13)
 
 ```bash
 python GoalNet_tc_state/main.py -m GoalNet -e GoalNet_tc_state_exp -r train -v val -t test
-python GoalNet_tc_state/eval.py -m GoalNet -e GoalNet_tc_state_exp -s True -t test
+python GoalNet_tc_state/eval.py -m GoalNet -e GoalNet_tc_state_exp  -t test
 ```
 
 Training using RINTANEN (Table 2, Row 14)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_Rintanen_exp -r train -v val -t test --rintanen
-python GoalNet/eval.py -m GoalNet -e GoalNet_Rintanen_exp -s True -t test
+python GoalNet/eval.py -m GoalNet -e GoalNet_Rintanen_exp  -t test
 ```
 
 GOALNET* (Table 2, Row 15)
 
 ```bash
 python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen
-python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t test -s True -o seen
+python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t test  -o seen
 ```
 
 ## Table 3 results
@@ -169,33 +169,33 @@ Use the below instructions to utilize the pretrained model mentioned above
 Tango - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 2)
 
 ```bash
-python GoalNet/eval.py -m Tango -e GoalNet_exp -t verb_replacement_test -s True 
-python GoalNet/eval.py -m Tango -e GoalNet_exp -t paraphrasing_test -s True 
-python GoalNet_Star/eval.py -m Tango -e GoalNet_unseen_exp -t unseen_object_test -s True -o unseen
+python GoalNet/eval.py -m Tango -e GoalNet_exp -t verb_replacement_test  
+python GoalNet/eval.py -m Tango -e GoalNet_exp -t paraphrasing_test  
+python GoalNet_Star/eval.py -m Tango -e GoalNet_unseen_exp -t unseen_object_test  -o unseen
 ```
 
 Aggregated - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 3)
 
 ```bash
-python GoalNet/eval.py -m Aggregated -e GoalNet_exp -t verb_replacement_test -s True 
-python GoalNet/eval.py -m Aggregated -e GoalNet_exp -t paraphrasing_test -s True 
-python GoalNet_Star/eval.py -m Aggregated -e GoalNet_unseen_exp -t unseen_object_test -s True -o unseen
+python GoalNet/eval.py -m Aggregated -e GoalNet_exp -t verb_replacement_test  
+python GoalNet/eval.py -m Aggregated -e GoalNet_exp -t paraphrasing_test  
+python GoalNet_Star/eval.py -m Aggregated -e GoalNet_unseen_exp -t unseen_object_test  -o unseen
 ```
 
 GoalNet - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 4)
 
 ```bash
-python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t verb_replacement_test -s True 
-python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t paraphrasing_test -s True
-python GoalNet_Star/eval.py -m GoalNet -e GoalNet_unseen_exp -t unseen_object_test -s True -o unseen 
+python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t verb_replacement_test  
+python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t paraphrasing_test 
+python GoalNet_Star/eval.py -m GoalNet -e GoalNet_unseen_exp -t unseen_object_test  -o unseen 
 ```
 
 GoalNet* - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 5)
 
 ```bash
-python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t verb_replacement_test -s True -o seen  
-python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t paraphrasing_test -s True -o seen  
-python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t unseen_object_test -s True -o unseen  
+python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t verb_replacement_test  -o seen  
+python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t paraphrasing_test  -o seen  
+python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t unseen_object_test  -o unseen  
 ```
 
 ## About the code
@@ -207,7 +207,7 @@ python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test -o seen
 This command will train `GOALNET` on the training dataset for `NUM_EPOCHS` epochs specified in main.py. It will save a checkpoint file in `results/GoalNet_exp/GoalNet_Model.pt` after the EPOCH epoch. It will also save a training graph `results/GoalNet_exp/GoalNet_graph.pdf` where train and validation loss and accuracy can be visualized. In the end, it will output the epoch (say N) corresponding to the maximum validation accuracy using early stopping criteria. The dataset is loaded from `dataset` folder. It has train, val and test folders. It also contains the generalization dataset - verb_replacement_test, paraphrasing_test and unseen_object_test.
 
 ```bash
-python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t test -o seen -s True
+python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t test -o seen 
 ```
 
 This command will run inference on the trained model stored in `results/GoalNet_exp/` and output SJI, IED, GRR and F1 score.
@@ -219,5 +219,4 @@ This command will run inference on the trained model stored in `results/GoalNet_
 `-r` train dataset path (inside `dataset` folder) <br />
 `-v` validation dataset path (inside `dataset` folder) <br />
 `-t` test dataset path (inside `dataset` folder) <br />
-`-s` parameter if `True` will save the planner output ("pred_delta" ,"pred_delta_inv" "planner_action" and "planner_state_dict") in a json file in results/GoalNet_exp/eval_json folder. <br />
 `-o` parameter is `seen` when running evaluation for object set used in training and `unseen` for object set unseen in training

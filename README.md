@@ -10,6 +10,7 @@ Our goal is to enable a robot to learn how to sequence its actions to perform ta
 
 ## Installation
 
+System requirements - Linux 
 Install pip packages using
 
 ```bash
@@ -140,8 +141,6 @@ python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t test -s True 
 
 ## Table 3 results
 
-To reproduce the results mentioned in Table 3, please run following commands
-
 ### Model training
 
 GoalNet (Trained model provided `<mention path>`)
@@ -161,6 +160,7 @@ GoalNet* (Trained model provided `<mention path>`)
 ```bash
 python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen 
 ```
+However, we provide pre-trained model files that can be used directly. Use the below instructions to utilize the saved model.
 
 Tango - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 2)
 

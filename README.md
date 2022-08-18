@@ -32,7 +32,12 @@ chmod +x ./planner/MpC_final_state
 
 ## Table 2 results
 
-To reproduce the results mentioned in Table 2, please run following commands
+To train the GoalNet model use following command
+```bash
+python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test
+```
+
+However, we provide pre-trained model files that can used directly. Use the below instructions to utilize the saved model.
 
 Tango Model (Table 2, Row 2)
 
@@ -49,7 +54,6 @@ python GoalNet/eval.py -m Aggregated -e GoalNet_exp -s True -t test
 GoalNet (Trained model also provided) (Table 2, Row 4)
 
 ```bash
-python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test
 python GoalNet/eval.py -m GoalNet -e GoalNet_exp -s True -t test
 ```
 

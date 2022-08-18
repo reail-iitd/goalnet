@@ -126,14 +126,14 @@ $ python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v va
 
 Tango - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 2)
 ```bash
-$ python 
-$ python 
+$ python GoalNet/eval.py -m Tango -e GoalNet_exp -t verb_replacement_test -s True 
+$ python GoalNet/eval.py -m Tango -e GoalNet_exp -t paraphrasing_test -s True 
 $ python GoalNet_Star/eval.py -m Tango -e GoalNet_unseen_exp -t unseen_object_test -s True -o unseen
 ```
 Aggregated - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 3)
 ```bash
-$ python 
-$ python 
+$ python GoalNet/eval.py -m Aggregated -e GoalNet_exp -t verb_replacement_test -s True 
+$ python GoalNet/eval.py -m Aggregated -e GoalNet_exp -t paraphrasing_test -s True 
 $ python GoalNet_Star/eval.py -m Aggregated -e GoalNet_unseen_exp -t unseen_object_test -s True -o unseen
 ```
 GoalNet - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 4)

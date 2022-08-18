@@ -26,8 +26,8 @@ parser.add_option("-t", "--test", action="store", dest="test", default="test",
                   help="testing set folder")
 parser.add_option("-n", "--nofixlen", action="store_true", dest="nofixlen", default=False,
                   help="run with stopping criterion = GT plan length")
-parser.add_option("-s", "--save", action="store_true", dest="save_json", default=False,
-                  help="run with stopping criterion = GT plan length")
+parser.add_option("-s", "--save", action="store_true", dest="save_json", default=True,
+                  help="save json files")
 parser.add_option("-o", "--object_set", action="store", dest="object_set", default="seen",
                   help="choose between \"seen\" and \"unseen\")")
 

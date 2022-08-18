@@ -10,7 +10,7 @@ Our goal is to enable a robot to learn how to sequence its actions to perform ta
 
 ## Installation
 
-System requirements - Linux 
+System requirements - Linux  `<br />`
 Install pip packages using
 
 ```bash

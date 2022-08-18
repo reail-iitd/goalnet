@@ -28,12 +28,12 @@ To reproduce the results mentioned in Table 2, please run following commands
 
 Tango Model (Table 2, Row 2)
 ```bash
-$ python 
+$ python GoalNet/eval.py -m Tango -e GoalNet_exp -s True -t test 
 ```
 
 Aggregated model (Table 2, Row 3)
 ```bash
-$ python 
+$ python GoalNet/eval.py -m Aggregated -e GoalNet_exp -s True -t test
 ```
 
 GoalNet (Trained model also provided) (Table 2, Row 4)

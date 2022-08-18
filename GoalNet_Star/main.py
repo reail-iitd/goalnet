@@ -57,7 +57,7 @@ os.makedirs(result_folder, exist_ok=True)
 if __name__ == '__main__':
     model_type = opts.model
     result_folder_exp = result_folder + opts.expname + "/"
-    print("Result folder: ", result_folder_exp)
+    #print("Result folder: ", result_folder_exp)
     os.makedirs(result_folder_exp, exist_ok=True)
     train_data = DGLDataset(data_file + opts.train + "/")
     val_data = DGLDataset(data_file + opts.val + "/")

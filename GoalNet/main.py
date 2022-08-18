@@ -20,7 +20,7 @@ def backprop(data, optimizer, scheduler, model, num_objects, epoch=1000, modelEn
                 state, state_dict, adj_matrix = dp.states[i], dp.state_dict[i], dp.adj_matrix[i]
             else:
                 if opts.use_rintanen and epoch>50:
-                    _, state, state_dict, adj_matrix = run_planner(state, state_dict, dp, pred_delta, pred_delta_inv)
+                    _, state, state_dict, adj_matrix = run_planner(state, state_dict, adj_matrix, dp, pred_delta, pred_delta_inv)
                 _, state, state_dict, adj_matrix = run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv)
             delta_g_true = dp.delta_g_embed[i]
             # ########### both delta positive and negative ###########

@@ -61,6 +61,7 @@ The results compare the goal-prediction and goal-reaching per-
 formance for the baseline, the proposed GOALNET model, abla-
 tions and explorations. Results are presented for test set derived from benchmark data set by (Misra et al. 2015).
 
+### Model Training
 To train the GoalNet model use following command
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test
@@ -133,7 +134,7 @@ python GoalNet/main.py -m GoalNet -e GoalNet_NoGrammarMask_exp -r train -v val -
 python GoalNet/eval.py -m GoalNet -e GoalNet_NoGrammarMask_exp -t test --no_grammar_mask
 ```
 
-### Model explorations
+### Model Exploration
 
 Instruction encoding : Conceptnet (Table 2, Row 11)
 
@@ -170,7 +171,7 @@ python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val 
 python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t test  -o seen
 ```
 
-## Results reported in table 3
+## Results reported in Table 3
 Generalization in case of verb re-placement and paraphrasing. Comparisons for Goalnet, Goalnet* and baseline models. 
 
 ### Model training

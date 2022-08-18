@@ -46,13 +46,13 @@ $ python GoalNet/eval.py -m GoalNet -e GoalNet_exp -s True -t test
 w/o Relational information (Table 2, Row 5)
 ```bash
 $ python GoalNet/main.py -m GoalNet -e GoalNet_NoRelationInfo_exp -r train -v val -t test --no_relation
-$ python GoalNet/eval.py -m GoalNet -e GoalNet_NoRelationInfo_exp -s True -t test
+$ python GoalNet/eval.py -m GoalNet -e GoalNet_NoRelationInfo_exp -s True -t test --no_relation
 ```
 
 w/o Instance grounding (Table 2, Row 6)
 ```bash
 $ python GoalNet/main.py -m GoalNet -e GoalNet_NoInstanceGrounding_exp -r train -v val -t test --no_instance_grounding
-$ python GoalNet/eval.py -m GoalNet -e GoalNet_NoInstanceGrounding_exp -s True -t test
+$ python GoalNet/eval.py -m GoalNet -e GoalNet_NoInstanceGrounding_exp -s True -t test --no_instance_grounding
 ```
 
 w/o δ− prediction(Table 2, Row 7)
@@ -69,19 +69,19 @@ $ python GoalNet_delta_g_inv/eval.py -m GoalNet -e GoalNet_delta_g_inv_exp -s Tr
 w/o Temporal context encoding (Table 2, Row 9)
 ```bash
 $ python GoalNet/main.py -m GoalNet -e GoalNet_NoTempContext_exp -r train -v val -t test --no_temporal_context
-$ python GoalNet/eval.py -m GoalNet -e GoalNet_NoTempContext_exp -s True -t test
+$ python GoalNet/eval.py -m GoalNet -e GoalNet_NoTempContext_exp -s True -t test --no_temporal_context
 ```
 w/o Grammar mask (Table 2, Row 10)
 ```bash
 $ python GoalNet/main.py -m GoalNet -e GoalNet_NoGrammarMask_exp -r train -v val -t test --no_grammar_mask
-$ python GoalNet/eval.py -m GoalNet -e GoalNet_NoGrammarMask_exp -s True -t test
+$ python GoalNet/eval.py -m GoalNet -e GoalNet_NoGrammarMask_exp -s True -t test --no_grammar_mask
 ```
 
 ### Model explorations
 Instruction encoding : Conceptnet (Table 2, Row 11)
 ```bash
 $ python GoalNet/main.py -m GoalNet -e GoalNet_Conceptnet_exp -r train -v val -t test --conceptnet
-$ python GoalNet/eval.py -m GoalNet -e GoalNet_Conceptnet_exp -s True -t test
+$ python GoalNet/eval.py -m GoalNet -e GoalNet_Conceptnet_exp -s True -t test --conceptnet
 ```
 Temporal Context (δ+t−1 ∪ δ−t−1) (Table 2, Row 12)
 ```bash

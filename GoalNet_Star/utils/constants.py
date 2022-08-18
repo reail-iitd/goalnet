@@ -5,7 +5,7 @@ from .util import opts
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 # DATASET PATH
-data_file = "dataset/"
+data_file = "./dataset/"
 
 # LOADING DATASET SPECIFIC CONSTANTS
 # couch - Loveseat, cd2 - Far Cry Game, Book_1 - Guiness Book

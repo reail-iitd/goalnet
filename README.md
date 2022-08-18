@@ -32,7 +32,7 @@ chmod +x ./planner/MpC_final_state
 ```
 
 
-## About the Code
+## Running Model Training and Evaluation
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test -o seen

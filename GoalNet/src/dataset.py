@@ -7,7 +7,6 @@ class DGLDataset():
         self.dp_list = []
         all_files = os.listdir(program_dir)
         for f in tqdm(all_files, ncols=80):
-            print(f)
             self.dp_list.append(Datapoint(program_dir + "/" + f))
         if shuffle: random.shuffle(self.dp_list)
         if opts.no_relational_info:

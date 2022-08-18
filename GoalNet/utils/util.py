@@ -16,7 +16,7 @@ from optparse import OptionParser
 
 parser = OptionParser()
 parser.add_option("-m", "--model", action="store", dest="model", default="GoalNet",
-                  choices=['GoalNet', 'GGCN', 'GCN', 'HAN'], help="model type")
+                  choices=['GoalNet', 'Tango','Aggregated'], help="model type")
 parser.add_option("-e", "--expname", action="store", dest="expname", default="",
                   help="experiment name")
 parser.add_option("-r", "--train", action="store", dest="train", default="train",
@@ -441,6 +441,27 @@ def convertToDGLGraph_util(state):
     g.ndata['feat'] = torch.cat((node_vectors, node_fluents, node_prop), 1)
     return g, adj_matrix
 
+def run_planner_aggregated(state_dict,init_state_dict,dp,verbose = False):
+    total_delta_g = set(state_dict).difference(set(init_state_dict))
+    total_delta_g_inv = set(init_state_dict).difference(set(state_dict))
+    init_state_dict_lower = [rel.lower() for rel in init_state_dict]
+    state_dict_lower = [rel.lower() for rel in state_dict]
+    total_delta_g_lower = [rel.lower() for rel in total_delta_g]
+    total_delta_g_inv_lower = [rel.lower() for rel in total_delta_g_inv]
+    if total_delta_g != '':
+        create_pddl(init_state_dict_lower, obj_set(dp.env_domain), total_delta_g_lower, './planner/eval')
+    else:
+        create_pddl(init_state_dict_lower, obj_set(dp.env_domain), total_delta_g_inv_lower, './planner/eval', inverse=True)
+    out = subprocess.Popen(['bash', './planner/run_final_state.sh', './planner/eval.pddl'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    stdout, stderr = out.communicate()
+    planner_action = get_steps(str(stdout))
+    planner_delta_g, planner_delta_g_inv, state_dict_new = get_delta(str(stdout))
+    state_dict_new = list(set(state_dict_lower).union(set(planner_delta_g)).difference(set(planner_delta_g_inv)))
+    if verbose: print(color.GREEN, 'Delta_g', color.ENDC, planner_delta_g)
+    if verbose: print(color.GREEN, 'Delta_g_inv', color.ENDC, planner_delta_g_inv)
+    state_dict = state_dict_new if state_dict_new else state_dict # seg fault case
+    return planner_action, state_dict
+
 def run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv, verbose = False):
     if pred_delta == '': 
         state, adj_matrix = dp.convertToDGLGraph(state_dict)
@@ -518,7 +539,6 @@ def eval_accuracy(data, model, verbose = False):
                 #     "ERROR: Path to the json doesn't exist!"
             
         else:
-            print("Save the output to json for ", json_file_name)
             for i in range(len(dp.states) - 1 if opts.nofixlen else max_len):
                 if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
                 # ########### both delta positive and negative ###########
@@ -528,7 +548,12 @@ def eval_accuracy(data, model, verbose = False):
                 pred_delta_inv = vect2string(state_dict, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv, dp.env_domain, dp.arg_map)
                 if pred_delta == '' and pred_delta_inv == '':
                     break
-                planner_action, state, state_dict, adj_matrix = run_planner(state, state_dict, adj_matrix, dp, pred_delta, pred_delta_inv, verbose=verbose)
+                if(opts.model == "Tango" or opts.model == "Aggregated"):
+                    planner_action, state, state_dict, adj_matrix = run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
+                    if(opts.model == "Tango"):
+                        planner_action = [(pred_delta+pred_delta_inv)]
+                else:
+                	planner_action, state, state_dict, adj_matrix = run_planner(state, state_dict, adj_matrix, dp, pred_delta, pred_delta_inv, verbose=verbose)
                 ###########
 
                 # ########### only delta positive ###########
@@ -556,17 +581,30 @@ def eval_accuracy(data, model, verbose = False):
             os.makedirs(result_folder_exp, exist_ok=True)
             with open(result_folder_exp + json_file_name, 'w') as outfile:
                 outfile.write(json_string)
+        action_seq_gt = []
+        if(opts.model == "Tango"):
+            for i in range(len(dp.delta_g)-1):
+                tmp=""
+                for dp_i in dp.delta_g[i]:
+                    tmp+=dp_i
+                for dp_i in dp.delta_g_inv[i]:
+                    tmp+=dp_i
+                action_seq_gt.extend([tmp])
+        else:
+            action_seq_gt = dp.action_seq[:-1]
+        if(opts.model == "Aggregated"):
+            action_seq, state_dict = run_planner_aggregated(state_dict,init_state_dict,dp, verbose=verbose)
 
         if verbose: print("SJI ------------ ", get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0], verbose=verbose))
         sji += get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0], verbose=verbose)
         f1 += get_f1_index(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         fb += get_fbeta(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         fbs += get_fbeta_state(state_dict, dp.state_dict[-1])
-        ied += get_ied(action_seq, dp.action_seq[:-1])
+        ied += get_ied(action_seq, action_seq_gt)
         grr += get_goal_reaching(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0])
         if verbose: print(color.GREEN, 'Pred action seq ', color.ENDC, action_seq)
-        if verbose: print(color.GREEN, 'True action seq ', color.ENDC, dp.action_seq)
-        if verbose: print("IED ------------ ", get_ied(action_seq, dp.action_seq[:-1]))
+        if verbose: print(color.GREEN, 'True action seq ', color.ENDC, action_seq_gt)
+        if verbose: print("IED ------------ ", get_ied(action_seq, action_seq_gt))
         if verbose: print("GRR ------------ ", get_goal_reaching(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0]))
         if verbose: print("F1 ------------ ", get_f1_index(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0]))
 
@@ -619,7 +657,6 @@ def plot_grad_flow(named_parameters, filename):
     for n, p in named_parameters:
         if(p.requires_grad) and ("bias" not in n):
             if type(p.grad) == type(None):
-                print("None gradient ", n)
                 continue
             layers.append(n)
             ave_grads.append(p.grad.abs().mean())

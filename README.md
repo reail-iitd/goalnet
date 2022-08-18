@@ -10,7 +10,8 @@ Our goal is to enable a robot to learn how to sequence its actions to perform ta
 
 ## Installation
 
-System requirements - Linux  `<br />`
+The training pipeline has been tested on Ubuntu 16.04.
+
 Install pip packages using
 
 ```bash
@@ -38,7 +39,10 @@ To train the GoalNet model use following command
 python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test
 ```
 
-However, we provide pre-trained model files that can used directly. Use the below instructions to utilize the saved model.
+However, we provide pre-trained model files that can used directly. `<br />`
+Pretrained model path - `results/GoalNet_exp/GoalNet_Model.pt` `<br />`
+
+Use the below instructions to utilize the saved model. It takes approximately 1 hr to run each evaluation command. All the results reported in paper are an average of 4 train and test runs.
 
 Tango Model (Table 2, Row 2)
 
@@ -143,24 +147,24 @@ python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t test -s True 
 
 ### Model training
 
-GoalNet (Trained model provided `<mention path>`)
+GoalNet (Trained model at `results/GoalNet_exp/GoalNet_Model.pt`)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test 
 ```
 
-GoalNet (modified to handle unseen object set) (Trained model provided `<mention path>`)
+GoalNet (modified to handle unseen object set) (Trained model at `results/GoalNet_unseen_exp/GoalNet_Model.pt`)
 
 ```bash
 python GoalNet_Star/main.py -m GoalNet -e GoalNet_unseen_exp -r train -v val -t test -o seen 
 ```
 
-GoalNet* (Trained model provided `<mention path>`)
+GoalNet* (Trained model provided `results/GoalNet_Star_exp/GoalNet_Star_Model.pt`)
 
 ```bash
 python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen 
 ```
-However, we provide pre-trained model files that can be used directly. Use the below instructions to utilize the saved model.
+Use the below instructions to utilize the pretrained model mentioned above
 
 Tango - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 2)
 

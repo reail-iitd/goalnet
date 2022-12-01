@@ -2,7 +2,7 @@
 
 This repository contains code implementation of the paper "GOALNET: Interleaving Neural Goal Predicate Inference with Classical Planning for Generalization in Robot Instruction Following".
 
-Submitted for review at **AAAI 2023**.
+Submitted for review at **ICAPS 2023**.
 
 ## Abstract
 
@@ -78,13 +78,18 @@ Tango Model (Table 2, Row 2)
 python GoalNet/eval.py -m Tango -e GoalNet_exp  -t test 
 ```
 
-Aggregated model (Table 2, Row 3)
+NoInterleaving model (Table 2, Row 3)
+```bash
+python GoalNet/main.py -m NoInterleaving -e GoalNet_NoInterleaving_exp  -r train -v val -t test
+python GoalNet/eval.py -m NoInterleaving -e GoalNet_NoInterleaving_exp  -t test
+```
+Aggregated model (Table 2, Row 4)
 
 ```bash
 python GoalNet/eval.py -m Aggregated -e GoalNet_exp  -t test
 ```
 
-GoalNet (Trained model also provided) (Table 2, Row 4)
+GoalNet (Trained model also provided) (Table 2, Row 6)
 
 ```bash
 python GoalNet/eval.py -m GoalNet -e GoalNet_exp  -t test
@@ -92,42 +97,42 @@ python GoalNet/eval.py -m GoalNet -e GoalNet_exp  -t test
 
 ### Model Ablations
 
-w/o Relational information (Table 2, Row 5)
+w/o Relational information (Table 2, Row 7)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_NoRelationInfo_exp -r train -v val -t test --no_relation
 python GoalNet/eval.py -m GoalNet -e GoalNet_NoRelationInfo_exp  -t test --no_relation
 ```
 
-w/o Instance grounding (Table 2, Row 6)
+w/o Instance grounding (Table 2, Row 8)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_NoInstanceGrounding_exp -r train -v val -t test --no_instance_grounding
 python GoalNet/eval.py -m GoalNet -e GoalNet_NoInstanceGrounding_exp  -t test --no_instance_grounding
 ```
 
-w/o δ− prediction(Table 2, Row 7)
+w/o δ− prediction(Table 2, Row 9)
 
 ```bash
 python GoalNet_delta_g/main.py -m GoalNet -e GoalNet_delta_g_exp -r train -v val -t test
 python GoalNet_delta_g/eval.py -m GoalNet -e GoalNet_delta_g_exp  -t test
 ```
 
-w/o δ+ prediction (Table 2, Row 8)
+w/o δ+ prediction (Table 2, Row 10)
 
 ```bash
 $ python GoalNet_delta_g_inv/main.py -m GoalNet -e GoalNet_delta_g_inv_exp -r train -v val -t test
 $ python GoalNet_delta_g_inv/eval.py -m GoalNet -e GoalNet_delta_g_inv_exp  -t test
 ```
 
-w/o Temporal context encoding (Table 2, Row 9)
+w/o Temporal context encoding (Table 2, Row 11)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_NoTempContext_exp -r train -v val -t test --no_temporal_context
 python GoalNet/eval.py -m GoalNet -e GoalNet_NoTempContext_exp -t test --no_temporal_context
 ```
 
-w/o Grammar mask (Table 2, Row 10)
+w/o Grammar mask (Table 2, Row 12)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_NoGrammarMask_exp -r train -v val -t test --no_grammar_mask
@@ -136,35 +141,35 @@ python GoalNet/eval.py -m GoalNet -e GoalNet_NoGrammarMask_exp -t test --no_gram
 
 ### Model Exploration
 
-Instruction encoding : Conceptnet (Table 2, Row 11)
+Instruction encoding : Conceptnet (Table 2, Row 13)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_Conceptnet_exp -r train -v val -t test --conceptnet
 python GoalNet/eval.py -m GoalNet -e GoalNet_Conceptnet_exp -t test --conceptnet
 ```
 
-Temporal Context (δ+t−1 ∪ δ−t−1) (Table 2, Row 12)
+Temporal Context (δ+t−1 ∪ δ−t−1) (Table 2, Row 14)
 
 ```bash
 python GoalNet_tc_delta/main.py -m GoalNet -e GoalNet_tc_delta_exp -r train -v val -t test
 python GoalNet_tc_delta/eval.py -m GoalNet -e GoalNet_tc_delta_exp -t test
 ```
 
-Temporal Context (st+1) (Table 2, Row 13)
+Temporal Context (st+1) (Table 2, Row 15)
 
 ```bash
 python GoalNet_tc_state/main.py -m GoalNet -e GoalNet_tc_state_exp -r train -v val -t test
 python GoalNet_tc_state/eval.py -m GoalNet -e GoalNet_tc_state_exp  -t test
 ```
 
-Training using RINTANEN (Table 2, Row 14)
+Training using RINTANEN (Table 2, Row 16)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_Rintanen_exp -r train -v val -t test --rintanen
 python GoalNet/eval.py -m GoalNet -e GoalNet_Rintanen_exp  -t test
 ```
 
-GOALNET* (Table 2, Row 15)
+GOALNET* (Table 2, Row 17)
 
 ```bash
 python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen
@@ -203,7 +208,14 @@ python GoalNet/eval.py -m Tango -e GoalNet_exp -t paraphrasing_test
 python GoalNet_Star/eval.py -m Tango -e GoalNet_unseen_exp -t unseen_object_test  -o unseen
 ```
 
-Aggregated - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 3)
+NoInterleaving - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 3)
+```bash
+python GoalNet/eval.py -m NoInterleaving -e GoalNet_NoInterleaving_exp -t verb_replacement_test  
+python GoalNet/eval.py -m NoInterleaving -e GoalNet_NoInterleaving_exp -t paraphrasing_test  
+python GoalNet_Star/main.py -m NoInterleaving -e GoalNet_NoInterleaving_exp -r train -v val -t test -o seen
+python GoalNet_Star/eval.py -m NoInterleaving -e GoalNet_NoInterleaving_exp -t unseen_object_test  -o unseen
+```
+Aggregated - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 4)
 
 ```bash
 python GoalNet/eval.py -m Aggregated -e GoalNet_exp -t verb_replacement_test  
@@ -211,7 +223,7 @@ python GoalNet/eval.py -m Aggregated -e GoalNet_exp -t paraphrasing_test
 python GoalNet_Star/eval.py -m Aggregated -e GoalNet_unseen_exp -t unseen_object_test  -o unseen
 ```
 
-GoalNet - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 4)
+GoalNet - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 5)
 
 ```bash
 python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t verb_replacement_test  
@@ -219,7 +231,7 @@ python GoalNet/eval.py -m GoalNet -e GoalNet_exp -t paraphrasing_test
 python GoalNet_Star/eval.py -m GoalNet -e GoalNet_unseen_exp -t unseen_object_test  -o unseen 
 ```
 
-GoalNet* - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 5)
+GoalNet* - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 6)
 
 ```bash
 python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t verb_replacement_test  -o seen  

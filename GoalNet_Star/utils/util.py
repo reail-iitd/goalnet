@@ -15,7 +15,7 @@ from optparse import OptionParser
 
 parser = OptionParser()
 parser.add_option("-m", "--model", action="store", dest="model", default="GoalNet",
-                  choices=['GoalNet','GoalNet_Star','Tango','Aggregated'], help="model type")
+                  choices=['GoalNet','GoalNet_Star','Tango','Aggregated','NoInterleaving'], help="model type")
 parser.add_option("-e", "--expname", action="store", dest="expname", default="",
                   help="experiment name")
 parser.add_option("-r", "--train", action="store", dest="train", default="train",
@@ -519,7 +519,10 @@ def eval_accuracy(data, model, verbose = False):
             for i in range(len(dp.states) - 1 if opts.nofixlen else max_len):
                 if verbose: print(color.GREEN, 'File: ', color.ENDC, dp.file_path)
                 # ########### both delta positive and negative ###########
-                pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
+                if(opts.model == "NoInterleaving"):
+                      pred, l_h = model(dp.states[0], dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
+                else:
+                      pred, l_h = model(state, dp.sent_embed, dp.goal_obj_embed, pred_delta, l_h if i else None)
                 action, pred1_object, pred2_object, pred2_state, action_inv, pred1_object_inv, pred2_object_inv, pred2_state_inv = pred
                 tmp_pred1_obj_ana.append([torch.max(pred1_object),torch.min(pred1_object),torch.std_mean(pred1_object)])
                 tmp_pred2_obj_ana.append([torch.max(pred2_object),torch.min(pred2_object),torch.std_mean(pred2_object),torch.argmax(action)])
@@ -530,7 +533,7 @@ def eval_accuracy(data, model, verbose = False):
                 if pred_delta == '' and pred_delta_inv == '':
                     break
                 
-                if(opts.model == "Tango" or opts.model == "Aggregated"):
+                if(opts.model == "Tango" or opts.model == "Aggregated" or opts.model == "NoInterleaving"):
                     planner_action, state, state_dict = run_planner_simple(state, state_dict, dp, pred_delta, pred_delta_inv, verbose=verbose)
                     if(opts.model == "Tango"):
                         planner_action = [(pred_delta+pred_delta_inv)]
@@ -578,7 +581,7 @@ def eval_accuracy(data, model, verbose = False):
         else:
             action_seq_gt = dp.action_seq[:-1]
             
-        if(opts.model == "Aggregated"):
+        if(opts.model == "Aggregated" or opts.model == "NoInterleaving"):
             action_seq, state_dict = run_planner_aggregated(state_dict,init_state_dict,dp, verbose=verbose)
 
         if verbose: print("SJI ------------ ", get_sji(state_dict, init_state_dict, dp.state_dict[-1], dp.state_dict[0], verbose=verbose))

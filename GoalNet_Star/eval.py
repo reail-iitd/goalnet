@@ -3,7 +3,7 @@ from main import *
 if __name__ == '__main__':
     result_folder = './results/' + opts.expname + '/'
     model_type = opts.model
-    if(model_type == "Tango" or model_type == "Aggregated"):
+    if(model_type == "Tango" or model_type == "Aggregated" or model_type == "NoInterleaving"):
         model_type = "GoalNet"
     test_data = DGLDataset(data_file + opts.test + '/')
 

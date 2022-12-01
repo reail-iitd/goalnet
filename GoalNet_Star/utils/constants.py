@@ -73,7 +73,7 @@ mask_stateful = torch.Tensor([1 if obj in universal_object_states else 0 for obj
 state_masks = {}
 for obj in universal_object_states:
         state_masks[obj] = torch.Tensor([(1 if state in universal_object_states[obj] else 0) for state in all_fluents])
-if(opts.model == "GoalNet" or opts.model == "Tango" or opts.model == "Aggregated"):
+if(opts.model == "GoalNet" or opts.model == "Tango" or opts.model == "Aggregated" or opts.model == "NoInterleaving"):
         mask_kitchen = mask_kitchen * torch.Tensor([int(x==y) for x,y in zip(all_objects,universal_objects)])
         mask_living = mask_living * torch.Tensor([int(x==y) for x,y in zip(all_objects,universal_objects)])
 

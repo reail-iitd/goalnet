@@ -11,6 +11,7 @@ import dgl.function as fn
 from .GNN import *
 from .HAN import *
 from utils.constants import *
+from utils.util import *
 from .datapoint import *
 from dgl.nn import GraphConv
 
@@ -27,10 +28,10 @@ class Simple_Model(nn.Module):
         self.activation = nn.PReLU()
         self.embed_sbert = nn.Sequential(nn.Linear(SBERT_VECTOR_SIZE, n_hidden), self.activation)
         # self.embed_sbert = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
-        self.embed_adj = nn.Sequential(nn.Linear(n_objects, 1), nn.Sigmoid())
+        self.embed_adj = nn.Sequential(nn.Linear(n_objects, n_hidden), nn.Sigmoid())
         self.embed_conceptnet = nn.Sequential(nn.Linear(PRETRAINED_VECTOR_SIZE, n_hidden), self.activation)
-        self.graph_attn = nn.Sequential(nn.Linear(in_feats + n_hidden, 1), nn.Softmax(dim=1))
-        self.graph_embed = nn.Sequential(nn.Linear(in_feats, n_hidden), self.activation)
+        self.graph_attn = nn.Sequential(nn.Linear(in_feats - 1 + n_hidden + n_hidden, 1))
+        self.graph_embed = nn.Sequential(nn.Linear(in_feats - 1 + n_hidden, n_hidden), self.activation)
         self.goal_obj_attention = nn.Sequential(nn.Linear(n_hidden * 2, 1), nn.Softmax(dim=0))
         self.fc = nn.Sequential(nn.Linear(n_hidden * 4, n_hidden), self.activation)
         self.pred_lstm = nn.LSTM((len(all_relations) + 1 + 2 * PRETRAINED_VECTOR_SIZE), n_hidden)
@@ -52,6 +53,7 @@ class Simple_Model(nn.Module):
         h = torch.cat((h_vec, h_adj), 1)
         goal_embed = self.embed_sbert(goalVec)
         attn_weights = self.graph_attn(torch.cat([h, goal_embed.repeat(h.shape[0], 1)], 1))
+        attn_weights = F.softmax(attn_weights, dim=0)
         h_embed = torch.mm(attn_weights.t(), h)
         h_embed = self.graph_embed(h_embed.view(-1))
 

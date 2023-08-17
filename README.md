@@ -138,8 +138,8 @@ w/o Grammar mask (Table 2, Row 12)
 python GoalNet/main.py -m GoalNet -e GoalNet_NoGrammarMask_exp -r train -v val -t test --no_grammar_mask
 python GoalNet/eval.py -m GoalNet -e GoalNet_NoGrammarMask_exp -t test --no_grammar_mask
 ```
-<!--
-### Model Exploration
+
+<!-- ### Model Exploration
 
 Instruction encoding : Conceptnet (Table 2, Row 13)
 
@@ -160,8 +160,8 @@ Temporal Context (st+1) (Table 2, Row 15)
 ```bash
 python GoalNet_tc_state/main.py -m GoalNet -e GoalNet_tc_state_exp -r train -v val -t test
 python GoalNet_tc_state/eval.py -m GoalNet -e GoalNet_tc_state_exp  -t test
-```
--->
+``` -->
+
 Training using RINTANEN (Table 2, Row 14)
 
 ```bash

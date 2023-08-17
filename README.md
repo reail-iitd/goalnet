@@ -89,7 +89,7 @@ GN-SYMSIM (formerly called as 'Aggregated') model (Table 2, Row 4)
 python GoalNet/eval.py -m Aggregated -e GoalNet_exp  -t test
 ```
 
-<!--GoalNet (Trained model also provided) (Table 2, Row 6)-->
+GoalNet <!--(Trained model also provided)--> (Table 2, Row 6)
 
 ```bash
 python GoalNet/eval.py -m GoalNet -e GoalNet_exp  -t test
@@ -138,7 +138,7 @@ w/o Grammar mask (Table 2, Row 12)
 python GoalNet/main.py -m GoalNet -e GoalNet_NoGrammarMask_exp -r train -v val -t test --no_grammar_mask
 python GoalNet/eval.py -m GoalNet -e GoalNet_NoGrammarMask_exp -t test --no_grammar_mask
 ```
-
+<!--
 ### Model Exploration
 
 Instruction encoding : Conceptnet (Table 2, Row 13)
@@ -161,15 +161,15 @@ Temporal Context (st+1) (Table 2, Row 15)
 python GoalNet_tc_state/main.py -m GoalNet -e GoalNet_tc_state_exp -r train -v val -t test
 python GoalNet_tc_state/eval.py -m GoalNet -e GoalNet_tc_state_exp  -t test
 ```
-
-Training using RINTANEN (Table 2, Row 16)
+-->
+Training using RINTANEN (Table 2, Row 14)
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_Rintanen_exp -r train -v val -t test --rintanen
 python GoalNet/eval.py -m GoalNet -e GoalNet_Rintanen_exp  -t test
 ```
 
-GOALNET* (Table 2, Row 17)
+GOALNET* (Table 2, Row 13)
 
 ```bash
 python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen
@@ -181,24 +181,24 @@ Generalization in case of verb re-placement and paraphrasing. Comparisons for Go
 
 ### Model training
 
-GoalNet (Trained model at `results/GoalNet_exp/GoalNet_Model.pt`)
+GoalNet <!--(Trained model at `results/GoalNet_exp/GoalNet_Model.pt`)-->
 
 ```bash
 python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test 
 ```
 
-GoalNet (modified to handle unseen object set) (Trained model at `results/GoalNet_unseen_exp/GoalNet_Model.pt`)
+GoalNet (modified to handle unseen object set) <!--(Trained model at `results/GoalNet_unseen_exp/GoalNet_Model.pt`)-->
 
 ```bash
 python GoalNet_Star/main.py -m GoalNet -e GoalNet_unseen_exp -r train -v val -t test -o seen 
 ```
 
-GoalNet* (Trained model provided `results/GoalNet_Star_exp/GoalNet_Star_Model.pt`)
+GoalNet* <!--(Trained model provided `results/GoalNet_Star_exp/GoalNet_Star_Model.pt`)-->
 
 ```bash
 python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen 
 ```
-Use the below instructions to utilize the pretrained model mentioned above
+Use the below instructions to utilize the trained model mentioned above
 
 Tango - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 2)
 
@@ -208,14 +208,14 @@ python GoalNet/eval.py -m Tango -e GoalNet_exp -t paraphrasing_test
 python GoalNet_Star/eval.py -m Tango -e GoalNet_unseen_exp -t unseen_object_test  -o unseen
 ```
 
-NoInterleaving - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 3)
+Pipeline (formerly called as 'NoInterleaving') - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 3)
 ```bash
 python GoalNet/eval.py -m NoInterleaving -e GoalNet_NoInterleaving_exp -t verb_replacement_test  
 python GoalNet/eval.py -m NoInterleaving -e GoalNet_NoInterleaving_exp -t paraphrasing_test  
 python GoalNet_Star/main.py -m NoInterleaving -e GoalNet_NoInterleaving_exp -r train -v val -t test -o seen
 python GoalNet_Star/eval.py -m NoInterleaving -e GoalNet_NoInterleaving_exp -t unseen_object_test  -o unseen
 ```
-Aggregated - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 4)
+GN-SYMSIM (formerly called as 'Aggregated') - Verb Replacement, Paraphrasing and Unseen Objects (Table 3, Row 4)
 
 ```bash
 python GoalNet/eval.py -m Aggregated -e GoalNet_exp -t verb_replacement_test  

@@ -66,10 +66,11 @@ To train the GoalNet model use following command
 python GoalNet/main.py -m GoalNet -e GoalNet_exp -r train -v val -t test
 ```
 
-However, we provide pre-trained model files that can used directly. <br />
+<!-- However, we provide pre-trained model files that can used directly. <br />
 Pretrained model path - `results/GoalNet_exp/GoalNet_Model.pt` <br />
 
-Use the below instructions to utilize the saved model. It takes approximately 1 hr to run each evaluation command. All the results reported in paper are an average of 4 train and test runs.
+Use the below instructions to utilize the saved model. It takes approximately 1 hr to run each evaluation command. -->
+All the results reported in paper are an average of 4 train and test runs.
 
 Tango Model (Table 2, Row 2)
 
@@ -77,18 +78,18 @@ Tango Model (Table 2, Row 2)
 python GoalNet/eval.py -m Tango -e GoalNet_exp  -t test 
 ```
 
-NoInterleaving model (Table 2, Row 3)
+Pipeline (formerly called as 'NoInterleaving') model (Table 2, Row 3)
 ```bash
 python GoalNet/main.py -m NoInterleaving -e GoalNet_NoInterleaving_exp  -r train -v val -t test
 python GoalNet/eval.py -m NoInterleaving -e GoalNet_NoInterleaving_exp  -t test
 ```
-Aggregated model (Table 2, Row 4)
+GN-SYMSIM (formerly called as 'Aggregated') model (Table 2, Row 4)
 
 ```bash
 python GoalNet/eval.py -m Aggregated -e GoalNet_exp  -t test
 ```
 
-GoalNet (Trained model also provided) (Table 2, Row 6)
+<!--GoalNet (Trained model also provided) (Table 2, Row 6)-->
 
 ```bash
 python GoalNet/eval.py -m GoalNet -e GoalNet_exp  -t test

@@ -162,6 +162,13 @@ python GoalNet_tc_state/main.py -m GoalNet -e GoalNet_tc_state_exp -r train -v v
 python GoalNet_tc_state/eval.py -m GoalNet -e GoalNet_tc_state_exp  -t test
 ``` -->
 
+GOALNET* (Table 2, Row 13)
+
+```bash
+python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen
+python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t test  -o seen
+```
+
 Training using RINTANEN (Table 2, Row 14)
 
 ```bash
@@ -169,12 +176,7 @@ python GoalNet/main.py -m GoalNet -e GoalNet_Rintanen_exp -r train -v val -t tes
 python GoalNet/eval.py -m GoalNet -e GoalNet_Rintanen_exp  -t test
 ```
 
-GOALNET* (Table 2, Row 13)
 
-```bash
-python GoalNet_Star/main.py -m GoalNet_Star -e GoalNet_Star_exp -r train -v val -t test -o seen
-python GoalNet_Star/eval.py -m GoalNet_Star -e GoalNet_Star_exp -t test  -o seen
-```
 
 ## Results reported in Table 3
 Generalization in case of verb re-placement and paraphrasing. Comparisons for Goalnet, Goalnet* and baseline models. 

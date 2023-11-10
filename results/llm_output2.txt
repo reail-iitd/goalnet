@@ -1,0 +1,731 @@
+file: 111_34.json 
+str: put the game in the  xbox 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 161_55.json 
+str: and put several scoops in the cup with the coffee in it 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 346_136.json 
+str: . 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 257_94.json 
+str: grasp the pot, 
+['(Grasping Robot Kettle)'] 
+[]sji: 0.249999999375,  ied: 0.4,   GRR: 0,  F1: 0.3999999952, 
+file: 20_3.json 
+str: . turn on the tv 
+['(state Tv_1 IsOn)'] 
+[]sji: 0.999999995,  ied: 1.0,   GRR: 1,  F1: 0.9999999900000001, 
+file: 273_103.json 
+str: put some water into the kettle 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 405_157.json 
+str: . put chocolate and vanilla syrup on top 
+['(On Syrup_1 Mug_1)', '(On Syrup_2 Mug_1)'] 
+['(On Syrup_1 LongCup_1)', '(On Syrup_2 LongCup_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 208_81.json 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+['(In GarbageBin_1 Beer_1)', '(In GarbageBin_1 Coke_1)', '(In GarbageBin_1 Cd_2)', '(In GarbageBin_1 Cd_1)', '((In GarbageBag_1 Beer_1)', '(In GarbageBag_1 Coke_1)', '(In GarbageBag_1 Cd_2)', '(In GarbageBag_1 Cd_1)', '((Grasping Robot Beer_1)', '(Grasping Robot Coke_1)', '(Grasping Robot Cd_2)', '(Grasping Robot Cd_1)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 323_127.json 
+str: and pour it in the bigger plate 
+['(Grasping Robot Mug_1)', '(In Mug_1 Plate_1)', '(On Plate_1 LongCup_1)', '(On Plate_1 LongCup_2)', '(Near Robot Plate_1)', '(In Mug_1 Plate_2)', '(On Plate_2 LongCup_1)', '(On Plate_2 LongCup_2)', '(Near Robot Plate_2)'] 
+['(In Mug_1 LongCup_1)', '(In Mug_1 LongCup_2)', '(In Mug_1 Glass_1)', '(In Mug_1 Fork_1)', '(In Mug_1 EnergyDrink_1)', '(In Mug_1 Coke_1)', '(In Mug_1 CanadaDry_1)', '(In Mug_1 Syrup_1)', '(In Mug_1 Plate_1)', '(In Mug_1 Plate_2)', '(On IceCream_1 StoveFire_4)', '(On Kettle StoveFire_2)', '(On Syrup_1 StoveFire_2)', '(On EnergyDrink_1 StoveFire_4)', '(On Coke_1 StoveFire_4)', '(On CanadaDry_1 StoveFire_4)', '(On Plate_1 StoveFire_4)', '(On Plate_2 StoveFire_4)', '(On Syrup_2 StoveFire_2)', '(On BoiledEgg_1 StoveFire_4)', '(Near Robot Microwave)', '(Grasping Robot Mug_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 346_132.json 
+str: pick up coffee mug 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 380_150.json 
+str: . pick up the instant ramen 
+['(Grasping Robot Ramen_1)'] 
+['(Near Robot Ramen_1)', '(Near Robot Microwave)', '(Near Robot MicrowaveDoor)', '(Near Robot Fridge)', '(Near Robot FridgeLeftDoor)', '(Near Robot FridgeRightDoor)', '(Near Robot BagOfChips_1)', '(Near Robot GarbageBin_1)']sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+file: 363_145.json 
+str: . grab chocolate syrup bottle 
+['(Grasping Robot Syrup_2)', '(Grasping Robot Syrup_1)'] 
+['(Near Robot Syrup_2)', '(Near Robot Syrup_1)']sji: 0.6666666644444444,  ied: 0.5,   GRR: 1,  F1: 0.799999992, 
+file: 446_171.json 
+str: by pouring the chips into the bowl 
+['(Grasping Robot BagOfChips_1)', '(In BagOfChips_1 Bowl_1)', '(Grasping Robot BagOfChips_1)', '(On BagOfChips_1 Coffeetable_1)'] 
+['(Grasping Robot BagOfChips_1)', '(On BagOfChips_1 Coffeetable_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 314_122.json 
+str: fill the pot with water in the sink the boil it on the stove 
+ 
+['(In Kettle Stove)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 161_54.json 
+str: take the icecream out of the freezer 
+['(Near Robot IceCream_1)', '(Grasping Robot IceCream_1)'] 
+['(In IceCream_1 Fridge)', '(Near Robot Stove)']sji: 0.49999999875,  ied: 0.2857142857142857,   GRR: 0,  F1: 0.6666666594444445, 
+file: 276_108.json 
+str: . place a pillow on each couch 
+['(On Pillow_1 Couch_1)', '(On Pillow_2 Couch_2)', '(On Pillow_3 Couch_1)', '(On Pillow_4 Couch_2)'] 
+['(On Pillow_1 Shelf_1)', '(On Pillow_2 Shelf_1)', '(On Pillow_3 Shelf_1)', '(On Pillow_4 Shelf_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 289_116.json 
+str: and put it on the left stove 
+['(On Kettle StoveFire_1)'] 
+['(Near Robot Stove)']sji: 0.1999999996,  ied: 0.0,   GRR: 0,  F1: 0.33333332722222225, 
+file: 220_87.json 
+str: and put chips and soda on the table 
+['(On BagOfChips_1 CoffeeTable_1)', '(On Coke_1 CoffeeTable_1)'] 
+['(On BagOfChips_1 Armchair_4)', '(On Coke_1 Armchair_2)', '(On Beer_1 SnackTable_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 254_91.json 
+str: put some water into the kettle 
+['(Grasping Robot Kettle)', '(In Kettle Water)'] 
+['(Near Robot IceCream_1)', '(Near Robot Syrup_1)', '(Near Robot Glass_1)', '(Near Robot LongCup_1)', '(Near Robot EnergyDrink_1)', '(Near Robot Coke_1)', '(Near Robot CanadaDry_1)', '(Near Robot Plate_1)', '(Near Robot Syrup_2)', '(Near Robot BoiledEgg_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 289_115.json 
+str: . grasp the pot 
+ 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 72_23.json 
+str: take the coffee 
+['(Grasping Robot Mug_1)'] 
+[]sji: 0.9999999900000002,  ied: 1.0,   GRR: 1,  F1: 0.9999999850000002, 
+file: 171_60.json 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+ 
+['(In Beer_1 Bowl_1)', '(In Coke_1 Bowl_1)', '(In Cd_1 Bowl_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 434_164.json 
+str: . put books on the shelf 
+ 
+['(On Book_1 Armchair_1)', '(On Book_2 Armchair_1)', '(On Book_1 Armchair_2)', '(On Book_2 Armchair_2)', '(On Book_1 Loveseat_1)', '(On Book_2 Loveseat_1)']sji: 0.0,  ied: 0,   GRR: 1,  F1: 0.0, 
+file: 20_4.json 
+str: and change it to a channel with a movie 
+ 
+['(state Tv_1 Channel1)', '(state Tv_1Remote_1 Channel1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 435_166.json 
+str: put a movie into the x box 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 278_111.json 
+str: . put pillows onto the coaches, 
+['(On Pillow_1 Loveseat_1)', '(On Pillow_2 Loveseat_1)', '(On Pillow_3 Loveseat_1)', '(On Pillow_4 Loveseat_1)', '((On Pillow_1 Shelf_1)', '(On Pillow_2 Shelf_1)', '(On Pillow_3 Shelf_1)', '(On Pillow_4 Shelf_1)'] 
+['(On Pillow_1 Shelf_1)', '(On Pillow_2 Shelf_1)', '(On Pillow_3 Shelf_1)', '(On Pillow_4 Shelf_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 323_128.json 
+str: . take the ice cream out of the freezer 
+['(Near Robot Fridge)', '(Grasping Robot IceCream_1)'] 
+['(In IceCream_1 Fridge)', '(Near Robot Stove)']sji: 0.7499999981250001,  ied: 0.25,   GRR: 0,  F1: 0.8571428497959185, 
+file: 101_32.json 
+str: set up the tv and the xbox 
+['(On Xbox_1 Tv_1)', '(On Tv_1 Loveseat_1)', '(On XboxController_1 Loveseat_1)'] 
+['(On Xbox_1 SnackTable_1)', '(On XboxController_1 Armchair_3)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 143_53.json 
+str: and empty its contents into the sink 
+['(Near Robot Mug_1)', '(Near Robot Spoon_1)', '(In Mug_1 Coffee)', '(In Mug_1 Spoon_1)', '(In Mug_1 IceCream_1)', '(On Fork_1 Plate_1)', '(On Fork_1 Plate_2)', '(On IceCream_1 StoveFire_4)', '(On IceCream_1 Sink)', '(On Kettle StoveFire_2)', '(On Syrup_1 StoveFire_2)', '(On Syrup_1 Sink)', '(On Glass_1 Sink)', '(On LongCup_1 Sink)', '(On LongCup_2 Sink)', '(On Plate_1 Sink)', '(On Plate_2 Sink)', '(On InstantRamen_1 Sink)', '(On BoiledEgg_1 Sink)', '(In Microwave Microwave)', '(On Syrup_2 StoveFire_2)', '(On Syrup_2 Sink)', '(On Salt_1 Sink)', '(On InstantRamen_1 StoveFire_4)', '(On Salt_1 StoveFire_1)', '(On Microwave Syrup_2)', '(On Microwave Salt_1)', '(On Microwave InstantRamen_1)', '(Grasping Robot Mug_1)', '((In Mug_1 LongCup_1)', '(In Mug_1 LongCup_2)', '(In Mug_1 Glass_1)', '(In Mug_1 Plate_1)', '(In Mug_1 Plate_2)', '(In Mug_1 InstantRamen_1)', '(In Mug_1 BoiledEgg_1)', '(On IceCream_1 StoveFire_4)', '(On Kettle StoveFire_2)', '(On Syrup_1 StoveFire_2)', '(On EnergyDrink_1 StoveFire_4)', '(On Coke_1 StoveFire_4)', '(On CanadaDry_1 StoveFire_4)', '(On Syrup_2 StoveFire_2)', '(On BoiledEgg_1 StoveFire_4)', '(Near Robot Sink)', '(On Plate_1 Sink)', '(On Plate_2 Sink)', '(On Glass_1 Sink)', '(On LongCup_1 Sink)', '(On LongCup_2 Sink)', '(Near Robot Microwave)', '(state Microwave DoorIsOpen)'] 
+['(In Mug_1 LongCup_1)', '(In Mug_1 LongCup_2)', '(In Mug_1 Glass_1)', '(In Mug_1 Plate_1)', '(In Mug_1 Plate_2)', '(In Mug_1 InstantRamen_1)', '(In Mug_1 BoiledEgg_1)', '(On IceCream_1 StoveFire_4)', '(On Kettle StoveFire_2)', '(On Syrup_1 StoveFire_2)', '(On EnergyDrink_1 StoveFire_4)', '(On Coke_1 StoveFire_4)', '(On CanadaDry_1 StoveFire_4)', '(On Syrup_2 StoveFire_2)', '(On BoiledEgg_1 StoveFire_4)', '(Near Robot Sink)', '(On Plate_1 Sink)', '(On Plate_2 Sink)', '(On Glass_1 Sink)', '(On LongCup_1 Sink)', '(On LongCup_2 Sink)', '(Near Robot Microwave)', '(state Microwave DoorIsOpen)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 190_67.json 
+str: . take out the ice cream and syrup on the table 
+ 
+['(On IceCream_1 Counter_1)', '(On Syrup_1 Counter_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 70_22.json 
+str: off .throw out open beer and coke 
+['(state Coke_1 IsOpen)', '(Grasping Robot Coke_1)'] 
+['(In Coke_1 GarbageBin_1)', '(On Coke_1 GarbageBin_1)', '(On Coke_1 BagOfChips_1)', '(In Coke_1 GarbageBag_1)', '(On Coke_1 Shelf_1)', '(On Coke_1 Armchair_2)', '(On Coke_1 SnackTable_1)', '(state Coke_1 IsOpen)', '(state Coke_1 HasChips)', '(state BagOfChips_1 IsOpen)', '(state BagOfChips_1 HasChips)', '(On BagOfChips_1 Armchair_4)', '(On BagOfChips_1 Shelf_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 86_28.json 
+str: . turn on the left stove 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 171_61.json 
+str: . take pillows from shelf 
+ 
+['(On Pillow_1 Robot)', '(On Pillow_2 Robot)', '(On Pillow_3 Robot)', '(On Pillow_4 Robot)', '((Near Robot Pillow_1)', '(Near Robot Pillow_2)', '(Near Robot Pillow_3)', '(Near Robot Pillow_4)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 269_100.json 
+str: . turn off the water 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 40_11.json 
+str: and put the pots and utensils in the sink 
+['(In Plate_1 Sink)', '(In Plate_2 Sink)', '(In LongCup_2 Sink)', '(In Fork_1 Sink)', '(In Spoon_1 Sink)'] 
+['(On Plate_1 Sink)', '(On Plate_2 Sink)', '(On LongCup_2 Sink)', '(On Fork_1 Sink)', '(On Spoon_1 Sink)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 62_20.json 
+str: . turn on the television 
+ 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 299_118.json 
+str: and close the fridge door 
+['(state Fridge RightDoorIsOpen)'] 
+['(state Fridge LeftDoorIsOpen)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 86_26.json 
+str: . grasp the pot 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 88_31.json 
+str: . put beer_1 under the table 
+['(Under Beer_1 CoffeeTable_1)'] 
+['(Under Beer_1 tvtable_1)', '(Under Beer_1 SnackTable_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 269_98.json 
+str: take pot over to the sink, 
+['(Near Robot Pot)', '(On Pot Sink)'] 
+['(On Pot Counter_1)', '(In Pot GarbageBin_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 320_123.json 
+str: and put them in the trash can 
+['(In Pillow_1 GarbageBin_1)', '(In Pillow_2 GarbageBin_1)', '(In Pillow_3 GarbageBin_1)', '(In Pillow_4 GarbageBin_1)', '(On Pillow_1 GarbageBin_1)', '(On Pillow_2 GarbageBin_1)', '(On Pillow_3 GarbageBin_1)', '(On Pillow_4 GarbageBin_1)'] 
+['(On Pillow_1 Shelf_1)', '(On Pillow_2 Shelf_1)', '(On Pillow_3 Shelf_1)', '(On Pillow_4 Shelf_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 192_71.json 
+str: place on any burner, and turn on the fire for that burner place on any burner, 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 177_62.json 
+str: take mug form microwave 
+['(Grasping Robot Mug_1)', '((In Mug_1 Microwave)'] 
+['(In Mug_1 Microwave)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 120_39.json 
+str: clear the table 
+['(On Pillow_1 CoffeeTable_1)', '(On Pillow_2 CoffeeTable_1)', '(On Pillow_3 CoffeeTable_1)', '(On Pillow_4 CoffeeTable_1)', '(On BagOfChips_1 CoffeeTable_1)', '(On GarbageBag_1 CoffeeTable_1)', '(On Book_1 CoffeeTable_1)', '(On Book_2 CoffeeTable_1)', '(On Coke_1 CoffeeTable_1)', '(On Beer_1 CoffeeTable_1)', '(On XboxController_1 CoffeeTable_1)', '(On Xbox_1 CoffeeTable_1)', '(On Cd_2 CoffeeTable_1)', '(On Cd_1 CoffeeTable_1)', '(On Pillow_4 CoffeeTable_1)', '(On Plate_1 CoffeeTable_1)', '((On Pillow_1 tvtable_1)', '(On Pillow_2 tvtable_1)', '(On Pillow_3 tvtable_1)', '(On Pillow_4 tvtable_1)', '(On BagOfChips_1 tvtable_1)', '(On GarbageBag_1 tvtable_1)', '(On Book_1 tvtable_1)', '(On Book_2 tvtable_1)', '(On Coke_1 tvtable_1)', '(On Beer_1 tvtable_1)', '(On XboxController_1 tvtable_1)', '(On Xbox_1 tvtable_1)', '(On Cd_2 tvtable_1)', '(On Cd_1 tvtable_1)', '(On Pillow_4 tvtable_1)', '(On Plate_1 tvtable_1)', '((On Pillow_1 SnackTable_1)', '(On Pillow_2 SnackTable_1)', '(On Pillow_3 SnackTable_1)', '(On Pillow_4 SnackTable_1)', '(On BagOfChips_1 SnackTable_1)', '(On GarbageBag_1 SnackTable_1)', '(On Book_1 SnackTable_1)', '(On Book_2 SnackTable_1)', '(On Coke_1 SnackTable_1)', '(On Beer_1 SnackTable_1)', '(On XboxController_1 SnackTable_1)', '(On Xbox_1 SnackTable_1)', '(On Cd_2 SnackTable_1)', '(On Cd_1 SnackTable_1)', '(On Pillow_4 SnackTable_1)', '(On Plate_1 SnackTable_1)', '((state CoffeeTable_1 IsPlaceable)', '(state tvtable_1 IsPlaceable)', '(state SnackTable_1 IsPlaceable)', '(On CoffeeTable_1 Robot)', '(On tvtable_1 Robot)', '(On SnackTable_1 Robot)'] 
+['(On Pillow_1 tvtable_1)', '(On Pillow_2 tvtable_1)', '(On Pillow_3 tvtable_1)', '(On Pillow_4 tvtable_1)', '(On BagOfChips_1 tvtable_1)', '(On GarbageBag_1 tvtable_1)', '(On Book_1 tvtable_1)', '(On Book_2 tvtable_1)', '(On Coke_1 tvtable_1)', '(On Beer_1 tvtable_1)', '(On XboxController_1 tvtable_1)', '(On Xbox_1 tvtable_1)', '(On Cd_2 tvtable_1)', '(On Cd_1 tvtable_1)', '(On Pillow_4 tvtable_1)', '(On Plate_1 tvtable_1)', '((On Pillow_1 SnackTable_1)', '(On Pillow_2 SnackTable_1)', '(On Pillow_3 SnackTable_1)', '(On Pillow_4 SnackTable_1)', '(On BagOfChips_1 SnackTable_1)', '(On GarbageBag_1 SnackTable_1)', '(On Book_1 SnackTable_1)', '(On Book_2 SnackTable_1)', '(On Coke_1 SnackTable_1)', '(On Beer_1 SnackTable_1)', '(On XboxController_1 SnackTable_1)', '(On Xbox_1 SnackTable_1)', '(On Cd_2 SnackTable_1)', '(On Cd_1 SnackTable_1)', '(On Pillow_4 SnackTable_1)', '(On Plate_1 SnackTable_1)', '((state CoffeeTable_1 IsPlaceable)', '(state tvtable_1 IsPlaceable)', '(state SnackTable_1 IsPlaceable)', '(On CoffeeTable_1 Robot)', '(On tvtable_1 Robot)', '(On SnackTable_1 Robot)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 201_75.json 
+str: . take pillows from shelf 
+['(Grasping Robot Pillow_1)', '(Grasping Robot Pillow_2)', '(Grasping Robot Pillow_3)', '(Grasping Robot Pillow_4)', '((On Pillow_1 Robot)', '(On Pillow_2 Robot)', '(On Pillow_3 Robot)', '(On Pillow_4 Robot)'] 
+['(On Pillow_1 Robot)', '(On Pillow_2 Robot)', '(On Pillow_3 Robot)', '(On Pillow_4 Robot)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 323_129.json 
+str: . pick up the bottle of syrup 
+['(Grasping Robot Syrup_1)', '(Near Robot Syrup_1)', '((Grasping Robot Syrup_2)', '(Near Robot Syrup_2)'] 
+['(Grasping Robot Syrup_2)', '(Near Robot Syrup_2)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 171_59.json 
+str: and put in xbox 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 409_158.json 
+str: find the videogame 
+['(Near Robot Xbox_1)'] 
+['(Near Robot Tv_1Remote_1)']sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+file: 249_90.json 
+str: . hold the trash bag in one hand 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 257_97.json 
+str: . turn on the left stove 
+['(state Stove StoveFire1)', '(state StoveFire_1 IsOn)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 354_137.json 
+str: place it on the stove, 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 101_33.json 
+str: . place a pillow on each couch 
+['(On Pillow_1 Loveseat_1)', '(On Pillow_2 Loveseat_1)', '(On Pillow_3 Loveseat_1)', '(On Pillow_4 Loveseat_1)'] 
+['(On Pillow_1 Couch_1)', '(On Pillow_2 Couch_1)', '(On Pillow_3 Couch_1)', '(On Pillow_4 Couch_1)', '(On Pillow_1 Couch_2)', '(On Pillow_2 Couch_2)', '(On Pillow_3 Couch_2)', '(On Pillow_4 Couch_2)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 313_121.json 
+str: . take out the ice cream and syrup on the table 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 257_96.json 
+str: . grasp the pot 
+ 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 465_179.json 
+str: turn on the tv and the xbox, 
+['(state Tv_1 IsOn)', '(state Xbox_1 IsOn)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 121_41.json 
+str: take out the coffee 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 340_131.json 
+str: down coke 
+['(On Coke_1 CoffeeTable_1)'] 
+['(On Coke_1 Loveseat_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 182_63.json 
+str: take mug form microwave 
+['(Grasping Robot Mug_1)', '(Near Robot Mug_1)', '(Grasping Robot Spoon_1)'] 
+['(In Mug_1 Microwave)', '(Near Robot Microwave)', '(Grasping Robot MicrowaveDoor)', '(Grasping Robot MicrowaveButton)']sji: 0.1999999996,  ied: 0.4,   GRR: 0,  F1: 0.33333332722222225, 
+file: 212_84.json 
+str: grab cd 
+ 
+['(Grasping Robot Cd_1)', '(Near Robot Cd_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 278_110.json 
+str: . put xbox and its controller in the shelf under the tv 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 269_99.json 
+str: and fill with water 
+ 
+['(Near Robot Mug_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 278_109.json 
+str: open the gamecd with tv 
+['(On Cd_2 Loveseat_1)'] 
+['(On Cd_1 Loveseat_1)']sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+file: 289_112.json 
+str: grasp the pot, 
+['(Grasping Robot Kettle)'] 
+[]sji: 0.9999999900000002,  ied: 1.0,   GRR: 1,  F1: 0.9999999850000002, 
+file: 446_172.json 
+str: and arrange them on the chairs 
+['(On Pillow_1 Armchair_1)', '(On Pillow_2 Armchair_2)', '(On Pillow_3 Armchair_3)', '(On Pillow_4 Armchair_4)'] 
+['(On Pillow_1 Shelf_1)', '(On Pillow_2 Shelf_1)', '(On Pillow_3 Shelf_1)', '(On Pillow_4 Shelf_1)', '(On Book_1 Shelf_2)', '(On Book_2 Loveseat_1)', '(On Coke_1 Loveseat_1)', '(On Beer_1 CoffeeTable_1)', '(On XboxController_1 Armchair_3)', '(On Cd_1 Studytable_1)', '(On Xbox_1 SnackTable_1)', '(On Bowl_1 CoffeeTable_1)', '(On BagOfChips_1 CoffeeTable_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 289_113.json 
+str: put it in the sink 
+['(In Mug_1 Sink)', '(Grasping Robot Mug_1)', '((On Mug_1 Sink)', '(In Spoon_1 Sink)', '(In IceCream_1 Sink)', '(In Kettle Sink)', '(In Ramen_1 Sink)', '(In Syrup_1 Sink)', '(In Glass_1 Sink)', '(In LongCup_1 Sink)', '(In LongCup_2 Sink)', '(In Fork_1 Sink)', '(In EnergyDrink_1 Sink)', '(In Coke_1 Sink)', '(In CanadaDry_1 Sink)', '(In Plate_1 Sink)', '(In Plate_2 Sink)', '(In Syrup_2 Sink)', '(In InstantRamen_1 Sink)', '(In BoiledEgg_1 Sink)', '(In Salt_1 Sink)'] 
+['(On Mug_1 Sink)', '(In Spoon_1 Sink)', '(In IceCream_1 Sink)', '(In Kettle Sink)', '(In Ramen_1 Sink)', '(In Syrup_1 Sink)', '(In Glass_1 Sink)', '(In LongCup_1 Sink)', '(In LongCup_2 Sink)', '(In Fork_1 Sink)', '(In EnergyDrink_1 Sink)', '(In Coke_1 Sink)', '(In CanadaDry_1 Sink)', '(In Plate_1 Sink)', '(In Plate_2 Sink)', '(In Syrup_2 Sink)', '(In InstantRamen_1 Sink)', '(In BoiledEgg_1 Sink)', '(In Salt_1 Sink)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 215_86.json 
+str: pour the pot's contents into the trash 
+['(Grasping Robot Pot)', '(Grasping Robot Spoon_1)', '(Grasping Robot Mug_1)', '(Grasping Robot Kettle)', '(Grasping Robot Ramen_1)', '(Grasping Robot Syrup_1)', '(Grasping Robot Syrup_2)', '(Grasping Robot Glass_1)', '(Grasping Robot LongCup_1)', '(Grasping Robot LongCup_2)', '(Grasping Robot Fork_1)', '(Grasping Robot EnergyDrink_1)', '(Grasping Robot Coke_1)', '(Grasping Robot CanadaDry_1)', '(Grasping Robot Plate_1)', '(Grasping Robot Plate_2)', '(Grasping Robot BoiledEgg_1)', '(Grasping Robot Salt_1)'] 
+['(In Mug_1 Trash)', '(In Spoon_1 Trash)', '(In Kettle Trash)', '(In Ramen_1 Trash)', '(In Syrup_1 Trash)', '(In Syrup_2 Trash)', '(In Glass_1 Trash)', '(In LongCup_1 Trash)', '(In LongCup_2 Trash)', '(In Fork_1 Trash)', '(In EnergyDrink_1 Trash)', '(In Coke_1 Trash)', '(In CanadaDry_1 Trash)', '(In Plate_1 Trash)', '(In Plate_2 Trash)', '(In BoiledEgg_1 Trash)', '(In Salt_1 Trash)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 363_146.json 
+str: and add to coffee 
+['(In Mug_1 Coffee)'] 
+['(Near Robot Coffee)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 457_175.json 
+str: and set to the movie channel 
+['(state Tv_1 Channel2)', '(state Tv_1Remote_1 Channel2)'] 
+['(state Tv_1 Channel1)', '(state Tv_1 Channel3)', '(state Tv_1 Channel4)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 363_143.json 
+str: and use it 
+['(Grasping Robot Mug_1)', '(Grasping Robot Spoon_1)', '(Grasping Robot IceCream_1)'] 
+['(On IceCream_1 Glass_1)', '(On Spoon_1 Mug_1)', '(On Glass_1 StoveFire_2)', '(On Glass_1 StoveFire_3)', '(On Spoon_1 StoveFire_2)', '(On Spoon_1 StoveFire_3)', '(On IceCream_1 StoveFire_2)', '(On IceCream_1 StoveFire_3)', '(On Mug_1 StoveFire_2)', '(On Mug_1 StoveFire_3)', '(On Glass_1 StoveFire_4)', '(On Spoon_1 StoveFire_4)', '(On IceCream_1 StoveFire_4)', '(On Mug_1 StoveFire_4)', '(On Glass_1 StoveFire_1)', '(On Spoon_1 StoveFire_1)', '(On IceCream_1 StoveFire_1)', '(On Mug_1 StoveFire_1)']sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+file: 380_151.json 
+str: . pour the water from the kettle 
+ 
+sji: 0.0,  ied: 0,   GRR: 1,  F1: 0.0, 
+file: 13_1.json 
+str: fill the pot with water in the sink the boil it on the stove 
+['(In Kettle Sink)', '(Near Robot Sink)', '(Near Robot Kettle)', '(Grasping Robot Kettle)', '((On Kettle Stove)', '(state Kettle Water)', '(state Stove StoveFire1)', '(state Stove StoveFire2)', '(state Stove StoveFire3)', '(state Stove StoveFire4)'] 
+['(On Kettle Stove)', '(state Kettle Water)', '(state Stove StoveFire1)', '(state Stove StoveFire2)', '(state Stove StoveFire3)', '(state Stove StoveFire4)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 143_51.json 
+str: and put them in the sink 
+['(On Mug_1 Sink)', '(On Spoon_1 Sink)', '(On Glass_1 Sink)', '(On LongCup_1 Sink)', '(On LongCup_2 Sink)', '(On Plate_1 Sink)', '(On Plate_2 Sink)', '((In Mug_1 Sink)', '(In Spoon_1 Sink)', '(In Glass_1 Sink)', '(In LongCup_1 Sink)', '(In LongCup_2 Sink)', '(In Plate_1 Sink)', '(In Plate_2 Sink)'] 
+['(In Mug_1 Sink)', '(In Spoon_1 Sink)', '(In Glass_1 Sink)', '(In LongCup_1 Sink)', '(In LongCup_2 Sink)', '(In Plate_1 Sink)', '(In Plate_2 Sink)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 25_9.json 
+str: . take pillows from shelf 
+ 
+['(On Pillow_3 Robot)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 192_68.json 
+str: take pot over to the sink, 
+ 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 201_73.json 
+str: turn on xbox 
+['(state Xbox_1 IsOn)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 346_134.json 
+str: . 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 212_85.json 
+str: . throw away beer and coke 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 20_2.json 
+str: put the pillows on the couch 
+['(On Pillow_1 Loveseat_1)', '(On Pillow_2 Loveseat_1)', '(On Pillow_3 Loveseat_1)', '(On Pillow_4 Loveseat_1)'] 
+['(On Pillow_1 Shelf_1)', '(On Pillow_2 Shelf_1)', '(On Pillow_3 Shelf_1)', '(On Pillow_4 Shelf_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 276_106.json 
+str: set up the tv and the xbox 
+['(On Tv_1 Loveseat_1)', '(On Xbox_1 TvTable_1)', '(On Tv_1Remote_1 Armchair_1)'] 
+['(On Tv_1 Shelf_1)', '(On Xbox_1 SnackTable_1)', '(On Tv_1Remote_1 Armchair_3)', '(On XboxController_1 Armchair_3)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 380_149.json 
+str: turn on the kettle 
+['(state Kettle IsOn)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 430_160.json 
+str: fill the pot with water from tap 
+['(In Glass_1 Tap)', '(In LongCup_1 Tap)', '(In LongCup_2 Tap)'] 
+['(state Mug_1 Water)', '(state Glass_1 Water)', '(state LongCup_1 Water)', '(state LongCup_2 Water)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 249_89.json 
+str: place both books on the center table 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 363_141.json 
+str: and grab ice cream 
+['(Grasping Robot IceCream_1)', '((Near Robot IceCream_1)', '(Near Robot Stove)', '(In IceCream_1 Fridge)', '(In IceCream_1 GarbageBin_1)', '(Grasping Robot IceCream_1)', '(Near Robot IceCream_1)', '(Near Robot Stove)', '(In IceCream_1 Fridge)'] 
+['(Near Robot IceCream_1)', '(Near Robot Stove)', '(In IceCream_1 Fridge)', '(In IceCream_1 GarbageBin_1)', '(Grasping Robot IceCream_1)', '(Near Robot IceCream_1)', '(Near Robot Stove)', '(In IceCream_1 Fridge)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 256_93.json 
+str: -take coffee-ice cream-milk-syrup . 
+['(Grasping Robot IceCream_1)'] 
+['(In IceCream_1 LongCup_1)', '(Near Robot LongCup_1)']sji: 0.49999999875,  ied: 0.5,   GRR: 0,  F1: 0.6666666600000001, 
+file: 363_140.json 
+str: open freezer door 
+[] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 363_144.json 
+str: to put ice cream in coffee mug 
+['(In IceCream_1 Mug_1)'] 
+['(Near Robot Mug_1)']sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+file: 182_64.json 
+str: and pour its contents in the sink 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 48_12.json 
+str: take the coffee 
+['(Grasping Robot Mug_1)'] 
+[]sji: 0.9999999900000002,  ied: 1.0,   GRR: 1,  F1: 0.9999999850000002, 
+file: 111_35.json 
+str: . turn the television input to xbox 
+ 
+['(state Tv_1Remote_1 Channel3)', '(state Tv_1 Channel2)', '(state Tv_1 IsOn)', '(state Xbox_1 IsOn)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 171_57.json 
+str: turn on xbox 
+['(state Tv_1 IsOn)', '(On Xbox_1 Armchair_3)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 235_88.json 
+str: fill the pot with water up to tow thirds and boil it on the stove for 10 minutes 
+['(In Pot Water)', '(On Pot Stove)', '(state Stove StoveFire1)', '(state Stove StoveFire2)', '(state Stove StoveFire3)', '(state Stove StoveFire4)', '(state WaterDispenserIsOpen Fridge)', '(state TapIsOn SinkKnob)', '(state StoveFire1 StoveFire)', '(state StoveFire2 StoveFire)', '(state StoveFire3 StoveFire)', '(state StoveFire4 StoveFire)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 192_72.json 
+str: and turn on the fire for that burner 
+['(state Stove StoveFire_1)', '(state StoveFire_1 IsOn)', '((state Stove StoveFire_2)', '(state StoveFire_2 IsOn)', '((state Stove StoveFire_3)', '(state StoveFire_3 IsOn)', '((state Stove StoveFire_4)', '(state StoveFire_4 IsOn)'] 
+['(state Stove StoveFire_2)', '(state StoveFire_2 IsOn)', '((state Stove StoveFire_3)', '(state StoveFire_3 IsOn)', '((state Stove StoveFire_4)', '(state StoveFire_4 IsOn)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 171_58.json 
+str: . take far cry game cd 
+['(Grasping Robot Cd_2)', '(Grasping Robot Cd_1)'] 
+['(In Cd_2 Fridge)', '(In Cd_1 Fridge)']sji: 0.49999999875,  ied: 0.5,   GRR: 1,  F1: 0.6666666600000001, 
+file: 385_153.json 
+str: . turn on xbox 
+['(state Xbox_1 IsOn)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 2_0.json 
+str: . turn on the television 
+[] 
+['((state Tv_1 IsOn)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 113_38.json 
+str: and get chips and soda on the table 
+['(On BagOfChips_1 CoffeeTable_1)', '(On BagOfChips_1 Loveseat_1)', '(On BagOfChips_1 Tv_1)', '(Grasping Robot BagOfChips_1)', '(Grasping Robot Bowl_1)', '(Grasping Robot Can_1)'] 
+['(On BagOfChips_1 Shelf_1)', '(On BagOfChips_1 SnackTable_1)', '(On BagOfChips_1 TvTable_1)', '(In BagOfChips_1 GarbageBin_1)', '(In BagOfChips_1 GarbageBag_1)', '(In BagOfChips_1 Fridge)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 88_30.json 
+str: three . 
+['(Near Robot BagOfChips_1)', '(Grasping Robot BagOfChips_1)'] 
+['(In BagOfChips_1 Loveseat_1)', '(Near Robot Tv_1)']sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+file: 430_162.json 
+str: . turn the stove 
+['(state Stove StoveFire2)'] 
+[]sji: 0.3333333322222222,  ied: 0.5,   GRR: 0,  F1: 0.4999999925000001, 
+file: 362_139.json 
+str: get 
+['(Grasping Robot Mug_1)', '(Grasping Robot Spoon_1)', '(Grasping Robot IceCream_1)', '(Grasping Robot Kettle)', '(Grasping Robot Ramen_1)', '(Grasping Robot Syrup_1)', '(Grasping Robot Glass_1)', '(Grasping Robot LongCup_1)', '(Grasping Robot LongCup_2)', '(Grasping Robot Fork_1)', '(Grasping Robot EnergyDrink_1)', '(Grasping Robot Coke_1)', '(Grasping Robot CanadaDry_1)', '(Grasping Robot Plate_1)', '(Grasping Robot Plate_2)', '(Grasping Robot Syrup_2)', '(Grasping Robot InstantRamen_1)', '(Grasping Robot BoiledEgg_1)', '(Grasping Robot Salt_1)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 434_163.json 
+str: . put pillows onto the coaches 
+['(On Pillow_1 Loveseat_1)', '(On Pillow_2 Loveseat_1)', '(On Pillow_3 Loveseat_1)', '(On Pillow_4 Loveseat_1)'] 
+['(On Pillow_1 Shelf_1)', '(On Pillow_2 Shelf_1)', '(On Pillow_3 Shelf_1)', '(On Pillow_4 Shelf_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 140_49.json 
+str: turn on tv 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 340_130.json 
+str: pick up trash bag 
+['(Grasping Robot BagOfChips_1)', '(Grasping Robot GarbageBag_1)'] 
+['(In GarbageBag_1 GarbageBin_1)']sji: 0.3333333322222222,  ied: 0.5,   GRR: 1,  F1: 0.49999999375000004, 
+file: 273_104.json 
+str: and use the stove 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 346_135.json 
+str: . 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 379_148.json 
+str: . move the cd to the television 
+['(On Cd_2 Tv_1)', '(On Cd_1 Tv_1)'] 
+['(On Cd_2 Shelf_1)', '(On Cd_1 Shelf_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 457_174.json 
+str: turn on the tv 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 208_83.json 
+str: and distribute among couches 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 274_105.json 
+str: them out in the garbage can, then put them in the sink 
+ 
+['(Grasping Robot Plate_2)', '(In Plate_1 GarbageBin_1)', '(In Plate_2 GarbageBin_1)', '((Near Robot Sink)', '(On Plate_1 Sink)', '(On Plate_2 Sink)', '(In Plate_1 Sink)', '(In Plate_2 Sink)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 254_92.json 
+str: and then use the stove 
+['(Near Robot Stove)', '(On Kettle Stove)'] 
+[]sji: 0.24999999968749997,  ied: 0.125,   GRR: 0,  F1: 0.39999999500000005, 
+file: 462_177.json 
+str: and wash it in the sink 
+['(Grasping Robot Mug_1)'] 
+['(In Mug_1 Sink)', '(In Spoon_1 Sink)']sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+file: 192_70.json 
+str: . take pot over to stove, 
+['(On Mug_1 Stove)', '(On Spoon_1 Stove)', '(On LongCup_2 Stove)', '(On Fork_1 Stove)', '(On Plate_2 Stove)', '(On InstantRamen_1 Stove)', '(On BoiledEgg_1 Stove)', '(On Salt_1 Stove)', '(Near Robot Stove)'] 
+['(On Mug_1 Counter_1)', '(On Spoon_1 Counter_1)', '(On LongCup_2 Counter_1)', '(On Fork_1 Counter_1)', '(On Plate_2 Counter_1)', '(On InstantRamen_1 Counter_1)', '(On BoiledEgg_1 Counter_1)', '(On Salt_1 Counter_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 111_36.json 
+str: . put bag of chips and coke on table 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 208_82.json 
+str: . take pillows from shelf 
+['(Grasping Robot Pillow_1)', '(Grasping Robot Pillow_2)', '(Grasping Robot Pillow_3)', '(Grasping Robot Pillow_4)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 320_125.json 
+str: outside . put all textbooks on the center table 
+['(On Book_1 CoffeeTable_1)', '(On Book_2 CoffeeTable_1)'] 
+['(On Book_1 tvtable_1)', '(On Book_2 tvtable_1)', '(On Book_1 SnackTable_1)', '(On Book_2 SnackTable_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 385_154.json 
+str: and serve coca-cola 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 86_27.json 
+str: and put it on the left stove 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 392_155.json 
+str: . grab the ice cream 
+['(Grasping Robot IceCream_1)'] 
+[]sji: 0.999999995,  ied: 1.0,   GRR: 1,  F1: 0.9999999900000001, 
+file: 58_18.json 
+str: . put xbox and its controller in the shelf under the tv 
+['(On XboxController_1 Shelf_1)', '(On Xbox_1 Shelf_1)'] 
+['(On Shelf_1 TvTable_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 269_101.json 
+str: and turn on the fire for that burner 
+['(state Stove StoveFire_2)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 435_167.json 
+str: . set some pillows on the couch 
+['(On Pillow_1 Loveseat_1)', '(On Pillow_2 Loveseat_1)', '(On Pillow_3 Loveseat_1)', '(On Pillow_4 Loveseat_1)'] 
+['(On Pillow_1 Shelf_1)', '(On Pillow_2 Shelf_1)', '(On Pillow_3 Shelf_1)', '(On Pillow_4 Shelf_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 121_42.json 
+str: . take out the ice cream and syrup on the table 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 54_13.json 
+str: put the game into the xbox 
+['(In Xbox_1 Tv_1)', '((On Xbox_1 TvTable_1)'] 
+['(On Xbox_1 TvTable_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 313_120.json 
+str: take out the coffee 
+['(Near Robot Mug_1)', '(Grasping Robot Mug_1)'] 
+['(In Mug_1 Fridge)', '(In Mug_1 Microwave)', '(In Mug_1 Sink)', '(Near Robot Stove)']sji: 0.249999999375,  ied: 0.5,   GRR: 0,  F1: 0.39999999360000005, 
+file: 56_16.json 
+str: . hold the trash bag in one hand 
+['(Grasping Robot BagOfChips_1)', '(Grasping Robot GarbageBag_1)', '((In GarbageBag_1 GarbageBin_1)', '(In BagOfChips_1 Robot)'] 
+['(In GarbageBag_1 GarbageBin_1)', '(In BagOfChips_1 Robot)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 385_152.json 
+str: arrange pillows over the couch 
+['(On Pillow_1 Loveseat_1)', '(On Pillow_2 Loveseat_1)', '(On Pillow_3 Loveseat_1)', '(On Pillow_4 Loveseat_1)'] 
+['(On Pillow_1 Shelf_1)', '(On Pillow_2 Shelf_1)', '(On Pillow_3 Shelf_1)', '(On Pillow_4 Shelf_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 143_50.json 
+str: collect the plates, utensils, and cups 
+ 
+['(Near Robot Plate_1)', '(Grasping Robot Plate_1)', '(Near Robot Plate_2)', '(Grasping Robot Plate_2)', '(Near Robot Spoon_1)', '(Grasping Robot Spoon_1)', '(Near Robot Fork_1)', '(Grasping Robot Fork_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 201_74.json 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+ 
+['(In Beer_1 GarbageBag_1)', '(In Coke_1 GarbageBag_1)', '(In Bowl_1 GarbageBag_1)', '(Near Robot GarbageBin_1)', '(Grasping Robot GarbageBag_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 124_44.json 
+str: . take out the ice cream and syrup on the table 
+['(Near Robot IceCream_1)', '(Near Robot Syrup_1)', '((Grasping Robot IceCream_1)', '(Grasping Robot Syrup_1)', '((On IceCream_1 Counter_1)', '(On Syrup_1 Counter_1)', '((state IceCream_1 ScoopsLeft)', '(state Syrup_1 Vanilla)', '((In IceCream_1 Fridge)', '(In Syrup_1 Fridge)', '((state Mug_1 Coffee)', '(state Syrup_1 Vanilla)', '((Grasping Robot Mug_1)', '(Grasping Robot Syrup_1)', '((On Mug_1 Counter_1)', '(On Syrup_1 Counter_1)', '((On Spoon_1 Counter_1)', '(On Glass_1 Counter_1)', '(On LongCup_1 Counter_1)', '(On LongCup_2 Counter_1)', '(On Fork_1 Counter_1)', '(On EnergyDrink_1 Counter_1)', '(On Coke_1 Counter_1)', '(On CanadaDry_1 Counter_1)', '(On Plate_1 Counter_1)', '(On Plate_2 Counter_1)', '(On InstantRamen_1 Counter_1)', '(On BoiledEgg_1 Counter_1)', '(On Salt_1 Counter_1)', '((In Mug_1 Fridge)', '(In IceCream_1 Fridge)', '(In Glass_1 Fridge)', '(In LongCup_1 Fridge)', '(In LongCup_2 Fridge)', '(In Fork_1 Fridge)', '(In EnergyDrink_1 Fridge)', '(In Coke_1 Fridge)', '(In CanadaDry_1 Fridge)', '(In Plate_1 Fridge)', '(In Plate_2 Fridge)', '(In InstantRamen_1 Fridge)', '(In BoiledEgg_1 Fridge)', '(In Salt_1 Fridge)'] 
+['(Grasping Robot IceCream_1)', '(Grasping Robot Syrup_1)', '((On IceCream_1 Counter_1)', '(On Syrup_1 Counter_1)', '((state IceCream_1 ScoopsLeft)', '(state Syrup_1 Vanilla)', '((In IceCream_1 Fridge)', '(In Syrup_1 Fridge)', '((state Mug_1 Coffee)', '(state Syrup_1 Vanilla)', '((Grasping Robot Mug_1)', '(Grasping Robot Syrup_1)', '((On Mug_1 Counter_1)', '(On Syrup_1 Counter_1)', '((On Spoon_1 Counter_1)', '(On Glass_1 Counter_1)', '(On LongCup_1 Counter_1)', '(On LongCup_2 Counter_1)', '(On Fork_1 Counter_1)', '(On EnergyDrink_1 Counter_1)', '(On Coke_1 Counter_1)', '(On CanadaDry_1 Counter_1)', '(On Plate_1 Counter_1)', '(On Plate_2 Counter_1)', '(On InstantRamen_1 Counter_1)', '(On BoiledEgg_1 Counter_1)', '(On Salt_1 Counter_1)', '((In Mug_1 Fridge)', '(In IceCream_1 Fridge)', '(In Glass_1 Fridge)', '(In LongCup_1 Fridge)', '(In LongCup_2 Fridge)', '(In Fork_1 Fridge)', '(In EnergyDrink_1 Fridge)', '(In Coke_1 Fridge)', '(In CanadaDry_1 Fridge)', '(In Plate_1 Fridge)', '(In Plate_2 Fridge)', '(In InstantRamen_1 Fridge)', '(In BoiledEgg_1 Fridge)', '(In Salt_1 Fridge)', '(On IceCream_1 Counter_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 203_77.json 
+str: . bring us coke and the beer 
+['(Grasping Robot Coke_1)', '(Grasping Robot Beer_1)', '((On Coke_1 SnackTable_1)', '(On Beer_1 SnackTable_1)'] 
+['(On Coke_1 SnackTable_1)', '(On Beer_1 SnackTable_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 208_79.json 
+str: . take far cry game cd 
+['(Grasping Robot Cd_2)', '(Grasping Robot Cd_1)'] 
+['(In Cd_2 Fridge)', '(In Cd_1 Fridge)']sji: 0.49999999875,  ied: 0.5,   GRR: 1,  F1: 0.6666666600000001, 
+file: 88_29.json 
+str: turn on the television 
+['(state Tv_1 IsOn)'] 
+[]sji: 0.999999995,  ied: 1.0,   GRR: 1,  F1: 0.9999999900000001, 
+file: 62_19.json 
+str: put the game into the xbox, 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 56_17.json 
+str: . place the empty coke can, beer, and bag of chips into the trash 
+ 
+['(On Coke_1 GarbageBin_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 124_43.json 
+str: take out the coffee 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 460_176.json 
+str: and place the container into the microwave 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 320_124.json 
+str: and take the bowl to the kitchen 
+['(In Bowl_1 Sink)', '(Near Robot Bowl_1)', '((On Bowl_1 Counter_1)', '(On Bowl_1 Microwave)', '(On Bowl_1 Fridge)', '(On Bowl_1 Stove)', '(On Bowl_1 Sink)', '(On Bowl_1 GarbageBin_1)', '(On Bowl_1 GarbageBag_1)', '(On Bowl_1 Shelf_1)', '(On Bowl_1 Shelf_2)', '(On Bowl_1 Armchair_1)', '(On Bowl_1 Armchair_2)', '(On Bowl_1 Armchair_3)', '(On Bowl_1 Armchair_4)', '(On Bowl_1 CoffeeTable_1)', '(On Bowl_1 SnackTable_1)', '(On Bowl_1 TvTable_1)', '(On Bowl_1 Loveseat_1)', '(On Bowl_1 Loveseat_2)', '(On Bowl_1 Studytable_1)', '(On Bowl_1 Book_1)', '(On Bowl_1 Book_2)', '(On Bowl_1 Book_3)', '(On Bowl_1 Pillow_1)', '(On Bowl_1 Pillow_2)', '(On Bowl_1 Pillow_3)', '(On Bowl_1 Pillow_4)', '(On Bowl_1 Cd_1)', '(On Bowl_1 Cd_2)', '(On Bowl_1 XboxController_1)', '(On Bowl_1 Xbox_1)', '(On Bowl_1 MicrowaveDoor)', '(On Bowl_1 FridgeLeftDoor)', '(On Bowl_1 FridgeRightDoor)', '(On Bowl_1 Tv_1PowerButton)', '(On Bowl_1 Tv_1Remote_1PowerButton)', '(On Bowl_1 Tv_1ChannelUpButton)', '(On Bowl_1 Tv_1Remote_1ChannelUpButton)', '(On Bowl_1 Tv_1ChannelDownButton)', '(On Bowl_1 Tv_1Remote_1ChannelDownButton)', '(On Bowl_1 Tv_1VolumeUpButton)', '(On Bowl_1 Tv_1Remote_1VolumeUpButton)', '(On Bowl_1 Tv_1VolumeDownButton)', '(On Bowl_1 Tv_1Remote_1VolumeDownButton)', '(On Bowl_1 Tv_1Remote_1MuteButton)', '(On Bowl_1 StoveKnob_1)', '(On Bowl_1 StoveKnob_2)', '(On Bowl_1 StoveKnob_3)', '(On Bowl_1 StoveKnob_4)', '(On Bowl_1 MicrowaveButton)', '(On Bowl_1 FridgeButton)', '(On Bowl_1 SinkKnob)'] 
+['(On Bowl_1 Counter_1)', '(On Bowl_1 Microwave)', '(On Bowl_1 Fridge)', '(On Bowl_1 Stove)', '(On Bowl_1 Sink)', '(On Bowl_1 GarbageBin_1)', '(On Bowl_1 GarbageBag_1)', '(On Bowl_1 Shelf_1)', '(On Bowl_1 Shelf_2)', '(On Bowl_1 Armchair_1)', '(On Bowl_1 Armchair_2)', '(On Bowl_1 Armchair_3)', '(On Bowl_1 Armchair_4)', '(On Bowl_1 CoffeeTable_1)', '(On Bowl_1 SnackTable_1)', '(On Bowl_1 TvTable_1)', '(On Bowl_1 Loveseat_1)', '(On Bowl_1 Loveseat_2)', '(On Bowl_1 Studytable_1)', '(On Bowl_1 Book_1)', '(On Bowl_1 Book_2)', '(On Bowl_1 Book_3)', '(On Bowl_1 Pillow_1)', '(On Bowl_1 Pillow_2)', '(On Bowl_1 Pillow_3)', '(On Bowl_1 Pillow_4)', '(On Bowl_1 Cd_1)', '(On Bowl_1 Cd_2)', '(On Bowl_1 XboxController_1)', '(On Bowl_1 Xbox_1)', '(On Bowl_1 MicrowaveDoor)', '(On Bowl_1 FridgeLeftDoor)', '(On Bowl_1 FridgeRightDoor)', '(On Bowl_1 Tv_1PowerButton)', '(On Bowl_1 Tv_1Remote_1PowerButton)', '(On Bowl_1 Tv_1ChannelUpButton)', '(On Bowl_1 Tv_1Remote_1ChannelUpButton)', '(On Bowl_1 Tv_1ChannelDownButton)', '(On Bowl_1 Tv_1Remote_1ChannelDownButton)', '(On Bowl_1 Tv_1VolumeUpButton)', '(On Bowl_1 Tv_1Remote_1VolumeUpButton)', '(On Bowl_1 Tv_1VolumeDownButton)', '(On Bowl_1 Tv_1Remote_1VolumeDownButton)', '(On Bowl_1 Tv_1Remote_1MuteButton)', '(On Bowl_1 StoveKnob_1)', '(On Bowl_1 StoveKnob_2)', '(On Bowl_1 StoveKnob_3)', '(On Bowl_1 StoveKnob_4)', '(On Bowl_1 MicrowaveButton)', '(On Bowl_1 FridgeButton)', '(On Bowl_1 SinkKnob)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 323_126.json 
+str: take the mug out of the microwave 
+['(Grasping Robot Mug_1)'] 
+['(In Mug_1 Microwave)']sji: 0.4999999975,  ied: 0.4,   GRR: 0,  F1: 0.6666666577777778, 
+file: 56_15.json 
+str: place both books on the center table 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 40_10.json 
+str: put the dishes in the sink, 
+ 
+['(In IceCream_1 Fridge)', '(In Kettle Fridge)', '(In Syrup_1 Fridge)', '(In EnergyDrink_1 Fridge)', '(In Coke_1 Fridge)', '(In CanadaDry_1 Fridge)', '(In InstantRamen_1 Fridge)', '(In BoiledEgg_1 Fridge)', '(In Salt_1 Fridge)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 306_119.json 
+str: fill the pot with water up to tow thirds and boil it on the stove for 10 minutes 
+ 
+['(state Stove StoveFire1)', '(state Stove StoveFire2)', '(state Stove StoveFire3)', '(state Stove StoveFire4)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 70_21.json 
+str: take book 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 446_169.json 
+str: first find the shrek 2 movie 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 446_170.json 
+str: and put it into the xbox 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 465_180.json 
+str: and put out coke cans 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 25_6.json 
+str: . take far cry game cd 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 269_102.json 
+str: turn off fire 
+['(state Stove StoveFire4)', '(state Stove StoveFire3)', '(state Stove StoveFire2)', '(state Stove StoveFire1)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 143_52.json 
+str: . take the mug from the microwave 
+['(Grasping Robot Mug_1)'] 
+['(In Mug_1 Microwave)']sji: 0.3333333322222222,  ied: 0.5,   GRR: 0,  F1: 0.49999999375000004, 
+file: 346_133.json 
+str: . 
+['(On IceCream_1 StoveFire_2)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 86_24.json 
+str: grasp the pot, 
+ 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 138_48.json 
+str: . turn on the television 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 405_156.json 
+str: take the icecream out of the freezer 
+['(Near Robot IceCream_1)', '(Grasping Robot IceCream_1)'] 
+['(In IceCream_1 Fridge)', '(Near Robot Stove)']sji: 0.3999999992,  ied: 0.5,   GRR: 0,  F1: 0.5714285648979592, 
+file: 208_80.json 
+str: and put in xbox 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 129_46.json 
+str: and put it on the plate 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 25_8.json 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+['(Grasping Robot Beer_1)', '(Grasping Robot Coke_1)', '(Grasping Robot Cd_2)', '(Grasping Robot Cd_1)', '(Grasping Robot XboxController_1)'] 
+['(In Beer_1 GarbageBin_1)', '(In Coke_1 GarbageBin_1)', '(In Cd_2 GarbageBin_1)', '(In Cd_1 GarbageBin_1)', '(In Bowl_1 GarbageBin_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 186_65.json 
+str: and arrange the needed books on the table 
+['(On Book_1 CoffeeTable_1)', '(On Book_2 CoffeeTable_1)'] 
+['(On Book_1 Studytable_1)', '(On Book_2 Studytable_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 430_161.json 
+str: . place it on the stove 
+ 
+['(On Kettle Sink)', '(state Kettle Water)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 379_147.json 
+str: move pillows from the shelf 
+['(On Pillow_1 Loveseat_1)', '(On Pillow_2 Loveseat_1)', '(On Pillow_3 Loveseat_1)', '(On Pillow_4 Loveseat_1)'] 
+['(On Pillow_1 Shelf_1)', '(On Pillow_2 Shelf_1)', '(On Pillow_3 Shelf_1)', '(On Pillow_4 Shelf_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 203_76.json 
+str: turn on tv 
+['(state Tv_1 IsOn)'] 
+[]sji: 0.249999999375,  ied: 0.0,   GRR: 0,  F1: 0.39999999360000005, 
+file: 25_7.json 
+str: and put in xbox 
+['(In Xbox_1 Armchair_3)', '(On Xbox_1 SnackTable_1)', '(On Xbox_1 Loveseat_1)'] 
+['(In Xbox_1 Tv_1PowerButton)', '(In Xbox_1 Tv_1ChannelUpButton)', '(In Xbox_1 Tv_1ChannelDownButton)', '(In Xbox_1 Tv_1VolumeUpButton)', '(In Xbox_1 Tv_1VolumeDownButton)', '(In Xbox_1 Tv_1Remote_1PowerButton)', '(In Xbox_1 Tv_1Remote_1ChannelUpButton)', '(In Xbox_1 Tv_1Remote_1ChannelDownButton)', '(In Xbox_1 Tv_1Remote_1VolumeUpButton)', '(In Xbox_1 Tv_1Remote_1VolumeDownButton)', '(In Xbox_1 Tv_1Remote_1MuteButton)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 86_25.json 
+str: put it in the sink 
+['(Near Robot Mug_1)', '(Grasping Robot Mug_1)', '((In Mug_1 Sink)', '(Near Robot Sink)'] 
+['(In Mug_1 Sink)', '(Near Robot Sink)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 257_95.json 
+str: put it in the sink 
+['(In Mug_1 Sink)'] 
+[]sji: 0.16666666638888888,  ied: 0.0,   GRR: 0,  F1: 0.28571428081632655, 
+file: 129_45.json 
+str: get the egg from the fridge 
+['(Near Robot Egg_1)', '(Grasping Robot Egg_1)'] 
+['(In Egg_1 Fridge)', '(Near Robot Stove)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 276_107.json 
+str: . put the movie into the xbox 
+ 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 444_168.json 
+str: place game in xbox 
+ 
+['(On Xbox_1 Armchair_3)', '(On Xbox_1 Loveseat_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 289_114.json 
+str: . open the faucet 
+['(state Sink TapIsOn)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 462_178.json 
+str: . fill the pot with water up to two thirds 
+ 
+['(On Kettle StoveFire_1)', '(On Kettle StoveFire_2)', '(On Kettle StoveFire_3)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 409_159.json 
+str: . set up the xbox with the tv 
+['(On Xbox_1 Tv_1)', '(Near Robot Xbox_1)'] 
+['(On Xbox_1 Loveseat_1)', '(On Xbox_1 Shelf_1)', '(In Xbox_1 SnackTable_1)']sji: 0.1111111109876543,  ied: 0.0,   GRR: 0,  F1: 0.1999999948000001, 
+file: 203_78.json 
+str: . place the pillows on the couch 
+ 
+['(On Pillow_1 Shelf_1)', '(On Pillow_2 Shelf_1)', '(On Pillow_3 Shelf_1)', '(On Pillow_4 Shelf_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 192_69.json 
+str: turn on the tap, and fill with water turn on the tap, 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 289_117.json 
+str: . turn on the left stove 
+['(state Stove StoveFire3)'] 
+[]sji: 0.3333333322222222,  ied: 0.5,   GRR: 0,  F1: 0.4999999925000001, 
+file: 190_66.json 
+str: take out the coffee 
+['(Near Robot Mug_1)', '(Grasping Robot Mug_1)'] 
+['(In Mug_1 Fridge)', '(Near Robot Stove)']sji: 0.249999999375,  ied: 0.5,   GRR: 0,  F1: 0.39999999360000005, 
+file: 20_5.json 
+str: . take beer 
+[] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 450_173.json 
+str: fill kettle with water 
+['(state Kettle Water)'] 
+[]sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+file: 363_142.json 
+str: . grab spoon 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 354_138.json 
+str: then turn on the burner 
+['(state Stove StoveFire4)'] 
+[]sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+file: 120_40.json 
+str: . open the chips 
+['(state BagOfChips_1 IsOpen)'] 
+[]sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 132_47.json 
+str: -take coffee-ice cream-milk-syrup . 
+ 
+['(state Mug_1 Coffee)']sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+file: 54_14.json 
+str: . get the food on the table 
+['(Grasping Robot BagOfChips_1)', '(On BagOfChips_1 CoffeeTable_1)', '(Grasping Robot Bowl_1)', '(On Bowl_1 CoffeeTable_1)', '(Grasping Robot Coke_1)', '(On Coke_1 CoffeeTable_1)', '(Grasping Robot Beer_1)', '(On Beer_1 CoffeeTable_1)'] 
+['(On BagOfChips_1 SnackTable_1)', '(On Bowl_1 SnackTable_1)', '(On Coke_1 SnackTable_1)', '(On Beer_1 SnackTable_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 113_37.json 
+str: all the school books on the table turn off the tv 
+['(On Book_1 Studytable_1)', '(On Book_2 Studytable_1)'] 
+['(state Tv_1 IsOn)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 161_56.json 
+str: . put chocolate and vanilla syrup on top 
+ 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+file: 434_165.json 
+str: . throw beer, coke and chips into the trash bag 
+['(Grasping Robot BagOfChips_1)', '(Grasping Robot Coke_1)', '(Grasping Robot Beer_1)', '((In BagOfChips_1 GarbageBag_1)', '(In Coke_1 GarbageBag_1)', '(In Beer_1 GarbageBag_1)'] 
+['(In BagOfChips_1 GarbageBag_1)', '(In Coke_1 GarbageBag_1)', '(In Beer_1 GarbageBag_1)', '((On BagOfChips_1 GarbageBin_1)', '(On Coke_1 GarbageBin_1)', '(On Beer_1 GarbageBin_1)']sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+
+ 
+ Avg sji: 0.07501534647470925, 
+ Avg ied: 0.07381610102604577, 
+ Avg GRR: 0.06629834254143646, 
+ Avg F1: 0.09234411879821479, 
+ 

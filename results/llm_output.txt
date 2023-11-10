@@ -1,0 +1,545 @@
+str: put the game in the  xbox 
+sji: 0.12499999984374999,  ied: 0.0,   GRR: 0,  F1: 0.2222222167901236, 
+str: and put several scoops in the cup with the coffee in it 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: grasp the pot, 
+sji: 0.249999999375,  ied: 0.4,   GRR: 0,  F1: 0.3999999952, 
+str: . turn on the tv 
+sji: 0.249999999375,  ied: 0.33333333333333337,   GRR: 0,  F1: 0.39999999360000005, 
+str: put some water into the kettle 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put chocolate and vanilla syrup on top 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+str: put the game in the  xbox 
+sji: 0.12499999984374999,  ied: 0.0,   GRR: 0,  F1: 0.2222222167901236, 
+str: and put several scoops in the cup with the coffee in it 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: grasp the pot, 
+sji: 0.249999999375,  ied: 0.4,   GRR: 0,  F1: 0.3999999952, 
+str: . turn on the tv 
+sji: 0.249999999375,  ied: 0.33333333333333337,   GRR: 0,  F1: 0.39999999360000005, 
+str: put some water into the kettle 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put chocolate and vanilla syrup on top 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and pour it in the bigger plate 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: pick up coffee mug 
+sji: 0.9999999900000002,  ied: 1.0,   GRR: 1,  F1: 0.9999999850000002, 
+str: . pick up the instant ramen 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: . grab chocolate syrup bottle 
+sji: 0.6666666644444444,  ied: 0.5,   GRR: 1,  F1: 0.799999992, 
+str: by pouring the chips into the bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put the game in the  xbox 
+sji: 0.12499999984374999,  ied: 0.0,   GRR: 0,  F1: 0.2222222167901236, 
+str: and put several scoops in the cup with the coffee in it 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: grasp the pot, 
+sji: 0.249999999375,  ied: 0.4,   GRR: 0,  F1: 0.3999999952, 
+str: . turn on the tv 
+sji: 0.249999999375,  ied: 0.33333333333333337,   GRR: 0,  F1: 0.39999999360000005, 
+str: put some water into the kettle 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put chocolate and vanilla syrup on top 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and pour it in the bigger plate 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: pick up coffee mug 
+sji: 0.9999999900000002,  ied: 1.0,   GRR: 1,  F1: 0.9999999850000002, 
+str: . pick up the instant ramen 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: . grab chocolate syrup bottle 
+sji: 0.6666666644444444,  ied: 0.5,   GRR: 1,  F1: 0.799999992, 
+str: by pouring the chips into the bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put the game in the  xbox 
+sji: 0.12499999984374999,  ied: 0.0,   GRR: 0,  F1: 0.2222222167901236, 
+str: and put several scoops in the cup with the coffee in it 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: grasp the pot, 
+sji: 0.249999999375,  ied: 0.4,   GRR: 0,  F1: 0.3999999952, 
+str: . turn on the tv 
+sji: 0.249999999375,  ied: 0.33333333333333337,   GRR: 0,  F1: 0.39999999360000005, 
+str: put some water into the kettle 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put chocolate and vanilla syrup on top 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and pour it in the bigger plate 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: pick up coffee mug 
+sji: 0.9999999900000002,  ied: 1.0,   GRR: 1,  F1: 0.9999999850000002, 
+str: . pick up the instant ramen 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: . grab chocolate syrup bottle 
+sji: 0.6666666644444444,  ied: 0.5,   GRR: 1,  F1: 0.799999992, 
+str: by pouring the chips into the bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put the game in the  xbox 
+sji: 0.12499999984374999,  ied: 0.0,   GRR: 0,  F1: 0.2222222167901236, 
+str: and put several scoops in the cup with the coffee in it 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: grasp the pot, 
+sji: 0.249999999375,  ied: 0.4,   GRR: 0,  F1: 0.3999999952, 
+str: . turn on the tv 
+sji: 0.249999999375,  ied: 0.33333333333333337,   GRR: 0,  F1: 0.39999999360000005, 
+str: put some water into the kettle 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put chocolate and vanilla syrup on top 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and pour it in the bigger plate 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: pick up coffee mug 
+sji: 0.9999999900000002,  ied: 1.0,   GRR: 1,  F1: 0.9999999850000002, 
+str: . pick up the instant ramen 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: . grab chocolate syrup bottle 
+sji: 0.6666666644444444,  ied: 0.5,   GRR: 1,  F1: 0.799999992, 
+str: by pouring the chips into the bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: fill the pot with water in the sink the boil it on the stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take the icecream out of the freezer 
+sji: 0.49999999875,  ied: 0.2857142857142857,   GRR: 0,  F1: 0.6666666594444445, 
+str: . place a pillow on each couch 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put it on the left stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put chips and soda on the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put some water into the kettle 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . grasp the pot 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take the coffee 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put books on the shelf 
+sji: 0.0,  ied: 0,   GRR: 1,  F1: 0.0, 
+str: and change it to a channel with a movie 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put a movie into the x box 
+sji: 0.0,  ied: 0.19999999999999996,   GRR: 0,  F1: 0.0, 
+str: . put pillows onto the coaches, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take the ice cream out of the freezer 
+sji: 0.3999999992,  ied: 0.5,   GRR: 0,  F1: 0.5714285648979592, 
+str: set up the tv and the xbox 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and empty its contents into the sink 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take out the ice cream and syrup on the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: off .throw out open beer and coke 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . turn on the left stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take pillows from shelf 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . turn off the water 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: and put the pots and utensils in the sink 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . turn on the television 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and close the fridge door 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . grasp the pot 
+sji: 0.999999995,  ied: 1.0,   GRR: 1,  F1: 0.9999999900000001, 
+str: . put beer_1 under the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take pot over to the sink, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put them in the trash can 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: place on any burner, and turn on the fire for that burner place on any burner, 
+str: put the game in the  xbox 
+sji: 0.12499999984374999,  ied: 0.0,   GRR: 0,  F1: 0.2222222167901236, 
+str: and put several scoops in the cup with the coffee in it 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: grasp the pot, 
+sji: 0.249999999375,  ied: 0.4,   GRR: 0,  F1: 0.3999999952, 
+str: . turn on the tv 
+sji: 0.249999999375,  ied: 0.33333333333333337,   GRR: 0,  F1: 0.39999999360000005, 
+str: put some water into the kettle 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put chocolate and vanilla syrup on top 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and pour it in the bigger plate 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: pick up coffee mug 
+sji: 0.9999999900000002,  ied: 1.0,   GRR: 1,  F1: 0.9999999850000002, 
+str: . pick up the instant ramen 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: . grab chocolate syrup bottle 
+sji: 0.6666666644444444,  ied: 0.5,   GRR: 1,  F1: 0.799999992, 
+str: by pouring the chips into the bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: fill the pot with water in the sink the boil it on the stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take the icecream out of the freezer 
+sji: 0.49999999875,  ied: 0.2857142857142857,   GRR: 0,  F1: 0.6666666594444445, 
+str: . place a pillow on each couch 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put it on the left stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put chips and soda on the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put some water into the kettle 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . grasp the pot 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take the coffee 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put books on the shelf 
+sji: 0.0,  ied: 0,   GRR: 1,  F1: 0.0, 
+str: and change it to a channel with a movie 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put a movie into the x box 
+sji: 0.0,  ied: 0.19999999999999996,   GRR: 0,  F1: 0.0, 
+str: . put pillows onto the coaches, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take the ice cream out of the freezer 
+sji: 0.3999999992,  ied: 0.5,   GRR: 0,  F1: 0.5714285648979592, 
+str: set up the tv and the xbox 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and empty its contents into the sink 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take out the ice cream and syrup on the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: off .throw out open beer and coke 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . turn on the left stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take pillows from shelf 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . turn off the water 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: and put the pots and utensils in the sink 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . turn on the television 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and close the fridge door 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . grasp the pot 
+sji: 0.999999995,  ied: 1.0,   GRR: 1,  F1: 0.9999999900000001, 
+str: . put beer_1 under the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take pot over to the sink, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put them in the trash can 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: place on any burner, and turn on the fire for that burner place on any burner, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take mug form microwave 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: clear the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take pillows from shelf 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . pick up the bottle of syrup 
+sji: 0.49999999875,  ied: 0.5,   GRR: 1,  F1: 0.6666666600000001, 
+str: and put in xbox 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: find the videogame 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: . hold the trash bag in one hand 
+sji: 0.9999999900000002,  ied: 1.0,   GRR: 1,  F1: 0.9999999850000002, 
+str: . turn on the left stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: place it on the stove, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . place a pillow on each couch 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take out the ice cream and syrup on the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . grasp the pot 
+sji: 0.999999995,  ied: 1.0,   GRR: 1,  F1: 0.9999999900000001, 
+str: turn on the tv and the xbox, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take out the coffee 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: down coke 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take mug form microwave 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: grab cd 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put xbox and its controller in the shelf under the tv 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and fill with water 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: open the gamecd with tv 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: grasp the pot, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and arrange them on the chairs 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put it in the sink 
+sji: 0.249999999375,  ied: 0.25,   GRR: 0,  F1: 0.39999999360000005, 
+str: pour the pot's contents into the trash 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and add to coffee 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and set to the movie channel 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and use it 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . pour the water from the kettle 
+sji: 0.0,  ied: 0,   GRR: 1,  F1: 0.0, 
+str: fill the pot with water in the sink the boil it on the stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put them in the sink 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take pillows from shelf 
+sji: 0.999999995,  ied: 1.0,   GRR: 1,  F1: 0.9999999900000001, 
+str: take pot over to the sink, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: turn on xbox 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . 
+sji: 0.6666666644444444,  ied: 0.16666666666666663,   GRR: 0,  F1: 0.799999992, 
+str: . throw away beer and coke 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put the pillows on the couch 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: set up the tv and the xbox 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: turn on the kettle 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: fill the pot with water from tap 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: place both books on the center table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and grab ice cream 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: -take coffee-ice cream-milk-syrup . 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: open freezer door 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: to put ice cream in coffee mug 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and pour its contents in the sink 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: take the coffee 
+sji: 0.9999999900000002,  ied: 1.0,   GRR: 1,  F1: 0.9999999850000002, 
+str: . turn the television input to xbox 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: turn on xbox 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: fill the pot with water up to tow thirds and boil it on the stove for 10 minutes 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and turn on the fire for that burner 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take far cry game cd 
+sji: 0.49999999875,  ied: 0.5,   GRR: 1,  F1: 0.6666666600000001, 
+str: . turn on xbox 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . turn on the television 
+sji: 0.999999995,  ied: 1.0,   GRR: 1,  F1: 0.9999999900000001, 
+str: and get chips and soda on the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: three . 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . turn the stove 
+sji: 0.3999999992,  ied: 0.4,   GRR: 1,  F1: 0.5714285657142857, 
+str: get 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put pillows onto the coaches 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: turn on tv 
+sji: 0.4999999975,  ied: 0.5,   GRR: 0,  F1: 0.6666666577777778, 
+str: pick up trash bag 
+sji: 0.3333333322222222,  ied: 0.5,   GRR: 1,  F1: 0.49999999375000004, 
+str: and use the stove 
+sji: 0.249999999375,  ied: 0.25,   GRR: 0,  F1: 0.3999999952, 
+str: . 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . move the cd to the television 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: turn on the tv 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and distribute among couches 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: them out in the garbage can, then put them in the sink 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and then use the stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and wash it in the sink 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take pot over to stove, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put bag of chips and coke on table 
+sji: 0.2857142853061225,  ied: 0.4,   GRR: 0,  F1: 0.4444444385185186, 
+str: . take pillows from shelf 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: outside . put all textbooks on the center table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and serve coca-cola 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put it on the left stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . grab the ice cream 
+sji: 0.999999995,  ied: 1.0,   GRR: 1,  F1: 0.9999999900000001, 
+str: . put xbox and its controller in the shelf under the tv 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and turn on the fire for that burner 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . set some pillows on the couch 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take out the ice cream and syrup on the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put the game into the xbox 
+sji: 0.14285714265306124,  ied: 0.2857142857142857,   GRR: 0,  F1: 0.24999999562500003, 
+str: take out the coffee 
+sji: 0.3333333322222222,  ied: 0.5,   GRR: 0,  F1: 0.49999999375000004, 
+str: . hold the trash bag in one hand 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: arrange pillows over the couch 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: collect the plates, utensils, and cups 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take out the ice cream and syrup on the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . bring us coke and the beer 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take far cry game cd 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: turn on the television 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put the game into the xbox, 
+sji: 0.0,  ied: 0.19999999999999996,   GRR: 0,  F1: 0.0, 
+str: . place the empty coke can, beer, and bag of chips into the trash 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take out the coffee 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and place the container into the microwave 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and take the bowl to the kitchen 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take the mug out of the microwave 
+sji: 0.3333333322222222,  ied: 0.4,   GRR: 0,  F1: 0.4999999925000001, 
+str: place both books on the center table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put the dishes in the sink, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: fill the pot with water up to tow thirds and boil it on the stove for 10 minutes 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take book 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: first find the shrek 2 movie 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put it into the xbox 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put out coke cans 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take far cry game cd 
+sji: 0.9999999975,  ied: 0.0,   GRR: 1,  F1: 0.9999999925, 
+str: turn off fire 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take the mug from the microwave 
+sji: 0.249999999375,  ied: 0.5,   GRR: 0,  F1: 0.39999999360000005, 
+str: . 
+sji: 0.49999999875,  ied: 0.5,   GRR: 0,  F1: 0.6666666600000001, 
+str: grasp the pot, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . turn on the television 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take the icecream out of the freezer 
+sji: 0.3999999992,  ied: 0.5,   GRR: 0,  F1: 0.5714285648979592, 
+str: and put in xbox 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put it on the plate 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . throw out beer, coke, and sketchy stuff in bowl 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and arrange the needed books on the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . place it on the stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: move pillows from the shelf 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: turn on tv 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: and put in xbox 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put it in the sink 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: put it in the sink 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: get the egg from the fridge 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . put the movie into the xbox 
+sji: 0.24999999968749997,  ied: 0.25,   GRR: 0,  F1: 0.39999999500000005, 
+str: place game in xbox 
+sji: 0.14285714265306124,  ied: 0.19999999999999996,   GRR: 0,  F1: 0.24999999468750006, 
+str: . open the faucet 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . fill the pot with water up to two thirds 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . set up the xbox with the tv 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . place the pillows on the couch 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: turn on the tap, and fill with water turn on the tap, 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . turn on the left stove 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: take out the coffee 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . take beer 
+sji: 0.999999995,  ied: 1.0,   GRR: 1,  F1: 0.9999999900000001, 
+str: fill kettle with water 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: . grab spoon 
+sji: 0.9999999900000002,  ied: 1.0,   GRR: 1,  F1: 0.9999999850000002, 
+str: then turn on the burner 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . open the chips 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: -take coffee-ice cream-milk-syrup . 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . get the food on the table 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: all the school books on the table turn off the tv 
+sji: 0.0,  ied: 0.0,   GRR: 0,  F1: 0.0, 
+str: . put chocolate and vanilla syrup on top 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+str: . throw beer, coke and chips into the trash bag 
+sji: 0.0,  ied: 0,   GRR: 0,  F1: 0.0, 
+
+ 
+Avg sji: 0.10624177795676269, 
+Avg ied: 0.10509076558800316, 
+Avg GRR: 0.09944751381215469, 
+Avg F1: 0.12549328972957777, 
+ 

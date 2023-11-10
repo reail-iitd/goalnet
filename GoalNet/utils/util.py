@@ -508,6 +508,36 @@ def run_planner(state, state_dict, adj_matrix, dp, pred_delta="", pred_delta_inv
         pass
     return planner_action, state, state_dict, adj_matrix
 
+def run_planner_llm(state, state_dict, adj_matrix, dp, pred_delta="", pred_delta_inv="", verbose = False):
+    if verbose: print(color.GREEN, 'Pred Delta', color.ENDC, pred_delta.lower())
+    if verbose: print(color.GREEN, 'Pred Delta inv', color.ENDC, pred_delta_inv.lower())
+    state_dict_lower = [rel.lower() for rel in state_dict]
+    
+    ######## no delta_g_inv
+    # create_pddl(state_dict_lower, obj_set(dp.env_domain), [pred_delta.lower()], './planner/eval')
+    
+    ######## both delta_g and delta_g_inv
+    if pred_delta != '':
+        create_pddl(state_dict_lower, obj_set(dp.env_domain), [pred.lower() for pred in pred_delta], './planner/eval')
+    else:
+        create_pddl(state_dict_lower, obj_set(dp.env_domain), [pred.lower() for pred in pred_delta_inv], './planner/eval', inverse=True)
+    ########
+    out = subprocess.Popen(['bash', './planner/run_final_state.sh', './planner/eval.pddl'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    stdout, stderr = out.communicate()
+    planner_action = get_steps(str(stdout))
+    if verbose: print(color.GREEN, 'STDOUT', color.ENDC, str(stdout))
+    if verbose: print(color.GREEN, 'Action', color.ENDC, planner_action)
+    planner_delta_g, planner_delta_g_inv, state_dict_new = get_delta(str(stdout))
+    state_dict_new = list(set(state_dict_lower).union(set(planner_delta_g)).difference(set(planner_delta_g_inv)))
+    if verbose: print(color.GREEN, 'Delta_g', color.ENDC, planner_delta_g)
+    if verbose: print(color.GREEN, 'Delta_g_inv', color.ENDC, planner_delta_g_inv)
+    state_dict = state_dict_new if state_dict_new else state_dict # seg fault case
+    try:
+        state, adj_matrix = convertToDGLGraph_util(state_dict)
+    except:
+        pass
+    return planner_action, state, state_dict, adj_matrix
+
 def eval_accuracy(data, model, verbose = False):
     sji, f1, ied, fb, fbs, grr = 0, 0, 0, 0, 0, 0
     max_len = max([len(dp.states) - 1 for dp in data.dp_list])
